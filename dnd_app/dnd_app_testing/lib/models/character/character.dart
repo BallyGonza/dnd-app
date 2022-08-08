@@ -122,15 +122,16 @@ Character theekVarus = Character(
   skills1: [
     Skill(name: 'Acrobatics', modifier: 4, proficiency: false),
     Skill(name: 'Animal Handling', modifier: 9, proficiency: true),
+    Skill(name: 'Arcana', modifier: 2, proficiency: false),
     Skill(name: 'Athletics', modifier: -1, proficiency: false),
     Skill(name: 'Deception', modifier: -1, proficiency: false),
     Skill(name: 'History', modifier: 2, proficiency: false),
     Skill(name: 'Insight', modifier: -1, proficiency: false),
     Skill(name: 'Intimidation', modifier: -1, proficiency: false),
     Skill(name: 'Investigation', modifier: 6, proficiency: true),
-    Skill(name: 'Medicine', modifier: 5, proficiency: false),
   ],
   skills2: [
+    Skill(name: 'Medicine', modifier: 5, proficiency: false),
     Skill(name: 'Nature', modifier: 2, proficiency: false),
     Skill(name: 'Perception', modifier: 9, proficiency: true),
     Skill(name: 'Performance', modifier: 5, proficiency: false),
