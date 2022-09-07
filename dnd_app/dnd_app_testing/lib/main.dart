@@ -1,9 +1,14 @@
+import 'package:dnd_app/logic/bloc/health_points_bloc/health_points_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../screens/character_select.dart';
 
 Future<void> main() async {
-  runApp(const MyApp());
+  runApp( BlocProvider(
+    create: (context) => HealthPointsBloc(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {

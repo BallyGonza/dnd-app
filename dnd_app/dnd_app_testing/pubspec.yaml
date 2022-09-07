@@ -27,19 +27,19 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter_speed_dial: ^6.0.0
-  google_fonts: ^2.3.3
+  bloc: ^8.1.0
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  hive_flutter: ^1.1.0
+  flutter_bloc: ^8.1.1
+  flutter_speed_dial: ^6.0.0
+  freezed: ^2.1.0+1
+  freezed_annotation: ^2.1.0
+  google_fonts: ^2.3.3
+  hydrated_bloc: ^8.1.0
   path_provider: ^2.0.0
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   build_runner: ^2.1.11
   drift_dev: ^1.6.0
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -48,10 +48,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  flutter_test:
+    sdk: flutter
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
   # The following line ensures that the Material Icons font is
@@ -84,10 +85,8 @@ flutter:
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
