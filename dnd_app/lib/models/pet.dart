@@ -1,8 +1,4 @@
-import 'ability.dart';
-import 'saving_throw.dart';
-import 'skill.dart';
-import 'trait.dart';
-import 'weapon.dart';
+import 'package:dnd_app/models/models.dart';
 
 class Pet {
   final String name;
@@ -43,8 +39,8 @@ class Pet {
 Pet ghost = Pet(
   name: 'Ghost',
   race: 'Blink Dog',
-  img: 'assets/images/animals/blink-dog/blinkDog.jpeg',
-  profileImg: 'assets/images/animals/blink-dog/blinkDog_profile.jpeg',
+  img: 'assets/images/animals/blink_dog/blink_dog.jpeg',
+  profileImg: 'assets/images/animals/blink_dog/blink_dog_profile.jpeg',
   armor: 16,
   speed: 8,
   currentHp: 35,

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:dnd_app/services/my_flutter_app_icons.dart';
+import 'package:dnd_app/services/services.dart';
 import 'package:flutter/cupertino.dart';
 
 class Dice {

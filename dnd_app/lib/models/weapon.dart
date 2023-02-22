@@ -30,7 +30,7 @@ Weapon longBow = Weapon(
   damageDice: d8,
   checkDice: d20,
   range: 12,
-  img: 'assets/images/weapons/longBow.png',
+  img: 'assets/images/weapons/long_bow.png',
 );
 
 Weapon rapier = Weapon(

@@ -1,12 +1,4 @@
-import '../dice.dart';
-import '../skill.dart';
-import '../saving_throw.dart';
-import '../ability.dart';
-import '../weapon.dart';
-import '../trait.dart';
-import '../spell.dart';
-import '../background.dart';
-import '../pet.dart';
+import 'package:dnd_app/models/models.dart';
 
 class Character {
   final int id;
@@ -78,13 +70,13 @@ Character theekVarus = Character(
   id: 1,
   name: 'Theek',
   lastName: 'Varus',
-  img: 'assets/images/characters/theek-varus/theekVarus.jpg',
-  profileImg: 'assets/images/characters/theek-varus/theekVarusProfile.jpg',
-  banner: 'assets/images/characters/theek-varus/theekVarusBanner.jpg',
+  img: 'assets/images/characters/theek_varus/theek_varus.jpg',
+  profileImg: 'assets/images/characters/theek_varus/theek_varus_profile.jpg',
+  banner: 'assets/images/characters/theek_varus/theek_varus_banner.jpg',
   race: 'Wood Elf',
   classes: ['Ranger', 'Beastmaster'],
   level: 9,
-  armor: 16,
+  armor: 17,
   initiative: 4,
   speed: 7,
   passivePerception: 19,
@@ -208,9 +200,9 @@ Character calebClock = Character(
   id: 2,
   name: 'Caleb',
   lastName: 'Clock',
-  img: 'assets/images/characters/caleb-clock/calebClock.png',
-  profileImg: 'assets/images/characters/caleb-clock/calebClockProfile.png',
-  banner: 'assets/images/characters/caleb-clock/calebClockBanner.png',
+  img: 'assets/images/characters/caleb_clock/caleb_clock.png',
+  profileImg: 'assets/images/characters/caleb_clock/caleb_clock_profile.png',
+  banner: 'assets/images/characters/caleb_clock/caleb_clock_banner.png',
   race: 'Wood Elf',
   classes: ['Ranger', 'Beastmaster'],
   level: 4,

@@ -64,10 +64,10 @@ flutter:
   assets:
     - assets/images/
 
-    - assets/images/characters/theek-varus/
-    - assets/images/characters/caleb-clock/
+    - assets/images/characters/theek_varus/
+    - assets/images/characters/caleb_clock/
 
-    - assets/images/animals/blink-dog/
+    - assets/images/animals/blink_dog/
 
     - assets/images/weapons/
 
