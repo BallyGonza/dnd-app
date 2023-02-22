@@ -64,84 +64,33 @@ class _CharacterDetailState extends State<CharacterDetail> {
           spacing: 3,
           openCloseDial: isDialOpen,
           children: [
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d20),
-              backgroundColor: Colors.white,
-              onTap: () {
-                setState(() {
-                  isDialOpen.value = false;
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return RollDiceDialog(dice: d20);
-                      });
-                });
-              },
-            ),
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d12),
-              backgroundColor: Colors.white,
-              onTap: () {
-                isDialOpen.value = false;
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDiceDialog(dice: d12);
-                    });
-              },
-            ),
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d10),
-              backgroundColor: Colors.white,
-              onTap: () {
-                isDialOpen.value = false;
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDiceDialog(dice: d10);
-                    });
-              },
-            ),
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d8),
-              backgroundColor: Colors.white,
-              onTap: () {
-                isDialOpen.value = false;
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDiceDialog(dice: d8);
-                    });
-              },
-            ),
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d6),
-              backgroundColor: Colors.white,
-              onTap: () {
-                isDialOpen.value = false;
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDiceDialog(dice: d6);
-                    });
-              },
-            ),
-            SpeedDialChild(
-              child: const Icon(MyFlutterApp.d4),
-              backgroundColor: Colors.white,
-              onTap: () {
-                isDialOpen.value = false;
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDiceDialog(dice: d4);
-                    });
-              },
-            ),
+            _diceFABItem(dice: d4),
+            _diceFABItem(dice: d6),
+            _diceFABItem(dice: d8),
+            _diceFABItem(dice: d10),
+            _diceFABItem(dice: d12),
+            _diceFABItem(dice: d20),
           ],
           child: const Icon(MyFlutterApp.d20),
         ),
       ),
+    );
+  }
+
+  SpeedDialChild _diceFABItem({required Dice dice}) {
+    return SpeedDialChild(
+      child: Icon(dice.icon),
+      backgroundColor: Colors.white,
+      onTap: () {
+        setState(() {
+          isDialOpen.value = false;
+          showDialog(
+              context: context,
+              builder: (context) {
+                return RollDiceDialog(dice: dice);
+              });
+        });
+      },
     );
   }
 
