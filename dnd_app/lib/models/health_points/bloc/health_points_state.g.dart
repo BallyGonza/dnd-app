@@ -18,34 +18,14 @@ Map<String, dynamic> _$$HealthPointsInitialToJson(
       'runtimeType': instance.$type,
     };
 
-_$HealthPointsAdded _$$HealthPointsAddedFromJson(Map<String, dynamic> json) =>
-    _$HealthPointsAdded(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$HealthPointsAddedToJson(_$HealthPointsAdded instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$HealthPointsSubtracted _$$HealthPointsSubtractedFromJson(
+_$HealthPointsUpdated _$$HealthPointsUpdatedFromJson(
         Map<String, dynamic> json) =>
-    _$HealthPointsSubtracted(
+    _$HealthPointsUpdated(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HealthPointsSubtractedToJson(
-        _$HealthPointsSubtracted instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$HealthPointsReset _$$HealthPointsResetFromJson(Map<String, dynamic> json) =>
-    _$HealthPointsReset(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$HealthPointsResetToJson(_$HealthPointsReset instance) =>
+Map<String, dynamic> _$$HealthPointsUpdatedToJson(
+        _$HealthPointsUpdated instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

@@ -26,7 +26,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.add();
-    emit(const HealthPointsState.added());
+    emit(const HealthPointsState.updated());
   }
 
   void _onSubtract(
@@ -34,7 +34,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.subtract();
-    emit(const HealthPointsState.subtracted());
+    emit(const HealthPointsState.updated());
   }
 
   void _onReset(
@@ -42,7 +42,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.reset();
-    emit(const HealthPointsState.reset());
+    emit(const HealthPointsState.updated());
   }
 
   @override

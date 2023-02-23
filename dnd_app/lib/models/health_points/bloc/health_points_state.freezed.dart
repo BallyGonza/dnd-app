@@ -18,12 +18,8 @@ HealthPointsState _$HealthPointsStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'init':
       return HealthPointsInitial.fromJson(json);
-    case 'added':
-      return HealthPointsAdded.fromJson(json);
-    case 'subtracted':
-      return HealthPointsSubtracted.fromJson(json);
-    case 'reset':
-      return HealthPointsReset.fromJson(json);
+    case 'updated':
+      return HealthPointsUpdated.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'HealthPointsState',
@@ -36,50 +32,38 @@ mixin _$HealthPointsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() added,
-    required TResult Function() subtracted,
-    required TResult Function() reset,
+    required TResult Function() updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? added,
-    TResult? Function()? subtracted,
-    TResult? Function()? reset,
+    TResult? Function()? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? added,
-    TResult Function()? subtracted,
-    TResult Function()? reset,
+    TResult Function()? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HealthPointsInitial value) init,
-    required TResult Function(HealthPointsAdded value) added,
-    required TResult Function(HealthPointsSubtracted value) subtracted,
-    required TResult Function(HealthPointsReset value) reset,
+    required TResult Function(HealthPointsUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HealthPointsInitial value)? init,
-    TResult? Function(HealthPointsAdded value)? added,
-    TResult? Function(HealthPointsSubtracted value)? subtracted,
-    TResult? Function(HealthPointsReset value)? reset,
+    TResult? Function(HealthPointsUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HealthPointsInitial value)? init,
-    TResult Function(HealthPointsAdded value)? added,
-    TResult Function(HealthPointsSubtracted value)? subtracted,
-    TResult Function(HealthPointsReset value)? reset,
+    TResult Function(HealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,9 +134,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() added,
-    required TResult Function() subtracted,
-    required TResult Function() reset,
+    required TResult Function() updated,
   }) {
     return init();
   }
@@ -161,9 +143,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? added,
-    TResult? Function()? subtracted,
-    TResult? Function()? reset,
+    TResult? Function()? updated,
   }) {
     return init?.call();
   }
@@ -172,9 +152,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? added,
-    TResult Function()? subtracted,
-    TResult Function()? reset,
+    TResult Function()? updated,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -187,9 +165,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HealthPointsInitial value) init,
-    required TResult Function(HealthPointsAdded value) added,
-    required TResult Function(HealthPointsSubtracted value) subtracted,
-    required TResult Function(HealthPointsReset value) reset,
+    required TResult Function(HealthPointsUpdated value) updated,
   }) {
     return init(this);
   }
@@ -198,9 +174,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HealthPointsInitial value)? init,
-    TResult? Function(HealthPointsAdded value)? added,
-    TResult? Function(HealthPointsSubtracted value)? subtracted,
-    TResult? Function(HealthPointsReset value)? reset,
+    TResult? Function(HealthPointsUpdated value)? updated,
   }) {
     return init?.call(this);
   }
@@ -209,9 +183,7 @@ class _$HealthPointsInitial implements HealthPointsInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HealthPointsInitial value)? init,
-    TResult Function(HealthPointsAdded value)? added,
-    TResult Function(HealthPointsSubtracted value)? subtracted,
-    TResult Function(HealthPointsReset value)? reset,
+    TResult Function(HealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -236,41 +208,42 @@ abstract class HealthPointsInitial implements HealthPointsState {
 }
 
 /// @nodoc
-abstract class _$$HealthPointsAddedCopyWith<$Res> {
-  factory _$$HealthPointsAddedCopyWith(
-          _$HealthPointsAdded value, $Res Function(_$HealthPointsAdded) then) =
-      __$$HealthPointsAddedCopyWithImpl<$Res>;
+abstract class _$$HealthPointsUpdatedCopyWith<$Res> {
+  factory _$$HealthPointsUpdatedCopyWith(_$HealthPointsUpdated value,
+          $Res Function(_$HealthPointsUpdated) then) =
+      __$$HealthPointsUpdatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsAddedCopyWithImpl<$Res>
-    extends _$HealthPointsStateCopyWithImpl<$Res, _$HealthPointsAdded>
-    implements _$$HealthPointsAddedCopyWith<$Res> {
-  __$$HealthPointsAddedCopyWithImpl(
-      _$HealthPointsAdded _value, $Res Function(_$HealthPointsAdded) _then)
+class __$$HealthPointsUpdatedCopyWithImpl<$Res>
+    extends _$HealthPointsStateCopyWithImpl<$Res, _$HealthPointsUpdated>
+    implements _$$HealthPointsUpdatedCopyWith<$Res> {
+  __$$HealthPointsUpdatedCopyWithImpl(
+      _$HealthPointsUpdated _value, $Res Function(_$HealthPointsUpdated) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$HealthPointsAdded implements HealthPointsAdded {
-  const _$HealthPointsAdded({final String? $type}) : $type = $type ?? 'added';
+class _$HealthPointsUpdated implements HealthPointsUpdated {
+  const _$HealthPointsUpdated({final String? $type})
+      : $type = $type ?? 'updated';
 
-  factory _$HealthPointsAdded.fromJson(Map<String, dynamic> json) =>
-      _$$HealthPointsAddedFromJson(json);
+  factory _$HealthPointsUpdated.fromJson(Map<String, dynamic> json) =>
+      _$$HealthPointsUpdatedFromJson(json);
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'HealthPointsState.added()';
+    return 'HealthPointsState.updated()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsAdded);
+        (other.runtimeType == runtimeType && other is _$HealthPointsUpdated);
   }
 
   @JsonKey(ignore: true)
@@ -281,35 +254,29 @@ class _$HealthPointsAdded implements HealthPointsAdded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() added,
-    required TResult Function() subtracted,
-    required TResult Function() reset,
+    required TResult Function() updated,
   }) {
-    return added();
+    return updated();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? added,
-    TResult? Function()? subtracted,
-    TResult? Function()? reset,
+    TResult? Function()? updated,
   }) {
-    return added?.call();
+    return updated?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? added,
-    TResult Function()? subtracted,
-    TResult Function()? reset,
+    TResult Function()? updated,
     required TResult orElse(),
   }) {
-    if (added != null) {
-      return added();
+    if (updated != null) {
+      return updated();
     }
     return orElse();
   }
@@ -318,313 +285,44 @@ class _$HealthPointsAdded implements HealthPointsAdded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(HealthPointsInitial value) init,
-    required TResult Function(HealthPointsAdded value) added,
-    required TResult Function(HealthPointsSubtracted value) subtracted,
-    required TResult Function(HealthPointsReset value) reset,
+    required TResult Function(HealthPointsUpdated value) updated,
   }) {
-    return added(this);
+    return updated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(HealthPointsInitial value)? init,
-    TResult? Function(HealthPointsAdded value)? added,
-    TResult? Function(HealthPointsSubtracted value)? subtracted,
-    TResult? Function(HealthPointsReset value)? reset,
+    TResult? Function(HealthPointsUpdated value)? updated,
   }) {
-    return added?.call(this);
+    return updated?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(HealthPointsInitial value)? init,
-    TResult Function(HealthPointsAdded value)? added,
-    TResult Function(HealthPointsSubtracted value)? subtracted,
-    TResult Function(HealthPointsReset value)? reset,
+    TResult Function(HealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (added != null) {
-      return added(this);
+    if (updated != null) {
+      return updated(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$HealthPointsAddedToJson(
+    return _$$HealthPointsUpdatedToJson(
       this,
     );
   }
 }
 
-abstract class HealthPointsAdded implements HealthPointsState {
-  const factory HealthPointsAdded() = _$HealthPointsAdded;
+abstract class HealthPointsUpdated implements HealthPointsState {
+  const factory HealthPointsUpdated() = _$HealthPointsUpdated;
 
-  factory HealthPointsAdded.fromJson(Map<String, dynamic> json) =
-      _$HealthPointsAdded.fromJson;
-}
-
-/// @nodoc
-abstract class _$$HealthPointsSubtractedCopyWith<$Res> {
-  factory _$$HealthPointsSubtractedCopyWith(_$HealthPointsSubtracted value,
-          $Res Function(_$HealthPointsSubtracted) then) =
-      __$$HealthPointsSubtractedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HealthPointsSubtractedCopyWithImpl<$Res>
-    extends _$HealthPointsStateCopyWithImpl<$Res, _$HealthPointsSubtracted>
-    implements _$$HealthPointsSubtractedCopyWith<$Res> {
-  __$$HealthPointsSubtractedCopyWithImpl(_$HealthPointsSubtracted _value,
-      $Res Function(_$HealthPointsSubtracted) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$HealthPointsSubtracted implements HealthPointsSubtracted {
-  const _$HealthPointsSubtracted({final String? $type})
-      : $type = $type ?? 'subtracted';
-
-  factory _$HealthPointsSubtracted.fromJson(Map<String, dynamic> json) =>
-      _$$HealthPointsSubtractedFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'HealthPointsState.subtracted()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsSubtracted);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() added,
-    required TResult Function() subtracted,
-    required TResult Function() reset,
-  }) {
-    return subtracted();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? added,
-    TResult? Function()? subtracted,
-    TResult? Function()? reset,
-  }) {
-    return subtracted?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? added,
-    TResult Function()? subtracted,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (subtracted != null) {
-      return subtracted();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitial value) init,
-    required TResult Function(HealthPointsAdded value) added,
-    required TResult Function(HealthPointsSubtracted value) subtracted,
-    required TResult Function(HealthPointsReset value) reset,
-  }) {
-    return subtracted(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitial value)? init,
-    TResult? Function(HealthPointsAdded value)? added,
-    TResult? Function(HealthPointsSubtracted value)? subtracted,
-    TResult? Function(HealthPointsReset value)? reset,
-  }) {
-    return subtracted?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitial value)? init,
-    TResult Function(HealthPointsAdded value)? added,
-    TResult Function(HealthPointsSubtracted value)? subtracted,
-    TResult Function(HealthPointsReset value)? reset,
-    required TResult orElse(),
-  }) {
-    if (subtracted != null) {
-      return subtracted(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HealthPointsSubtractedToJson(
-      this,
-    );
-  }
-}
-
-abstract class HealthPointsSubtracted implements HealthPointsState {
-  const factory HealthPointsSubtracted() = _$HealthPointsSubtracted;
-
-  factory HealthPointsSubtracted.fromJson(Map<String, dynamic> json) =
-      _$HealthPointsSubtracted.fromJson;
-}
-
-/// @nodoc
-abstract class _$$HealthPointsResetCopyWith<$Res> {
-  factory _$$HealthPointsResetCopyWith(
-          _$HealthPointsReset value, $Res Function(_$HealthPointsReset) then) =
-      __$$HealthPointsResetCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$HealthPointsResetCopyWithImpl<$Res>
-    extends _$HealthPointsStateCopyWithImpl<$Res, _$HealthPointsReset>
-    implements _$$HealthPointsResetCopyWith<$Res> {
-  __$$HealthPointsResetCopyWithImpl(
-      _$HealthPointsReset _value, $Res Function(_$HealthPointsReset) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$HealthPointsReset implements HealthPointsReset {
-  const _$HealthPointsReset({final String? $type}) : $type = $type ?? 'reset';
-
-  factory _$HealthPointsReset.fromJson(Map<String, dynamic> json) =>
-      _$$HealthPointsResetFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'HealthPointsState.reset()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsReset);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() added,
-    required TResult Function() subtracted,
-    required TResult Function() reset,
-  }) {
-    return reset();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
-    TResult? Function()? added,
-    TResult? Function()? subtracted,
-    TResult? Function()? reset,
-  }) {
-    return reset?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? added,
-    TResult Function()? subtracted,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitial value) init,
-    required TResult Function(HealthPointsAdded value) added,
-    required TResult Function(HealthPointsSubtracted value) subtracted,
-    required TResult Function(HealthPointsReset value) reset,
-  }) {
-    return reset(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitial value)? init,
-    TResult? Function(HealthPointsAdded value)? added,
-    TResult? Function(HealthPointsSubtracted value)? subtracted,
-    TResult? Function(HealthPointsReset value)? reset,
-  }) {
-    return reset?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitial value)? init,
-    TResult Function(HealthPointsAdded value)? added,
-    TResult Function(HealthPointsSubtracted value)? subtracted,
-    TResult Function(HealthPointsReset value)? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$HealthPointsResetToJson(
-      this,
-    );
-  }
-}
-
-abstract class HealthPointsReset implements HealthPointsState {
-  const factory HealthPointsReset() = _$HealthPointsReset;
-
-  factory HealthPointsReset.fromJson(Map<String, dynamic> json) =
-      _$HealthPointsReset.fromJson;
+  factory HealthPointsUpdated.fromJson(Map<String, dynamic> json) =
+      _$HealthPointsUpdated.fromJson;
 }
