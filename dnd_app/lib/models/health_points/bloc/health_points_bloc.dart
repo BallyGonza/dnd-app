@@ -1,11 +1,13 @@
 import 'package:dnd_app/models/models.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class HealthPointsBloc
     extends HydratedBloc<HealthPointsEvent, HealthPointsState> {
   HealthPointsBloc(
     this.healthPoints,
-  ) : super(HealthPointsState.init(healthPoints.current)) {
+    this.box,
+  ) : super(HealthPointsState.init(box.get('hp'))) {
     on<HealthPointsInitialEvent>(_onInit);
     on<HealthPointsAddEvent>(_onAdd);
     on<HealthPointsSubtractEvent>(_onSubtract);
@@ -13,11 +15,13 @@ class HealthPointsBloc
   }
 
   final HealthPoints healthPoints;
+  final Box box;
 
   void _onInit(
     HealthPointsInitialEvent event,
     Emitter<HealthPointsState> emit,
   ) {
+    healthPoints.current = box.get('hp');
     emit(HealthPointsState.init(healthPoints.current));
   }
 
@@ -26,6 +30,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.add();
+    box.put('hp', healthPoints.current);
     emit(HealthPointsState.updated(healthPoints.current));
   }
 
@@ -34,6 +39,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.subtract();
+    box.put('hp', healthPoints.current);
     emit(HealthPointsState.updated(healthPoints.current));
   }
 
@@ -42,6 +48,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.reset();
+    box.put('hp', healthPoints.current);
     emit(HealthPointsState.updated(healthPoints.current));
   }
 

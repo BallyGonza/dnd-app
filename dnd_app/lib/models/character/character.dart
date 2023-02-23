@@ -210,7 +210,7 @@ Character calebClock = Character(
   passivePerception: 19,
   hitDice: d10,
   healthPoints: HealthPoints(
-    current: 60,
+    current: 45,
     max: 60,
   ),
   abilities: [
@@ -326,4 +326,4 @@ Character calebClock = Character(
   favoredTerrain: 'Woods and Mountains',
 );
 
-final characters = <Character>[theekVarus, calebClock];
+final defaultCharacters = <Character>[theekVarus, calebClock];

@@ -84,6 +84,7 @@ class CardCharacter extends StatelessWidget {
                             ),
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               GestureDetector(
                                 onTap: () {
@@ -116,7 +117,7 @@ class CardCharacter extends StatelessWidget {
                                       .add(const HealthPointsEvent.add());
                                 },
                                 child: Text(
-                                  '${character.healthPoints.max} ',
+                                  '${character.healthPoints.max}',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,

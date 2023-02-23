@@ -13,26 +13,26 @@ class CharacterSelectScreen extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       body: ListView.builder(
-        itemCount: characters.length,
+        itemCount: defaultCharacters.length,
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(
               backgroundImage: AssetImage(
-                characters[index].profileImg,
+                defaultCharacters[index].profileImg,
               ),
             ),
             title: Text(
-              '${characters[index].name} ${characters[index].lastName}',
+              '${defaultCharacters[index].name} ${defaultCharacters[index].lastName}',
             ),
             subtitle: Text(
-              'Level ${characters[index].level}',
+              'Level ${defaultCharacters[index].level}',
             ),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => CharacterDetail(
-                    character: characters[index],
+                    character: defaultCharacters[index],
                   ),
                 ),
               );
