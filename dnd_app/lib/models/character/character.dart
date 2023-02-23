@@ -1,3 +1,4 @@
+import 'package:dnd_app/models/health_points.dart';
 import 'package:dnd_app/models/models.dart';
 
 class Character {
@@ -15,8 +16,7 @@ class Character {
   final int speed;
   final int passivePerception;
   final Dice hitDice;
-  int currentHp;
-  int maxHp;
+  HealthPoints healthPoints;
   final List<Ability> abilities;
   final List<Skill> allSkills;
   final List<Skill> skills1;
@@ -47,8 +47,7 @@ class Character {
     required this.speed,
     required this.passivePerception,
     required this.hitDice,
-    required this.currentHp,
-    required this.maxHp,
+    required this.healthPoints,
     required this.abilities,
     required this.allSkills,
     required this.skills1,
@@ -81,8 +80,7 @@ Character theekVarus = Character(
   speed: 7,
   passivePerception: 19,
   hitDice: d10,
-  currentHp: 84,
-  maxHp: 84,
+  healthPoints: HealthPoints(current: 84, max: 84),
   abilities: [
     Ability(name: 'Strength', score: 8, modifier: -1),
     Ability(name: 'Dexterity', score: 18, modifier: 4),
@@ -211,8 +209,10 @@ Character calebClock = Character(
   speed: 7,
   passivePerception: 19,
   hitDice: d10,
-  currentHp: 84,
-  maxHp: 84,
+  healthPoints: HealthPoints(
+    current: 60,
+    max: 60,
+  ),
   abilities: [
     Ability(name: 'Strength', score: 8, modifier: -1),
     Ability(name: 'Dexterity', score: 18, modifier: 4),

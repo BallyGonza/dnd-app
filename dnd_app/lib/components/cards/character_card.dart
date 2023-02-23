@@ -97,13 +97,14 @@ class _CardCharacterState extends State<CardCharacter> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    if (widget.character.currentHp > 0) {
-                                      widget.character.currentHp--;
+                                    if (widget.character.healthPoints.current >
+                                        0) {
+                                      widget.character.healthPoints.current--;
                                     }
                                   });
                                 },
                                 child: Text(
-                                  ' ${widget.character.currentHp}',
+                                  ' ${widget.character.healthPoints.current}',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -120,14 +121,14 @@ class _CardCharacterState extends State<CardCharacter> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    if (widget.character.currentHp <
-                                        widget.character.maxHp) {
-                                      widget.character.currentHp++;
+                                    if (widget.character.healthPoints.current <
+                                        widget.character.healthPoints.max) {
+                                      widget.character.healthPoints.current++;
                                     }
                                   });
                                 },
                                 child: Text(
-                                  '${widget.character.maxHp} ',
+                                  '${widget.character.healthPoints.max} ',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -153,18 +154,15 @@ class _CardCharacterState extends State<CardCharacter> {
               ),
               Initiative(
                 initiative: widget.character.initiative,
-                                color: Colors.white,
-
+                color: Colors.white,
               ),
               Speed(
                 speed: widget.character.speed,
-                                color: Colors.white,
-
+                color: Colors.white,
               ),
               PassivePerception(
                 passivePerception: widget.character.passivePerception,
-                                color: Colors.white,
-
+                color: Colors.white,
               ),
             ],
           ),
