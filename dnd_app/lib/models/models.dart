@@ -1,4 +1,5 @@
 export 'character/character.dart';
+export 'health_points/health_points.dart';
 export 'ability.dart';
 export 'background.dart';
 export 'dice.dart';
