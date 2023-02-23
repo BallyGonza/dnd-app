@@ -7,7 +7,8 @@ class HealthPointsBloc
   HealthPointsBloc(
     this.healthPoints,
     this.box,
-  ) : super(HealthPointsState.init(box.get('hp'))) {
+  ) : super(HealthPointsState.init(
+            box.get('hp', defaultValue: healthPoints.max))) {
     on<HealthPointsInitialEvent>(_onInit);
     on<HealthPointsAddEvent>(_onAdd);
     on<HealthPointsSubtractEvent>(_onSubtract);

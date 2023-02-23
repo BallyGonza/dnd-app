@@ -1,4 +1,3 @@
-import 'package:dnd_app/models/health_points/models/health_points.dart';
 import 'package:dnd_app/models/models.dart';
 
 class Character {
