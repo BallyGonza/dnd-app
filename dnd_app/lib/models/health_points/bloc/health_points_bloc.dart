@@ -5,8 +5,8 @@ class HealthPointsBloc
     extends HydratedBloc<HealthPointsEvent, HealthPointsState> {
   HealthPointsBloc(
     this.healthPoints,
-  ) : super(const HealthPointsState.init()) {
-    on<HealthPointsInitEvent>(_onInit);
+  ) : super(HealthPointsState.init(healthPoints.current)) {
+    on<HealthPointsInitialEvent>(_onInit);
     on<HealthPointsAddEvent>(_onAdd);
     on<HealthPointsSubtractEvent>(_onSubtract);
     on<HealthPointsResetEvent>(_onReset);
@@ -15,10 +15,10 @@ class HealthPointsBloc
   final HealthPoints healthPoints;
 
   void _onInit(
-    HealthPointsInitEvent event,
+    HealthPointsInitialEvent event,
     Emitter<HealthPointsState> emit,
   ) {
-    emit(const HealthPointsState.init());
+    emit(HealthPointsState.init(healthPoints.current));
   }
 
   void _onAdd(
@@ -26,7 +26,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.add();
-    emit(const HealthPointsState.updated());
+    emit(HealthPointsState.updated(healthPoints.current));
   }
 
   void _onSubtract(
@@ -34,7 +34,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.subtract();
-    emit(const HealthPointsState.updated());
+    emit(HealthPointsState.updated(healthPoints.current));
   }
 
   void _onReset(
@@ -42,7 +42,7 @@ class HealthPointsBloc
     Emitter<HealthPointsState> emit,
   ) {
     healthPoints.reset();
-    emit(const HealthPointsState.updated());
+    emit(HealthPointsState.updated(healthPoints.current));
   }
 
   @override

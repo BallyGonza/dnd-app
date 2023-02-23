@@ -43,7 +43,7 @@ mixin _$HealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitEvent value) init,
+    required TResult Function(HealthPointsInitialEvent value) init,
     required TResult Function(HealthPointsAddEvent value) add,
     required TResult Function(HealthPointsSubtractEvent value) subtract,
     required TResult Function(HealthPointsResetEvent value) reset,
@@ -51,7 +51,7 @@ mixin _$HealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitEvent value)? init,
+    TResult? Function(HealthPointsInitialEvent value)? init,
     TResult? Function(HealthPointsAddEvent value)? add,
     TResult? Function(HealthPointsSubtractEvent value)? subtract,
     TResult? Function(HealthPointsResetEvent value)? reset,
@@ -59,7 +59,7 @@ mixin _$HealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitEvent value)? init,
+    TResult Function(HealthPointsInitialEvent value)? init,
     TResult Function(HealthPointsAddEvent value)? add,
     TResult Function(HealthPointsSubtractEvent value)? subtract,
     TResult Function(HealthPointsResetEvent value)? reset,
@@ -87,25 +87,25 @@ class _$HealthPointsEventCopyWithImpl<$Res, $Val extends HealthPointsEvent>
 }
 
 /// @nodoc
-abstract class _$$HealthPointsInitEventCopyWith<$Res> {
-  factory _$$HealthPointsInitEventCopyWith(_$HealthPointsInitEvent value,
-          $Res Function(_$HealthPointsInitEvent) then) =
-      __$$HealthPointsInitEventCopyWithImpl<$Res>;
+abstract class _$$HealthPointsInitialEventCopyWith<$Res> {
+  factory _$$HealthPointsInitialEventCopyWith(_$HealthPointsInitialEvent value,
+          $Res Function(_$HealthPointsInitialEvent) then) =
+      __$$HealthPointsInitialEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsInitEventCopyWithImpl<$Res>
-    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsInitEvent>
-    implements _$$HealthPointsInitEventCopyWith<$Res> {
-  __$$HealthPointsInitEventCopyWithImpl(_$HealthPointsInitEvent _value,
-      $Res Function(_$HealthPointsInitEvent) _then)
+class __$$HealthPointsInitialEventCopyWithImpl<$Res>
+    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsInitialEvent>
+    implements _$$HealthPointsInitialEventCopyWith<$Res> {
+  __$$HealthPointsInitialEventCopyWithImpl(_$HealthPointsInitialEvent _value,
+      $Res Function(_$HealthPointsInitialEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HealthPointsInitEvent implements HealthPointsInitEvent {
-  const _$HealthPointsInitEvent();
+class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
+  const _$HealthPointsInitialEvent();
 
   @override
   String toString() {
@@ -115,7 +115,8 @@ class _$HealthPointsInitEvent implements HealthPointsInitEvent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsInitEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$HealthPointsInitialEvent);
   }
 
   @override
@@ -161,7 +162,7 @@ class _$HealthPointsInitEvent implements HealthPointsInitEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitEvent value) init,
+    required TResult Function(HealthPointsInitialEvent value) init,
     required TResult Function(HealthPointsAddEvent value) add,
     required TResult Function(HealthPointsSubtractEvent value) subtract,
     required TResult Function(HealthPointsResetEvent value) reset,
@@ -172,7 +173,7 @@ class _$HealthPointsInitEvent implements HealthPointsInitEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitEvent value)? init,
+    TResult? Function(HealthPointsInitialEvent value)? init,
     TResult? Function(HealthPointsAddEvent value)? add,
     TResult? Function(HealthPointsSubtractEvent value)? subtract,
     TResult? Function(HealthPointsResetEvent value)? reset,
@@ -183,7 +184,7 @@ class _$HealthPointsInitEvent implements HealthPointsInitEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitEvent value)? init,
+    TResult Function(HealthPointsInitialEvent value)? init,
     TResult Function(HealthPointsAddEvent value)? add,
     TResult Function(HealthPointsSubtractEvent value)? subtract,
     TResult Function(HealthPointsResetEvent value)? reset,
@@ -196,8 +197,8 @@ class _$HealthPointsInitEvent implements HealthPointsInitEvent {
   }
 }
 
-abstract class HealthPointsInitEvent implements HealthPointsEvent {
-  const factory HealthPointsInitEvent() = _$HealthPointsInitEvent;
+abstract class HealthPointsInitialEvent implements HealthPointsEvent {
+  const factory HealthPointsInitialEvent() = _$HealthPointsInitialEvent;
 }
 
 /// @nodoc
@@ -275,7 +276,7 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitEvent value) init,
+    required TResult Function(HealthPointsInitialEvent value) init,
     required TResult Function(HealthPointsAddEvent value) add,
     required TResult Function(HealthPointsSubtractEvent value) subtract,
     required TResult Function(HealthPointsResetEvent value) reset,
@@ -286,7 +287,7 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitEvent value)? init,
+    TResult? Function(HealthPointsInitialEvent value)? init,
     TResult? Function(HealthPointsAddEvent value)? add,
     TResult? Function(HealthPointsSubtractEvent value)? subtract,
     TResult? Function(HealthPointsResetEvent value)? reset,
@@ -297,7 +298,7 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitEvent value)? init,
+    TResult Function(HealthPointsInitialEvent value)? init,
     TResult Function(HealthPointsAddEvent value)? add,
     TResult Function(HealthPointsSubtractEvent value)? subtract,
     TResult Function(HealthPointsResetEvent value)? reset,
@@ -391,7 +392,7 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitEvent value) init,
+    required TResult Function(HealthPointsInitialEvent value) init,
     required TResult Function(HealthPointsAddEvent value) add,
     required TResult Function(HealthPointsSubtractEvent value) subtract,
     required TResult Function(HealthPointsResetEvent value) reset,
@@ -402,7 +403,7 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitEvent value)? init,
+    TResult? Function(HealthPointsInitialEvent value)? init,
     TResult? Function(HealthPointsAddEvent value)? add,
     TResult? Function(HealthPointsSubtractEvent value)? subtract,
     TResult? Function(HealthPointsResetEvent value)? reset,
@@ -413,7 +414,7 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitEvent value)? init,
+    TResult Function(HealthPointsInitialEvent value)? init,
     TResult Function(HealthPointsAddEvent value)? add,
     TResult Function(HealthPointsSubtractEvent value)? subtract,
     TResult Function(HealthPointsResetEvent value)? reset,
@@ -505,7 +506,7 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitEvent value) init,
+    required TResult Function(HealthPointsInitialEvent value) init,
     required TResult Function(HealthPointsAddEvent value) add,
     required TResult Function(HealthPointsSubtractEvent value) subtract,
     required TResult Function(HealthPointsResetEvent value) reset,
@@ -516,7 +517,7 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitEvent value)? init,
+    TResult? Function(HealthPointsInitialEvent value)? init,
     TResult? Function(HealthPointsAddEvent value)? add,
     TResult? Function(HealthPointsSubtractEvent value)? subtract,
     TResult? Function(HealthPointsResetEvent value)? reset,
@@ -527,7 +528,7 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitEvent value)? init,
+    TResult Function(HealthPointsInitialEvent value)? init,
     TResult Function(HealthPointsAddEvent value)? add,
     TResult Function(HealthPointsSubtractEvent value)? subtract,
     TResult Function(HealthPointsResetEvent value)? reset,

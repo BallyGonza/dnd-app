@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:dnd_app/services/services.dart';
 import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharacterDetail extends StatefulWidget {
   final Character character;
@@ -27,51 +28,56 @@ class _CharacterDetailState extends State<CharacterDetail> {
         textTheme: GoogleFonts.robotoCondensedTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () => Navigator.pop(context),
-          ),
-          title: Text(
-            '${widget.character.name} ${widget.character.lastName}',
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-            ),
-          ),
-          backgroundColor: Colors.black,
+      home: BlocProvider(
+        create: (context) => HealthPointsBloc(
+          widget.character.healthPoints,
         ),
-        body: ListView(
-          controller: ScrollController(),
-          children: [
-            CardCharacter(
-              character: widget.character,
+        child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () => Navigator.pop(context),
             ),
-            Column(
-              children: [
-                _navigationButtons(),
-                _stackedWidgets(),
-                const SizedBox(height: 80),
-              ],
+            title: Text(
+              '${widget.character.name} ${widget.character.lastName}',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
             ),
-          ],
-        ),
-        floatingActionButton: SpeedDial(
-          overlayOpacity: 0,
-          backgroundColor: Colors.black,
-          activeIcon: Icons.close,
-          spacing: 3,
-          openCloseDial: isDialOpen,
-          children: [
-            _diceFABItem(dice: d4),
-            _diceFABItem(dice: d6),
-            _diceFABItem(dice: d8),
-            _diceFABItem(dice: d10),
-            _diceFABItem(dice: d12),
-            _diceFABItem(dice: d20),
-          ],
-          child: const Icon(MyFlutterApp.d20),
+            backgroundColor: Colors.black,
+          ),
+          body: ListView(
+            controller: ScrollController(),
+            children: [
+              CardCharacter(
+                character: widget.character,
+              ),
+              Column(
+                children: [
+                  _navigationButtons(),
+                  _stackedWidgets(),
+                  const SizedBox(height: 80),
+                ],
+              ),
+            ],
+          ),
+          floatingActionButton: SpeedDial(
+            overlayOpacity: 0,
+            backgroundColor: Colors.black,
+            activeIcon: Icons.close,
+            spacing: 3,
+            openCloseDial: isDialOpen,
+            children: [
+              _diceFABItem(dice: d4),
+              _diceFABItem(dice: d6),
+              _diceFABItem(dice: d8),
+              _diceFABItem(dice: d10),
+              _diceFABItem(dice: d12),
+              _diceFABItem(dice: d20),
+            ],
+            child: const Icon(MyFlutterApp.d20),
+          ),
         ),
       ),
     );
