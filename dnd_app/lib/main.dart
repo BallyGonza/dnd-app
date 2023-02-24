@@ -11,6 +11,7 @@ Future<void> main() async {
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await Hive.initFlutter();
+  await Hive.openBox('notes_box');
   await Hive.openBox('Theek');
   await Hive.openBox('Caleb');
   runApp(
