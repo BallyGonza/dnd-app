@@ -1,5 +1,5 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/spell.dart';
 
 class SpellCard extends StatefulWidget {
   final Spell spell;

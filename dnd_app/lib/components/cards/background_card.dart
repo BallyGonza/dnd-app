@@ -1,5 +1,5 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/background.dart';
 
 class BackgroundCard extends StatefulWidget {
   final Background background;

@@ -1,9 +1,6 @@
-// ignore_for_file: file_names
-
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/dice.dart';
-import 'buttons/cancel_button_dialog.dart';
-import 'buttons/reroll_button_dialog.dart';
 
 class RollDialog extends StatefulWidget {
   final String name;

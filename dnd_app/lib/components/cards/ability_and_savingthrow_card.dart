@@ -1,8 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/ability.dart';
-import '../../models/saving_throw.dart';
 
 class AbilityCard extends StatefulWidget {
   final Ability ability;

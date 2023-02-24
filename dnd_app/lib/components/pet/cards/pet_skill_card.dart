@@ -1,12 +1,10 @@
-// ignore_for_file: must_be_immutable
-
-import 'package:dnd_app/models/skill.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
 
 class PetSkillCard extends StatefulWidget {
   final Skill skill;
 
-  PetSkillCard({
+  const PetSkillCard({
     Key? key,
     required this.skill,
   }) : super(key: key);
@@ -36,8 +34,7 @@ class _PetSkillCardState extends State<PetSkillCard> {
             crossAxisAlignment: WrapCrossAlignment.center,
             spacing: 10,
             children: [
-              Text(widget.skill.name,
-                  style: const TextStyle(fontSize: 20)),
+              Text(widget.skill.name, style: const TextStyle(fontSize: 20)),
             ],
           ),
           Wrap(

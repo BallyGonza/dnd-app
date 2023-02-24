@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dnd_app/models/character/character_model.dart';
-import '../../../components/cards/weapon_card.dart';
+import 'package:dnd_app/models/models.dart';
+import 'package:dnd_app/components/components.dart';
 
 class ListWeapons extends StatefulWidget {
   final Character character;

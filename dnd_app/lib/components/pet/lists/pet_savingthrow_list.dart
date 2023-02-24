@@ -1,9 +1,6 @@
-import 'package:dnd_app/components/pet/cards/pet_savingthrow_card.dart';
-import 'package:dnd_app/models/saving_throw.dart';
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-
-import '../../../models/dice.dart';
-import '../../dialog/roll_of_20_dialog.dart';
 
 class PetSavingThrowList extends StatefulWidget {
   final List<SavingThrow> savingThrows;

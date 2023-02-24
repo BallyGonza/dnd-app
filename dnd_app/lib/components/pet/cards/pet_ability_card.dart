@@ -1,12 +1,10 @@
-// ignore_for_file: must_be_immutable
-
-import 'package:dnd_app/models/ability.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
 
 class PetAbilityCard extends StatefulWidget {
   final Ability ability;
 
-  PetAbilityCard({
+  const PetAbilityCard({
     Key? key,
     required this.ability,
   }) : super(key: key);

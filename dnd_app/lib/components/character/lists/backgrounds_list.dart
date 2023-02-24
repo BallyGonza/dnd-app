@@ -1,8 +1,6 @@
-import 'package:dnd_app/components/cards/languages_card.dart';
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../../models/background.dart';
-import '../../../models/character/character_model.dart';
-import '../../cards/background_card.dart';
 
 class ListBackgrounds extends StatefulWidget {
   final Character character;

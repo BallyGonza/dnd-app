@@ -1,7 +1,6 @@
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/weapon.dart';
 import 'package:flutter/material.dart';
-import '../../dialog/roll_damage_dialog.dart';
-import '../../dialog/roll_of_20_dialog.dart';
-import '../../../models/weapon.dart';
 
 class PetWeaponCard extends StatefulWidget {
   final Weapon weapon;

@@ -1,8 +1,6 @@
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../dialog/roll_of_20_dialog.dart';
-import '../../cards/skill_card.dart';
-import '../../../models/skill.dart';
-import '../../../models/dice.dart';
 
 class ListSkills extends StatefulWidget {
   final List<Skill> skills1;

@@ -11,7 +11,7 @@ class ButtonCancel extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        primary: Colors.red,
+        backgroundColor: Colors.red,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),

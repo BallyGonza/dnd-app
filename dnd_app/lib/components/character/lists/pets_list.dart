@@ -1,10 +1,10 @@
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../../models/character/character_model.dart';
-import '../../cards/pet_card.dart';
 
 class PetsList extends StatefulWidget {
   final Character character;
-  PetsList({Key? key, required this.character}) : super(key: key);
+  const PetsList({Key? key, required this.character}) : super(key: key);
 
   @override
   State<PetsList> createState() => _PetsListState();

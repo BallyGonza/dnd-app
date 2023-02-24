@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class HpController extends StatefulWidget {
-  int maxHp;
-  int currentHp;
-  Color color;
   HpController(
       {Key? key,
       required this.maxHp,
       required this.currentHp,
       required this.color})
       : super(key: key);
+
+  int maxHp;
+  int currentHp;
+  Color color;
 
   @override
   State<HpController> createState() => _HpControllerState();
@@ -29,7 +30,6 @@ class _HpControllerState extends State<HpController> {
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               'HIT POINTS',

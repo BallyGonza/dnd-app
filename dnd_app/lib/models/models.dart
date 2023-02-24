@@ -1,5 +1,5 @@
 export 'character/character_model.dart';
-export 'health_points/health_points_model.dart';
+export 'health_points/export.dart';
 export 'note/note_model.dart';
 export 'ability.dart';
 export 'background.dart';

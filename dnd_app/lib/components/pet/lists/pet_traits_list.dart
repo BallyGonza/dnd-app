@@ -1,6 +1,6 @@
-import 'package:dnd_app/components/pet/cards/pet_trait_card.dart';
+import 'package:dnd_app/components/components.dart';
 import 'package:flutter/material.dart';
-import 'package:dnd_app/models/pet.dart';
+import 'package:dnd_app/models/models.dart';
 
 class PetTraitsList extends StatefulWidget {
   final Pet pet;

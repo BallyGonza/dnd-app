@@ -1,6 +1,5 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../../models/trait.dart';
-import '../../../models/pet.dart';
 
 class PetTraitCard extends StatefulWidget {
   final Trait trait;
@@ -18,12 +17,11 @@ class _PetTraitCardState extends State<PetTraitCard> {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
       child: ExpansionTile(
-          title:
-              Text(widget.trait.name, style: const TextStyle(fontSize: 20)),
+          title: Text(widget.trait.name, style: const TextStyle(fontSize: 20)),
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(
-                  left: 15, right: 15, top: 4, bottom: 4),
+              padding:
+                  const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
               child: Column(
                 children: [
                   Row(

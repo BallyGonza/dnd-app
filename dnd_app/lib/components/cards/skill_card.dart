@@ -1,5 +1,5 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/skill.dart';
 
 class SkillCard extends StatefulWidget {
   final Skill skill;

@@ -1,6 +1,6 @@
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:dnd_app/models/character/character_model.dart';
-import '../../cards/trait_card.dart';
 
 class ListTraits extends StatefulWidget {
   final Character character;

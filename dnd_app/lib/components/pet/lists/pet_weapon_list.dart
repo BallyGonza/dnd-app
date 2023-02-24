@@ -1,5 +1,5 @@
-import 'package:dnd_app/components/pet/cards/pet_weapon_card.dart';
-import 'package:dnd_app/models/weapon.dart';
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
 
 class PetWeaponList extends StatefulWidget {

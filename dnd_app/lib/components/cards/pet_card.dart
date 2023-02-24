@@ -1,20 +1,10 @@
-import 'package:dnd_app/components/cards/hp_controller_card.dart';
-import 'package:dnd_app/components/character/character_specs/armor.dart';
-import 'package:dnd_app/components/character/character_specs/speed.dart';
-import 'package:dnd_app/components/character/lists/abilities_and_savingthrows_list.dart';
-import 'package:dnd_app/components/character/lists/traits_list.dart';
-import 'package:dnd_app/components/pet/cards/pet_trait_card.dart';
-import 'package:dnd_app/components/pet/lists/pet_abilities_list.dart';
-import 'package:dnd_app/components/pet/lists/pet_savingthrow_list.dart';
-import 'package:dnd_app/components/pet/lists/pet_skill_list.dart';
-import 'package:dnd_app/components/pet/lists/pet_traits_list.dart';
-import 'package:dnd_app/components/pet/lists/pet_weapon_list.dart';
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/pet.dart';
 import 'package:flutter/material.dart';
-import '../../../models/pet.dart';
 
 class PetCard extends StatefulWidget {
   final Pet pet;
-  PetCard({Key? key, required this.pet}) : super(key: key);
+  const PetCard({Key? key, required this.pet}) : super(key: key);
 
   @override
   State<PetCard> createState() => _PetCardState();

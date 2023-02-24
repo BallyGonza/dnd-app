@@ -1,7 +1,5 @@
-// ignore_for_file: file_names
-
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import '../../models/dice.dart';
 
 class RollDiceDialog extends StatefulWidget {
   final Dice dice;
