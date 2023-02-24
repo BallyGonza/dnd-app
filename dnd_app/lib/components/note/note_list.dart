@@ -1,29 +1,47 @@
-import 'package:dnd_app/components/note/note.dart';
+import 'package:dnd_app/components/components.dart';
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class NoteList extends StatelessWidget {
   const NoteList({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final titleController = TextEditingController();
+    final contentController = TextEditingController();
     return Column(
       children: [
-        SizedBox(
-          height: 210,
-          child: ListView.builder(
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return Note();
-            },
-          ),
+        ValueListenableBuilder(
+          valueListenable: Hive.box<Note>('notes_box').listenable(),
+          builder: (context, Box<Note> box, _) {
+            return SizedBox(
+              height: 450,
+              child: box.length == 0
+                  ? const Center(
+                      child: Text('No notes yet'),
+                    )
+                  : ListView.builder(
+                      itemCount: box.length,
+                      itemBuilder: (context, index) {
+                        final note = box.getAt(index);
+                        return NoteWidget(
+                            title: note!.title,
+                            content: note.content,
+                            date: note.date,
+                            color: note.color);
+                      },
+                    ),
+            );
+          },
         ),
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-              ),
+        // button add note
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
               onPressed: () {
+                // open modal bottom sheet
                 showModalBottomSheet(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
@@ -37,54 +55,71 @@ class NoteList extends StatelessWidget {
                             const SizedBox(
                               height: 10,
                             ),
-                            const TextField(
-                              decoration: InputDecoration(
+                            TextField(
+                              controller: titleController,
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: 'Title',
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            const TextField(
+                            TextField(
+                              controller: contentController,
                               maxLines: 11,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
                                     color: Colors.black,
                                   ),
                                 ),
-                                hintText: 'Note',
                               ),
                             ),
                             const SizedBox(
                               height: 10,
                             ),
-                            SizedBox(
-                              width: double.infinity,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text('Save'),
-                              ),
+                            ElevatedButton(
+                              onPressed: () {
+                                // add note to box
+                                Hive.box<Note>('notes_box').add(
+                                  Note(
+                                    title: titleController.text,
+                                    color: Colors.blue.value,
+                                    date: DateTime.now().toString(),
+                                    content: contentController.text,
+                                  ),
+                                );
+
+                                // close modal bottom sheet
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Add Note'),
                             ),
                           ],
                         ),
                       );
                     });
               },
-              child: const Text('Add Note')),
+              child: const Text('Add Note'),
+            ),
+            IconButton(
+              onPressed: () {
+                // delete all notes
+                Hive.box<Note>('notes_box').deleteAll(
+                  Hive.box<Note>('notes_box').keys,
+                );
+              },
+              icon: const Icon(Icons.delete),
+            ),
+          ],
         ),
+        // button delete note
       ],
     );
   }

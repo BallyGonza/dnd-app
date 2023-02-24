@@ -1,3 +1,4 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:dnd_app/screens/character_select.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,9 +12,8 @@ Future<void> main() async {
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await Hive.initFlutter();
-  await Hive.openBox('notes_box');
-  await Hive.openBox('Theek');
-  await Hive.openBox('Caleb');
+  Hive.registerAdapter(NoteAdapter());
+  await Hive.openBox<Note>('notes_box');
   runApp(
     const MyApp(),
   );
