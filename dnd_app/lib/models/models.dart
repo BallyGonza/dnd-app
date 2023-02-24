@@ -1,6 +1,6 @@
-export 'character/character.dart';
-export 'health_points/health_points.dart';
-export 'note/note.dart';
+export 'character/character_model.dart';
+export 'health_points/health_points_model.dart';
+export 'note/note_model.dart';
 export 'ability.dart';
 export 'background.dart';
 export 'dice.dart';

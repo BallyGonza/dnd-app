@@ -1,4 +1,4 @@
-import 'package:dnd_app/models/character/character.dart';
+import 'package:dnd_app/models/character/character_model.dart';
 import 'package:flutter/material.dart';
 
 class LanguagesCard extends StatefulWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../models/trait.dart';
-import '../../models/character/character.dart';
+import '../../models/character/character_model.dart';
 
 class TraitCard extends StatefulWidget {
   final Trait trait;

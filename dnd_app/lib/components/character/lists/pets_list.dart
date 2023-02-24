@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../models/character/character.dart';
+import '../../../models/character/character_model.dart';
 import '../../cards/pet_card.dart';
 
 class PetsList extends StatefulWidget {
