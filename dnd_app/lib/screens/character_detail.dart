@@ -230,6 +230,20 @@ class _CharacterDetailState extends State<CharacterDetail> {
               });
             }
           },
+          child: const NoteList(),
+        ),
+        GestureDetector(
+          onHorizontalDragEnd: (details) {
+            if (details.primaryVelocity! < 0) {
+              setState(() {
+                index++;
+              });
+            } else if (details.primaryVelocity! > 0) {
+              setState(() {
+                index--;
+              });
+            }
+          },
           child: PetsList(
             character: widget.character,
           ),
@@ -251,7 +265,8 @@ class _CharacterDetailState extends State<CharacterDetail> {
           _button('TRAITS', 4),
           _button('BACKGROUND', 5),
           _button('BACKSTORY', 6),
-          widget.character.pets.isNotEmpty ? _button('PETS', 7) : Container(),
+          _button('LOOT', 7),
+          widget.character.pets.isNotEmpty ? _button('PETS', 8) : Container(),
         ],
       ),
     );
