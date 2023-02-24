@@ -1,4 +1,6 @@
+import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class NoteWidget extends StatelessWidget {
   const NoteWidget(
@@ -25,79 +27,32 @@ class NoteWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          GestureDetector(
-            onTap: () {
-              showModalBottomSheet(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const TextField(
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const TextField(
-                            maxLines: 11,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.9,
-                            child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.black,
-                                ),
-                                onPressed: () {},
-                                child: const Text('Save')),
-                          ),
-                        ],
+          ListTile(
+            title: Text(
+              title,
+              style: const TextStyle(color: Colors.black, fontSize: 20),
+            ),
+            subtitle: Text(
+              content,
+              style: TextStyle(
+                color: Colors.black.withOpacity(0.5),
+              ),
+            ),
+            trailing: IconButton(
+              onPressed: () {
+                Hive.box<Note>('notes_box').delete(
+                  Hive.box<Note>('notes_box').values.toList().indexWhere(
+                        (element) =>
+                            element.title == title &&
+                            element.content == content &&
+                            element.date == date &&
+                            element.color == color,
                       ),
-                    );
-                  });
-            },
-            child: ListTile(
-              title: Text(
-                title,
-                style: const TextStyle(color: Colors.black, fontSize: 20),
-              ),
-              subtitle: Text(
-                content,
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.5),
-                ),
-              ),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.black,
-                ),
+                );
+              },
+              icon: const Icon(
+                Icons.delete,
+                color: Colors.black,
               ),
             ),
           ),
