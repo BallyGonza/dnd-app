@@ -77,7 +77,7 @@ class NoteList extends StatelessWidget {
                                             ),
                                           ),
                                         ),
-                                        Spacer(),
+                                        const Spacer(),
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -222,7 +222,8 @@ class NoteList extends StatelessWidget {
                                 Note(
                                   title: titleController.text,
                                   color: Colors.lightGreen.value,
-                                  date: DateTime.now().toString(),
+                                  date:
+                                      '${DateTime.now().hour}:${DateTime.now().minute} ~ ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
                                   content: contentController.text,
                                 ),
                               );

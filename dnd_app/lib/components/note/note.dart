@@ -1,6 +1,4 @@
-import 'package:dnd_app/models/models.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class NoteWidget extends StatelessWidget {
   const NoteWidget(
@@ -36,23 +34,6 @@ class NoteWidget extends StatelessWidget {
               content,
               style: TextStyle(
                 color: Colors.black.withOpacity(0.5),
-              ),
-            ),
-            trailing: IconButton(
-              onPressed: () {
-                Hive.box<Note>('notes_box').delete(
-                  Hive.box<Note>('notes_box').values.toList().indexWhere(
-                        (element) =>
-                            element.title == title &&
-                            element.content == content &&
-                            element.date == date &&
-                            element.color == color,
-                      ),
-                );
-              },
-              icon: const Icon(
-                Icons.delete,
-                color: Colors.black,
               ),
             ),
           ),
