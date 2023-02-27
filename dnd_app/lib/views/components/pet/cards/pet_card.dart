@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetCard extends StatefulWidget {
-  final Pet pet;
+  final List<Pet> pet;
   const PetCard({Key? key, required this.pet}) : super(key: key);
 
   @override
@@ -18,12 +18,12 @@ class _PetCardState extends State<PetCard> {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: ExpansionTile(
           leading: CircleAvatar(
-            backgroundImage: AssetImage(widget.pet.profileImg),
+            backgroundImage: AssetImage(widget.pet[0].profileImg),
             radius: 30,
           ),
-          title: Text(widget.pet.name, style: const TextStyle(fontSize: 20)),
+          title: Text(widget.pet[0].name, style: const TextStyle(fontSize: 20)),
           subtitle: Text(
-            widget.pet.race,
+            widget.pet[0].race,
             style: const TextStyle(color: Colors.grey),
           ),
           childrenPadding:
@@ -34,23 +34,21 @@ class _PetCardState extends State<PetCard> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ArmorClass(armor: widget.pet.armor, color: Colors.black),
-                  HpController(
-                      maxHp: widget.pet.maxHp,
-                      currentHp: widget.pet.currentHp,
-                      color: Colors.black),
-                  Speed(speed: widget.pet.speed, color: Colors.black),
+                  ArmorClass(armor: widget.pet[0].armor, color: Colors.black),
+                  PetHealthPoints(
+                      max: widget.pet[0].healthPoints.max, color: Colors.black),
+                  Speed(speed: widget.pet[0].speed, color: Colors.black),
                 ],
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: PetAbilitiesList(abilities: widget.pet.abilities),
+              child: PetAbilitiesList(abilities: widget.pet[0].abilities),
             ),
-            PetSavingThrowList(savingThrows: widget.pet.savingThrows),
-            PetSkillList(skills: widget.pet.allSkills),
-            PetWeaponList(weapons: widget.pet.weapons),
-            PetTraitsList(pet: widget.pet)
+            PetSavingThrowList(savingThrows: widget.pet[0].savingThrows),
+            PetSkillList(skills: widget.pet[0].allSkills),
+            PetWeaponList(weapons: widget.pet[0].weapons),
+            PetTraitsList(pet: widget.pet[0])
           ]),
     );
   }

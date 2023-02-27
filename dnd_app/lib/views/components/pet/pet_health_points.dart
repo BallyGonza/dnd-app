@@ -1,22 +1,19 @@
+import 'package:dnd_app/logic/logic.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HpController extends StatefulWidget {
-  HpController(
-      {Key? key,
-      required this.maxHp,
-      required this.currentHp,
-      required this.color})
+class PetHealthPoints extends StatefulWidget {
+  const PetHealthPoints({Key? key, required this.max, required this.color})
       : super(key: key);
 
-  int maxHp;
-  int currentHp;
+  final int max;
   final Color color;
 
   @override
-  State<HpController> createState() => _HpControllerState();
+  State<PetHealthPoints> createState() => _PetHealthPointsState();
 }
 
-class _HpControllerState extends State<HpController> {
+class _PetHealthPointsState extends State<PetHealthPoints> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,21 +36,23 @@ class _HpControllerState extends State<HpController> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: () {
-                    setState(() {
-                      if (widget.currentHp > 0) {
-                        widget.currentHp--;
-                      }
-                    });
+                    BlocProvider.of<PetHealthPointsBloc>(context)
+                        .add(const PetHealthPointsEvent.subtract());
                   },
-                  child: Text(
-                    ' ${widget.currentHp}',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: widget.color,
-                    ),
+                  child: BlocBuilder<PetHealthPointsBloc, PetHealthPointsState>(
+                    builder: (context, state) {
+                      return Text(
+                        state.current.toString(),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: widget.color,
+                        ),
+                      );
+                    },
                   ),
                 ),
                 Text(
@@ -65,14 +64,11 @@ class _HpControllerState extends State<HpController> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    setState(() {
-                      if (widget.currentHp < widget.maxHp) {
-                        widget.currentHp++;
-                      }
-                    });
+                    BlocProvider.of<PetHealthPointsBloc>(context)
+                        .add(const PetHealthPointsEvent.add());
                   },
                   child: Text(
-                    '${widget.maxHp} ',
+                    '${widget.max}',
                     style: TextStyle(
                       fontSize: 20,
                       color: widget.color,

@@ -27,7 +27,7 @@ class Character {
   final List<Spell> spells;
   final List<Background> background;
   final List<String> backstory;
-  final List<Pet> pets;
+  final List<Pet> pet;
   final String favoredEnemy;
   final String favoredTerrain;
 
@@ -58,7 +58,7 @@ class Character {
     required this.spells,
     required this.background,
     required this.backstory,
-    required this.pets,
+    required this.pet,
     required this.favoredEnemy,
     required this.favoredTerrain,
   });
@@ -188,7 +188,7 @@ Character theekVarus = Character(
     'Al comienzo Vaunea parecía rechazarlo por el simple hecho de ser un elfo, pero ante la insistencia de Theek y la revelación de que él mismo había abandonado a su propia raza, comenzaron a viajar juntos en busca de nuevas oportunidades.',
     'Característica: Tiene una gran capacidad para reconocer y memorizar la disposición general de un terreno. Asimismo, estando en terreno fértil, le resulta fácil encontrar agua y alimentos para él y hasta cinco personas más cada día.',
   ],
-  pets: [ghost],
+  pet: [ghost],
   favoredEnemy: 'Beasts and Dragons',
   favoredTerrain: 'Woods and Mountains',
 );

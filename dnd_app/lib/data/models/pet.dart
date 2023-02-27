@@ -7,8 +7,7 @@ class Pet {
   final String profileImg;
   final int armor;
   final int speed;
-  int currentHp;
-  int maxHp;
+  HealthPoints healthPoints;
   final List<Ability> abilities;
   final List<SavingThrow> savingThrows;
   final List<Weapon> weapons;
@@ -24,8 +23,7 @@ class Pet {
     required this.profileImg,
     required this.armor,
     required this.speed,
-    required this.currentHp,
-    required this.maxHp,
+    required this.healthPoints,
     required this.abilities,
     required this.savingThrows,
     required this.weapons,
@@ -43,8 +41,10 @@ Pet ghost = Pet(
   profileImg: 'assets/images/animals/blink_dog/blink_dog_profile.jpeg',
   armor: 16,
   speed: 8,
-  currentHp: 35,
-  maxHp: 35,
+  healthPoints: HealthPoints(
+    current: 35,
+    max: 35,
+  ),
   abilities: [
     Ability(name: 'Strength', score: 12, modifier: 1),
     Ability(name: 'Dexterity', score: 17, modifier: 3),

@@ -1,34 +1,34 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'health_points_state.dart';
+part of 'pet_health_points_state.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$HealthPointsInitial _$$HealthPointsInitialFromJson(
+_$PetHealthPointsInitial _$$PetHealthPointsInitialFromJson(
         Map<String, dynamic> json) =>
-    _$HealthPointsInitial(
+    _$PetHealthPointsInitial(
       json['current'] as int,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HealthPointsInitialToJson(
-        _$HealthPointsInitial instance) =>
+Map<String, dynamic> _$$PetHealthPointsInitialToJson(
+        _$PetHealthPointsInitial instance) =>
     <String, dynamic>{
       'current': instance.current,
       'runtimeType': instance.$type,
     };
 
-_$HealthPointsUpdated _$$HealthPointsUpdatedFromJson(
+_$PetHealthPointsUpdated _$$PetHealthPointsUpdatedFromJson(
         Map<String, dynamic> json) =>
-    _$HealthPointsUpdated(
+    _$PetHealthPointsUpdated(
       json['current'] as int,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$HealthPointsUpdatedToJson(
-        _$HealthPointsUpdated instance) =>
+Map<String, dynamic> _$$PetHealthPointsUpdatedToJson(
+        _$PetHealthPointsUpdated instance) =>
     <String, dynamic>{
       'current': instance.current,
       'runtimeType': instance.$type,

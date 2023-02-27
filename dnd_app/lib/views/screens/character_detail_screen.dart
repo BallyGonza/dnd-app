@@ -30,10 +30,28 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         textTheme: GoogleFonts.robotoCondensedTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: BlocProvider(
-        create: (context) => HealthPointsBloc(
-          widget.character.healthPoints,
-        ),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => CharacterHealthPointsBloc(
+              widget.character.healthPoints,
+            ),
+          ),
+          widget.character.pet.isNotEmpty
+              ? BlocProvider(
+                  create: (context) => PetHealthPointsBloc(
+                    widget.character.pet[0].healthPoints,
+                  ),
+                )
+              : BlocProvider(
+                  create: (context) => PetHealthPointsBloc(
+                    HealthPoints(
+                      current: 0,
+                      max: 0,
+                    ),
+                  ),
+                ),
+        ],
         child: Scaffold(
           appBar: AppBar(
             title: Text(
@@ -228,21 +246,22 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           child: const NoteList(),
         ),
         GestureDetector(
-          onHorizontalDragEnd: (details) {
-            if (details.primaryVelocity! < 0) {
-              setState(() {
-                index++;
-              });
-            } else if (details.primaryVelocity! > 0) {
-              setState(() {
-                index--;
-              });
-            }
-          },
-          child: PetsList(
-            character: widget.character,
-          ),
-        ),
+            onHorizontalDragEnd: (details) {
+              if (details.primaryVelocity! < 0) {
+                setState(() {
+                  index++;
+                });
+              } else if (details.primaryVelocity! > 0) {
+                setState(() {
+                  index--;
+                });
+              }
+            },
+            child: widget.character.pet.isNotEmpty
+                ? PetCard(
+                    pet: widget.character.pet,
+                  )
+                : const SizedBox.shrink()),
       ],
     );
   }
@@ -261,7 +280,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           _button('BACKGROUND', 5),
           _button('BACKSTORY', 6),
           _button('LOOT', 7),
-          widget.character.pets.isNotEmpty ? _button('PETS', 8) : Container(),
+          widget.character.pet.isNotEmpty
+              ? _button('PET', 8)
+              : const SizedBox.shrink(),
         ],
       ),
     );

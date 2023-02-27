@@ -1,1 +1,2 @@
-export 'health_points_bloc/bloc.dart';
+export 'character_health_points_bloc/bloc.dart';
+export 'pet_health_points_bloc/bloc.dart';

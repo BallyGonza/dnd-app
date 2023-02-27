@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'health_points_event.dart';
+part of 'pet_health_points_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$HealthPointsEvent {
+mixin _$PetHealthPointsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
@@ -43,42 +43,43 @@ mixin _$HealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitialEvent value) init,
-    required TResult Function(HealthPointsAddEvent value) add,
-    required TResult Function(HealthPointsSubtractEvent value) subtract,
-    required TResult Function(HealthPointsResetEvent value) reset,
+    required TResult Function(PetHealthPointsInitialEvent value) init,
+    required TResult Function(PetHealthPointsAddEvent value) add,
+    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
+    required TResult Function(PetHealthPointsResetEvent value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitialEvent value)? init,
-    TResult? Function(HealthPointsAddEvent value)? add,
-    TResult? Function(HealthPointsSubtractEvent value)? subtract,
-    TResult? Function(HealthPointsResetEvent value)? reset,
+    TResult? Function(PetHealthPointsInitialEvent value)? init,
+    TResult? Function(PetHealthPointsAddEvent value)? add,
+    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult? Function(PetHealthPointsResetEvent value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitialEvent value)? init,
-    TResult Function(HealthPointsAddEvent value)? add,
-    TResult Function(HealthPointsSubtractEvent value)? subtract,
-    TResult Function(HealthPointsResetEvent value)? reset,
+    TResult Function(PetHealthPointsInitialEvent value)? init,
+    TResult Function(PetHealthPointsAddEvent value)? add,
+    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult Function(PetHealthPointsResetEvent value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $HealthPointsEventCopyWith<$Res> {
-  factory $HealthPointsEventCopyWith(
-          HealthPointsEvent value, $Res Function(HealthPointsEvent) then) =
-      _$HealthPointsEventCopyWithImpl<$Res, HealthPointsEvent>;
+abstract class $PetHealthPointsEventCopyWith<$Res> {
+  factory $PetHealthPointsEventCopyWith(PetHealthPointsEvent value,
+          $Res Function(PetHealthPointsEvent) then) =
+      _$PetHealthPointsEventCopyWithImpl<$Res, PetHealthPointsEvent>;
 }
 
 /// @nodoc
-class _$HealthPointsEventCopyWithImpl<$Res, $Val extends HealthPointsEvent>
-    implements $HealthPointsEventCopyWith<$Res> {
-  _$HealthPointsEventCopyWithImpl(this._value, this._then);
+class _$PetHealthPointsEventCopyWithImpl<$Res,
+        $Val extends PetHealthPointsEvent>
+    implements $PetHealthPointsEventCopyWith<$Res> {
+  _$PetHealthPointsEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,36 +88,39 @@ class _$HealthPointsEventCopyWithImpl<$Res, $Val extends HealthPointsEvent>
 }
 
 /// @nodoc
-abstract class _$$HealthPointsInitialEventCopyWith<$Res> {
-  factory _$$HealthPointsInitialEventCopyWith(_$HealthPointsInitialEvent value,
-          $Res Function(_$HealthPointsInitialEvent) then) =
-      __$$HealthPointsInitialEventCopyWithImpl<$Res>;
+abstract class _$$PetHealthPointsInitialEventCopyWith<$Res> {
+  factory _$$PetHealthPointsInitialEventCopyWith(
+          _$PetHealthPointsInitialEvent value,
+          $Res Function(_$PetHealthPointsInitialEvent) then) =
+      __$$PetHealthPointsInitialEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsInitialEventCopyWithImpl<$Res>
-    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsInitialEvent>
-    implements _$$HealthPointsInitialEventCopyWith<$Res> {
-  __$$HealthPointsInitialEventCopyWithImpl(_$HealthPointsInitialEvent _value,
-      $Res Function(_$HealthPointsInitialEvent) _then)
+class __$$PetHealthPointsInitialEventCopyWithImpl<$Res>
+    extends _$PetHealthPointsEventCopyWithImpl<$Res,
+        _$PetHealthPointsInitialEvent>
+    implements _$$PetHealthPointsInitialEventCopyWith<$Res> {
+  __$$PetHealthPointsInitialEventCopyWithImpl(
+      _$PetHealthPointsInitialEvent _value,
+      $Res Function(_$PetHealthPointsInitialEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
-  const _$HealthPointsInitialEvent();
+class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
+  const _$PetHealthPointsInitialEvent();
 
   @override
   String toString() {
-    return 'HealthPointsEvent.init()';
+    return 'PetHealthPointsEvent.init()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HealthPointsInitialEvent);
+            other is _$PetHealthPointsInitialEvent);
   }
 
   @override
@@ -162,10 +166,10 @@ class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitialEvent value) init,
-    required TResult Function(HealthPointsAddEvent value) add,
-    required TResult Function(HealthPointsSubtractEvent value) subtract,
-    required TResult Function(HealthPointsResetEvent value) reset,
+    required TResult Function(PetHealthPointsInitialEvent value) init,
+    required TResult Function(PetHealthPointsAddEvent value) add,
+    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
+    required TResult Function(PetHealthPointsResetEvent value) reset,
   }) {
     return init(this);
   }
@@ -173,10 +177,10 @@ class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitialEvent value)? init,
-    TResult? Function(HealthPointsAddEvent value)? add,
-    TResult? Function(HealthPointsSubtractEvent value)? subtract,
-    TResult? Function(HealthPointsResetEvent value)? reset,
+    TResult? Function(PetHealthPointsInitialEvent value)? init,
+    TResult? Function(PetHealthPointsAddEvent value)? add,
+    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult? Function(PetHealthPointsResetEvent value)? reset,
   }) {
     return init?.call(this);
   }
@@ -184,10 +188,10 @@ class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitialEvent value)? init,
-    TResult Function(HealthPointsAddEvent value)? add,
-    TResult Function(HealthPointsSubtractEvent value)? subtract,
-    TResult Function(HealthPointsResetEvent value)? reset,
+    TResult Function(PetHealthPointsInitialEvent value)? init,
+    TResult Function(PetHealthPointsAddEvent value)? add,
+    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult Function(PetHealthPointsResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -197,40 +201,41 @@ class _$HealthPointsInitialEvent implements HealthPointsInitialEvent {
   }
 }
 
-abstract class HealthPointsInitialEvent implements HealthPointsEvent {
-  const factory HealthPointsInitialEvent() = _$HealthPointsInitialEvent;
+abstract class PetHealthPointsInitialEvent implements PetHealthPointsEvent {
+  const factory PetHealthPointsInitialEvent() = _$PetHealthPointsInitialEvent;
 }
 
 /// @nodoc
-abstract class _$$HealthPointsAddEventCopyWith<$Res> {
-  factory _$$HealthPointsAddEventCopyWith(_$HealthPointsAddEvent value,
-          $Res Function(_$HealthPointsAddEvent) then) =
-      __$$HealthPointsAddEventCopyWithImpl<$Res>;
+abstract class _$$PetHealthPointsAddEventCopyWith<$Res> {
+  factory _$$PetHealthPointsAddEventCopyWith(_$PetHealthPointsAddEvent value,
+          $Res Function(_$PetHealthPointsAddEvent) then) =
+      __$$PetHealthPointsAddEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsAddEventCopyWithImpl<$Res>
-    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsAddEvent>
-    implements _$$HealthPointsAddEventCopyWith<$Res> {
-  __$$HealthPointsAddEventCopyWithImpl(_$HealthPointsAddEvent _value,
-      $Res Function(_$HealthPointsAddEvent) _then)
+class __$$PetHealthPointsAddEventCopyWithImpl<$Res>
+    extends _$PetHealthPointsEventCopyWithImpl<$Res, _$PetHealthPointsAddEvent>
+    implements _$$PetHealthPointsAddEventCopyWith<$Res> {
+  __$$PetHealthPointsAddEventCopyWithImpl(_$PetHealthPointsAddEvent _value,
+      $Res Function(_$PetHealthPointsAddEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HealthPointsAddEvent implements HealthPointsAddEvent {
-  const _$HealthPointsAddEvent();
+class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
+  const _$PetHealthPointsAddEvent();
 
   @override
   String toString() {
-    return 'HealthPointsEvent.add()';
+    return 'PetHealthPointsEvent.add()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsAddEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$PetHealthPointsAddEvent);
   }
 
   @override
@@ -276,10 +281,10 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitialEvent value) init,
-    required TResult Function(HealthPointsAddEvent value) add,
-    required TResult Function(HealthPointsSubtractEvent value) subtract,
-    required TResult Function(HealthPointsResetEvent value) reset,
+    required TResult Function(PetHealthPointsInitialEvent value) init,
+    required TResult Function(PetHealthPointsAddEvent value) add,
+    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
+    required TResult Function(PetHealthPointsResetEvent value) reset,
   }) {
     return add(this);
   }
@@ -287,10 +292,10 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitialEvent value)? init,
-    TResult? Function(HealthPointsAddEvent value)? add,
-    TResult? Function(HealthPointsSubtractEvent value)? subtract,
-    TResult? Function(HealthPointsResetEvent value)? reset,
+    TResult? Function(PetHealthPointsInitialEvent value)? init,
+    TResult? Function(PetHealthPointsAddEvent value)? add,
+    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult? Function(PetHealthPointsResetEvent value)? reset,
   }) {
     return add?.call(this);
   }
@@ -298,10 +303,10 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitialEvent value)? init,
-    TResult Function(HealthPointsAddEvent value)? add,
-    TResult Function(HealthPointsSubtractEvent value)? subtract,
-    TResult Function(HealthPointsResetEvent value)? reset,
+    TResult Function(PetHealthPointsInitialEvent value)? init,
+    TResult Function(PetHealthPointsAddEvent value)? add,
+    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult Function(PetHealthPointsResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -311,42 +316,44 @@ class _$HealthPointsAddEvent implements HealthPointsAddEvent {
   }
 }
 
-abstract class HealthPointsAddEvent implements HealthPointsEvent {
-  const factory HealthPointsAddEvent() = _$HealthPointsAddEvent;
+abstract class PetHealthPointsAddEvent implements PetHealthPointsEvent {
+  const factory PetHealthPointsAddEvent() = _$PetHealthPointsAddEvent;
 }
 
 /// @nodoc
-abstract class _$$HealthPointsSubtractEventCopyWith<$Res> {
-  factory _$$HealthPointsSubtractEventCopyWith(
-          _$HealthPointsSubtractEvent value,
-          $Res Function(_$HealthPointsSubtractEvent) then) =
-      __$$HealthPointsSubtractEventCopyWithImpl<$Res>;
+abstract class _$$PetHealthPointsSubtractEventCopyWith<$Res> {
+  factory _$$PetHealthPointsSubtractEventCopyWith(
+          _$PetHealthPointsSubtractEvent value,
+          $Res Function(_$PetHealthPointsSubtractEvent) then) =
+      __$$PetHealthPointsSubtractEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsSubtractEventCopyWithImpl<$Res>
-    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsSubtractEvent>
-    implements _$$HealthPointsSubtractEventCopyWith<$Res> {
-  __$$HealthPointsSubtractEventCopyWithImpl(_$HealthPointsSubtractEvent _value,
-      $Res Function(_$HealthPointsSubtractEvent) _then)
+class __$$PetHealthPointsSubtractEventCopyWithImpl<$Res>
+    extends _$PetHealthPointsEventCopyWithImpl<$Res,
+        _$PetHealthPointsSubtractEvent>
+    implements _$$PetHealthPointsSubtractEventCopyWith<$Res> {
+  __$$PetHealthPointsSubtractEventCopyWithImpl(
+      _$PetHealthPointsSubtractEvent _value,
+      $Res Function(_$PetHealthPointsSubtractEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
-  const _$HealthPointsSubtractEvent();
+class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
+  const _$PetHealthPointsSubtractEvent();
 
   @override
   String toString() {
-    return 'HealthPointsEvent.subtract()';
+    return 'PetHealthPointsEvent.subtract()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$HealthPointsSubtractEvent);
+            other is _$PetHealthPointsSubtractEvent);
   }
 
   @override
@@ -392,10 +399,10 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitialEvent value) init,
-    required TResult Function(HealthPointsAddEvent value) add,
-    required TResult Function(HealthPointsSubtractEvent value) subtract,
-    required TResult Function(HealthPointsResetEvent value) reset,
+    required TResult Function(PetHealthPointsInitialEvent value) init,
+    required TResult Function(PetHealthPointsAddEvent value) add,
+    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
+    required TResult Function(PetHealthPointsResetEvent value) reset,
   }) {
     return subtract(this);
   }
@@ -403,10 +410,10 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitialEvent value)? init,
-    TResult? Function(HealthPointsAddEvent value)? add,
-    TResult? Function(HealthPointsSubtractEvent value)? subtract,
-    TResult? Function(HealthPointsResetEvent value)? reset,
+    TResult? Function(PetHealthPointsInitialEvent value)? init,
+    TResult? Function(PetHealthPointsAddEvent value)? add,
+    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult? Function(PetHealthPointsResetEvent value)? reset,
   }) {
     return subtract?.call(this);
   }
@@ -414,10 +421,10 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitialEvent value)? init,
-    TResult Function(HealthPointsAddEvent value)? add,
-    TResult Function(HealthPointsSubtractEvent value)? subtract,
-    TResult Function(HealthPointsResetEvent value)? reset,
+    TResult Function(PetHealthPointsInitialEvent value)? init,
+    TResult Function(PetHealthPointsAddEvent value)? add,
+    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult Function(PetHealthPointsResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (subtract != null) {
@@ -427,40 +434,43 @@ class _$HealthPointsSubtractEvent implements HealthPointsSubtractEvent {
   }
 }
 
-abstract class HealthPointsSubtractEvent implements HealthPointsEvent {
-  const factory HealthPointsSubtractEvent() = _$HealthPointsSubtractEvent;
+abstract class PetHealthPointsSubtractEvent implements PetHealthPointsEvent {
+  const factory PetHealthPointsSubtractEvent() = _$PetHealthPointsSubtractEvent;
 }
 
 /// @nodoc
-abstract class _$$HealthPointsResetEventCopyWith<$Res> {
-  factory _$$HealthPointsResetEventCopyWith(_$HealthPointsResetEvent value,
-          $Res Function(_$HealthPointsResetEvent) then) =
-      __$$HealthPointsResetEventCopyWithImpl<$Res>;
+abstract class _$$PetHealthPointsResetEventCopyWith<$Res> {
+  factory _$$PetHealthPointsResetEventCopyWith(
+          _$PetHealthPointsResetEvent value,
+          $Res Function(_$PetHealthPointsResetEvent) then) =
+      __$$PetHealthPointsResetEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$HealthPointsResetEventCopyWithImpl<$Res>
-    extends _$HealthPointsEventCopyWithImpl<$Res, _$HealthPointsResetEvent>
-    implements _$$HealthPointsResetEventCopyWith<$Res> {
-  __$$HealthPointsResetEventCopyWithImpl(_$HealthPointsResetEvent _value,
-      $Res Function(_$HealthPointsResetEvent) _then)
+class __$$PetHealthPointsResetEventCopyWithImpl<$Res>
+    extends _$PetHealthPointsEventCopyWithImpl<$Res,
+        _$PetHealthPointsResetEvent>
+    implements _$$PetHealthPointsResetEventCopyWith<$Res> {
+  __$$PetHealthPointsResetEventCopyWithImpl(_$PetHealthPointsResetEvent _value,
+      $Res Function(_$PetHealthPointsResetEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$HealthPointsResetEvent implements HealthPointsResetEvent {
-  const _$HealthPointsResetEvent();
+class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
+  const _$PetHealthPointsResetEvent();
 
   @override
   String toString() {
-    return 'HealthPointsEvent.reset()';
+    return 'PetHealthPointsEvent.reset()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$HealthPointsResetEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$PetHealthPointsResetEvent);
   }
 
   @override
@@ -506,10 +516,10 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(HealthPointsInitialEvent value) init,
-    required TResult Function(HealthPointsAddEvent value) add,
-    required TResult Function(HealthPointsSubtractEvent value) subtract,
-    required TResult Function(HealthPointsResetEvent value) reset,
+    required TResult Function(PetHealthPointsInitialEvent value) init,
+    required TResult Function(PetHealthPointsAddEvent value) add,
+    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
+    required TResult Function(PetHealthPointsResetEvent value) reset,
   }) {
     return reset(this);
   }
@@ -517,10 +527,10 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(HealthPointsInitialEvent value)? init,
-    TResult? Function(HealthPointsAddEvent value)? add,
-    TResult? Function(HealthPointsSubtractEvent value)? subtract,
-    TResult? Function(HealthPointsResetEvent value)? reset,
+    TResult? Function(PetHealthPointsInitialEvent value)? init,
+    TResult? Function(PetHealthPointsAddEvent value)? add,
+    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult? Function(PetHealthPointsResetEvent value)? reset,
   }) {
     return reset?.call(this);
   }
@@ -528,10 +538,10 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(HealthPointsInitialEvent value)? init,
-    TResult Function(HealthPointsAddEvent value)? add,
-    TResult Function(HealthPointsSubtractEvent value)? subtract,
-    TResult Function(HealthPointsResetEvent value)? reset,
+    TResult Function(PetHealthPointsInitialEvent value)? init,
+    TResult Function(PetHealthPointsAddEvent value)? add,
+    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
+    TResult Function(PetHealthPointsResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -541,6 +551,6 @@ class _$HealthPointsResetEvent implements HealthPointsResetEvent {
   }
 }
 
-abstract class HealthPointsResetEvent implements HealthPointsEvent {
-  const factory HealthPointsResetEvent() = _$HealthPointsResetEvent;
+abstract class PetHealthPointsResetEvent implements PetHealthPointsEvent {
+  const factory PetHealthPointsResetEvent() = _$PetHealthPointsResetEvent;
 }
