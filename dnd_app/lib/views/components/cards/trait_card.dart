@@ -2,10 +2,16 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class TraitCard extends StatefulWidget {
-  final Trait trait;
-  final Character character;
-  const TraitCard({Key? key, required this.trait, required this.character})
+  const TraitCard(
+      {Key? key,
+      required this.trait,
+      required this.favoredEnemy,
+      required this.favoredTerrain})
       : super(key: key);
+
+  final Trait trait;
+  final String favoredEnemy;
+  final String favoredTerrain;
 
   @override
   State<TraitCard> createState() => _TraitCardState();
@@ -29,10 +35,10 @@ class _TraitCardState extends State<TraitCard> {
                     Row(
                       children: [
                         widget.trait.name == "Favored Enemy"
-                            ? Text('[${widget.character.favoredEnemy}]\n',
+                            ? Text('[${widget.favoredEnemy}]\n',
                                 style: const TextStyle(fontSize: 15))
                             : widget.trait.name == "Favored Terrain"
-                                ? Text('[${widget.character.favoredTerrain}]\n',
+                                ? Text('[${widget.favoredTerrain}]\n',
                                     style: const TextStyle(fontSize: 15))
                                 // else display nothing
                                 : Container(),

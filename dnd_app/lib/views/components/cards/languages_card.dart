@@ -1,9 +1,9 @@
-import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class LanguagesCard extends StatefulWidget {
-  final Character character;
-  const LanguagesCard({Key? key, required this.character}) : super(key: key);
+  const LanguagesCard({Key? key, required this.languages}) : super(key: key);
+
+  final String languages;
 
   @override
   State<LanguagesCard> createState() => _LanguagesCardState();
@@ -46,7 +46,7 @@ class _LanguagesCardState extends State<LanguagesCard> {
                   children: [
                     Expanded(
                       child: Text(
-                        widget.character.languages,
+                        widget.languages,
                         style: const TextStyle(fontSize: 17),
                       ),
                     ),

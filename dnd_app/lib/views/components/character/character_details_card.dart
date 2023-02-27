@@ -3,12 +3,30 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class CharacterDetailsCard extends StatelessWidget {
-  final Character character;
-
   const CharacterDetailsCard({
     Key? key,
-    required this.character,
+    required this.img,
+    required this.profileImg,
+    required this.race,
+    required this.classes,
+    required this.level,
+    required this.healthPoints,
+    required this.armor,
+    required this.speed,
+    required this.initiative,
+    required this.passivePerception,
   }) : super(key: key);
+
+  final String img;
+  final String profileImg;
+  final String race;
+  final List<String> classes;
+  final int level;
+  final HealthPoints healthPoints;
+  final int armor;
+  final int speed;
+  final int initiative;
+  final int passivePerception;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +39,7 @@ class CharacterDetailsCard extends StatelessWidget {
             Colors.black.withOpacity(0.6),
             BlendMode.darken,
           ),
-          image: AssetImage(character.img),
+          image: AssetImage(img),
           fit: BoxFit.cover,
         ),
       ),
@@ -38,21 +56,21 @@ class CharacterDetailsCard extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   CircleAvatar(
-                    backgroundImage: AssetImage(character.profileImg),
+                    backgroundImage: AssetImage(profileImg),
                   ),
                   const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        character.race,
+                        race,
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
                       ),
                       Text(
-                        '${character.classes[1]} / ${character.classes[0]} | Lvl. ${character.level}',
+                        '${classes[1]} / ${classes[0]} | Lvl. $level',
                         style: const TextStyle(
                           fontSize: 11,
                           fontStyle: FontStyle.italic,
@@ -63,7 +81,7 @@ class CharacterDetailsCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   CharacterHealthPoints(
-                    max: character.healthPoints.max,
+                    max: healthPoints.max,
                     color: Colors.white,
                   ),
                 ],
@@ -74,19 +92,19 @@ class CharacterDetailsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ArmorClass(
-                armor: character.armor,
+                armor: armor,
                 color: Colors.white,
               ),
               Initiative(
-                initiative: character.initiative,
+                initiative: initiative,
                 color: Colors.white,
               ),
               Speed(
-                speed: character.speed,
+                speed: speed,
                 color: Colors.white,
               ),
               PassivePerception(
-                passivePerception: character.passivePerception,
+                passivePerception: passivePerception,
                 color: Colors.white,
               ),
             ],

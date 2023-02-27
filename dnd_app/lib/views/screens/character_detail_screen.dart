@@ -67,7 +67,16 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             controller: ScrollController(),
             children: [
               CharacterDetailsCard(
-                character: widget.character,
+                img: widget.character.img,
+                race: widget.character.race,
+                armor: widget.character.armor,
+                level: widget.character.level,
+                speed: widget.character.speed,
+                classes: widget.character.classes,
+                initiative: widget.character.initiative,
+                profileImg: widget.character.profileImg,
+                healthPoints: widget.character.healthPoints,
+                passivePerception: widget.character.passivePerception,
               ),
               Column(
                 children: [
@@ -163,7 +172,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             }
           },
           child: ListWeapons(
-            character: widget.character,
+            weapons: widget.character.weapons,
           ),
         ),
         GestureDetector(
@@ -179,7 +188,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             }
           },
           child: ListSpells(
-            character: widget.character,
+            spells: widget.character.spells,
           ),
         ),
         GestureDetector(
@@ -195,7 +204,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             }
           },
           child: ListTraits(
-            character: widget.character,
+            traits: widget.character.traits,
+            favoredEnemy: widget.character.favoredEnemy,
+            favoredTerrain: widget.character.favoredTerrain,
           ),
         ),
         GestureDetector(
@@ -212,7 +223,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           },
           child: ListBackgrounds(
             backgrounds: widget.character.background,
-            character: widget.character,
+            languages: widget.character.languages,
           ),
         ),
         GestureDetector(
@@ -228,7 +239,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             }
           },
           child: BackstoryCard(
-            character: widget.character,
+            backstory: widget.character.backstory,
           ),
         ),
         GestureDetector(
@@ -295,7 +306,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         children: [
           Text(
             name,
-            // if selected, change the color of the text
             style: TextStyle(
                 fontSize: 14.0,
                 color: index == indexButton ? Colors.black : Colors.grey[400]),

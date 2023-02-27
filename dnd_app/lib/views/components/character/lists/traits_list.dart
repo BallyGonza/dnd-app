@@ -3,8 +3,16 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class ListTraits extends StatefulWidget {
-  final Character character;
-  const ListTraits({Key? key, required this.character}) : super(key: key);
+  const ListTraits(
+      {Key? key,
+      required this.traits,
+      required this.favoredEnemy,
+      required this.favoredTerrain})
+      : super(key: key);
+
+  final List<Trait> traits;
+  final String favoredEnemy;
+  final String favoredTerrain;
 
   @override
   State<ListTraits> createState() => _ListTraitsState();
@@ -18,15 +26,15 @@ class _ListTraitsState extends State<ListTraits> {
       children: [
         Expanded(
           child: ListView.builder(
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
             controller: ScrollController(),
             padding: const EdgeInsets.all(0),
-            itemCount: widget.character.traits.length,
+            itemCount: widget.traits.length,
             itemBuilder: (context, index) {
               return TraitCard(
-                trait: widget.character.traits[index],
-                character: widget.character,
+                trait: widget.traits[index],
+                favoredEnemy: widget.favoredEnemy,
+                favoredTerrain: widget.favoredTerrain,
               );
             },
           ),

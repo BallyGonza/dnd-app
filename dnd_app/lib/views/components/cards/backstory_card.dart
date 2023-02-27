@@ -1,20 +1,20 @@
-import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class BackstoryCard extends StatelessWidget {
-  final Character character;
-  const BackstoryCard({Key? key, required this.character}) : super(key: key);
+  const BackstoryCard({Key? key, required this.backstory}) : super(key: key);
+
+  final List<String> backstory;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        for (final backstory in character.backstory)
+        for (final details in backstory)
           Padding(
             padding:
                 const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
             child: Text(
-              backstory,
+              details,
               style: const TextStyle(
                 fontSize: 17,
                 color: Colors.black,

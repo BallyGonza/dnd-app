@@ -3,12 +3,13 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class ListBackgrounds extends StatefulWidget {
-  final Character character;
-  final List<Background> backgrounds;
-
   const ListBackgrounds(
-      {Key? key, required this.backgrounds, required this.character})
+      {Key? key, required this.backgrounds, required this.languages})
       : super(key: key);
+
+  final List<Background> backgrounds;
+  final String languages;
+
   @override
   State<ListBackgrounds> createState() => _ListBackgroundsState();
 }
@@ -20,7 +21,7 @@ class _ListBackgroundsState extends State<ListBackgrounds> {
       children: [
         for (final background in widget.backgrounds)
           BackgroundCard(background: background),
-        LanguagesCard(character: widget.character),
+        LanguagesCard(languages: widget.languages),
       ],
     );
   }
