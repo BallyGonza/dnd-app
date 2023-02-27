@@ -1,2 +1,2 @@
-export 'character_detail.dart';
-export 'character_select.dart';
+export 'character_detail_screen.dart';
+export 'character_select_screen.dart';

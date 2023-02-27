@@ -7,16 +7,17 @@ import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class CharacterDetail extends StatefulWidget {
+class CharacterDetailScreen extends StatefulWidget {
   final Character character;
 
-  const CharacterDetail({Key? key, required this.character}) : super(key: key);
+  const CharacterDetailScreen({Key? key, required this.character})
+      : super(key: key);
 
   @override
-  State<CharacterDetail> createState() => _CharacterDetailState();
+  State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
 }
 
-class _CharacterDetailState extends State<CharacterDetail> {
+class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   var isVisible = false;
   var isDialOpen = ValueNotifier<bool>(false);
   var isDialFightOpen = ValueNotifier<bool>(false);
@@ -47,7 +48,7 @@ class _CharacterDetailState extends State<CharacterDetail> {
           body: ListView(
             controller: ScrollController(),
             children: [
-              CardCharacter(
+              CharacterDetailsCard(
                 character: widget.character,
               ),
               Column(
