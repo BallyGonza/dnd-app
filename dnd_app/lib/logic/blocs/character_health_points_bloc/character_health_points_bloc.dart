@@ -22,7 +22,6 @@ class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     CharacterHealthPointsInitialEvent event,
     Emitter<CharacterHealthPointsState> emit,
   ) {
-    box.get(0) ?? box.put(0, healthPoints);
     healthPoints.current = box.get(0)!.current;
     emit(CharacterHealthPointsState.init(healthPoints.current));
   }

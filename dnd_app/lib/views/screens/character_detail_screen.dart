@@ -29,6 +29,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   @override
   void initState() {
     box = Hive.box<HealthPoints>('character_health_points_box');
+    box.get(0) ?? box.put(0, widget.character.healthPoints);
     super.initState();
   }
 
@@ -43,7 +44,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         providers: [
           BlocProvider(
             create: (context) => CharacterHealthPointsBloc(
-              box.getAt(0) ?? widget.character.healthPoints,
+              box.getAt(0)!,
             ),
           ),
           widget.character.pet.isNotEmpty
