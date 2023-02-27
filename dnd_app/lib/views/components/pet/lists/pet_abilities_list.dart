@@ -22,7 +22,6 @@ class _PetAbilitiesListsState extends State<PetAbilitiesList> {
         ),
         children: [
           ListView.builder(
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
             controller: ScrollController(),
             padding: const EdgeInsets.all(0),

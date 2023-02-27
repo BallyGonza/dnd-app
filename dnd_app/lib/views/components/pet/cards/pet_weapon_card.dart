@@ -39,7 +39,7 @@ class _PetWeaponCardState extends State<PetWeaponCard> {
               onTap: () {
                 showDialog(
                   context: context,
-                  builder: (BuildContext context) => RollDialog(
+                  builder: (BuildContext context) => RollAbilitieSkillDialog(
                     name: 'TO HIT',
                     modifier: widget.weapon.range,
                   ),

@@ -15,41 +15,51 @@ class _PetCardState extends State<PetCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: ExpansionTile(
-          leading: CircleAvatar(
-            backgroundImage: AssetImage(widget.pet[0].profileImg),
-            radius: 30,
-          ),
-          title: Text(widget.pet[0].name, style: const TextStyle(fontSize: 20)),
-          subtitle: Text(
-            widget.pet[0].race,
-            style: const TextStyle(color: Colors.grey),
-          ),
-          childrenPadding:
-              const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(widget.pet[0].img),
+                  fit: BoxFit.contain,
+                  alignment: Alignment.centerRight,
+                  opacity: 0.5,
+                ),
+              ),
+              child: Column(
                 children: [
-                  ArmorClass(armor: widget.pet[0].armor, color: Colors.black),
-                  PetHealthPoints(
-                      max: widget.pet[0].healthPoints.max, color: Colors.black),
-                  Speed(speed: widget.pet[0].speed, color: Colors.black),
+                  ListTile(
+                    title: Text(widget.pet[0].name,
+                        style: const TextStyle(fontSize: 20)),
+                    subtitle: Text(
+                      widget.pet[0].race,
+                      style: const TextStyle(color: Colors.grey),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ArmorClass(
+                            armor: widget.pet[0].armor, color: Colors.black),
+                        PetHealthPoints(
+                            max: widget.pet[0].healthPoints.max,
+                            color: Colors.black),
+                        Speed(speed: widget.pet[0].speed, color: Colors.black),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: PetAbilitiesList(abilities: widget.pet[0].abilities),
-            ),
+            PetAbilitiesList(abilities: widget.pet[0].abilities),
             PetSavingThrowList(savingThrows: widget.pet[0].savingThrows),
             PetSkillList(skills: widget.pet[0].allSkills),
             PetWeaponList(weapons: widget.pet[0].weapons),
             PetTraitsList(pet: widget.pet[0])
-          ]),
-    );
+          ],
+        ));
   }
 }

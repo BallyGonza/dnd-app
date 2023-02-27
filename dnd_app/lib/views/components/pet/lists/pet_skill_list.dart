@@ -38,7 +38,7 @@ class _PetSkillListState extends State<PetSkillList> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return RollDialog(
+                      return RollAbilitieSkillDialog(
                           name: widget.skills[index].name,
                           modifier: widget.skills[index].modifier);
                     },

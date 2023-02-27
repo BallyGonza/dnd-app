@@ -39,7 +39,7 @@ class _PetSavingThrowListState extends State<PetSavingThrowList> {
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return RollDialog(
+                      return RollAbilitieSkillDialog(
                           name: widget.savingThrows[index].name,
                           modifier: widget.savingThrows[index].modifier);
                     },

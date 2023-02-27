@@ -27,12 +27,22 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
 
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
-      title: const Text(
-        'TO HIT',
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-        ),
+      title: Row(
+        children: [
+          const Text(
+            'DAMAGE',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+          const Spacer(),
+          Image(
+            image: AssetImage(widget.weapon.damageDice.img),
+            height: 30,
+            width: 30,
+          ),
+        ],
       ),
       content: SingleChildScrollView(
         child: ListBody(
@@ -40,12 +50,6 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Image of the dice
-                Image(
-                    image: AssetImage(widget.weapon.damageDice.img),
-                    height: 30,
-                    width: 30),
-                // Text of the roll
                 Text(
                   '$roll',
                   style: TextStyle(
@@ -57,18 +61,13 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
                             : Colors.black,
                   ),
                 ),
-
                 const SizedBox(width: 10),
-
-                // If the modifier is greater than 0, display an add icon
                 const Icon(
                   Icons.add,
                   size: 20,
+                  color: Colors.green,
                 ),
-
                 const SizedBox(width: 10),
-
-                // Display the modifier
                 Text(
                   '${widget.weapon.damage}',
                   style: const TextStyle(
@@ -76,18 +75,12 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
                     color: Colors.black,
                   ),
                 ),
-
                 const SizedBox(width: 10),
-
-                // Arrow icon
                 const Icon(
                   Icons.arrow_forward,
                   size: 20,
                 ),
-
                 const SizedBox(width: 10),
-
-                // Total
                 Text(
                   '${roll + widget.weapon.damage}',
                   style: const TextStyle(

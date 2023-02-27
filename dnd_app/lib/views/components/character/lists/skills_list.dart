@@ -23,54 +23,26 @@ class _ListSkillsState extends State<ListSkills> {
       children: [
         Expanded(
           child: ListView.builder(
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
             controller: ScrollController(),
             padding: const EdgeInsets.all(0),
             itemCount: widget.skills1.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                child: SkillCard(
-                  skill: widget.skills1[index],
-                ),
-                onTap: () {
-                  roll = d20.roll();
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDialog(
-                          name: widget.skills1[index].name,
-                          modifier: widget.skills1[index].modifier);
-                    },
-                  );
-                },
+              return SkillCard(
+                skill: widget.skills1[index],
               );
             },
           ),
         ),
         Expanded(
           child: ListView.builder(
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
             controller: ScrollController(),
             padding: const EdgeInsets.all(0),
             itemCount: widget.skills2.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                child: SkillCard(
-                  skill: widget.skills2[index],
-                ),
-                onTap: () {
-                  roll = d20.roll();
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDialog(
-                          name: widget.skills2[index].name,
-                          modifier: widget.skills2[index].modifier);
-                    },
-                  );
-                },
+              return SkillCard(
+                skill: widget.skills2[index],
               );
             },
           ),

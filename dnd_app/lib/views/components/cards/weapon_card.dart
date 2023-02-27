@@ -40,7 +40,7 @@ class _WeaponCardState extends State<WeaponCard> {
                 onTap: () {
                   showDialog(
                     context: context,
-                    builder: (BuildContext context) => RollDialog(
+                    builder: (BuildContext context) => RollAbilitieSkillDialog(
                       name: 'TO HIT',
                       modifier: widget.weapon.range,
                     ),

@@ -29,22 +29,9 @@ class _ListAbilitiesState extends State<ListAbilities> {
             padding: const EdgeInsets.all(0),
             itemCount: widget.abilities.length,
             itemBuilder: (context, index) {
-              return GestureDetector(
-                child: AbilityCard(
-                  ability: widget.abilities[index],
-                  savingThrow: widget.savingThrows[index],
-                ),
-                onTap: () {
-                  roll = d20.roll();
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollDialog(
-                          name: widget.abilities[index].name,
-                          modifier: widget.savingThrows[index].modifier);
-                    },
-                  );
-                },
+              return AbilityCard(
+                ability: widget.abilities[index],
+                savingThrow: widget.savingThrows[index],
               );
             },
           ),

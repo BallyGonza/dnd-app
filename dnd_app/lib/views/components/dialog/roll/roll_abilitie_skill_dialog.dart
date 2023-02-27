@@ -2,18 +2,20 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class RollDialog extends StatefulWidget {
+class RollAbilitieSkillDialog extends StatefulWidget {
+  const RollAbilitieSkillDialog(
+      {Key? key, required this.name, required this.modifier})
+      : super(key: key);
+
   final String name;
   final int modifier;
 
-  const RollDialog({Key? key, required this.name, required this.modifier})
-      : super(key: key);
-
   @override
-  State<RollDialog> createState() => _RollDialogState();
+  State<RollAbilitieSkillDialog> createState() =>
+      _RollAbilitieSkillDialogState();
 }
 
-class _RollDialogState extends State<RollDialog> {
+class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   set roll(int roll) {
     setState(() {
       roll = roll;
@@ -26,12 +28,18 @@ class _RollDialogState extends State<RollDialog> {
 
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
-      title: Text(
-        widget.name,
-        style: const TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-        ),
+      title: Row(
+        children: [
+          Text(
+            widget.name,
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+          const Spacer(),
+          Image(image: AssetImage(d20.img), height: 30, width: 30),
+        ],
       ),
       content: SingleChildScrollView(
         child: ListBody(
@@ -39,9 +47,6 @@ class _RollDialogState extends State<RollDialog> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                // Image of the dice
-                Image(image: AssetImage(d20.img), height: 30, width: 30),
-                // Text of the roll
                 Text(
                   '$roll',
                   style: TextStyle(
@@ -53,18 +58,13 @@ class _RollDialogState extends State<RollDialog> {
                             : Colors.black,
                   ),
                 ),
-
                 const SizedBox(width: 10),
-
-                // If the modifier is greater than 0, display an add icon
                 Icon(
                   widget.modifier > 0 ? Icons.add : Icons.remove,
                   size: 20,
+                  color: widget.modifier > 0 ? Colors.green : Colors.red,
                 ),
-
                 const SizedBox(width: 10),
-
-                // Display the modifier
                 Text(
                   '${widget.modifier.abs()}',
                   style: const TextStyle(
@@ -72,18 +72,12 @@ class _RollDialogState extends State<RollDialog> {
                     color: Colors.black,
                   ),
                 ),
-
                 const SizedBox(width: 10),
-
-                // Arrow icon
                 const Icon(
                   Icons.arrow_forward,
                   size: 20,
                 ),
-
                 const SizedBox(width: 10),
-
-                // Total
                 Text(
                   '${roll + widget.modifier}',
                   style: const TextStyle(
@@ -92,7 +86,20 @@ class _RollDialogState extends State<RollDialog> {
                   ),
                 ),
               ],
-            )
+            ),
+            roll == 20 && widget.name == 'TO HIT'
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      SizedBox(height: 20),
+                      Text('CRITICAL',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.red,
+                          )),
+                    ],
+                  )
+                : const SizedBox.shrink(),
           ],
         ),
       ),
