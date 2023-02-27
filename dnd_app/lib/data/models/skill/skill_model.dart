@@ -1,5 +1,4 @@
-
-class Skill{
+class Skill {
   final String name;
   final int modifier;
   final bool proficiency;

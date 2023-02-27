@@ -1,4 +1,4 @@
-import 'dice.dart';
+import '../dice/dice.dart';
 
 class Weapon {
   final int id;
