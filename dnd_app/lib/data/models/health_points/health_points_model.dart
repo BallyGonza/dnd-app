@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'health_points_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 class HealthPoints {
   @HiveField(0)
   int current;

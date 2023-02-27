@@ -6,6 +6,7 @@ import 'package:dnd_app/logic/logic.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
   final Character character;
@@ -21,7 +22,15 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   var isVisible = false;
   var isDialOpen = ValueNotifier<bool>(false);
   var isDialFightOpen = ValueNotifier<bool>(false);
+
   int index = 0;
+  late Box<HealthPoints> box;
+
+  @override
+  void initState() {
+    box = Hive.box<HealthPoints>('character_health_points_box');
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +43,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         providers: [
           BlocProvider(
             create: (context) => CharacterHealthPointsBloc(
-              widget.character.healthPoints,
+              box.getAt(0) ?? widget.character.healthPoints,
             ),
           ),
           widget.character.pet.isNotEmpty

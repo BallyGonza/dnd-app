@@ -1,3 +1,4 @@
+import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/logic/logic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +29,6 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
               'HIT POINTS',
@@ -49,7 +49,7 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                       CharacterHealthPointsState>(
                     builder: (context, state) {
                       return Text(
-                        state.current.toString(),
+                        '${state.current}',
                         style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,

@@ -8,7 +8,7 @@ part of 'health_points_model.dart';
 
 class HealthPointsAdapter extends TypeAdapter<HealthPoints> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   HealthPoints read(BinaryReader reader) {

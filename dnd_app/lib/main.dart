@@ -8,12 +8,14 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   Hive.registerAdapter(NoteAdapter());
+  Hive.registerAdapter(HealthPointsAdapter());
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await Hive.initFlutter();
   await Hive.openBox<Note>('notes_box');
+  await Hive.openBox<HealthPoints>('character_health_points_box');
   runApp(
     const MyApp(),
   );
