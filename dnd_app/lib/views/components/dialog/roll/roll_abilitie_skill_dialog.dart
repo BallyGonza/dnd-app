@@ -112,9 +112,10 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                                     (e) => Padding(
                                       padding: const EdgeInsets.all(5.0),
                                       child: Chip(
-                                        backgroundColor: (e == 13)
+                                        backgroundColor: (e ==
+                                                1 + widget.modifier)
                                             ? Colors.blue
-                                            : (e == 32)
+                                            : (e == d20.sides + widget.modifier)
                                                 ? Colors.red
                                                 : Colors.black,
                                         label: Text(
