@@ -17,9 +17,7 @@ class Character {
   final Dice hitDice;
   HealthPoints healthPoints;
   final List<Ability> abilities;
-  final List<Skill> allSkills;
-  final List<Skill> skills1;
-  final List<Skill> skills2;
+  final List<Skill> skills;
   final List<SavingThrow> savingThrows;
   final List<Weapon> weapons;
   final String languages;
@@ -48,9 +46,7 @@ class Character {
     required this.hitDice,
     required this.healthPoints,
     required this.abilities,
-    required this.allSkills,
-    required this.skills1,
-    required this.skills2,
+    required this.skills,
     required this.savingThrows,
     required this.weapons,
     required this.languages,

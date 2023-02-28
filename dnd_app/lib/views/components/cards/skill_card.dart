@@ -2,16 +2,11 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class SkillCard extends StatefulWidget {
+class SkillCard extends StatelessWidget {
   final Skill skill;
 
   const SkillCard({Key? key, required this.skill}) : super(key: key);
 
-  @override
-  State<SkillCard> createState() => _SkillCardState();
-}
-
-class _SkillCardState extends State<SkillCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -20,38 +15,43 @@ class _SkillCardState extends State<SkillCard> {
           context: context,
           builder: (context) {
             return RollAbilitieSkillDialog(
-                name: widget.skill.name, modifier: widget.skill.modifier);
+              name: skill.name,
+              modifier: skill.modifier,
+            );
           },
         );
       },
       child: Container(
-        // padding left
-        padding:
-            const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
-                Text(widget.skill.name, style: const TextStyle(fontSize: 15)),
+                Text(
+                  skill.name,
+                  style: const TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
                 const SizedBox(width: 5),
-                widget.skill.proficiency
+                skill.proficiency
                     ? CircleAvatar(
                         backgroundColor: Colors.green[200],
                         radius: 2,
                       )
-                    : const Text(''),
+                    : const SizedBox.shrink(),
               ],
             ),
             Row(
               children: [
-                widget.skill.modifier > 0
+                skill.modifier > 0
                     ? const Icon(
                         Icons.add,
                         color: Colors.green,
                         size: 9,
                       )
-                    : widget.skill.modifier == 0
+                    : skill.modifier == 0
                         ? const Icon(
                             Icons.add,
                             color: Colors.white,
@@ -63,8 +63,8 @@ class _SkillCardState extends State<SkillCard> {
                             size: 8,
                           ),
                 Text(
-                  widget.skill.modifier.abs().toString(),
-                  style: widget.skill.modifier >= 0
+                  skill.modifier.abs().toString(),
+                  style: skill.modifier >= 0
                       ? const TextStyle(color: Colors.green, fontSize: 15)
                       : const TextStyle(color: Colors.red, fontSize: 15),
                 ),

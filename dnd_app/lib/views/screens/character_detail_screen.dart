@@ -164,9 +164,15 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               });
             }
           },
-          child: ListSkills(
-            skills1: widget.character.skills1,
-            skills2: widget.character.skills2,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 5,
+              ),
+              ListSkills(
+                skills: widget.character.skills,
+              ),
+            ],
           ),
         ),
         GestureDetector(
