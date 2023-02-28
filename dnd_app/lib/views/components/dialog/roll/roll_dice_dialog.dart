@@ -1,4 +1,5 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class RollDiceDialog extends StatefulWidget {
@@ -22,79 +23,80 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      actionsAlignment: MainAxisAlignment.spaceBetween,
-      content: SingleChildScrollView(
-        child: ListBody(
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                rolls.length > 1
-                    ? Text(
-                        rolls.join('\n'),
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
-                        textAlign: TextAlign.center,
-                      )
-                    : const SizedBox.shrink(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          roll = widget.dice.roll();
-                          rolls.add(roll);
-                        });
-                      },
-                      child: const Text('Roll'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                          height: 120,
-                          width: 110,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                widget.dice.img,
-                              ),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          child: Center(
-                            child: Text(
-                              roll == 0 ? '' : roll.toString(),
-                              style: const TextStyle(
-                                fontSize: 20,
-                                color: Colors.black,
-                              ),
-                            ),
-                          )),
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          rolls.clear();
-                          roll = 0;
-                        });
-                      },
-                      child: const Text('Clear'),
-                    ),
-                  ],
+        actionsAlignment: MainAxisAlignment.spaceBetween,
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  widget.dice.name.toUpperCase(),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
+                trailing: Image(
+                  image: AssetImage(widget.dice.img),
+                  height: 30,
+                  width: 30,
+                ),
+              ),
+              roll == 0
+                  ? const SizedBox()
+                  : Center(
+                      child: Text(
+                        '$roll',
+                        style: TextStyle(
+                          fontSize: 60,
+                          fontWeight: FontWeight.bold,
+                          color: roll == widget.dice.sides
+                              ? Colors.red
+                              : roll == 1
+                                  ? Colors.blue
+                                  : Colors.black,
+                        ),
+                      ),
+                    ),
+              roll == 0 ? const SizedBox.shrink() : const Divider(),
+              roll == 0
+                  ? const Center(
+                      child: Text('Roll the dice!',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          )),
+                    )
+                  : Wrap(
+                      alignment: WrapAlignment.center,
+                      children: rolls
+                          .map((e) => Chip(
+                                label: Text(
+                                  '$e',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                backgroundColor: e == widget.dice.sides
+                                    ? Colors.red
+                                    : e == 1
+                                        ? Colors.blue
+                                        : Colors.black,
+                              ))
+                          .toList()),
+              roll == 0 ? const SizedBox.shrink() : const Divider(),
+              DiceButton(
+                img: widget.dice.img,
+                color: Colors.black,
+                onPressed: () {
+                  setState(() {
+                    roll = widget.dice.roll();
+                    rolls.add(roll);
+                  });
+                },
+              ),
+            ],
+          ),
+        ));
   }
 }

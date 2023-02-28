@@ -1,2 +1,2 @@
-export 'cancel_button_dialog.dart';
-export 'reroll_button_dialog.dart';
+export 'dice_button_dialog.dart';
+export 'clear_button_dialog.dart';

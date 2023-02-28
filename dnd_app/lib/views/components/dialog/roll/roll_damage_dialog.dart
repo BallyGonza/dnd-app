@@ -15,30 +15,31 @@ class RollDamageDiceDialog extends StatefulWidget {
 }
 
 class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
-  set roll(int roll) {
-    setState(() {
-      roll = roll;
-    });
+  int roll = 0;
+  List<int> rolls = [];
+
+  @override
+  void initState() {
+    rolls.clear();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    int roll = widget.weapon.damageDice.roll();
-
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
       title: Row(
         children: [
-          const Text(
-            'DAMAGE',
-            style: TextStyle(
+          Text(
+            'Damage [${widget.weapon.damageDice.name.toUpperCase()}]',
+            style: const TextStyle(
               fontSize: 20,
               color: Colors.black,
             ),
           ),
           const Spacer(),
           Image(
-            image: AssetImage(widget.weapon.damageDice.img),
+            image: AssetImage(widget.weapon.img),
             height: 30,
             width: 30,
           ),
@@ -47,70 +48,99 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  '$roll',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: (roll == 1)
-                        ? Colors.blue
-                        : (roll == widget.weapon.damageDice.sides)
-                            ? Colors.red
-                            : Colors.black,
+            const Divider(),
+            roll == 0
+                ? const Center(
+                    child: Text(
+                      'Roll the dice!',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
+                    ),
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '$roll',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: (roll == 1)
+                              ? Colors.blue
+                              : (roll == widget.weapon.damageDice.sides)
+                                  ? Colors.red
+                                  : Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      const Icon(
+                        Icons.add,
+                        size: 20,
+                        color: Colors.green,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        '${widget.weapon.damage}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      const Icon(
+                        Icons.arrow_forward,
+                        size: 20,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        '${roll + widget.weapon.damage}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(width: 10),
-                const Icon(
-                  Icons.add,
-                  size: 20,
-                  color: Colors.green,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  '${widget.weapon.damage}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
+            const Divider(),
+            rolls.isEmpty
+                ? const SizedBox.shrink()
+                : Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: 5,
+                    children: rolls
+                        .map(
+                          (e) => Chip(
+                            label: Text(
+                              '$e',
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            backgroundColor: (e == 1 + widget.weapon.damage)
+                                ? Colors.blue
+                                : (e ==
+                                        widget.weapon.damageDice.sides +
+                                            widget.weapon.damage)
+                                    ? Colors.red
+                                    : Colors.black,
+                          ),
+                        )
+                        .toList(),
                   ),
-                ),
-                const SizedBox(width: 10),
-                const Icon(
-                  Icons.arrow_forward,
-                  size: 20,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  '${roll + widget.weapon.damage}',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
+            DiceButton(
+              color: Colors.black,
+              img: widget.weapon.damageDice.img,
+              onPressed: () {
+                setState(() {
+                  roll = widget.weapon.damageDice.roll();
+                  rolls.add(roll + widget.weapon.damage);
+                });
+              },
             )
           ],
         ),
       ),
-      actions: <Widget>[
-        Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              ButtonReRoll(
-                onPressed: () {
-                  setState(() {
-                    roll = d20.roll();
-                  });
-                },
-              ),
-              ButtonCancel(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ])
-      ],
     );
   }
 }
