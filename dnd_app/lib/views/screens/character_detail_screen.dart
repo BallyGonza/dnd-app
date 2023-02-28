@@ -37,8 +37,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        textTheme: GoogleFonts.robotoCondensedTextTheme(),
-      ),
+          // textTheme: GoogleFonts.robotoCondensedTextTheme(),
+          ),
       debugShowCheckedModeBanner: false,
       home: MultiBlocProvider(
         providers: [

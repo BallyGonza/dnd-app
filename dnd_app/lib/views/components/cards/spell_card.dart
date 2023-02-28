@@ -14,7 +14,15 @@ class _SpellCardState extends State<SpellCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
-      child: Card(
+      child: Container(
+        decoration: const BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.purple),
+            left: BorderSide(color: Colors.purple),
+            right: BorderSide(color: Colors.purple),
+            bottom: BorderSide(color: Colors.purple),
+          ),
+        ),
         child: ExpansionTile(
             title:
                 Text(widget.spell.name, style: const TextStyle(fontSize: 20)),
@@ -27,13 +35,11 @@ class _SpellCardState extends State<SpellCard> {
                 decoration: const BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.purple),
-                    left: BorderSide(color: Colors.purple),
-                    right: BorderSide(color: Colors.purple),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15, right: 15, top: 4, bottom: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                   child: Row(
                     children: [
                       const Text('RANGE: ',
@@ -55,13 +61,11 @@ class _SpellCardState extends State<SpellCard> {
                 decoration: const BoxDecoration(
                   border: Border(
                     bottom: BorderSide(color: Colors.purple),
-                    left: BorderSide(color: Colors.purple),
-                    right: BorderSide(color: Colors.purple),
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15, right: 15, top: 4, bottom: 4),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                   child: Row(
                     children: [
                       const Text('COMP: ',
@@ -74,32 +78,24 @@ class _SpellCardState extends State<SpellCard> {
                           style: TextStyle(
                               fontSize: 15, fontWeight: FontWeight.bold)),
                       Text(widget.spell.duration,
+                          overflow: TextOverflow.ellipsis,
                           style: const TextStyle(fontSize: 15)),
                     ],
                   ),
                 ),
               ),
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: Colors.purple),
-                    left: BorderSide(color: Colors.purple),
-                    right: BorderSide(color: Colors.purple),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                      left: 15, right: 15, top: 4, bottom: 4),
-                  child: Column(
-                    children: [
-                      for (final description in widget.spell.description)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 4),
-                          child: Text(description,
-                              style: const TextStyle(fontSize: 15)),
-                        ),
-                    ],
-                  ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                child: Column(
+                  children: [
+                    for (final description in widget.spell.description)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 4),
+                        child: Text(description,
+                            style: const TextStyle(fontSize: 15)),
+                      ),
+                  ],
                 ),
               ),
             ]),
