@@ -19,7 +19,7 @@ class NoteList extends StatelessWidget {
               height: 450,
               child: box.length == 0
                   ? const Center(
-                      child: Text('No notes yet'),
+                      child: Text('No loot yet!'),
                     )
                   : ListView.builder(
                       itemCount: box.length,
@@ -162,6 +162,8 @@ class NoteList extends StatelessWidget {
               );
             },
             onPressed: () {
+              titleController.clear();
+              contentController.clear();
               showModalBottomSheet(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
@@ -221,15 +223,15 @@ class NoteList extends StatelessWidget {
                               Hive.box<Note>('notes_box').add(
                                 Note(
                                   title: titleController.text,
-                                  color: Colors.lightGreen.value,
+                                  color: Colors.black.value,
                                   date:
-                                      '${DateTime.now().hour}:${DateTime.now().minute} ~ ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
+                                      '${DateTime.now().toLocal().hour}:${DateTime.now().toLocal().minute} ~ ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
                                   content: contentController.text,
                                 ),
                               );
                               Navigator.pop(context);
                             },
-                            child: const Text('Add Note'),
+                            child: const Text('Add Loot'),
                           ),
                         ),
                       ],

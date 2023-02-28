@@ -2,7 +2,7 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListAbilities extends StatefulWidget {
+class ListAbilities extends StatelessWidget {
   final List<Ability> abilities;
   final List<SavingThrow> savingThrows;
 
@@ -11,32 +11,17 @@ class ListAbilities extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<ListAbilities> createState() => _ListAbilitiesState();
-}
-
-class _ListAbilitiesState extends State<ListAbilities> {
-  late int roll;
-
-  @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: ListView.builder(
-            shrinkWrap: true,
-            controller: ScrollController(),
-            padding: const EdgeInsets.all(0),
-            itemCount: widget.abilities.length,
-            itemBuilder: (context, index) {
-              return AbilityCard(
-                ability: widget.abilities[index],
-                savingThrow: widget.savingThrows[index],
-              );
-            },
-          ),
-        ),
-      ],
+    return ListView.builder(
+      shrinkWrap: true,
+      padding: const EdgeInsets.all(0),
+      itemCount: abilities.length,
+      itemBuilder: (context, index) {
+        return AbilityCard(
+          ability: abilities[index],
+          savingThrow: savingThrows[index],
+        );
+      },
     );
   }
 }

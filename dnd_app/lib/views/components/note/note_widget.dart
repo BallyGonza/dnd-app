@@ -21,6 +21,10 @@ class NoteWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color(color),
         borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.black.withOpacity(0.5),
+          width: 1,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -28,12 +32,12 @@ class NoteWidget extends StatelessWidget {
           ListTile(
             title: Text(
               title,
-              style: const TextStyle(color: Colors.black, fontSize: 20),
+              style: const TextStyle(color: Colors.white, fontSize: 20),
             ),
             subtitle: Text(
               content,
               style: TextStyle(
-                color: Colors.black.withOpacity(0.5),
+                color: Colors.white.withOpacity(0.5),
               ),
             ),
           ),
@@ -41,7 +45,7 @@ class NoteWidget extends StatelessWidget {
             padding: const EdgeInsets.only(right: 8.0),
             child: Text(
               date,
-              style: TextStyle(color: Colors.black.withOpacity(0.5)),
+              style: TextStyle(color: Colors.white.withOpacity(0.5)),
             ),
           ),
         ],

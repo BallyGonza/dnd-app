@@ -73,29 +73,25 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             ),
             backgroundColor: Colors.black,
           ),
-          body: ListView(
-            controller: ScrollController(),
-            children: [
-              CharacterDetailsCard(
-                img: widget.character.img,
-                race: widget.character.race,
-                armor: widget.character.armor,
-                level: widget.character.level,
-                speed: widget.character.speed,
-                classes: widget.character.classes,
-                initiative: widget.character.initiative,
-                profileImg: widget.character.profileImg,
-                healthPoints: widget.character.healthPoints,
-                passivePerception: widget.character.passivePerception,
-              ),
-              Column(
-                children: [
-                  _navigationButtons(),
-                  _stackedWidgets(),
-                  const SizedBox(height: 80),
-                ],
-              ),
-            ],
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                CharacterDetailsCard(
+                  img: widget.character.img,
+                  race: widget.character.race,
+                  armor: widget.character.armor,
+                  level: widget.character.level,
+                  speed: widget.character.speed,
+                  classes: widget.character.classes,
+                  initiative: widget.character.initiative,
+                  profileImg: widget.character.profileImg,
+                  healthPoints: widget.character.healthPoints,
+                  passivePerception: widget.character.passivePerception,
+                ),
+                _navigationButtons(),
+                _stackedWidgets(),
+              ],
+            ),
           ),
           floatingActionButton: SpeedDial(
             overlayOpacity: 0,

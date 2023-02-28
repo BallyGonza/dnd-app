@@ -2,23 +2,16 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListSkills extends StatefulWidget {
+class ListSkills extends StatelessWidget {
   final List<Skill> skills;
 
   const ListSkills({Key? key, required this.skills}) : super(key: key);
 
   @override
-  State<ListSkills> createState() => _ListSkillsState();
-}
-
-class _ListSkillsState extends State<ListSkills> {
-  late int roll;
-
-  @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
-      itemCount: widget.skills.length,
+      itemCount: skills.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: 5,
@@ -27,7 +20,7 @@ class _ListSkillsState extends State<ListSkills> {
         return Column(
           children: [
             SkillCard(
-              skill: widget.skills[index],
+              skill: skills[index],
             ),
             const Divider()
           ],
