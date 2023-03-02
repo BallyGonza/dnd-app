@@ -1,16 +1,15 @@
+import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class DiceButton extends StatelessWidget {
   const DiceButton({
     Key? key,
     required this.onPressed,
-    required this.color,
-    required this.img,
+    required this.dice,
   }) : super(key: key);
 
   final Function onPressed;
-  final String img;
-  final Color color;
+  final Dice dice;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class DiceButton extends StatelessWidget {
           height: 60,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: color,
+              backgroundColor: Colors.black,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(50.0),
               ),
@@ -31,7 +30,7 @@ class DiceButton extends StatelessWidget {
               onPressed();
             },
             child: Image(
-              image: AssetImage(img),
+              image: AssetImage(dice.img),
               color: Colors.white,
               height: 30,
               width: 30,

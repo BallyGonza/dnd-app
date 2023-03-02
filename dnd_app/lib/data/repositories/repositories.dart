@@ -4,3 +4,4 @@ export 'spells/spells.dart';
 export 'traits/traits.dart';
 export 'weapons/weapons.dart';
 export 'dices/dices.dart';
+export 'constants/constants.dart';

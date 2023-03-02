@@ -52,98 +52,42 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                       'Roll the dice!',
                       style: TextStyle(
                         fontSize: 20,
-                        color: Colors.black,
                       ),
                     ),
                   )
                 : Column(
                     children: [
                       const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            '$roll',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: (roll == 1)
-                                  ? Colors.blue
-                                  : (roll == 20)
-                                      ? Colors.red
-                                      : Colors.black,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Icon(
-                            widget.modifier > 0 ? Icons.add : Icons.remove,
-                            size: 20,
-                            color:
-                                widget.modifier > 0 ? Colors.green : Colors.red,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            '${widget.modifier.abs()}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          const Icon(
-                            Icons.arrow_forward,
-                            size: 20,
-                          ),
-                          const SizedBox(width: 10),
-                          Text(
-                            '${roll + widget.modifier}',
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
+                      SumRow(
+                        roll: roll,
+                        modifier: widget.modifier,
                       ),
                       const Divider(),
                       rolls.isEmpty
                           ? const SizedBox()
-                          : Wrap(
-                              children: rolls
-                                  .map(
-                                    (e) => Padding(
-                                      padding: const EdgeInsets.all(5.0),
-                                      child: Chip(
-                                        backgroundColor: (e ==
-                                                1 + widget.modifier)
-                                            ? Colors.blue
-                                            : (e == d20.sides + widget.modifier)
-                                                ? Colors.red
-                                                : Colors.black,
-                                        label: Text(
-                                          '$e',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                  .toList(),
-                            ),
+                          : ListOfRolls(
+                              rolls: rolls,
+                              dice: d20,
+                              modifier: widget.modifier,
+                            )
                     ],
                   ),
             DiceButton(
-              img: d20.img,
-              color: Colors.black,
+              dice: d20,
               onPressed: () {
-                setState(() {
-                  roll = d20.roll();
-                  rolls.add(roll + widget.modifier);
-                });
+                _rollAndAddToRolls();
               },
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _rollAndAddToRolls() {
+    return setState(() {
+      roll = d20.roll();
+      rolls.add(roll + widget.modifier);
+    });
   }
 }

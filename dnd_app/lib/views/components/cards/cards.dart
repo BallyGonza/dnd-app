@@ -5,5 +5,5 @@ export 'character_card.dart';
 export 'languages_card.dart';
 export 'skill_card.dart';
 export 'spell_card.dart';
-export 'weapon_card.dart';
+export 'weapon_card/weapon_card.dart';
 export 'trait_card.dart';

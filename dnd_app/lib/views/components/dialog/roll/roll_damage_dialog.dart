@@ -26,20 +26,22 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final Dice dice = widget.weapon.damageDice;
+    final int modifier = widget.weapon.damage;
+    final String weapongImg = widget.weapon.img;
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
       title: Row(
         children: [
           Text(
-            'Damage [${widget.weapon.damageDice.name.toUpperCase()}]',
+            'Damage [${dice.name.toUpperCase()}]',
             style: const TextStyle(
               fontSize: 20,
-              color: Colors.black,
             ),
           ),
           const Spacer(),
           Image(
-            image: AssetImage(widget.weapon.img),
+            image: AssetImage(weapongImg),
             height: 30,
             width: 30,
           ),
@@ -59,88 +61,34 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
                       ),
                     ),
                   )
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        '$roll',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: (roll == 1)
-                              ? Colors.blue
-                              : (roll == widget.weapon.damageDice.sides)
-                                  ? Colors.red
-                                  : Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      const Icon(
-                        Icons.add,
-                        size: 20,
-                        color: Colors.green,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        '${widget.weapon.damage}',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      const Icon(
-                        Icons.arrow_forward,
-                        size: 20,
-                      ),
-                      const SizedBox(width: 10),
-                      Text(
-                        '${roll + widget.weapon.damage}',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
+                : SumRow(
+                    modifier: modifier,
+                    roll: roll,
                   ),
             const Divider(),
             rolls.isEmpty
                 ? const SizedBox.shrink()
-                : Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 5,
-                    children: rolls
-                        .map(
-                          (e) => Chip(
-                            label: Text(
-                              '$e',
-                              style: const TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                            backgroundColor: (e == 1 + widget.weapon.damage)
-                                ? Colors.blue
-                                : (e ==
-                                        widget.weapon.damageDice.sides +
-                                            widget.weapon.damage)
-                                    ? Colors.red
-                                    : Colors.black,
-                          ),
-                        )
-                        .toList(),
+                : ListOfRolls(
+                    rolls: rolls,
+                    dice: dice,
+                    modifier: modifier,
                   ),
             DiceButton(
-              color: Colors.black,
-              img: widget.weapon.damageDice.img,
+              dice: dice,
               onPressed: () {
-                setState(() {
-                  roll = widget.weapon.damageDice.roll();
-                  rolls.add(roll + widget.weapon.damage);
-                });
+                _rollAndAddToRolls(dice, modifier);
               },
             )
           ],
         ),
       ),
     );
+  }
+
+  void _rollAndAddToRolls(Dice dice, int modifier) {
+    return setState(() {
+      roll = dice.roll();
+      rolls.add(roll + modifier);
+    });
   }
 }
