@@ -1,7 +1,7 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class DiceButton extends StatelessWidget {
+class DiceButton extends StatefulWidget {
   const DiceButton({
     Key? key,
     required this.onPressed,
@@ -10,6 +10,28 @@ class DiceButton extends StatelessWidget {
 
   final Function onPressed;
   final Dice dice;
+
+  @override
+  State<DiceButton> createState() => _DiceButtonState();
+}
+
+class _DiceButtonState extends State<DiceButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  @override
+  void initState() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1000),
+    );
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +48,20 @@ class DiceButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50.0),
               ),
             ),
-            onPressed: () {
-              onPressed();
+            onPressed: () async {
+              await _controller.forward(from: 0.0);
+              widget.onPressed();
             },
-            child: Image(
-              image: AssetImage(dice.img),
-              color: Colors.white,
-              height: 30,
-              width: 30,
+            child: RotationTransition(
+              turns: Tween(begin: 0.0, end: 1.0).animate(
+                _controller,
+              ),
+              child: Image(
+                image: AssetImage(widget.dice.img),
+                color: Colors.white,
+                height: 30,
+                width: 30,
+              ),
             ),
           ),
         ),
