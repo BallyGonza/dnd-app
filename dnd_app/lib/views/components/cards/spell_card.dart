@@ -22,12 +22,12 @@ class _SpellCardState extends State<SpellCard> {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           border: Border(
-            top: BorderSide(color: Colors.purple),
-            left: BorderSide(color: Colors.purple),
-            right: BorderSide(color: Colors.purple),
-            bottom: BorderSide(color: Colors.purple),
+            top: BorderSide(color: Color(spellCardColor)),
+            left: BorderSide(color: Color(spellCardColor)),
+            right: BorderSide(color: Color(spellCardColor)),
+            bottom: BorderSide(color: Color(spellCardColor)),
           ),
         ),
         child: ExpansionTile(
@@ -43,10 +43,10 @@ class _SpellCardState extends State<SpellCard> {
             ),
             children: <Widget>[
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   border: Border(
-                    top: BorderSide(color: Colors.purple),
-                    bottom: BorderSide(color: Colors.purple),
+                    top: BorderSide(color: Color(spellCardColor)),
+                    bottom: BorderSide(color: Color(spellCardColor)),
                   ),
                 ),
                 child: Padding(

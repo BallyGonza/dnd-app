@@ -40,7 +40,8 @@ class _PetWeaponCardState extends State<PetWeaponCard> {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) => RollAbilitieSkillDialog(
-                    name: 'TO HIT',
+                    name:
+                        'To Hit [${widget.weapon.checkDice.name.toUpperCase()}]',
                     modifier: widget.weapon.range,
                   ),
                 );
