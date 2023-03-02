@@ -50,7 +50,7 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
       content: SingleChildScrollView(
         child: ListBody(
           children: <Widget>[
-            const Divider(),
+            rolls.isEmpty ? const SizedBox.shrink() : const Divider(),
             roll == 0
                 ? const Center(
                     child: Text(
@@ -65,7 +65,7 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
                     modifier: modifier,
                     roll: roll,
                   ),
-            const Divider(),
+            rolls.isEmpty ? const SizedBox.shrink() : const Divider(),
             rolls.isEmpty
                 ? const SizedBox.shrink()
                 : ListOfRolls(

@@ -28,20 +28,23 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: ListTile(
-        title: Text(
-          widget.name.toUpperCase(),
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
+      title: Row(
+        children: [
+          Text(
+            widget.name,
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
-        ),
-        trailing: Image(
-          image: AssetImage(d20.img),
-          height: 30,
-          width: 30,
-        ),
+          const Spacer(),
+          Image(
+            image: AssetImage(d20.img),
+            height: 30,
+            width: 30,
+          ),
+        ],
       ),
       content: SingleChildScrollView(
         child: ListBody(

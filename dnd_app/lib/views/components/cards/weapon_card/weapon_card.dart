@@ -26,37 +26,25 @@ class WeaponCard extends StatelessWidget {
           childrenPadding:
               const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) => RollAbilitieSkillDialog(
-                      name: 'TO HIT [${d20.name}]',
-                      modifier: weapon.range,
-                    ),
-                  );
-                },
-                child: WeaponThrowRow(
-                  title: 'TO HIT',
-                  weapon: weapon,
+            WeaponThrowRow(
+              title: 'TO HIT',
+              weapon: weapon,
+              onTap: () => showDialog(
+                context: context,
+                builder: (BuildContext context) => RollAbilitieSkillDialog(
+                  name: 'To Hit [${d20.name.toUpperCase()}]',
+                  modifier: weapon.range,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                onTap: () => showDialog(
-                  context: context,
-                  builder: (context) => RollDamageDiceDialog(
-                    weapon: weapon,
-                    dice: weapon.damageDice,
-                  ),
-                ),
-                child: WeaponThrowRow(
-                  title: 'DAMAGE',
+            WeaponThrowRow(
+              title: 'DAMAGE',
+              weapon: weapon,
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => RollDamageDiceDialog(
                   weapon: weapon,
+                  dice: weapon.damageDice,
                 ),
               ),
             ),
