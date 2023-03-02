@@ -4,8 +4,8 @@ class Spell {
   final String range;
   final String castTime;
   final String duration;
-  final List<String> comp;
-  final List<String> description;
+  final String comp;
+  final String description;
 
   Spell({
     required this.name,

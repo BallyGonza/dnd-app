@@ -44,16 +44,15 @@ class _TraitCardState extends State<TraitCard> {
                                 : Container(),
                       ],
                     ),
-                    for (final description in widget.trait.description)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Column(
-                          children: [
-                            Text(description,
-                                style: const TextStyle(fontSize: 15)),
-                          ],
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Column(
+                        children: [
+                          Text(widget.trait.description,
+                              style: const TextStyle(fontSize: 15)),
+                        ],
                       ),
+                    ),
                   ],
                 ),
               ),

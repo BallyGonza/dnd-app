@@ -1,6 +1,6 @@
 class Trait {
   final String name;
-  final List<String> description;
+  final String description;
 
   Trait({
     required this.name,

@@ -24,7 +24,7 @@ class Character {
   final List<Trait> traits;
   final List<Spell> spells;
   final List<Background> background;
-  final List<String> backstory;
+  final String backstory;
   final List<Pet> pet;
   final String favoredEnemy;
   final String favoredTerrain;

@@ -12,6 +12,13 @@ class SpellCard extends StatefulWidget {
 class _SpellCardState extends State<SpellCard> {
   @override
   Widget build(BuildContext context) {
+    final String name = widget.spell.name;
+    final int level = widget.spell.level;
+    final String range = widget.spell.range;
+    final String castTime = widget.spell.castTime;
+    final String comp = widget.spell.comp;
+    final String duration = widget.spell.duration;
+    final String description = widget.spell.description;
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
       child: Container(
@@ -24,62 +31,36 @@ class _SpellCardState extends State<SpellCard> {
           ),
         ),
         child: ExpansionTile(
-            title:
-                Text(widget.spell.name, style: const TextStyle(fontSize: 20)),
+            title: Text(
+              name,
+              style: const TextStyle(fontSize: 20),
+            ),
             subtitle: Text(
-              'Level ${widget.spell.level}',
-              style: const TextStyle(color: Colors.grey),
+              'Level ${level.toString()}',
+              style: TextStyle(
+                color: Colors.black.withOpacity(0.5),
+              ),
             ),
             children: <Widget>[
               Container(
                 decoration: const BoxDecoration(
                   border: Border(
                     top: BorderSide(color: Colors.purple),
-                  ),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                  child: Row(
-                    children: [
-                      const Text('RANGE: ',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold)),
-                      Text(widget.spell.range,
-                          style: const TextStyle(fontSize: 15)),
-                      Expanded(child: Container()),
-                      const Text('CAST TIME: ',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold)),
-                      Text(widget.spell.castTime,
-                          style: const TextStyle(fontSize: 15)),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
                     bottom: BorderSide(color: Colors.purple),
                   ),
                 ),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                  child: Row(
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    crossAxisCount: 2,
+                    childAspectRatio: 7,
                     children: [
-                      const Text('COMP: ',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold)),
-                      for (final comp in widget.spell.comp)
-                        Text(comp, style: const TextStyle(fontSize: 15)),
-                      Expanded(child: Container()),
-                      const Text('DURATION: ',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold)),
-                      Text(widget.spell.duration,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(fontSize: 15)),
+                      SpecField(title: 'Range', details: range),
+                      SpecField(title: 'Cast Time', details: castTime),
+                      SpecField(title: 'Comp', details: comp),
+                      SpecField(title: 'Duration', details: duration),
                     ],
                   ),
                 ),
@@ -87,19 +68,45 @@ class _SpellCardState extends State<SpellCard> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                child: Column(
-                  children: [
-                    for (final description in widget.spell.description)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 4),
-                        child: Text(description,
-                            style: const TextStyle(fontSize: 15)),
-                      ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 4),
+                  child:
+                      Text(description, style: const TextStyle(fontSize: 15)),
                 ),
               ),
             ]),
       ),
+    );
+  }
+}
+
+class SpecField extends StatelessWidget {
+  const SpecField({
+    Key? key,
+    required this.details,
+    required this.title,
+  }) : super(key: key);
+
+  final String details;
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text(
+          '${title.toUpperCase()}: ',
+          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(width: 3),
+        Expanded(
+          child: Text(
+            overflow: TextOverflow.ellipsis,
+            details,
+            style: const TextStyle(fontSize: 15),
+          ),
+        ),
+      ],
     );
   }
 }
