@@ -1,41 +1,35 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_model.dart';
+part of 'background_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NoteAdapter extends TypeAdapter<Note> {
+class BackgroundAdapter extends TypeAdapter<Background> {
   @override
-  final int typeId = 11;
+  final int typeId = 4;
 
   @override
-  Note read(BinaryReader reader) {
+  Background read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Note(
-      title: fields[0] as String,
-      content: fields[1] as String,
-      date: fields[2] as String,
-      color: fields[3] as int,
+    return Background(
+      name: fields[0] as String,
+      description: fields[1] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Note obj) {
+  void write(BinaryWriter writer, Background obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj.title)
-      ..writeByte(1)
-      ..write(obj.content)
       ..writeByte(2)
-      ..write(obj.date)
-      ..writeByte(3)
-      ..write(obj.color);
+      ..writeByte(0)
+      ..write(obj.name)
+      ..writeByte(1)
+      ..write(obj.description);
   }
 
   @override
@@ -44,7 +38,7 @@ class NoteAdapter extends TypeAdapter<Note> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NoteAdapter &&
+      other is BackgroundAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

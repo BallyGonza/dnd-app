@@ -24,12 +24,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   var isDialFightOpen = ValueNotifier<bool>(false);
 
   int index = 0;
-  late Box<HealthPoints> box;
+  late Box<Character> box;
 
   @override
   void initState() {
-    box = Hive.box<HealthPoints>('character_health_points_box');
-    box.get(0) ?? box.put(0, widget.character.healthPoints);
+    box = Hive.box<Character>('characters_box');
+    box.get(0) ?? box.put(0, widget.character);
     super.initState();
   }
 
@@ -116,7 +116,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   SpeedDialChild _diceFABItem({required Dice dice}) {
     return SpeedDialChild(
-      child: Icon(dice.icon),
+      child: Image.asset(dice.img),
       backgroundColor: Colors.white,
       onTap: () {
         setState(() {

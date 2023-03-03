@@ -50,9 +50,9 @@ class _PetWeaponCardState extends State<PetWeaponCard> {
                 children: [
                   const Text('TO HIT', style: TextStyle(fontSize: 20)),
                   Expanded(child: Container()),
-                  Icon(
-                    widget.weapon.checkDice.icon,
-                    size: 20,
+                  Image.asset(
+                    widget.weapon.checkDice.img,
+                    height: 20,
                   ),
                   const SizedBox(width: 5),
                   const Text('+', style: TextStyle(fontSize: 15)),
@@ -80,9 +80,9 @@ class _PetWeaponCardState extends State<PetWeaponCard> {
                   const Text('DAMAGE', style: TextStyle(fontSize: 20)),
                   Expanded(child: Container()),
                   // icon of the dice
-                  Icon(
-                    widget.weapon.damageDice.icon,
-                    size: 20,
+                  Image.asset(
+                    widget.weapon.damageDice.img,
+                    height: 20,
                   ),
                   const SizedBox(width: 5),
                   const Text('+', style: TextStyle(fontSize: 15)),

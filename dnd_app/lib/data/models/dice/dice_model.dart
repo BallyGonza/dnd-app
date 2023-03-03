@@ -1,17 +1,20 @@
 import 'dart:math';
+import 'package:hive/hive.dart';
 
-import 'package:flutter/cupertino.dart';
+part 'dice_model.g.dart';
 
+@HiveType(typeId: 2)
 class Dice {
+  @HiveField(0)
   final String name;
+  @HiveField(1)
   final int sides;
-  final IconData icon;
+  @HiveField(2)
   final String img;
 
   Dice({
     required this.name,
     required this.sides,
-    required this.icon,
     required this.img,
   });
 

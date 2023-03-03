@@ -55,4 +55,39 @@ class MyFlutterApp {
       IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData dice_d20 =
       IconData(0xf6cf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
+  getIconData(String iconName) {
+    switch (iconName) {
+      case 'd20v2':
+        return d20v2;
+      case 'image2vector':
+        return image2vector;
+      case 'd20':
+        return d20;
+      case 'd12':
+        return d12;
+      case 'image2vector_1__3':
+        return image2vector_1__3;
+      case 'd10':
+        return d10;
+      case 'image2vector_1__2':
+        return image2vector_1__2;
+      case 'd8':
+        return d8;
+      case 'image2vector_1__1':
+        return image2vector_1__1;
+      case 'd6':
+        return d6;
+      case 'image2vector_1_':
+        return image2vector_1_;
+      case 'd4':
+        return d4;
+      case 'd4desc':
+        return d4desc;
+      case 'dice_d20':
+        return dice_d20;
+      default:
+        return d20v2;
+    }
+  }
 }

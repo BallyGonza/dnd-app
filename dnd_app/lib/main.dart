@@ -7,15 +7,26 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
-  Hive.registerAdapter(NoteAdapter());
-  Hive.registerAdapter(HealthPointsAdapter());
+  Hive
+    ..registerAdapter(NoteAdapter())
+    ..registerAdapter(HealthPointsAdapter())
+    ..registerAdapter(DiceAdapter())
+    ..registerAdapter(PetAdapter())
+    ..registerAdapter(AbilityAdapter())
+    ..registerAdapter(SavingThrowAdapter())
+    ..registerAdapter(WeaponAdapter())
+    ..registerAdapter(TraitAdapter())
+    ..registerAdapter(SkillAdapter())
+    ..registerAdapter(CharacterAdapter())
+    ..registerAdapter(BackgroundAdapter())
+    ..registerAdapter(SpellAdapter());
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
   await Hive.initFlutter();
   await Hive.openBox<Note>('notes_box');
-  await Hive.openBox<HealthPoints>('character_health_points_box');
+  await Hive.openBox<Character>('characters_box');
   runApp(
     const MyApp(),
   );
@@ -28,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        // textTheme: GoogleFonts.robotoCondensedTextTheme(),
+        textTheme: GoogleFonts.robotoCondensedTextTheme(),
         primaryColor: Colors.black,
         listTileTheme: const ListTileThemeData(
           selectedColor: Colors.black,

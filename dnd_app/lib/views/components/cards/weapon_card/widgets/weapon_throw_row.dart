@@ -1,4 +1,5 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/services/services.dart';
 import 'package:flutter/material.dart';
 
 class WeaponThrowRow extends StatelessWidget {
@@ -28,11 +29,9 @@ class WeaponThrowRow extends StatelessWidget {
               style: const TextStyle(fontSize: 20),
             ),
             const Spacer(),
-            Icon(
-              title == 'TO HIT'
-                  ? weapon.checkDice.icon
-                  : weapon.damageDice.icon,
-              size: 20,
+            Image.asset(
+              title == 'TO HIT' ? weapon.checkDice.img : weapon.damageDice.img,
+              width: 20,
             ),
             const SizedBox(width: 5),
             const Text(

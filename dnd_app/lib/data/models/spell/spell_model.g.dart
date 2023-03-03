@@ -1,41 +1,50 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'note_model.dart';
+part of 'spell_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class NoteAdapter extends TypeAdapter<Note> {
+class SpellAdapter extends TypeAdapter<Spell> {
   @override
-  final int typeId = 11;
+  final int typeId = 8;
 
   @override
-  Note read(BinaryReader reader) {
+  Spell read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Note(
-      title: fields[0] as String,
-      content: fields[1] as String,
-      date: fields[2] as String,
-      color: fields[3] as int,
+    return Spell(
+      name: fields[0] as String,
+      level: fields[1] as int,
+      range: fields[2] as String,
+      castTime: fields[3] as String,
+      duration: fields[4] as String,
+      comp: fields[5] as String,
+      description: fields[6] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Note obj) {
+  void write(BinaryWriter writer, Spell obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(7)
       ..writeByte(0)
-      ..write(obj.title)
+      ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.content)
+      ..write(obj.level)
       ..writeByte(2)
-      ..write(obj.date)
+      ..write(obj.range)
       ..writeByte(3)
-      ..write(obj.color);
+      ..write(obj.castTime)
+      ..writeByte(4)
+      ..write(obj.duration)
+      ..writeByte(5)
+      ..write(obj.comp)
+      ..writeByte(6)
+      ..write(obj.description);
   }
 
   @override
@@ -44,7 +53,7 @@ class NoteAdapter extends TypeAdapter<Note> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is NoteAdapter &&
+      other is SpellAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
