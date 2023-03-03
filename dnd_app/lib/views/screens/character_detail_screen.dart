@@ -121,7 +121,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   SpeedDialChild _diceFABItem({required Dice dice}) {
     return SpeedDialChild(
-      child: Image.asset(dice.img),
+      child: Image.asset(dice.img, width: 30, height: 30),
       backgroundColor: Colors.white,
       onTap: () {
         setState(() {
