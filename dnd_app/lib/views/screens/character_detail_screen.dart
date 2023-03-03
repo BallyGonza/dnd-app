@@ -47,6 +47,11 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               box.getAt(0)!,
             ),
           ),
+          BlocProvider(
+            create: (context) => LootBloc(
+              box.getAt(0)!,
+            ),
+          ),
           widget.character.pet.isNotEmpty
               ? BlocProvider(
                   create: (context) => PetHealthPointsBloc(

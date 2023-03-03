@@ -1,10 +1,22 @@
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:dnd_app/logic/logic.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class NoteList extends StatelessWidget {
+class NoteList extends StatefulWidget {
   const NoteList({super.key});
+
+  @override
+  State<NoteList> createState() => _NoteListState();
+}
+
+class _NoteListState extends State<NoteList> {
+  @override
+  void initState() {
+    context.read<LootBloc>().add(const LootEvent.init());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,238 +24,92 @@ class NoteList extends StatelessWidget {
     final contentController = TextEditingController();
     return Column(
       children: [
-        ValueListenableBuilder(
-          valueListenable: Hive.box<Note>('notes_box').listenable(),
-          builder: (context, Box<Note> box, _) {
-            return SizedBox(
-              height: 450,
-              child: box.length == 0
-                  ? const Center(
-                      child: Text('No loot yet!'),
-                    )
-                  : ListView.builder(
-                      itemCount: box.length,
-                      itemBuilder: (context, index) {
-                        final note = box.getAt(index);
-                        return GestureDetector(
-                          onTap: () {
-                            showModalBottomSheet(
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(10),
-                                  ),
-                                ),
-                                context: context,
-                                builder: (context) {
-                                  return Container(
-                                    padding: const EdgeInsets.all(16),
-                                    child: Column(
-                                      children: [
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        TextFormField(
-                                          onChanged: (value) {
-                                            note!.title = value;
-                                          },
-                                          controller: TextEditingController(
-                                              text: note!.title),
-                                          decoration: const InputDecoration(
-                                            border: OutlineInputBorder(),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 10,
-                                        ),
-                                        TextFormField(
-                                          onChanged: (value) {
-                                            note.content = value;
-                                          },
-                                          controller: TextEditingController(
-                                            text: note.content,
-                                          ),
-                                          maxLines: 11,
-                                          decoration: const InputDecoration(
-                                            border: OutlineInputBorder(),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const Spacer(),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.4,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: Colors.black,
-                                                ),
-                                                onPressed: () {
-                                                  box.putAt(
-                                                    index,
-                                                    Note(
-                                                      title:
-                                                          TextEditingController(
-                                                        text: note.title,
-                                                      ).text,
-                                                      content:
-                                                          TextEditingController(
-                                                        text: note.content,
-                                                      ).text,
-                                                      date: DateTime.now()
-                                                          .toString(),
-                                                      color: note.color,
-                                                    ),
-                                                  );
-                                                  Navigator.pop(context);
-                                                },
-                                                child: const Text('Update'),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.4,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                  backgroundColor: Colors.black,
-                                                ),
-                                                onPressed: () {
-                                                  box.deleteAt(index);
-                                                  Navigator.pop(context);
-                                                },
-                                                child: const Text('Delete'),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                });
-                          },
-                          child: NoteWidget(
-                            title: note!.title,
-                            content: note.content,
-                            date: note.date,
-                            color: note.color,
-                          ),
-                        );
-                      },
-                    ),
-            );
+        BlocBuilder<LootBloc, LootState>(
+          builder: (context, state) {
+            return state.notes.isEmpty
+                ? const Text('No notes')
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state.notes.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onLongPress: () {
+                          setState(() {
+                            context.read<LootBloc>().add(
+                                  LootEvent.delete(index),
+                                );
+                          });
+                        },
+                        child: NoteWidget(
+                          title: state.notes[index].title,
+                          content: state.notes[index].content,
+                          date: state.notes[index].date,
+                          color: state.notes[index].color,
+                          index: index,
+                        ),
+                      );
+                    },
+                  );
           },
         ),
-        // button add note
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              shape: const CircleBorder(),
-            ),
-            onLongPress: () {
-              Hive.box<Note>('notes_box').deleteAll(
-                Hive.box<Note>('notes_box').keys,
-              );
-            },
-            onPressed: () {
-              titleController.clear();
-              contentController.clear();
-              showModalBottomSheet(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                context: context,
-                builder: (context) {
-                  return Container(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Add Loot',
-                            style: Theme.of(context).textTheme.headline6,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          controller: titleController,
-                          decoration: const InputDecoration(
-                            hintText: 'Title',
-                            border: OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          controller: contentController,
-                          maxLines: 11,
-                          decoration: const InputDecoration(
-                            hintText: 'Content',
-                            border: OutlineInputBorder(),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Spacer(),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
-                            ),
-                            onPressed: () {
-                              Hive.box<Note>('notes_box').add(
-                                Note(
-                                  title: titleController.text,
-                                  color: Colors.black.value,
-                                  date:
-                                      '${DateTime.now().toLocal().hour}:${DateTime.now().toLocal().minute} ~ ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}',
-                                  content: contentController.text,
-                                ),
-                              );
-                              Navigator.pop(context);
-                            },
-                            child: const Text('Add Loot'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
-            },
-            child: const Icon(Icons.add),
-          ),
+        const SizedBox(
+          height: 10,
         ),
-        // button delete note
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // text field for title
+            SizedBox(
+              width: 100,
+              child: TextField(
+                controller: titleController,
+                decoration: const InputDecoration(
+                  hintText: 'Title',
+                ),
+              ),
+            ),
+            // text field for content
+            SizedBox(
+              width: 100,
+              child: TextField(
+                controller: contentController,
+                decoration: const InputDecoration(
+                  hintText: 'Content',
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  context.read<LootBloc>().add(
+                        LootEvent.add(
+                          Note(
+                            title: titleController.text,
+                            content: contentController.text,
+                            date: DateTime.now().toString(),
+                            color: Colors.black.value,
+                          ),
+                        ),
+                      );
+                  contentController.clear();
+                  titleController.clear();
+                });
+              },
+              child: const Text('Add Note'),
+            ),
+            // text field for content
+            // SizedBox(
+            //   width: 100,
+            //   child: TextField(
+            //     controller: contentController,
+            //     decoration: const InputDecoration(
+            //       hintText: 'Content',
+            //     ),
+            //   ),
+            // ),
+            // button to add note
+          ],
+        ),
       ],
     );
   }

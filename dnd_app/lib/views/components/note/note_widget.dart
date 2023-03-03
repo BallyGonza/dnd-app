@@ -6,12 +6,14 @@ class NoteWidget extends StatelessWidget {
       required this.title,
       required this.content,
       required this.date,
-      required this.color});
+      required this.color,
+      required this.index});
 
   final String title;
   final String content;
   final String date;
   final int color;
+  final int index;
 
   @override
   Widget build(BuildContext context) {

@@ -12,5 +12,7 @@ class LootEvent with _$LootEvent {
   const factory LootEvent.delete(
     int index,
   ) = LootDeleteEvent;
-  const factory LootEvent.deleteAll() = LootDeleteAllEvent;
+  const factory LootEvent.deleteAll(
+    List<Note> notes,
+  ) = LootDeleteAllEvent;
 }

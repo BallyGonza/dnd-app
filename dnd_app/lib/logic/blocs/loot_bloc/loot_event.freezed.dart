@@ -21,7 +21,7 @@ mixin _$LootEvent {
     required TResult Function() init,
     required TResult Function(Note note) add,
     required TResult Function(int index) delete,
-    required TResult Function() deleteAll,
+    required TResult Function(List<Note> notes) deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$LootEvent {
     TResult? Function()? init,
     TResult? Function(Note note)? add,
     TResult? Function(int index)? delete,
-    TResult? Function()? deleteAll,
+    TResult? Function(List<Note> notes)? deleteAll,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$LootEvent {
     TResult Function()? init,
     TResult Function(Note note)? add,
     TResult Function(int index)? delete,
-    TResult Function()? deleteAll,
+    TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$LootInitialEvent implements LootInitialEvent {
     required TResult Function() init,
     required TResult Function(Note note) add,
     required TResult Function(int index) delete,
-    required TResult Function() deleteAll,
+    required TResult Function(List<Note> notes) deleteAll,
   }) {
     return init();
   }
@@ -137,7 +137,7 @@ class _$LootInitialEvent implements LootInitialEvent {
     TResult? Function()? init,
     TResult? Function(Note note)? add,
     TResult? Function(int index)? delete,
-    TResult? Function()? deleteAll,
+    TResult? Function(List<Note> notes)? deleteAll,
   }) {
     return init?.call();
   }
@@ -148,7 +148,7 @@ class _$LootInitialEvent implements LootInitialEvent {
     TResult Function()? init,
     TResult Function(Note note)? add,
     TResult Function(int index)? delete,
-    TResult Function()? deleteAll,
+    TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -266,7 +266,7 @@ class _$LootAddEvent implements LootAddEvent {
     required TResult Function() init,
     required TResult Function(Note note) add,
     required TResult Function(int index) delete,
-    required TResult Function() deleteAll,
+    required TResult Function(List<Note> notes) deleteAll,
   }) {
     return add(note);
   }
@@ -277,7 +277,7 @@ class _$LootAddEvent implements LootAddEvent {
     TResult? Function()? init,
     TResult? Function(Note note)? add,
     TResult? Function(int index)? delete,
-    TResult? Function()? deleteAll,
+    TResult? Function(List<Note> notes)? deleteAll,
   }) {
     return add?.call(note);
   }
@@ -288,7 +288,7 @@ class _$LootAddEvent implements LootAddEvent {
     TResult Function()? init,
     TResult Function(Note note)? add,
     TResult Function(int index)? delete,
-    TResult Function()? deleteAll,
+    TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -411,7 +411,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
     required TResult Function() init,
     required TResult Function(Note note) add,
     required TResult Function(int index) delete,
-    required TResult Function() deleteAll,
+    required TResult Function(List<Note> notes) deleteAll,
   }) {
     return delete(index);
   }
@@ -422,7 +422,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
     TResult? Function()? init,
     TResult? Function(Note note)? add,
     TResult? Function(int index)? delete,
-    TResult? Function()? deleteAll,
+    TResult? Function(List<Note> notes)? deleteAll,
   }) {
     return delete?.call(index);
   }
@@ -433,7 +433,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
     TResult Function()? init,
     TResult Function(Note note)? add,
     TResult Function(int index)? delete,
-    TResult Function()? deleteAll,
+    TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -494,6 +494,8 @@ abstract class _$$LootDeleteAllEventCopyWith<$Res> {
   factory _$$LootDeleteAllEventCopyWith(_$LootDeleteAllEvent value,
           $Res Function(_$LootDeleteAllEvent) then) =
       __$$LootDeleteAllEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Note> notes});
 }
 
 /// @nodoc
@@ -503,26 +505,57 @@ class __$$LootDeleteAllEventCopyWithImpl<$Res>
   __$$LootDeleteAllEventCopyWithImpl(
       _$LootDeleteAllEvent _value, $Res Function(_$LootDeleteAllEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? notes = null,
+  }) {
+    return _then(_$LootDeleteAllEvent(
+      null == notes
+          ? _value._notes
+          : notes // ignore: cast_nullable_to_non_nullable
+              as List<Note>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LootDeleteAllEvent implements LootDeleteAllEvent {
-  const _$LootDeleteAllEvent();
+  const _$LootDeleteAllEvent(final List<Note> notes) : _notes = notes;
+
+  final List<Note> _notes;
+  @override
+  List<Note> get notes {
+    if (_notes is EqualUnmodifiableListView) return _notes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_notes);
+  }
 
   @override
   String toString() {
-    return 'LootEvent.deleteAll()';
+    return 'LootEvent.deleteAll(notes: $notes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LootDeleteAllEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$LootDeleteAllEvent &&
+            const DeepCollectionEquality().equals(other._notes, _notes));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_notes));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LootDeleteAllEventCopyWith<_$LootDeleteAllEvent> get copyWith =>
+      __$$LootDeleteAllEventCopyWithImpl<_$LootDeleteAllEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -530,9 +563,9 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
     required TResult Function() init,
     required TResult Function(Note note) add,
     required TResult Function(int index) delete,
-    required TResult Function() deleteAll,
+    required TResult Function(List<Note> notes) deleteAll,
   }) {
-    return deleteAll();
+    return deleteAll(notes);
   }
 
   @override
@@ -541,9 +574,9 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
     TResult? Function()? init,
     TResult? Function(Note note)? add,
     TResult? Function(int index)? delete,
-    TResult? Function()? deleteAll,
+    TResult? Function(List<Note> notes)? deleteAll,
   }) {
-    return deleteAll?.call();
+    return deleteAll?.call(notes);
   }
 
   @override
@@ -552,11 +585,11 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
     TResult Function()? init,
     TResult Function(Note note)? add,
     TResult Function(int index)? delete,
-    TResult Function()? deleteAll,
+    TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
   }) {
     if (deleteAll != null) {
-      return deleteAll();
+      return deleteAll(notes);
     }
     return orElse();
   }
@@ -600,5 +633,11 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
 }
 
 abstract class LootDeleteAllEvent implements LootEvent {
-  const factory LootDeleteAllEvent() = _$LootDeleteAllEvent;
+  const factory LootDeleteAllEvent(final List<Note> notes) =
+      _$LootDeleteAllEvent;
+
+  List<Note> get notes;
+  @JsonKey(ignore: true)
+  _$$LootDeleteAllEventCopyWith<_$LootDeleteAllEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

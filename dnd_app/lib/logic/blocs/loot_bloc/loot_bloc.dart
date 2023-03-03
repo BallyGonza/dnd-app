@@ -16,29 +16,30 @@ class LootBloc extends Bloc<LootEvent, LootState> {
   late Character character;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
-  void _onInit(
+  Future<void> _onInit(
     LootInitialEvent event,
     Emitter<LootState> emit,
-  ) {
+  ) async {
     character = box.get(0)!;
+
     emit(LootState.init(character.notes));
   }
 
-  void _onAdd(
+  Future<void> _onAdd(
     LootAddEvent event,
     Emitter<LootState> emit,
-  ) {
+  ) async {
     character.notes.add(event.note);
-    box.put(0, character);
+    await box.put(0, character);
     emit(LootState.updated(character.notes));
   }
 
-  void _onDelete(
+  Future<void> _onDelete(
     LootDeleteEvent event,
     Emitter<LootState> emit,
-  ) {
+  ) async {
     character.notes.removeAt(event.index);
-    box.put(0, character);
+    await box.put(0, character);
     emit(LootState.updated(character.notes));
   }
 
@@ -46,7 +47,9 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     LootDeleteAllEvent event,
     Emitter<LootState> emit,
   ) {
-    character.notes.clear();
+    for (var element in event.notes) {
+      character.notes.remove(element);
+    }
     box.put(0, character);
     emit(LootState.updated(character.notes));
   }
