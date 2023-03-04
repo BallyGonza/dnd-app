@@ -162,51 +162,71 @@ class _NoteListState extends State<NoteList> {
                                       Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
-                                          'Edit Note',
+                                          'Edit Loot',
                                           style: Theme.of(context)
                                               .textTheme
                                               .headline6,
                                         ),
                                       ),
-                                      const SizedBox(height: 16),
+                                      const SizedBox(height: 10),
                                       TextField(
                                         controller: titleController,
                                         decoration: const InputDecoration(
-                                          labelText: 'Title',
+                                          hintText: 'Title',
+                                          border: OutlineInputBorder(),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Colors.black,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                      const SizedBox(height: 16),
+                                      const SizedBox(height: 10),
                                       TextField(
                                         controller: contentController,
+                                        maxLines: 11,
                                         decoration: const InputDecoration(
-                                          labelText: 'Content',
+                                          hintText: 'Content',
+                                          border: OutlineInputBorder(),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Colors.black,
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                      const SizedBox(height: 16),
-                                      ElevatedButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            context.read<LootBloc>().add(
-                                                  LootEvent.edit(
-                                                    index,
-                                                    Note(
-                                                      color: state
-                                                          .notes[index].color,
-                                                      title:
-                                                          titleController.text,
-                                                      content: contentController
-                                                          .text,
-                                                      date: format.format(
-                                                        DateTime.now(),
+                                      const Spacer(),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            backgroundColor: Colors.black,
+                                          ),
+                                          onPressed: () {
+                                            setState(() {
+                                              context.read<LootBloc>().add(
+                                                    LootEvent.edit(
+                                                      index,
+                                                      Note(
+                                                        color: state
+                                                            .notes[index].color,
+                                                        title: titleController
+                                                            .text,
+                                                        content:
+                                                            contentController
+                                                                .text,
+                                                        date: format.format(
+                                                          DateTime.now(),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                );
-                                          });
+                                                  );
+                                            });
 
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Text('Update'),
+                                            Navigator.pop(context);
+                                          },
+                                          child: const Text('Update'),
+                                        ),
                                       ),
                                     ],
                                   ),
