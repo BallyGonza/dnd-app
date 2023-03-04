@@ -16,48 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LootState {
-  List<Note> get notes => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Note> notes) init,
+    required TResult Function() initial,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function(List<Note> notes) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Note> notes)? init,
+    TResult? Function()? initial,
+    TResult? Function(List<Note> notes)? loaded,
     TResult? Function(List<Note> notes)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Note> notes)? init,
+    TResult Function()? initial,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function(List<Note> notes)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LootInitial value) init,
+    required TResult Function(LootInitial value) initial,
+    required TResult Function(LootLoaded value) loaded,
     required TResult Function(LootUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LootInitial value)? init,
+    TResult? Function(LootInitial value)? initial,
+    TResult? Function(LootLoaded value)? loaded,
     TResult? Function(LootUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LootInitial value)? init,
+    TResult Function(LootInitial value)? initial,
+    TResult Function(LootLoaded value)? loaded,
     TResult Function(LootUpdated value)? updated,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $LootStateCopyWith<LootState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -65,8 +66,6 @@ mixin _$LootState {
 abstract class $LootStateCopyWith<$Res> {
   factory $LootStateCopyWith(LootState value, $Res Function(LootState) then) =
       _$LootStateCopyWithImpl<$Res, LootState>;
-  @useResult
-  $Res call({List<Note> notes});
 }
 
 /// @nodoc
@@ -78,30 +77,13 @@ class _$LootStateCopyWithImpl<$Res, $Val extends LootState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? notes = null,
-  }) {
-    return _then(_value.copyWith(
-      notes: null == notes
-          ? _value.notes
-          : notes // ignore: cast_nullable_to_non_nullable
-              as List<Note>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$LootInitialCopyWith<$Res>
-    implements $LootStateCopyWith<$Res> {
+abstract class _$$LootInitialCopyWith<$Res> {
   factory _$$LootInitialCopyWith(
           _$LootInitial value, $Res Function(_$LootInitial) then) =
       __$$LootInitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({List<Note> notes});
 }
 
 /// @nodoc
@@ -111,13 +93,123 @@ class __$$LootInitialCopyWithImpl<$Res>
   __$$LootInitialCopyWithImpl(
       _$LootInitial _value, $Res Function(_$LootInitial) _then)
       : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LootInitial implements LootInitial {
+  const _$LootInitial();
+
+  @override
+  String toString() {
+    return 'LootState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LootInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Note> notes) loaded,
+    required TResult Function(List<Note> notes) updated,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Note> notes)? loaded,
+    TResult? Function(List<Note> notes)? updated,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Note> notes)? loaded,
+    TResult Function(List<Note> notes)? updated,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LootInitial value) initial,
+    required TResult Function(LootLoaded value) loaded,
+    required TResult Function(LootUpdated value) updated,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LootInitial value)? initial,
+    TResult? Function(LootLoaded value)? loaded,
+    TResult? Function(LootUpdated value)? updated,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LootInitial value)? initial,
+    TResult Function(LootLoaded value)? loaded,
+    TResult Function(LootUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LootInitial implements LootState {
+  const factory LootInitial() = _$LootInitial;
+}
+
+/// @nodoc
+abstract class _$$LootLoadedCopyWith<$Res> {
+  factory _$$LootLoadedCopyWith(
+          _$LootLoaded value, $Res Function(_$LootLoaded) then) =
+      __$$LootLoadedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Note> notes});
+}
+
+/// @nodoc
+class __$$LootLoadedCopyWithImpl<$Res>
+    extends _$LootStateCopyWithImpl<$Res, _$LootLoaded>
+    implements _$$LootLoadedCopyWith<$Res> {
+  __$$LootLoadedCopyWithImpl(
+      _$LootLoaded _value, $Res Function(_$LootLoaded) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? notes = null,
   }) {
-    return _then(_$LootInitial(
+    return _then(_$LootLoaded(
       null == notes
           ? _value._notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -128,8 +220,8 @@ class __$$LootInitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootInitial implements LootInitial {
-  const _$LootInitial(final List<Note> notes) : _notes = notes;
+class _$LootLoaded implements LootLoaded {
+  const _$LootLoaded(final List<Note> notes) : _notes = notes;
 
   final List<Note> _notes;
   @override
@@ -141,14 +233,14 @@ class _$LootInitial implements LootInitial {
 
   @override
   String toString() {
-    return 'LootState.init(notes: $notes)';
+    return 'LootState.loaded(notes: $notes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootInitial &&
+            other is _$LootLoaded &&
             const DeepCollectionEquality().equals(other._notes, _notes));
   }
 
@@ -159,36 +251,39 @@ class _$LootInitial implements LootInitial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootInitialCopyWith<_$LootInitial> get copyWith =>
-      __$$LootInitialCopyWithImpl<_$LootInitial>(this, _$identity);
+  _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
+      __$$LootLoadedCopyWithImpl<_$LootLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Note> notes) init,
+    required TResult Function() initial,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function(List<Note> notes) updated,
   }) {
-    return init(notes);
+    return loaded(notes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Note> notes)? init,
+    TResult? Function()? initial,
+    TResult? Function(List<Note> notes)? loaded,
     TResult? Function(List<Note> notes)? updated,
   }) {
-    return init?.call(notes);
+    return loaded?.call(notes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Note> notes)? init,
+    TResult Function()? initial,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function(List<Note> notes)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(notes);
+    if (loaded != null) {
+      return loaded(notes);
     }
     return orElse();
   }
@@ -196,53 +291,52 @@ class _$LootInitial implements LootInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LootInitial value) init,
+    required TResult Function(LootInitial value) initial,
+    required TResult Function(LootLoaded value) loaded,
     required TResult Function(LootUpdated value) updated,
   }) {
-    return init(this);
+    return loaded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LootInitial value)? init,
+    TResult? Function(LootInitial value)? initial,
+    TResult? Function(LootLoaded value)? loaded,
     TResult? Function(LootUpdated value)? updated,
   }) {
-    return init?.call(this);
+    return loaded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LootInitial value)? init,
+    TResult Function(LootInitial value)? initial,
+    TResult Function(LootLoaded value)? loaded,
     TResult Function(LootUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }
 }
 
-abstract class LootInitial implements LootState {
-  const factory LootInitial(final List<Note> notes) = _$LootInitial;
+abstract class LootLoaded implements LootState {
+  const factory LootLoaded(final List<Note> notes) = _$LootLoaded;
 
-  @override
   List<Note> get notes;
-  @override
   @JsonKey(ignore: true)
-  _$$LootInitialCopyWith<_$LootInitial> get copyWith =>
+  _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootUpdatedCopyWith<$Res>
-    implements $LootStateCopyWith<$Res> {
+abstract class _$$LootUpdatedCopyWith<$Res> {
   factory _$$LootUpdatedCopyWith(
           _$LootUpdated value, $Res Function(_$LootUpdated) then) =
       __$$LootUpdatedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({List<Note> notes});
 }
@@ -308,7 +402,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Note> notes) init,
+    required TResult Function() initial,
+    required TResult Function(List<Note> notes) loaded,
     required TResult Function(List<Note> notes) updated,
   }) {
     return updated(notes);
@@ -317,7 +412,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<Note> notes)? init,
+    TResult? Function()? initial,
+    TResult? Function(List<Note> notes)? loaded,
     TResult? Function(List<Note> notes)? updated,
   }) {
     return updated?.call(notes);
@@ -326,7 +422,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Note> notes)? init,
+    TResult Function()? initial,
+    TResult Function(List<Note> notes)? loaded,
     TResult Function(List<Note> notes)? updated,
     required TResult orElse(),
   }) {
@@ -339,7 +436,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(LootInitial value) init,
+    required TResult Function(LootInitial value) initial,
+    required TResult Function(LootLoaded value) loaded,
     required TResult Function(LootUpdated value) updated,
   }) {
     return updated(this);
@@ -348,7 +446,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(LootInitial value)? init,
+    TResult? Function(LootInitial value)? initial,
+    TResult? Function(LootLoaded value)? loaded,
     TResult? Function(LootUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -357,7 +456,8 @@ class _$LootUpdated implements LootUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(LootInitial value)? init,
+    TResult Function(LootInitial value)? initial,
+    TResult Function(LootLoaded value)? loaded,
     TResult Function(LootUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -371,9 +471,7 @@ class _$LootUpdated implements LootUpdated {
 abstract class LootUpdated implements LootState {
   const factory LootUpdated(final List<Note> notes) = _$LootUpdated;
 
-  @override
   List<Note> get notes;
-  @override
   @JsonKey(ignore: true)
   _$$LootUpdatedCopyWith<_$LootUpdated> get copyWith =>
       throw _privateConstructorUsedError;

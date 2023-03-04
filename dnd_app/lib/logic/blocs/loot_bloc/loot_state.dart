@@ -6,9 +6,10 @@ part 'loot_state.freezed.dart';
 
 @freezed
 class LootState with _$LootState {
-  const factory LootState.init(
+  const factory LootState.initial() = LootInitial;
+  const factory LootState.loaded(
     List<Note> notes,
-  ) = LootInitial;
+  ) = LootLoaded;
   const factory LootState.updated(
     List<Note> notes,
   ) = LootUpdated;

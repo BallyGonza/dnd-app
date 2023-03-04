@@ -25,6 +25,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   int index = 0;
   late Box<Character> box;
+  final CharacterRepository characterRepository = CharacterRepository();
 
   @override
   void initState() {
@@ -49,7 +50,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           ),
           BlocProvider(
             create: (context) => LootBloc(
-              box.getAt(0)!,
+              characterRepository,
             ),
           ),
           widget.character.pet.isNotEmpty

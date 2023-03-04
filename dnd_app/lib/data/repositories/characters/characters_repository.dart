@@ -1,5 +1,17 @@
 import 'package:dnd_app/data/data.dart';
 
+class CharacterRepository {
+  CharacterRepository();
+
+  Future<List<Character>> getCharacters() async {
+    return defaultCharacters;
+  }
+
+  Future<Character> getCharacter(int id) async {
+    return defaultCharacters.firstWhere((element) => element.id == id);
+  }
+}
+
 Character theekVarus = Character(
   id: 1,
   name: 'Theek',

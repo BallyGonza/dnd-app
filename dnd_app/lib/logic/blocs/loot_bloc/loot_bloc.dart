@@ -5,15 +5,19 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class LootBloc extends Bloc<LootEvent, LootState> {
   LootBloc(
-    this.character,
-  ) : super(LootState.init(character.notes)) {
+    this.characterRepository,
+  ) : super(const LootState.initial()) {
     on<LootInitialEvent>(_onInit);
     on<LootAddEvent>(_onAdd);
     on<LootDeleteEvent>(_onDelete);
     on<LootDeleteAllEvent>(_onDeleteAll);
+
+    add(const LootEvent.init());
   }
 
+  final CharacterRepository characterRepository;
   late Character character;
+  late List<Note> notes;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
   Future<void> _onInit(
@@ -21,26 +25,26 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     character = box.get(0)!;
-
-    emit(LootState.init(character.notes));
+    notes = character.notes;
+    emit(LootState.loaded(notes));
   }
 
   Future<void> _onAdd(
     LootAddEvent event,
     Emitter<LootState> emit,
   ) async {
-    character.notes.add(event.note);
+    notes.add(event.note);
     await box.put(0, character);
-    emit(LootState.updated(character.notes));
+    emit(LootState.updated(notes));
   }
 
   Future<void> _onDelete(
     LootDeleteEvent event,
     Emitter<LootState> emit,
   ) async {
-    character.notes.removeAt(event.index);
+    notes.removeAt(event.index);
     await box.put(0, character);
-    emit(LootState.updated(character.notes));
+    emit(LootState.updated(notes));
   }
 
   void _onDeleteAll(

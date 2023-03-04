@@ -26,30 +26,83 @@ class _NoteListState extends State<NoteList> {
       children: [
         BlocBuilder<LootBloc, LootState>(
           builder: (context, state) {
-            return state.notes.isEmpty
-                ? const Text('No notes')
-                : ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: state.notes.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onLongPress: () {
-                          setState(() {
-                            context.read<LootBloc>().add(
-                                  LootEvent.delete(index),
-                                );
-                          });
-                        },
-                        child: NoteWidget(
-                          title: state.notes[index].title,
-                          content: state.notes[index].content,
-                          date: state.notes[index].date,
-                          color: state.notes[index].color,
-                          index: index,
-                        ),
-                      );
-                    },
-                  );
+            return state.map(
+              initial: (_) => const CircularProgressIndicator(),
+              loaded: (state) => SizedBox(
+                height: 400,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: state.notes.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onLongPress: () {
+                        setState(() {
+                          context.read<LootBloc>().add(
+                                LootEvent.delete(index),
+                              );
+                        });
+                      },
+                      child: NoteWidget(
+                        title: state.notes[index].title,
+                        content: state.notes[index].content,
+                        date: state.notes[index].date,
+                        color: state.notes[index].color,
+                        index: index,
+                      ),
+                    );
+                  },
+                ),
+              ),
+              updated: (state) => SizedBox(
+                height: 400,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: state.notes.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onLongPress: () {
+                        setState(() {
+                          context.read<LootBloc>().add(
+                                LootEvent.delete(index),
+                              );
+                        });
+                      },
+                      child: NoteWidget(
+                        title: state.notes[index].title,
+                        content: state.notes[index].content,
+                        date: state.notes[index].date,
+                        color: state.notes[index].color,
+                        index: index,
+                      ),
+                    );
+                  },
+                ),
+              ),
+            );
+
+            // ? const Text('No notes')
+            // : ListView.builder(
+            //     shrinkWrap: true,
+            //     itemCount: state.notes.length,
+            //     itemBuilder: (context, index) {
+            //       return GestureDetector(
+            //         onLongPress: () {
+            //           setState(() {
+            //             context.read<LootBloc>().add(
+            //                   LootEvent.delete(index),
+            //                 );
+            //           });
+            //         },
+            //         child: NoteWidget(
+            //           title: state.notes[index].title,
+            //           content: state.notes[index].content,
+            //           date: state.notes[index].date,
+            //           color: state.notes[index].color,
+            //           index: index,
+            //         ),
+            //       );
+            //     },
+            //   );
           },
         ),
         const SizedBox(

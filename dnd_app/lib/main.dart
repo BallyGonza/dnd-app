@@ -20,13 +20,15 @@ Future<void> main() async {
     ..registerAdapter(CharacterAdapter())
     ..registerAdapter(BackgroundAdapter())
     ..registerAdapter(SpellAdapter());
+
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
+
   await Hive.initFlutter();
-  await Hive.openBox<Note>('notes_box');
   await Hive.openBox<Character>('characters_box');
+
   runApp(
     const MyApp(),
   );

@@ -1,4 +1,3 @@
-export 'character/character.dart';
 export 'health_points/health_points.dart';
 export 'note/note.dart';
 export 'ability/ability.dart';
