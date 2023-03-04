@@ -9,6 +9,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
   ) : super(const LootState.initial()) {
     on<LootInitialEvent>(_onInit);
     on<LootAddEvent>(_onAdd);
+    on<LootEditEvent>(_onEdit);
     on<LootDeleteEvent>(_onDelete);
     on<LootDeleteAllEvent>(_onDeleteAll);
 
@@ -34,6 +35,15 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes.add(event.note);
+    await box.put(0, character);
+    emit(LootState.updated(notes));
+  }
+
+  Future<void> _onEdit(
+    LootEditEvent event,
+    Emitter<LootState> emit,
+  ) async {
+    notes[event.index] = event.note;
     await box.put(0, character);
     emit(LootState.updated(notes));
   }

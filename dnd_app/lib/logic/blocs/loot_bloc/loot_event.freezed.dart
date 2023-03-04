@@ -20,6 +20,7 @@ mixin _$LootEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
     required TResult Function(int index) delete,
     required TResult Function(List<Note> notes) deleteAll,
   }) =>
@@ -28,6 +29,7 @@ mixin _$LootEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
     TResult? Function(int index)? delete,
     TResult? Function(List<Note> notes)? deleteAll,
   }) =>
@@ -36,6 +38,7 @@ mixin _$LootEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
     TResult Function(int index)? delete,
     TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
@@ -45,6 +48,7 @@ mixin _$LootEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitialEvent value) init,
     required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
     required TResult Function(LootDeleteEvent value) delete,
     required TResult Function(LootDeleteAllEvent value) deleteAll,
   }) =>
@@ -53,6 +57,7 @@ mixin _$LootEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitialEvent value)? init,
     TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
     TResult? Function(LootDeleteEvent value)? delete,
     TResult? Function(LootDeleteAllEvent value)? deleteAll,
   }) =>
@@ -61,6 +66,7 @@ mixin _$LootEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitialEvent value)? init,
     TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
     TResult Function(LootDeleteEvent value)? delete,
     TResult Function(LootDeleteAllEvent value)? deleteAll,
     required TResult orElse(),
@@ -125,6 +131,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
     required TResult Function(int index) delete,
     required TResult Function(List<Note> notes) deleteAll,
   }) {
@@ -136,6 +143,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
     TResult? Function(int index)? delete,
     TResult? Function(List<Note> notes)? deleteAll,
   }) {
@@ -147,6 +155,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
     TResult Function(int index)? delete,
     TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
@@ -162,6 +171,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitialEvent value) init,
     required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
     required TResult Function(LootDeleteEvent value) delete,
     required TResult Function(LootDeleteAllEvent value) deleteAll,
   }) {
@@ -173,6 +183,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitialEvent value)? init,
     TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
     TResult? Function(LootDeleteEvent value)? delete,
     TResult? Function(LootDeleteAllEvent value)? deleteAll,
   }) {
@@ -184,6 +195,7 @@ class _$LootInitialEvent implements LootInitialEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitialEvent value)? init,
     TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
     TResult Function(LootDeleteEvent value)? delete,
     TResult Function(LootDeleteAllEvent value)? deleteAll,
     required TResult orElse(),
@@ -265,6 +277,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
     required TResult Function(int index) delete,
     required TResult Function(List<Note> notes) deleteAll,
   }) {
@@ -276,6 +289,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
     TResult? Function(int index)? delete,
     TResult? Function(List<Note> notes)? deleteAll,
   }) {
@@ -287,6 +301,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
     TResult Function(int index)? delete,
     TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
@@ -302,6 +317,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitialEvent value) init,
     required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
     required TResult Function(LootDeleteEvent value) delete,
     required TResult Function(LootDeleteAllEvent value) deleteAll,
   }) {
@@ -313,6 +329,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitialEvent value)? init,
     TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
     TResult? Function(LootDeleteEvent value)? delete,
     TResult? Function(LootDeleteAllEvent value)? deleteAll,
   }) {
@@ -324,6 +341,7 @@ class _$LootAddEvent implements LootAddEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitialEvent value)? init,
     TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
     TResult Function(LootDeleteEvent value)? delete,
     TResult Function(LootDeleteAllEvent value)? deleteAll,
     required TResult orElse(),
@@ -341,6 +359,167 @@ abstract class LootAddEvent implements LootEvent {
   Note get note;
   @JsonKey(ignore: true)
   _$$LootAddEventCopyWith<_$LootAddEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LootEditEventCopyWith<$Res> {
+  factory _$$LootEditEventCopyWith(
+          _$LootEditEvent value, $Res Function(_$LootEditEvent) then) =
+      __$$LootEditEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index, Note note});
+}
+
+/// @nodoc
+class __$$LootEditEventCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootEditEvent>
+    implements _$$LootEditEventCopyWith<$Res> {
+  __$$LootEditEventCopyWithImpl(
+      _$LootEditEvent _value, $Res Function(_$LootEditEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+    Object? note = null,
+  }) {
+    return _then(_$LootEditEvent(
+      null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == note
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as Note,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LootEditEvent implements LootEditEvent {
+  const _$LootEditEvent(this.index, this.note);
+
+  @override
+  final int index;
+  @override
+  final Note note;
+
+  @override
+  String toString() {
+    return 'LootEvent.edit(index: $index, note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LootEditEvent &&
+            (identical(other.index, index) || other.index == index) &&
+            (identical(other.note, note) || other.note == note));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index, note);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LootEditEventCopyWith<_$LootEditEvent> get copyWith =>
+      __$$LootEditEventCopyWithImpl<_$LootEditEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
+    required TResult Function(int index) delete,
+    required TResult Function(List<Note> notes) deleteAll,
+  }) {
+    return edit(index, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
+    TResult? Function(int index)? delete,
+    TResult? Function(List<Note> notes)? deleteAll,
+  }) {
+    return edit?.call(index, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
+    TResult Function(int index)? delete,
+    TResult Function(List<Note> notes)? deleteAll,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit(index, note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LootInitialEvent value) init,
+    required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
+    required TResult Function(LootDeleteEvent value) delete,
+    required TResult Function(LootDeleteAllEvent value) deleteAll,
+  }) {
+    return edit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LootInitialEvent value)? init,
+    TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
+    TResult? Function(LootDeleteEvent value)? delete,
+    TResult? Function(LootDeleteAllEvent value)? deleteAll,
+  }) {
+    return edit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LootInitialEvent value)? init,
+    TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
+    TResult Function(LootDeleteEvent value)? delete,
+    TResult Function(LootDeleteAllEvent value)? deleteAll,
+    required TResult orElse(),
+  }) {
+    if (edit != null) {
+      return edit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LootEditEvent implements LootEvent {
+  const factory LootEditEvent(final int index, final Note note) =
+      _$LootEditEvent;
+
+  int get index;
+  Note get note;
+  @JsonKey(ignore: true)
+  _$$LootEditEventCopyWith<_$LootEditEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -410,6 +589,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
     required TResult Function(int index) delete,
     required TResult Function(List<Note> notes) deleteAll,
   }) {
@@ -421,6 +601,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
     TResult? Function(int index)? delete,
     TResult? Function(List<Note> notes)? deleteAll,
   }) {
@@ -432,6 +613,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
     TResult Function(int index)? delete,
     TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
@@ -447,6 +629,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitialEvent value) init,
     required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
     required TResult Function(LootDeleteEvent value) delete,
     required TResult Function(LootDeleteAllEvent value) deleteAll,
   }) {
@@ -458,6 +641,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitialEvent value)? init,
     TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
     TResult? Function(LootDeleteEvent value)? delete,
     TResult? Function(LootDeleteAllEvent value)? deleteAll,
   }) {
@@ -469,6 +653,7 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitialEvent value)? init,
     TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
     TResult Function(LootDeleteEvent value)? delete,
     TResult Function(LootDeleteAllEvent value)? deleteAll,
     required TResult orElse(),
@@ -562,6 +747,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(Note note) add,
+    required TResult Function(int index, Note note) edit,
     required TResult Function(int index) delete,
     required TResult Function(List<Note> notes) deleteAll,
   }) {
@@ -573,6 +759,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(Note note)? add,
+    TResult? Function(int index, Note note)? edit,
     TResult? Function(int index)? delete,
     TResult? Function(List<Note> notes)? deleteAll,
   }) {
@@ -584,6 +771,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(Note note)? add,
+    TResult Function(int index, Note note)? edit,
     TResult Function(int index)? delete,
     TResult Function(List<Note> notes)? deleteAll,
     required TResult orElse(),
@@ -599,6 +787,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitialEvent value) init,
     required TResult Function(LootAddEvent value) add,
+    required TResult Function(LootEditEvent value) edit,
     required TResult Function(LootDeleteEvent value) delete,
     required TResult Function(LootDeleteAllEvent value) deleteAll,
   }) {
@@ -610,6 +799,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitialEvent value)? init,
     TResult? Function(LootAddEvent value)? add,
+    TResult? Function(LootEditEvent value)? edit,
     TResult? Function(LootDeleteEvent value)? delete,
     TResult? Function(LootDeleteAllEvent value)? deleteAll,
   }) {
@@ -621,6 +811,7 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitialEvent value)? init,
     TResult Function(LootAddEvent value)? add,
+    TResult Function(LootEditEvent value)? edit,
     TResult Function(LootDeleteEvent value)? delete,
     TResult Function(LootDeleteAllEvent value)? deleteAll,
     required TResult orElse(),

@@ -9,6 +9,10 @@ class LootEvent with _$LootEvent {
   const factory LootEvent.add(
     Note note,
   ) = LootAddEvent;
+  const factory LootEvent.edit(
+    int index,
+    Note note,
+  ) = LootEditEvent;
   const factory LootEvent.delete(
     int index,
   ) = LootDeleteEvent;
