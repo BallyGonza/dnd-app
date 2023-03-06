@@ -1,4 +1,4 @@
-import 'package:dnd_app/logic/logic.dart';
+import 'package:dnd_app/blocs/blocs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

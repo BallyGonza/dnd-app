@@ -1,6 +1,8 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:dnd_app/logic/logic.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+
+import 'pet_health_points_event.dart';
+import 'pet_health_points_state.dart';
 
 class PetHealthPointsBloc
     extends HydratedBloc<PetHealthPointsEvent, PetHealthPointsState> {

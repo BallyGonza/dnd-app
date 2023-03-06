@@ -20,18 +20,21 @@ mixin _$LootState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Note> notes) loaded,
+    required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Note> notes)? loaded,
+    TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Note> notes)? loaded,
+    TResult Function()? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$LootState {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitial value) initial,
     required TResult Function(LootLoaded value) loaded,
+    required TResult Function(LootFailure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitial value)? initial,
     TResult? Function(LootLoaded value)? loaded,
+    TResult? Function(LootFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitial value)? initial,
     TResult Function(LootLoaded value)? loaded,
+    TResult Function(LootFailure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,6 +119,7 @@ class _$LootInitial implements LootInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Note> notes) loaded,
+    required TResult Function() failure,
   }) {
     return initial();
   }
@@ -122,6 +129,7 @@ class _$LootInitial implements LootInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Note> notes)? loaded,
+    TResult? Function()? failure,
   }) {
     return initial?.call();
   }
@@ -131,6 +139,7 @@ class _$LootInitial implements LootInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Note> notes)? loaded,
+    TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -144,6 +153,7 @@ class _$LootInitial implements LootInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitial value) initial,
     required TResult Function(LootLoaded value) loaded,
+    required TResult Function(LootFailure value) failure,
   }) {
     return initial(this);
   }
@@ -153,6 +163,7 @@ class _$LootInitial implements LootInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitial value)? initial,
     TResult? Function(LootLoaded value)? loaded,
+    TResult? Function(LootFailure value)? failure,
   }) {
     return initial?.call(this);
   }
@@ -162,6 +173,7 @@ class _$LootInitial implements LootInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitial value)? initial,
     TResult Function(LootLoaded value)? loaded,
+    TResult Function(LootFailure value)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -213,7 +225,7 @@ class _$LootLoaded implements LootLoaded {
 
   final List<Note> _notes;
   @override
-  List<Note> get notes {
+  List<Note> notes() {
     if (_notes is EqualUnmodifiableListView) return _notes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_notes);
@@ -221,7 +233,7 @@ class _$LootLoaded implements LootLoaded {
 
   @override
   String toString() {
-    return 'LootState.loaded(notes: $notes)';
+    return 'LootState.loaded(notes: $notes())';
   }
 
   @override
@@ -247,8 +259,9 @@ class _$LootLoaded implements LootLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Note> notes) loaded,
+    required TResult Function() failure,
   }) {
-    return loaded(notes);
+    return loaded(notes());
   }
 
   @override
@@ -256,8 +269,9 @@ class _$LootLoaded implements LootLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Note> notes)? loaded,
+    TResult? Function()? failure,
   }) {
-    return loaded?.call(notes);
+    return loaded?.call(notes());
   }
 
   @override
@@ -265,10 +279,11 @@ class _$LootLoaded implements LootLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Note> notes)? loaded,
+    TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(notes);
+      return loaded(notes());
     }
     return orElse();
   }
@@ -278,6 +293,7 @@ class _$LootLoaded implements LootLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(LootInitial value) initial,
     required TResult Function(LootLoaded value) loaded,
+    required TResult Function(LootFailure value) failure,
   }) {
     return loaded(this);
   }
@@ -287,6 +303,7 @@ class _$LootLoaded implements LootLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(LootInitial value)? initial,
     TResult? Function(LootLoaded value)? loaded,
+    TResult? Function(LootFailure value)? failure,
   }) {
     return loaded?.call(this);
   }
@@ -296,6 +313,7 @@ class _$LootLoaded implements LootLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LootInitial value)? initial,
     TResult Function(LootLoaded value)? loaded,
+    TResult Function(LootFailure value)? failure,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -308,8 +326,116 @@ class _$LootLoaded implements LootLoaded {
 abstract class LootLoaded implements LootState {
   const factory LootLoaded(final List<Note> notes) = _$LootLoaded;
 
-  List<Note> get notes;
+  List<Note> notes();
   @JsonKey(ignore: true)
   _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LootFailureCopyWith<$Res> {
+  factory _$$LootFailureCopyWith(
+          _$LootFailure value, $Res Function(_$LootFailure) then) =
+      __$$LootFailureCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LootFailureCopyWithImpl<$Res>
+    extends _$LootStateCopyWithImpl<$Res, _$LootFailure>
+    implements _$$LootFailureCopyWith<$Res> {
+  __$$LootFailureCopyWithImpl(
+      _$LootFailure _value, $Res Function(_$LootFailure) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LootFailure implements LootFailure {
+  const _$LootFailure();
+
+  @override
+  String toString() {
+    return 'LootState.failure()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LootFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Note> notes) loaded,
+    required TResult Function() failure,
+  }) {
+    return failure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Note> notes)? loaded,
+    TResult? Function()? failure,
+  }) {
+    return failure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Note> notes)? loaded,
+    TResult Function()? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LootInitial value) initial,
+    required TResult Function(LootLoaded value) loaded,
+    required TResult Function(LootFailure value) failure,
+  }) {
+    return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LootInitial value)? initial,
+    TResult? Function(LootLoaded value)? loaded,
+    TResult? Function(LootFailure value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LootInitial value)? initial,
+    TResult Function(LootLoaded value)? loaded,
+    TResult Function(LootFailure value)? failure,
+    required TResult orElse(),
+  }) {
+    if (failure != null) {
+      return failure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LootFailure implements LootState {
+  const factory LootFailure() = _$LootFailure;
 }

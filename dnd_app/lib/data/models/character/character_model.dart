@@ -99,4 +99,37 @@ class Character {
       _$CharacterFromJson(json);
 
   Map<String, dynamic> toJson() => _$CharacterToJson(this);
+
+  Character copyWith({required List<Note> notes}) {
+    return Character(
+      id: id,
+      name: name,
+      lastName: lastName,
+      img: img,
+      profileImg: profileImg,
+      banner: banner,
+      race: race,
+      classes: classes,
+      level: level,
+      armor: armor,
+      initiative: initiative,
+      speed: speed,
+      passivePerception: passivePerception,
+      hitDice: hitDice,
+      healthPoints: healthPoints,
+      abilities: abilities,
+      skills: skills,
+      savingThrows: savingThrows,
+      weapons: weapons,
+      languages: languages,
+      traits: traits,
+      spells: spells,
+      background: background,
+      backstory: backstory,
+      pet: pet,
+      notes: notes,
+      favoredEnemy: favoredEnemy,
+      favoredTerrain: favoredTerrain,
+    );
+  }
 }

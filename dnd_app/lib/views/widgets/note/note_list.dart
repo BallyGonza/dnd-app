@@ -1,4 +1,4 @@
-import 'package:dnd_app/logic/logic.dart';
+import 'package:dnd_app/blocs/blocs.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
@@ -29,13 +29,14 @@ class _NoteListState extends State<NoteList> {
       children: [
         BlocBuilder<LootBloc, LootState>(
           builder: (context, state) {
-            return state.map(
-              initial: (_) => const CircularProgressIndicator(),
-              loaded: (state) => SizedBox(
+            return state.maybeWhen(
+              orElse: () => const SizedBox(),
+              initial: () => const CircularProgressIndicator(),
+              loaded: (notes) => SizedBox(
                 height: 450,
                 child: ListView.builder(
                   shrinkWrap: true,
-                  itemCount: state.notes.length,
+                  itemCount: notes.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onLongPress: () {
@@ -44,14 +45,14 @@ class _NoteListState extends State<NoteList> {
                         });
                       },
                       child: NoteWidget(
-                        title: state.notes[index].title,
-                        content: state.notes[index].content,
-                        date: state.notes[index].date,
-                        color: state.notes[index].color,
+                        title: notes[index].title,
+                        content: notes[index].content,
+                        date: notes[index].date,
+                        color: notes[index].color,
                         index: index,
                         onTap: () {
-                          titleController.text = state.notes[index].title;
-                          contentController.text = state.notes[index].content;
+                          titleController.text = notes[index].title;
+                          contentController.text = notes[index].content;
                           showModalBottomSheet(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16),
@@ -95,8 +96,7 @@ class _NoteListState extends State<NoteList> {
                                                   LootEvent.edit(
                                                     index,
                                                     Note(
-                                                      color: state
-                                                          .notes[index].color,
+                                                      color: notes[index].color,
                                                       title:
                                                           titleController.text,
                                                       content: contentController
@@ -124,6 +124,7 @@ class _NoteListState extends State<NoteList> {
                   },
                 ),
               ),
+              failure: () => const Text('Failure'),
             );
           },
         ),

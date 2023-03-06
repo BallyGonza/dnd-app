@@ -1,7 +1,9 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:dnd_app/logic/logic.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+
+import 'character_health_points_event.dart';
+import 'character_health_points_state.dart';
 
 class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     CharacterHealthPointsState> {
@@ -14,7 +16,6 @@ class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     on<CharacterHealthPointsResetEvent>(_onReset);
   }
 
-  // final HealthPoints healthPoints;
   late Character character;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
