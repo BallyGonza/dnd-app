@@ -9,3 +9,4 @@ export 'skill/skill.dart';
 export 'trait/trait.dart';
 export 'weapon/weapon.dart';
 export 'spell/spell.dart';
+export 'character/character.dart';
