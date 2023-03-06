@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class NoteWidget extends StatelessWidget {
-  const NoteWidget({
+class NoteListItem extends StatelessWidget {
+  const NoteListItem({
     Key? key,
     required this.onTap,
     required this.title,
