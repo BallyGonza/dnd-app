@@ -10,7 +10,4 @@ class LootState with _$LootState {
   const factory LootState.loaded(
     List<Note> notes,
   ) = LootLoaded;
-  const factory LootState.updated(
-    List<Note> notes,
-  ) = LootUpdated;
 }

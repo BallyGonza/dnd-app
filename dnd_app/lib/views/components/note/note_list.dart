@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class NoteList extends StatefulWidget {
-  const NoteList({super.key});
+  const NoteList({Key? key}) : super(key: key);
 
   @override
   State<NoteList> createState() => _NoteListState();
@@ -40,12 +40,15 @@ class _NoteListState extends State<NoteList> {
                     return GestureDetector(
                       onLongPress: () {
                         setState(() {
-                          context.read<LootBloc>().add(
-                                LootEvent.delete(index),
-                              );
+                          context.read<LootBloc>().add(LootEvent.delete(index));
                         });
                       },
-                      child: GestureDetector(
+                      child: NoteWidget(
+                        title: state.notes[index].title,
+                        content: state.notes[index].content,
+                        date: state.notes[index].date,
+                        color: state.notes[index].color,
+                        index: index,
                         onTap: () {
                           titleController.text = state.notes[index].title;
                           contentController.text = state.notes[index].content;
@@ -105,7 +108,6 @@ class _NoteListState extends State<NoteList> {
                                                   ),
                                                 );
                                           });
-
                                           Navigator.pop(context);
                                         },
                                         child: const Text('Update'),
@@ -117,131 +119,6 @@ class _NoteListState extends State<NoteList> {
                             },
                           );
                         },
-                        child: NoteWidget(
-                          title: state.notes[index].title,
-                          content: state.notes[index].content,
-                          date: state.notes[index].date,
-                          color: state.notes[index].color,
-                          index: index,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
-              updated: (state) => SizedBox(
-                height: 400,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: state.notes.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onLongPress: () {
-                        setState(() {
-                          context.read<LootBloc>().add(
-                                LootEvent.delete(index),
-                              );
-                        });
-                      },
-                      child: GestureDetector(
-                        onTap: () {
-                          titleController.text = state.notes[index].title;
-                          contentController.text = state.notes[index].content;
-                          showModalBottomSheet(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            context: context,
-                            builder: (_) {
-                              return BlocProvider.value(
-                                value: context.read<LootBloc>(),
-                                child: Container(
-                                  padding: const EdgeInsets.all(16),
-                                  child: Column(
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(
-                                          'Edit Loot',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline6,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      TextField(
-                                        controller: titleController,
-                                        decoration: const InputDecoration(
-                                          hintText: 'Title',
-                                          border: OutlineInputBorder(),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(height: 10),
-                                      TextField(
-                                        controller: contentController,
-                                        maxLines: 11,
-                                        decoration: const InputDecoration(
-                                          hintText: 'Content',
-                                          border: OutlineInputBorder(),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const Spacer(),
-                                      SizedBox(
-                                        width: double.infinity,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.black,
-                                          ),
-                                          onPressed: () {
-                                            setState(() {
-                                              context.read<LootBloc>().add(
-                                                    LootEvent.edit(
-                                                      index,
-                                                      Note(
-                                                        color: state
-                                                            .notes[index].color,
-                                                        title: titleController
-                                                            .text,
-                                                        content:
-                                                            contentController
-                                                                .text,
-                                                        date: format.format(
-                                                          DateTime.now(),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                            });
-
-                                            Navigator.pop(context);
-                                          },
-                                          child: const Text('Update'),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                        child: NoteWidget(
-                          title: state.notes[index].title,
-                          content: state.notes[index].content,
-                          date: state.notes[index].date,
-                          color: state.notes[index].color,
-                          index: index,
-                        ),
                       ),
                     );
                   },
@@ -330,7 +207,6 @@ class _NoteListState extends State<NoteList> {
                                         ),
                                       );
                                 });
-
                                 Navigator.pop(context);
                               },
                               child: const Text('Add Loot'),

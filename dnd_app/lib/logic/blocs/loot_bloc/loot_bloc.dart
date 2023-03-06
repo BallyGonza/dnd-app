@@ -36,7 +36,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
   ) async {
     notes.add(event.note);
     await box.put(0, character);
-    emit(LootState.updated(notes));
+    emit(LootState.loaded(notes));
   }
 
   Future<void> _onEdit(
@@ -45,7 +45,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
   ) async {
     notes[event.index] = event.note;
     await box.put(0, character);
-    emit(LootState.updated(notes));
+    emit(LootState.loaded(notes));
   }
 
   Future<void> _onDelete(
@@ -54,7 +54,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
   ) async {
     notes.removeAt(event.index);
     await box.put(0, character);
-    emit(LootState.updated(notes));
+    emit(LootState.loaded(notes));
   }
 
   void _onDeleteAll(
@@ -65,6 +65,6 @@ class LootBloc extends Bloc<LootEvent, LootState> {
       character.notes.remove(element);
     }
     box.put(0, character);
-    emit(LootState.updated(character.notes));
+    emit(LootState.loaded(character.notes));
   }
 }
