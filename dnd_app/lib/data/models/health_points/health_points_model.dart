@@ -1,7 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'health_points_model.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 1)
 class HealthPoints {
   @HiveField(0)
@@ -31,4 +33,9 @@ class HealthPoints {
   void reset() {
     current = max;
   }
+
+  factory HealthPoints.fromJson(Map<String, dynamic> json) =>
+      _$HealthPointsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$HealthPointsToJson(this);
 }

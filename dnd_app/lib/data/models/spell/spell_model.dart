@@ -1,7 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'spell_model.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 8)
 class Spell {
   @HiveField(0)
@@ -28,4 +30,8 @@ class Spell {
     required this.comp,
     required this.description,
   });
+
+  factory Spell.fromJson(Map<String, dynamic> json) => _$SpellFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SpellToJson(this);
 }

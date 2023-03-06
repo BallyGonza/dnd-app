@@ -1,8 +1,10 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:dnd_app/data/data.dart';
 
 part 'pet_model.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 5)
 class Pet {
   @HiveField(0)
@@ -50,4 +52,8 @@ class Pet {
     required this.favoredEnemy,
     required this.favoredTerrain,
   });
+
+  factory Pet.fromJson(Map<String, dynamic> json) => _$PetFromJson(json);
+
+  Map<String, dynamic> toJson() => _$PetToJson(this);
 }

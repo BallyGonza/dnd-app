@@ -42,3 +42,18 @@ class HealthPointsAdapter extends TypeAdapter<HealthPoints> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+HealthPoints _$HealthPointsFromJson(Map<String, dynamic> json) => HealthPoints(
+      current: json['current'] as int,
+      max: json['max'] as int,
+    );
+
+Map<String, dynamic> _$HealthPointsToJson(HealthPoints instance) =>
+    <String, dynamic>{
+      'current': instance.current,
+      'max': instance.max,
+    };

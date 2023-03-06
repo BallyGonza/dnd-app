@@ -120,3 +120,89 @@ class CharacterAdapter extends TypeAdapter<Character> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      lastName: json['lastName'] as String,
+      img: json['img'] as String,
+      profileImg: json['profileImg'] as String,
+      banner: json['banner'] as String,
+      race: json['race'] as String,
+      classes:
+          (json['classes'] as List<dynamic>).map((e) => e as String).toList(),
+      level: json['level'] as int,
+      armor: json['armor'] as int,
+      initiative: json['initiative'] as int,
+      speed: json['speed'] as int,
+      passivePerception: json['passivePerception'] as int,
+      hitDice: Dice.fromJson(json['hitDice'] as Map<String, dynamic>),
+      healthPoints:
+          HealthPoints.fromJson(json['healthPoints'] as Map<String, dynamic>),
+      abilities: (json['abilities'] as List<dynamic>)
+          .map((e) => Ability.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      skills: (json['skills'] as List<dynamic>)
+          .map((e) => Skill.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      savingThrows: (json['savingThrows'] as List<dynamic>)
+          .map((e) => SavingThrow.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      weapons: (json['weapons'] as List<dynamic>)
+          .map((e) => Weapon.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      languages: json['languages'] as String,
+      traits: (json['traits'] as List<dynamic>)
+          .map((e) => Trait.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      spells: (json['spells'] as List<dynamic>)
+          .map((e) => Spell.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      background: (json['background'] as List<dynamic>)
+          .map((e) => Background.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      backstory: json['backstory'] as String,
+      pet: (json['pet'] as List<dynamic>)
+          .map((e) => Pet.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      notes: (json['notes'] as List<dynamic>)
+          .map((e) => Note.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      favoredEnemy: json['favoredEnemy'] as String,
+      favoredTerrain: json['favoredTerrain'] as String,
+    );
+
+Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'lastName': instance.lastName,
+      'img': instance.img,
+      'profileImg': instance.profileImg,
+      'banner': instance.banner,
+      'race': instance.race,
+      'classes': instance.classes,
+      'level': instance.level,
+      'armor': instance.armor,
+      'initiative': instance.initiative,
+      'speed': instance.speed,
+      'passivePerception': instance.passivePerception,
+      'hitDice': instance.hitDice,
+      'healthPoints': instance.healthPoints,
+      'abilities': instance.abilities,
+      'skills': instance.skills,
+      'savingThrows': instance.savingThrows,
+      'weapons': instance.weapons,
+      'languages': instance.languages,
+      'traits': instance.traits,
+      'spells': instance.spells,
+      'background': instance.background,
+      'backstory': instance.backstory,
+      'pet': instance.pet,
+      'notes': instance.notes,
+      'favoredEnemy': instance.favoredEnemy,
+      'favoredTerrain': instance.favoredTerrain,
+    };

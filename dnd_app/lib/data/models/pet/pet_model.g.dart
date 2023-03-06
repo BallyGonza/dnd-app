@@ -78,3 +78,52 @@ class PetAdapter extends TypeAdapter<Pet> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Pet _$PetFromJson(Map<String, dynamic> json) => Pet(
+      name: json['name'] as String,
+      race: json['race'] as String,
+      img: json['img'] as String,
+      profileImg: json['profileImg'] as String,
+      armor: json['armor'] as int,
+      speed: json['speed'] as int,
+      healthPoints:
+          HealthPoints.fromJson(json['healthPoints'] as Map<String, dynamic>),
+      abilities: (json['abilities'] as List<dynamic>)
+          .map((e) => Ability.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      savingThrows: (json['savingThrows'] as List<dynamic>)
+          .map((e) => SavingThrow.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      weapons: (json['weapons'] as List<dynamic>)
+          .map((e) => Weapon.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      traits: (json['traits'] as List<dynamic>)
+          .map((e) => Trait.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      allSkills: (json['allSkills'] as List<dynamic>)
+          .map((e) => Skill.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      favoredEnemy: json['favoredEnemy'] as String,
+      favoredTerrain: json['favoredTerrain'] as String,
+    );
+
+Map<String, dynamic> _$PetToJson(Pet instance) => <String, dynamic>{
+      'name': instance.name,
+      'race': instance.race,
+      'img': instance.img,
+      'profileImg': instance.profileImg,
+      'armor': instance.armor,
+      'speed': instance.speed,
+      'healthPoints': instance.healthPoints,
+      'abilities': instance.abilities,
+      'savingThrows': instance.savingThrows,
+      'weapons': instance.weapons,
+      'traits': instance.traits,
+      'allSkills': instance.allSkills,
+      'favoredEnemy': instance.favoredEnemy,
+      'favoredTerrain': instance.favoredTerrain,
+    };

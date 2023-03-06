@@ -60,3 +60,29 @@ class WeaponAdapter extends TypeAdapter<Weapon> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Weapon _$WeaponFromJson(Map<String, dynamic> json) => Weapon(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      damage: json['damage'] as int,
+      quantityOfDices: json['quantityOfDices'] as int,
+      damageDice: Dice.fromJson(json['damageDice'] as Map<String, dynamic>),
+      checkDice: Dice.fromJson(json['checkDice'] as Map<String, dynamic>),
+      range: json['range'] as int,
+      img: json['img'] as String,
+    );
+
+Map<String, dynamic> _$WeaponToJson(Weapon instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'damage': instance.damage,
+      'quantityOfDices': instance.quantityOfDices,
+      'damageDice': instance.damageDice,
+      'checkDice': instance.checkDice,
+      'range': instance.range,
+      'img': instance.img,
+    };

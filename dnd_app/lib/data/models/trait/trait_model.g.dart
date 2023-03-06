@@ -42,3 +42,17 @@ class TraitAdapter extends TypeAdapter<Trait> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Trait _$TraitFromJson(Map<String, dynamic> json) => Trait(
+      name: json['name'] as String,
+      description: json['description'] as String,
+    );
+
+Map<String, dynamic> _$TraitToJson(Trait instance) => <String, dynamic>{
+      'name': instance.name,
+      'description': instance.description,
+    };

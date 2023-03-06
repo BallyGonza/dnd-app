@@ -45,3 +45,19 @@ class SkillAdapter extends TypeAdapter<Skill> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Skill _$SkillFromJson(Map<String, dynamic> json) => Skill(
+      name: json['name'] as String,
+      modifier: json['modifier'] as int,
+      proficiency: json['proficiency'] as bool,
+    );
+
+Map<String, dynamic> _$SkillToJson(Skill instance) => <String, dynamic>{
+      'name': instance.name,
+      'modifier': instance.modifier,
+      'proficiency': instance.proficiency,
+    };

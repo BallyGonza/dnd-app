@@ -42,3 +42,18 @@ class BackgroundAdapter extends TypeAdapter<Background> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
+      name: json['name'] as String,
+      description: json['description'] as String,
+    );
+
+Map<String, dynamic> _$BackgroundToJson(Background instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'description': instance.description,
+    };

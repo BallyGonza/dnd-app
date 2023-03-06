@@ -45,3 +45,19 @@ class AbilityAdapter extends TypeAdapter<Ability> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Ability _$AbilityFromJson(Map<String, dynamic> json) => Ability(
+      name: json['name'] as String,
+      score: json['score'] as int,
+      modifier: json['modifier'] as int,
+    );
+
+Map<String, dynamic> _$AbilityToJson(Ability instance) => <String, dynamic>{
+      'name': instance.name,
+      'score': instance.score,
+      'modifier': instance.modifier,
+    };

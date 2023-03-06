@@ -1,7 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'ability_model.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 3)
 class Ability {
   @HiveField(0)
@@ -16,4 +18,9 @@ class Ability {
     required this.score,
     required this.modifier,
   });
+
+  factory Ability.fromJson(Map<String, dynamic> json) =>
+      _$AbilityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AbilityToJson(this);
 }

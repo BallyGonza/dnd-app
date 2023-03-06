@@ -45,3 +45,20 @@ class SavingThrowAdapter extends TypeAdapter<SavingThrow> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+SavingThrow _$SavingThrowFromJson(Map<String, dynamic> json) => SavingThrow(
+      name: json['name'] as String,
+      modifier: json['modifier'] as int,
+      proficiency: json['proficiency'] as bool,
+    );
+
+Map<String, dynamic> _$SavingThrowToJson(SavingThrow instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'modifier': instance.modifier,
+      'proficiency': instance.proficiency,
+    };

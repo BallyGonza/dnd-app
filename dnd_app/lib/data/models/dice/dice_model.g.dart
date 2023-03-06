@@ -45,3 +45,19 @@ class DiceAdapter extends TypeAdapter<Dice> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Dice _$DiceFromJson(Map<String, dynamic> json) => Dice(
+      name: json['name'] as String,
+      sides: json['sides'] as int,
+      img: json['img'] as String,
+    );
+
+Map<String, dynamic> _$DiceToJson(Dice instance) => <String, dynamic>{
+      'name': instance.name,
+      'sides': instance.sides,
+      'img': instance.img,
+    };

@@ -57,3 +57,27 @@ class SpellAdapter extends TypeAdapter<Spell> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Spell _$SpellFromJson(Map<String, dynamic> json) => Spell(
+      name: json['name'] as String,
+      level: json['level'] as int,
+      range: json['range'] as String,
+      castTime: json['castTime'] as String,
+      duration: json['duration'] as String,
+      comp: json['comp'] as String,
+      description: json['description'] as String,
+    );
+
+Map<String, dynamic> _$SpellToJson(Spell instance) => <String, dynamic>{
+      'name': instance.name,
+      'level': instance.level,
+      'range': instance.range,
+      'castTime': instance.castTime,
+      'duration': instance.duration,
+      'comp': instance.comp,
+      'description': instance.description,
+    };

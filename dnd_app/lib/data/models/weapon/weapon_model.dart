@@ -1,8 +1,10 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'weapon_model.g.dart';
 
+@JsonSerializable()
 @HiveType(typeId: 10)
 class Weapon {
   @HiveField(0)
@@ -32,4 +34,8 @@ class Weapon {
     required this.range,
     required this.img,
   });
+
+  factory Weapon.fromJson(Map<String, dynamic> json) => _$WeaponFromJson(json);
+
+  Map<String, dynamic> toJson() => _$WeaponToJson(this);
 }
