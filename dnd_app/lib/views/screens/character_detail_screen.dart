@@ -122,7 +122,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   Widget _stackedWidgets() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.74,
+      height: 580,
       child: IndexedStack(
         index: index,
         children: <Widget>[

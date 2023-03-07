@@ -36,7 +36,7 @@ class CharacterDetailsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150,
+      height: 200,
       decoration: BoxDecoration(
         image: DecorationImage(
           colorFilter: ColorFilter.mode(
@@ -51,7 +51,7 @@ class CharacterDetailsCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 23),
+            padding: const EdgeInsets.only(top: 30),
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.6),
