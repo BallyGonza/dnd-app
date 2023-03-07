@@ -59,8 +59,11 @@ class _NoteListState extends State<NoteList> {
                             titleController.text = notes[index].title;
                             contentController.text = notes[index].content;
                             showModalBottomSheet(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(16),
+                                  topRight: Radius.circular(16),
+                                ),
                               ),
                               context: context,
                               builder: (_) {
@@ -71,18 +74,20 @@ class _NoteListState extends State<NoteList> {
                                     content: notes[index].content,
                                     buttonText: 'Edit',
                                     onSaved: (title, content) {
-                                      context.read<LootBloc>().add(
-                                            LootEvent.edit(
-                                              index,
-                                              Note(
-                                                title: title,
-                                                content: content,
-                                                date: format
-                                                    .format(DateTime.now()),
-                                                color: notes[index].color,
+                                      setState(() {
+                                        context.read<LootBloc>().add(
+                                              LootEvent.edit(
+                                                index,
+                                                Note(
+                                                  title: title,
+                                                  content: content,
+                                                  date: format
+                                                      .format(DateTime.now()),
+                                                  color: notes[index].color,
+                                                ),
                                               ),
-                                            ),
-                                          );
+                                            );
+                                      });
                                     },
                                   ),
                                 );
@@ -119,16 +124,18 @@ class _NoteListState extends State<NoteList> {
                       content: '',
                       buttonText: 'Add',
                       onSaved: (title, content) {
-                        context.read<LootBloc>().add(
-                              LootEvent.add(
-                                Note(
-                                  title: title,
-                                  content: content,
-                                  date: format.format(DateTime.now()),
-                                  color: Colors.black.value,
+                        setState(() {
+                          context.read<LootBloc>().add(
+                                LootEvent.add(
+                                  Note(
+                                    title: title,
+                                    content: content,
+                                    date: format.format(DateTime.now()),
+                                    color: Colors.black.value,
+                                  ),
                                 ),
-                              ),
-                            );
+                              );
+                        });
                       },
                     ),
                   );
@@ -137,6 +144,9 @@ class _NoteListState extends State<NoteList> {
             },
             child: const Icon(Icons.add),
           ),
+        ),
+        const SizedBox(
+          height: 5,
         ),
       ],
     );
