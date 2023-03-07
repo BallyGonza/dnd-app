@@ -1,7 +1,7 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class TraitCard extends StatefulWidget {
+class TraitCard extends StatelessWidget {
   const TraitCard(
       {Key? key,
       required this.trait,
@@ -14,18 +14,12 @@ class TraitCard extends StatefulWidget {
   final String favoredTerrain;
 
   @override
-  State<TraitCard> createState() => _TraitCardState();
-}
-
-class _TraitCardState extends State<TraitCard> {
-  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
       child: Card(
         child: ExpansionTile(
-            title:
-                Text(widget.trait.name, style: const TextStyle(fontSize: 20)),
+            title: Text(trait.name, style: const TextStyle(fontSize: 20)),
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(
@@ -34,11 +28,11 @@ class _TraitCardState extends State<TraitCard> {
                   children: [
                     Row(
                       children: [
-                        widget.trait.name == "Favored Enemy"
-                            ? Text('[${widget.favoredEnemy}]\n',
+                        trait.name == "Favored Enemy"
+                            ? Text('[$favoredEnemy]\n',
                                 style: const TextStyle(fontSize: 15))
-                            : widget.trait.name == "Favored Terrain"
-                                ? Text('[${widget.favoredTerrain}]\n',
+                            : trait.name == "Favored Terrain"
+                                ? Text('[$favoredTerrain]\n',
                                     style: const TextStyle(fontSize: 15))
                                 // else display nothing
                                 : Container(),
@@ -48,7 +42,7 @@ class _TraitCardState extends State<TraitCard> {
                       padding: const EdgeInsets.only(bottom: 4),
                       child: Column(
                         children: [
-                          Text(widget.trait.description,
+                          Text(trait.description,
                               style: const TextStyle(fontSize: 15)),
                         ],
                       ),

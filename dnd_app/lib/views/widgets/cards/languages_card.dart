@@ -1,29 +1,46 @@
+import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class LanguagesCard extends StatefulWidget {
-  const LanguagesCard({Key? key, required this.languages}) : super(key: key);
-
+class LanguagesCard extends StatelessWidget {
   final String languages;
 
-  @override
-  State<LanguagesCard> createState() => _LanguagesCardState();
-}
+  const LanguagesCard({
+    Key? key,
+    required this.languages,
+  }) : super(key: key);
 
-class _LanguagesCardState extends State<LanguagesCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Card(
-        child: ExpansionTile(
-          expandedAlignment: Alignment.centerLeft,
-          title: const Text('Languages', style: TextStyle(fontSize: 20)),
-          childrenPadding:
-              const EdgeInsets.only(left: 20, right: 20, bottom: 16),
-          children: <Widget>[
-            Text(
-              widget.languages,
-              style: const TextStyle(fontSize: 16),
+        elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+          side: BorderSide(
+            color: Theme.of(context).dividerColor,
+            width: 1,
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+              child: Text(
+                'Languages',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+            ),
+            Divider(
+              color: Theme.of(context).dividerColor,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 2.0, 16.0, 16.0),
+              child: Text(
+                languages,
+                style: Theme.of(context).textTheme.bodyText2,
+              ),
             ),
           ],
         ),

@@ -1,24 +1,19 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class SpellCard extends StatefulWidget {
+class SpellCard extends StatelessWidget {
   final Spell spell;
   const SpellCard({Key? key, required this.spell}) : super(key: key);
 
   @override
-  State<SpellCard> createState() => _SpellCardState();
-}
-
-class _SpellCardState extends State<SpellCard> {
-  @override
   Widget build(BuildContext context) {
-    final String name = widget.spell.name;
-    final int level = widget.spell.level;
-    final String range = widget.spell.range;
-    final String castTime = widget.spell.castTime;
-    final String comp = widget.spell.comp;
-    final String duration = widget.spell.duration;
-    final String description = widget.spell.description;
+    final String name = spell.name;
+    final int level = spell.level;
+    final String range = spell.range;
+    final String castTime = spell.castTime;
+    final String comp = spell.comp;
+    final String duration = spell.duration;
+    final String description = spell.description;
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
       child: Container(
