@@ -26,17 +26,9 @@ class TraitCard extends StatelessWidget {
                     left: 15, right: 15, top: 4, bottom: 4),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        trait.name == "Favored Enemy"
-                            ? Text('[$favoredEnemy]\n',
-                                style: const TextStyle(fontSize: 15))
-                            : trait.name == "Favored Terrain"
-                                ? Text('[$favoredTerrain]\n',
-                                    style: const TextStyle(fontSize: 15))
-                                // else display nothing
-                                : Container(),
-                      ],
+                    Text(
+                      trait.name,
+                      style: const TextStyle(fontSize: 15),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 4),

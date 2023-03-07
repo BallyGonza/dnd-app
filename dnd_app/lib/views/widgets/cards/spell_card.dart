@@ -32,6 +32,7 @@ class _SpellCardState extends State<SpellCard> {
           },
           children: [
             ExpansionPanel(
+              canTapOnHeader: true,
               headerBuilder: (BuildContext context, bool isExpanded) {
                 return ListTile(
                   title: Text(

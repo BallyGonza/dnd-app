@@ -1,5 +1,4 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:dnd_app/services/services.dart';
 import 'package:flutter/material.dart';
 
 class WeaponThrowRow extends StatelessWidget {

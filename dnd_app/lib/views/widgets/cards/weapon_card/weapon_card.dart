@@ -11,45 +11,66 @@ class WeaponCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
-      child: Card(
-        child: ExpansionTile(
-          leading: Image.asset(
-            weapon.img,
-            width: 30,
-            height: 30,
-          ),
-          title: Text(
-            weapon.name,
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          childrenPadding:
-              const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
-          children: <Widget>[
-            WeaponThrowRow(
-              title: 'TO HIT',
-              weapon: weapon,
-              onTap: () => showDialog(
-                context: context,
-                builder: (BuildContext context) => RollAbilitieSkillDialog(
-                  name: 'To Hit [${d20.name.toUpperCase()}]',
-                  modifier: weapon.range,
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Stack(
+        children: [
+          Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            elevation: 4,
+            child: ListTile(
+              title: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  weapon.name,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
-            ),
-            WeaponThrowRow(
-              title: 'DAMAGE',
-              weapon: weapon,
-              onTap: () => showDialog(
-                context: context,
-                builder: (context) => RollDamageDiceDialog(
-                  weapon: weapon,
-                  dice: weapon.damageDice,
-                ),
+              subtitle: Column(
+                children: [
+                  WeaponThrowRow(
+                    title: 'TO HIT',
+                    weapon: weapon,
+                    onTap: () => showDialog(
+                      context: context,
+                      builder: (BuildContext context) =>
+                          RollAbilitieSkillDialog(
+                        name: 'To Hit [${d20.name.toUpperCase()}]',
+                        modifier: weapon.range,
+                      ),
+                    ),
+                  ),
+                  WeaponThrowRow(
+                    title: 'DAMAGE',
+                    weapon: weapon,
+                    onTap: () => showDialog(
+                      context: context,
+                      builder: (context) => RollDamageDiceDialog(
+                        weapon: weapon,
+                        dice: weapon.damageDice,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 15),
+            height: 100,
+            width: 350,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(weapon.img),
+                fit: BoxFit.fitHeight,
+                opacity: 0.1,
+                alignment: Alignment.centerRight,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
