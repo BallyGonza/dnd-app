@@ -59,10 +59,6 @@ class Character {
   final List<Pet> pet;
   @HiveField(25)
   List<Note> notes;
-  @HiveField(26)
-  final String favoredEnemy;
-  @HiveField(27)
-  final String favoredTerrain;
 
   Character({
     required this.id,
@@ -91,8 +87,6 @@ class Character {
     required this.backstory,
     required this.pet,
     required this.notes,
-    required this.favoredEnemy,
-    required this.favoredTerrain,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) =>
@@ -128,8 +122,6 @@ class Character {
       backstory: backstory,
       pet: pet,
       notes: notes,
-      favoredEnemy: favoredEnemy,
-      favoredTerrain: favoredTerrain,
     );
   }
 }

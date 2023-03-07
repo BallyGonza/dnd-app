@@ -223,8 +223,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           },
           child: ListTraits(
             traits: widget.character.traits,
-            favoredEnemy: widget.character.favoredEnemy,
-            favoredTerrain: widget.character.favoredTerrain,
           ),
         ),
         GestureDetector(

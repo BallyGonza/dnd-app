@@ -21,7 +21,7 @@ Trait wildMask = Trait(
 Trait favoredEnemy = Trait(
   name: 'Favored Enemy',
   description:
-      'Tienes ventaja en chequeos de supervivencia para intentar buscar rastros de estas criaturas y ventaja en chequeos de inteligencia relacionados a información sobre estas criaturas.',
+      'Tienes ventaja en chequeos de supervivencia para intentar buscar rastros de estas criaturas y ventaja en chequeos de inteligencia relacionados a información sobre estas criaturas.\n\n[Beasts and Dragons]',
 );
 
 Trait naturalHealing = Trait(
@@ -33,7 +33,7 @@ Trait naturalHealing = Trait(
 Trait favoredTerrain = Trait(
     name: 'Favored Terrain',
     description:
-        'Al realizar un chequeo de investigación, percepción o supervivencia que este relacionado a estos terrenos, usas el doble de tu modificador.\nA su vez, al viajar durante una hora o mas durante estos terrenos, obtienes los siguientes beneficios:\n\n ~Aun si es terreno difícil, no disminuye el tiempo de viaje de tu grupo. \n\n ~Tu grupo no se puede perder excepto a causa de efectos mágicos.\n\n ~Permaneces alerta a tus alrededores aun si estas realizando tareas como juntar comida o rastreando huellas.\n\n ~Si estas viajando solo, podes moverte sigilosamente aun yendo a velocidad normal.\n\n ~Al buscar comida en estos terrenos, obtienes el doble de lo que normalmente obtendrías.\n\n ~Al rastrear criaturas, podes identificar su tamaño, cantidad aproximada y hace cuanto tiempo pasaron por esa zona.');
+        'Al realizar un chequeo de investigación, percepción o supervivencia que este relacionado a estos terrenos, usas el doble de tu modificador.\nA su vez, al viajar durante una hora o mas durante estos terrenos, obtienes los siguientes beneficios:\n\n ~Aun si es terreno difícil, no disminuye el tiempo de viaje de tu grupo. \n\n ~Tu grupo no se puede perder excepto a causa de efectos mágicos.\n\n ~Permaneces alerta a tus alrededores aun si estas realizando tareas como juntar comida o rastreando huellas.\n\n ~Si estas viajando solo, podes moverte sigilosamente aun yendo a velocidad normal.\n\n ~Al buscar comida en estos terrenos, obtienes el doble de lo que normalmente obtendrías.\n\n ~Al rastrear criaturas, podes identificar su tamaño, cantidad aproximada y hace cuanto tiempo pasaron por esa zona.\n\n[Woods and Mountains]');
 
 Trait primalInstinct = Trait(
     name: 'Primal Instinct',

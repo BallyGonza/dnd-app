@@ -1,75 +1,75 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class SpellCard extends StatelessWidget {
+class SpellCard extends StatefulWidget {
   final Spell spell;
   const SpellCard({Key? key, required this.spell}) : super(key: key);
 
   @override
+  State<SpellCard> createState() => _SpellCardState();
+}
+
+class _SpellCardState extends State<SpellCard> {
+  bool isExpanded = false;
+
+  @override
   Widget build(BuildContext context) {
-    final String name = spell.name;
-    final int level = spell.level;
-    final String range = spell.range;
-    final String castTime = spell.castTime;
-    final String comp = spell.comp;
-    final String duration = spell.duration;
-    final String description = spell.description;
+    final String name = widget.spell.name;
+    final int level = widget.spell.level;
+    final String range = widget.spell.range;
+    final String castTime = widget.spell.castTime;
+    final String comp = widget.spell.comp;
+    final String duration = widget.spell.duration;
+    final String description = widget.spell.description;
     return Padding(
-      padding: const EdgeInsets.only(left: 15, right: 15, top: 4, bottom: 4),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(color: Color(spellCardColor)),
-            left: BorderSide(color: Color(spellCardColor)),
-            right: BorderSide(color: Color(spellCardColor)),
-            bottom: BorderSide(color: Color(spellCardColor)),
-          ),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Card(
+        child: ExpansionPanelList(
+          expansionCallback: (int index, bool isExpanded) {
+            setState(() {
+              this.isExpanded = !isExpanded;
+            });
+          },
+          children: [
+            ExpansionPanel(
+              headerBuilder: (BuildContext context, bool isExpanded) {
+                return ListTile(
+                  title: Text(
+                    name,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  subtitle: Text(
+                    'Level ${level.toString()}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .subtitle2
+                        ?.copyWith(color: Colors.black.withOpacity(0.5)),
+                  ),
+                );
+              },
+              body: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Column(
+                  children: [
+                    SpecField(title: 'Range', details: range),
+                    SpecField(title: 'Cast Time', details: castTime),
+                    SpecField(title: 'Comp', details: comp),
+                    SpecField(title: 'Duration', details: duration),
+                    const SizedBox(height: 6),
+                    Divider(height: 0, thickness: 1, color: Colors.purple[200]),
+                    const SizedBox(height: 6),
+                    Text(
+                      description,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
+              isExpanded: isExpanded,
+            ),
+          ],
         ),
-        child: ExpansionTile(
-            title: Text(
-              name,
-              style: const TextStyle(fontSize: 20),
-            ),
-            subtitle: Text(
-              'Level ${level.toString()}',
-              style: TextStyle(
-                color: Colors.black.withOpacity(0.5),
-              ),
-            ),
-            children: <Widget>[
-              Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(color: Color(spellCardColor)),
-                    bottom: BorderSide(color: Color(spellCardColor)),
-                  ),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
-                  child: GridView.count(
-                    shrinkWrap: true,
-                    crossAxisCount: 2,
-                    childAspectRatio: 7,
-                    children: [
-                      SpecField(title: 'Range', details: range),
-                      SpecField(title: 'Cast Time', details: castTime),
-                      SpecField(title: 'Comp', details: comp),
-                      SpecField(title: 'Duration', details: duration),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
-                  child:
-                      Text(description, style: const TextStyle(fontSize: 15)),
-                ),
-              ),
-            ]),
       ),
     );
   }
@@ -88,17 +88,19 @@ class SpecField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           '${title.toUpperCase()}: ',
-          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.caption,
         ),
-        const SizedBox(width: 3),
         Expanded(
           child: Text(
-            overflow: TextOverflow.ellipsis,
             details,
-            style: const TextStyle(fontSize: 15),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+            ),
           ),
         ),
       ],

@@ -225,7 +225,7 @@ class _$LootLoaded implements LootLoaded {
 
   final List<Note> _notes;
   @override
-  List<Note> notes() {
+  List<Note> get notes {
     if (_notes is EqualUnmodifiableListView) return _notes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_notes);
@@ -233,7 +233,7 @@ class _$LootLoaded implements LootLoaded {
 
   @override
   String toString() {
-    return 'LootState.loaded(notes: $notes())';
+    return 'LootState.loaded(notes: $notes)';
   }
 
   @override
@@ -261,7 +261,7 @@ class _$LootLoaded implements LootLoaded {
     required TResult Function(List<Note> notes) loaded,
     required TResult Function() failure,
   }) {
-    return loaded(notes());
+    return loaded(notes);
   }
 
   @override
@@ -271,7 +271,7 @@ class _$LootLoaded implements LootLoaded {
     TResult? Function(List<Note> notes)? loaded,
     TResult? Function()? failure,
   }) {
-    return loaded?.call(notes());
+    return loaded?.call(notes);
   }
 
   @override
@@ -283,7 +283,7 @@ class _$LootLoaded implements LootLoaded {
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(notes());
+      return loaded(notes);
     }
     return orElse();
   }
@@ -326,7 +326,7 @@ class _$LootLoaded implements LootLoaded {
 abstract class LootLoaded implements LootState {
   const factory LootLoaded(final List<Note> notes) = _$LootLoaded;
 
-  List<Note> notes();
+  List<Note> get notes;
   @JsonKey(ignore: true)
   _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
       throw _privateConstructorUsedError;

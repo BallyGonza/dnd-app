@@ -43,15 +43,13 @@ class CharacterAdapter extends TypeAdapter<Character> {
       backstory: fields[23] as String,
       pet: (fields[24] as List).cast<Pet>(),
       notes: (fields[25] as List).cast<Note>(),
-      favoredEnemy: fields[26] as String,
-      favoredTerrain: fields[27] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Character obj) {
     writer
-      ..writeByte(28)
+      ..writeByte(26)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -103,11 +101,7 @@ class CharacterAdapter extends TypeAdapter<Character> {
       ..writeByte(24)
       ..write(obj.pet)
       ..writeByte(25)
-      ..write(obj.notes)
-      ..writeByte(26)
-      ..write(obj.favoredEnemy)
-      ..writeByte(27)
-      ..write(obj.favoredTerrain);
+      ..write(obj.notes);
   }
 
   @override
@@ -172,8 +166,6 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
       notes: (json['notes'] as List<dynamic>)
           .map((e) => Note.fromJson(e as Map<String, dynamic>))
           .toList(),
-      favoredEnemy: json['favoredEnemy'] as String,
-      favoredTerrain: json['favoredTerrain'] as String,
     );
 
 Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
@@ -203,6 +195,4 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'backstory': instance.backstory,
       'pet': instance.pet,
       'notes': instance.notes,
-      'favoredEnemy': instance.favoredEnemy,
-      'favoredTerrain': instance.favoredTerrain,
     };

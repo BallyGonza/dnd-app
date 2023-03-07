@@ -1,12 +1,14 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
-class LanguagesCard extends StatelessWidget {
-  final String languages;
+class TitleTextCard extends StatelessWidget {
+  final String title;
+  final String text;
 
-  const LanguagesCard({
+  const TitleTextCard({
     Key? key,
-    required this.languages,
+    required this.title,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class LanguagesCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 16.0, top: 16.0),
               child: Text(
-                'Languages',
+                title,
                 style: Theme.of(context).textTheme.headline6,
               ),
             ),
@@ -38,7 +40,7 @@ class LanguagesCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 2.0, 16.0, 16.0),
               child: Text(
-                languages,
+                text,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
             ),
