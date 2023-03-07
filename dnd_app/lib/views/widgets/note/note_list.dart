@@ -36,7 +36,7 @@ class _NoteListState extends State<NoteList> {
                 orElse: () => const SizedBox(),
                 initial: () => const CircularProgressIndicator(),
                 loaded: (notes) => SizedBox(
-                  height: 505,
+                  height: MediaQuery.of(context).size.height * 0.5,
                   child: ListView.builder(
                     padding: const EdgeInsets.only(
                       bottom: 25,

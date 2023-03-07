@@ -12,16 +12,42 @@ class AbilitiesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      padding: const EdgeInsets.all(0),
-      itemCount: abilities.length,
-      itemBuilder: (context, index) {
-        return AbilityCard(
-          ability: abilities[index],
-          savingThrow: savingThrows[index],
-        );
-      },
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      height: abilities.length > 4
+          ? MediaQuery.of(context).size.height * 0.40
+          : MediaQuery.of(context).size.height * 0.15,
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 20, bottom: 10),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Abilities',
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              ),
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(0),
+              itemCount: abilities.length,
+              itemBuilder: (context, index) {
+                return AbilityCard(
+                  ability: abilities[index],
+                  savingThrow: savingThrows[index],
+                );
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

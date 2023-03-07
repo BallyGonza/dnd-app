@@ -58,15 +58,17 @@ class WeaponCard extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 15, right: 15),
+            margin: EdgeInsets.only(
+                top: 15,
+                right: 15,
+                left: MediaQuery.of(context).size.width * 0.6),
             height: 100,
-            width: 350,
+            width: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(weapon.img),
                 fit: BoxFit.fitHeight,
                 opacity: 0.1,
-                alignment: Alignment.centerRight,
               ),
             ),
           ),

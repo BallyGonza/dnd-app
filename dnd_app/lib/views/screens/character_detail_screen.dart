@@ -122,7 +122,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   Widget _stackedWidgets() {
     return SizedBox(
-      height: 580,
+      height: MediaQuery.of(context).size.height * 0.67,
       child: IndexedStack(
         index: index,
         children: <Widget>[
@@ -166,7 +166,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          SizedBox(width: 20),
+          const SizedBox(width: 10),
           _button('ABILITIES', 0),
           _button('SKILLS', 1),
           _button('ATTACKS', 2),
@@ -178,7 +178,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           widget.character.pet.isNotEmpty
               ? _button('PET', 8)
               : const SizedBox.shrink(),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
         ],
       ),
     );

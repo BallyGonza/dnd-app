@@ -11,7 +11,9 @@ class SkillsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: skills.length > 4 ? 500 : 130,
+      height: skills.length > 4
+          ? MediaQuery.of(context).size.height * 0.53
+          : MediaQuery.of(context).size.height * 0.15,
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -34,7 +36,7 @@ class SkillsList extends StatelessWidget {
               itemCount: skills.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 4,
+                childAspectRatio: 5,
                 mainAxisSpacing: 0,
               ),
               itemBuilder: (context, index) {
