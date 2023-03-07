@@ -32,14 +32,6 @@ class _AbilityCardState extends State<AbilityCard> {
       },
       child: Container(
         margin: const EdgeInsets.only(left: 20, right: 20),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1,
-              color: Colors.grey.shade200,
-            ),
-          ),
-        ),
         padding: const EdgeInsets.only(top: 8, bottom: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

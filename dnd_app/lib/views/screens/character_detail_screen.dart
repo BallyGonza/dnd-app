@@ -166,6 +166,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
+          SizedBox(width: 20),
           _button('ABILITIES', 0),
           _button('SKILLS', 1),
           _button('ATTACKS', 2),
@@ -177,6 +178,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           widget.character.pet.isNotEmpty
               ? _button('PET', 8)
               : const SizedBox.shrink(),
+          SizedBox(width: 10),
         ],
       ),
     );
