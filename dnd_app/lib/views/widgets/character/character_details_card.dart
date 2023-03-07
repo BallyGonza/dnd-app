@@ -1,10 +1,12 @@
-import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/data/models/models.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class CharacterDetailsCard extends StatelessWidget {
   const CharacterDetailsCard({
     Key? key,
+    required this.name,
+    required this.lastName,
     required this.img,
     required this.profileImg,
     required this.race,
@@ -17,6 +19,8 @@ class CharacterDetailsCard extends StatelessWidget {
     required this.passivePerception,
   }) : super(key: key);
 
+  final String name;
+  final String lastName;
   final String img;
   final String profileImg;
   final String race;
@@ -47,6 +51,7 @@ class CharacterDetailsCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
+            padding: const EdgeInsets.only(top: 23),
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.6),
@@ -55,8 +60,19 @@ class CharacterDetailsCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: <Widget>[
-                  CircleAvatar(
-                    backgroundImage: AssetImage(profileImg),
+                  GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => _buildDialog(context),
+                      );
+                    },
+                    child: Hero(
+                      tag: 'profile_$profileImg',
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage(profileImg),
+                      ),
+                    ),
                   ),
                   const SizedBox(width: 10),
                   Column(
@@ -65,12 +81,20 @@ class CharacterDetailsCard extends StatelessWidget {
                       Text(
                         race,
                         style: const TextStyle(
+                          fontSize: 11,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        '$name $lastName',
+                        style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
                       ),
                       Text(
-                        '${classes[1]} / ${classes[0]} | Lvl. $level',
+                        '${classes[0]} / ${classes[1]} | Lvl. $level',
                         style: const TextStyle(
                           fontSize: 11,
                           fontStyle: FontStyle.italic,
@@ -111,6 +135,20 @@ class CharacterDetailsCard extends StatelessWidget {
           ),
           const SizedBox(width: 5),
         ],
+      ),
+    );
+  }
+
+  Widget _buildDialog(BuildContext context) {
+    return Dialog(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Hero(
+          tag: 'image_$img',
+          child: Image.asset(img),
+        ),
       ),
     );
   }

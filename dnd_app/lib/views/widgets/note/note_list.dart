@@ -28,127 +28,132 @@ class _NoteListState extends State<NoteList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        BlocBuilder<LootBloc, LootState>(
-          builder: (context, state) {
-            return state.maybeWhen(
-              orElse: () => const SizedBox(),
-              initial: () => const CircularProgressIndicator(),
-              loaded: (notes) => SizedBox(
-                height: 450,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: notes.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                        onLongPress: () {
-                          setState(() {
-                            context
-                                .read<LootBloc>()
-                                .add(LootEvent.delete(index));
-                          });
-                        },
-                        child: NoteListItem(
-                          title: notes[index].title,
-                          content: notes[index].content,
-                          date: notes[index].date,
-                          color: notes[index].color,
-                          index: index,
-                          onTap: () {
-                            titleController.text = notes[index].title;
-                            contentController.text = notes[index].content;
-                            showModalBottomSheet(
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16),
-                                ),
-                              ),
-                              context: context,
-                              builder: (_) {
-                                return BlocProvider.value(
-                                  value: context.read<LootBloc>(),
-                                  child: NoteModal(
-                                    title: notes[index].title,
-                                    content: notes[index].content,
-                                    buttonText: 'Edit',
-                                    onSaved: (title, content) {
-                                      setState(() {
-                                        context.read<LootBloc>().add(
-                                              LootEvent.edit(
-                                                index,
-                                                Note(
-                                                  title: title,
-                                                  content: content,
-                                                  date: format
-                                                      .format(DateTime.now()),
-                                                  color: notes[index].color,
-                                                ),
-                                              ),
-                                            );
-                                      });
-                                    },
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.8,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            BlocBuilder<LootBloc, LootState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () => const SizedBox(),
+                  initial: () => const CircularProgressIndicator(),
+                  loaded: (notes) => SizedBox(
+                    height: 450,
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: notes.length,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                            onLongPress: () {
+                              setState(() {
+                                context
+                                    .read<LootBloc>()
+                                    .add(LootEvent.delete(index));
+                              });
+                            },
+                            child: NoteListItem(
+                              title: notes[index].title,
+                              content: notes[index].content,
+                              date: notes[index].date,
+                              color: notes[index].color,
+                              index: index,
+                              onTap: () {
+                                titleController.text = notes[index].title;
+                                contentController.text = notes[index].content;
+                                showModalBottomSheet(
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16),
+                                      topRight: Radius.circular(16),
+                                    ),
                                   ),
+                                  context: context,
+                                  builder: (_) {
+                                    return BlocProvider.value(
+                                      value: context.read<LootBloc>(),
+                                      child: NoteModal(
+                                        title: notes[index].title,
+                                        content: notes[index].content,
+                                        buttonText: 'Edit',
+                                        onSaved: (title, content) {
+                                          setState(() {
+                                            context.read<LootBloc>().add(
+                                                  LootEvent.edit(
+                                                    index,
+                                                    Note(
+                                                      title: title,
+                                                      content: content,
+                                                      date: format.format(
+                                                          DateTime.now()),
+                                                      color: notes[index].color,
+                                                    ),
+                                                  ),
+                                                );
+                                          });
+                                        },
+                                      ),
+                                    );
+                                  },
                                 );
                               },
-                            );
-                          },
-                        ));
-                  },
-                ),
-              ),
-            );
-          },
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              shape: const CircleBorder(),
-            ),
-            onPressed: () {
-              titleController.clear();
-              contentController.clear();
-              showModalBottomSheet(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                context: context,
-                builder: (_) {
-                  return BlocProvider.value(
-                    value: context.read<LootBloc>(),
-                    child: NoteModal(
-                      title: '',
-                      content: '',
-                      buttonText: 'Add',
-                      onSaved: (title, content) {
-                        setState(() {
-                          context.read<LootBloc>().add(
-                                LootEvent.add(
-                                  Note(
-                                    title: title,
-                                    content: content,
-                                    date: format.format(DateTime.now()),
-                                    color: Colors.black.value,
-                                  ),
-                                ),
-                              );
-                        });
+                            ));
                       },
                     ),
+                  ),
+                );
+              },
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,
+                  shape: const CircleBorder(),
+                ),
+                onPressed: () {
+                  titleController.clear();
+                  contentController.clear();
+                  showModalBottomSheet(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    context: context,
+                    builder: (_) {
+                      return BlocProvider.value(
+                        value: context.read<LootBloc>(),
+                        child: NoteModal(
+                          title: '',
+                          content: '',
+                          buttonText: 'Add',
+                          onSaved: (title, content) {
+                            setState(() {
+                              context.read<LootBloc>().add(
+                                    LootEvent.add(
+                                      Note(
+                                        title: title,
+                                        content: content,
+                                        date: format.format(DateTime.now()),
+                                        color: Colors.black.value,
+                                      ),
+                                    ),
+                                  );
+                            });
+                          },
+                        ),
+                      );
+                    },
                   );
                 },
-              );
-            },
-            child: const Icon(Icons.add),
-          ),
+                child: const Icon(Icons.add),
+              ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+          ],
         ),
-        const SizedBox(
-          height: 5,
-        ),
-      ],
+      ),
     );
   }
 }

@@ -12,12 +12,14 @@ class ListBackgrounds extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (final background in backgrounds)
-          TitleTextCard(title: background.name, text: background.description),
-        TitleTextCard(title: 'Languages', text: languages),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          for (final background in backgrounds)
+            TitleTextCard(title: background.name, text: background.description),
+          TitleTextCard(title: 'Languages', text: languages),
+        ],
+      ),
     );
   }
 }

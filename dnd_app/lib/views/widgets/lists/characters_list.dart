@@ -11,6 +11,7 @@ class CharactersList extends StatelessWidget {
       itemCount: defaultCharacters.length,
       itemBuilder: (context, index) {
         return CharacterCard(
+          img: defaultCharacters[index].img,
           profileImg: defaultCharacters[index].profileImg,
           lastName: defaultCharacters[index].lastName,
           level: defaultCharacters[index].level,

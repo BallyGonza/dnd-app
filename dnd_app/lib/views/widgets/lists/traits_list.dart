@@ -12,15 +12,20 @@ class ListTraits extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      controller: ScrollController(),
-      padding: const EdgeInsets.all(0),
-      itemCount: traits.length,
-      itemBuilder: (context, index) {
-        return TitleTextCard(
-            title: traits[index].name, text: traits[index].description);
-      },
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 70),
+        child: ListView.builder(
+          shrinkWrap: true,
+          controller: ScrollController(),
+          padding: const EdgeInsets.all(0),
+          itemCount: traits.length,
+          itemBuilder: (context, index) {
+            return TitleTextCard(
+                title: traits[index].name, text: traits[index].description);
+          },
+        ),
+      ),
     );
   }
 }

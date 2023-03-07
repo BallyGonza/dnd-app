@@ -7,8 +7,7 @@ class BackstoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 30),
+    return SingleChildScrollView(
       child: Card(
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Padding(

@@ -9,16 +9,21 @@ class ListSpells extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      controller: ScrollController(),
-      padding: const EdgeInsets.all(0),
-      itemCount: spells.length,
-      itemBuilder: (context, index) {
-        return SpellCard(
-          spell: spells[index],
-        );
-      },
+    return SingleChildScrollView(
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 70),
+        child: ListView.builder(
+          shrinkWrap: true,
+          controller: ScrollController(),
+          padding: const EdgeInsets.all(0),
+          itemCount: spells.length,
+          itemBuilder: (context, index) {
+            return SpellCard(
+              spell: spells[index],
+            );
+          },
+        ),
+      ),
     );
   }
 }
