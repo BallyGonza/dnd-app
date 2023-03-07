@@ -25,9 +25,11 @@ class CharacterCard extends StatelessWidget {
           profileImg,
         ),
       ),
-      title: Text(
-        '$name $lastName',
-      ),
+      title: Text('$name $lastName',
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.normal,
+          )),
       subtitle: Text(
         'Level $level',
       ),

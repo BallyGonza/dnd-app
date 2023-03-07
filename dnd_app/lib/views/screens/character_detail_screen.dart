@@ -19,19 +19,16 @@ class CharacterDetailScreen extends StatefulWidget {
 }
 
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
-  var isVisible = false;
   var isDialOpen = ValueNotifier<bool>(false);
-  var isDialFightOpen = ValueNotifier<bool>(false);
-
   int index = 0;
   late Box<Character> box;
   final CharacterRepository characterRepository = CharacterRepository();
 
   @override
   void initState() {
+    super.initState();
     box = Hive.box<Character>('characters_box');
     box.get(0) ?? box.put(0, widget.character);
-    super.initState();
   }
 
   @override
@@ -125,14 +122,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       child: Image.asset(dice.img, width: 30, height: 30),
       backgroundColor: Colors.white,
       onTap: () {
-        setState(() {
-          isDialOpen.value = false;
-          showDialog(
-              context: context,
-              builder: (context) {
-                return RollDiceDialog(dice: dice);
-              });
-        });
+        isDialOpen.value = !isDialOpen.value;
+        showDialog(
+            context: context,
+            builder: (context) {
+              return RollDiceDialog(dice: dice);
+            });
       },
     );
   }
