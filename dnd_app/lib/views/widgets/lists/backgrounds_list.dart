@@ -2,8 +2,8 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListBackgrounds extends StatelessWidget {
-  const ListBackgrounds(
+class BackgroundsList extends StatelessWidget {
+  const BackgroundsList(
       {Key? key, required this.backgrounds, required this.languages})
       : super(key: key);
 

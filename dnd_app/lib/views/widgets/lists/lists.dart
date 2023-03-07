@@ -1,4 +1,4 @@
-export 'abilities_and_savingthrows_list.dart';
+export 'abilities_list.dart';
 export 'characters_list.dart';
 export 'backgrounds_list.dart';
 export 'skills_list.dart';

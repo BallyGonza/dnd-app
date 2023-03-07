@@ -2,8 +2,8 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListSpells extends StatelessWidget {
-  const ListSpells({Key? key, required this.spells}) : super(key: key);
+class SpellsList extends StatelessWidget {
+  const SpellsList({Key? key, required this.spells}) : super(key: key);
 
   final List<Spell> spells;
 

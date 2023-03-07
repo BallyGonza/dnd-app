@@ -2,8 +2,8 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:dnd_app/views/views.dart';
 
-class ListWeapons extends StatelessWidget {
-  const ListWeapons({Key? key, required this.weapons}) : super(key: key);
+class WeaponsList extends StatelessWidget {
+  const WeaponsList({Key? key, required this.weapons}) : super(key: key);
 
   final List<Weapon> weapons;
 

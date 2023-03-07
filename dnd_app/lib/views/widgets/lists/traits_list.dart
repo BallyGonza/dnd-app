@@ -2,8 +2,8 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListTraits extends StatelessWidget {
-  const ListTraits({
+class TraitsList extends StatelessWidget {
+  const TraitsList({
     Key? key,
     required this.traits,
   }) : super(key: key);

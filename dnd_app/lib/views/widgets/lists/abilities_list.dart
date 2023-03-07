@@ -2,11 +2,11 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class ListAbilities extends StatelessWidget {
+class AbilitiesList extends StatelessWidget {
   final List<Ability> abilities;
   final List<SavingThrow> savingThrows;
 
-  const ListAbilities(
+  const AbilitiesList(
       {Key? key, required this.abilities, required this.savingThrows})
       : super(key: key);
 

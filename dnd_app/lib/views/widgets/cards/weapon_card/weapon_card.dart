@@ -58,7 +58,7 @@ class WeaponCard extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 15),
+            margin: const EdgeInsets.only(top: 15, right: 15),
             height: 100,
             width: 350,
             decoration: BoxDecoration(

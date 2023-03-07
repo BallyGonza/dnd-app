@@ -1,4 +1,4 @@
-export 'ability_and_saving_throw_card.dart';
+export 'ability_card.dart';
 export 'backstory_card.dart';
 export 'character_card.dart';
 export 'skill_card.dart';

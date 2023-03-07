@@ -134,7 +134,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 });
               }
             },
-            child: ListAbilities(
+            child: AbilitiesList(
               abilities: widget.character.abilities,
               savingThrows: widget.character.savingThrows,
             ),
@@ -156,7 +156,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                ListSkills(
+                SkillsList(
                   skills: widget.character.skills,
                 ),
               ],
@@ -174,7 +174,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 });
               }
             },
-            child: ListWeapons(
+            child: WeaponsList(
               weapons: widget.character.weapons,
             ),
           ),
@@ -190,7 +190,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 });
               }
             },
-            child: ListSpells(
+            child: SpellsList(
               spells: widget.character.spells,
             ),
           ),
@@ -206,7 +206,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 });
               }
             },
-            child: ListTraits(
+            child: TraitsList(
               traits: widget.character.traits,
             ),
           ),
@@ -222,7 +222,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 });
               }
             },
-            child: ListBackgrounds(
+            child: BackgroundsList(
               backgrounds: widget.character.background,
               languages: widget.character.languages,
             ),

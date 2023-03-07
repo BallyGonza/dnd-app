@@ -34,7 +34,7 @@ class SkillCard extends StatelessWidget {
                     fontSize: 15,
                   ),
                 ),
-                const SizedBox(width: 5),
+                const SizedBox(width: 4),
                 skill.proficiency
                     ? CircleAvatar(
                         backgroundColor: Colors.green[200],
