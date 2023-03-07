@@ -10,7 +10,8 @@ class SkillsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      height: skills.length > 4 ? 500 : 130,
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(

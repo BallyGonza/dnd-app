@@ -126,154 +126,35 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       child: IndexedStack(
         index: index,
         children: <Widget>[
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              }
-            },
-            child: AbilitiesList(
-              abilities: widget.character.abilities,
-              savingThrows: widget.character.savingThrows,
-            ),
+          AbilitiesList(
+            abilities: widget.character.abilities,
+            savingThrows: widget.character.savingThrows,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 5,
-                ),
-                SkillsList(
-                  skills: widget.character.skills,
-                ),
-              ],
-            ),
+          SkillsList(
+            skills: widget.character.skills,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: WeaponsList(
-              weapons: widget.character.weapons,
-            ),
+          WeaponsList(
+            weapons: widget.character.weapons,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: SpellsList(
-              spells: widget.character.spells,
-            ),
+          SpellsList(
+            spells: widget.character.spells,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: TraitsList(
-              traits: widget.character.traits,
-            ),
+          TraitsList(
+            traits: widget.character.traits,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: BackgroundsList(
-              backgrounds: widget.character.background,
-              languages: widget.character.languages,
-            ),
+          BackgroundsList(
+            backgrounds: widget.character.background,
+            languages: widget.character.languages,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: BackstoryCard(
-              backstory: widget.character.backstory,
-            ),
+          BackstoryCard(
+            backstory: widget.character.backstory,
           ),
-          GestureDetector(
-            onHorizontalDragEnd: (details) {
-              if (details.primaryVelocity! < 0) {
-                setState(() {
-                  index++;
-                });
-              } else if (details.primaryVelocity! > 0) {
-                setState(() {
-                  index--;
-                });
-              }
-            },
-            child: const NoteList(),
-          ),
-          GestureDetector(
-              onHorizontalDragEnd: (details) {
-                if (details.primaryVelocity! < 0) {
-                  setState(() {
-                    index++;
-                  });
-                } else if (details.primaryVelocity! > 0) {
-                  setState(() {
-                    index--;
-                  });
-                }
-              },
-              child: widget.character.pet.isNotEmpty
-                  ? PetCard(
-                      pet: widget.character.pet,
-                    )
-                  : const SizedBox.shrink()),
+          const NoteList(),
+          widget.character.pet.isNotEmpty
+              ? PetCard(
+                  pet: widget.character.pet,
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );
