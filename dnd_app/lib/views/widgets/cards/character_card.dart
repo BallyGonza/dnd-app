@@ -3,25 +3,15 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class CharacterCard extends StatelessWidget {
-  const CharacterCard({
-    Key? key,
-    required this.profileImg,
-    required this.img,
-    required this.lastName,
-    required this.name,
-    required this.index,
-    required this.level,
-  }) : super(key: key);
+  const CharacterCard({Key? key, required this.character}) : super(key: key);
 
-  final String profileImg;
-  final String img;
-  final String lastName;
-  final String name;
-  final int index;
-  final int level;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
+    final String name = character.name.toString();
+    final String lastName = character.lastName.toString();
+    final String level = character.level.toString();
     return ListTile(
       leading: GestureDetector(
         onTap: () {
@@ -30,11 +20,8 @@ class CharacterCard extends StatelessWidget {
             builder: (_) => _buildDialog(context),
           );
         },
-        child: Hero(
-          tag: 'profileImg$index',
-          child: CircleAvatar(
-            backgroundImage: AssetImage(profileImg),
-          ),
+        child: CircleAvatar(
+          backgroundImage: AssetImage(character.profileImg),
         ),
       ),
       title: Text('$name $lastName',
@@ -50,7 +37,7 @@ class CharacterCard extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => CharacterDetailScreen(
-              character: defaultCharacters[index],
+              character: character,
             ),
           ),
         );
@@ -59,15 +46,12 @@ class CharacterCard extends StatelessWidget {
   }
 
   Widget _buildDialog(BuildContext context) {
-    return Hero(
-      tag: 'profileImg$index',
-      child: Dialog(
-        child: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: Image.asset(img),
-        ),
+    return Dialog(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Image.asset(character.img),
       ),
     );
   }

@@ -54,12 +54,10 @@ class CharacterHealthPointsBloc
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
-  @override
   CharacterHealthPointsState? fromJson(Map<String, dynamic> json) {
     return CharacterHealthPointsState.fromJson(json);
   }
 
-  @override
   Map<String, dynamic>? toJson(CharacterHealthPointsState state) {
     return state.toJson();
   }

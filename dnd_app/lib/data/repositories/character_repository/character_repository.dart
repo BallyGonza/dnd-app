@@ -200,4 +200,4 @@ Character calebClock = Character(
   notes: [],
 );
 
-final defaultCharacters = <Character>[theekVarus, calebClock];
+final List<Character> defaultCharacters = [theekVarus, calebClock];
