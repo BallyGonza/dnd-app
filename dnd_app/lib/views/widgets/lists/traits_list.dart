@@ -14,7 +14,7 @@ class TraitsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.only(bottom: 70),
+        margin: const EdgeInsets.only(bottom: 20),
         child: ListView.builder(
           shrinkWrap: true,
           controller: ScrollController(),

@@ -50,7 +50,7 @@ class CharacterHealthPointsBloc
     Emitter<CharacterHealthPointsState> emit,
   ) {
     character.healthPoints.reset();
-    box.put(0, character);
+    box.put(character.id, character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 

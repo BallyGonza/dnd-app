@@ -50,20 +50,11 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               widget.character.id,
             ),
           ),
-          widget.character.pet.isNotEmpty
-              ? BlocProvider(
-                  create: (context) => PetHealthPointsBloc(
-                    widget.character.pet[0].healthPoints,
-                  ),
-                )
-              : BlocProvider(
-                  create: (context) => PetHealthPointsBloc(
-                    HealthPoints(
-                      current: 0,
-                      max: 0,
-                    ),
-                  ),
-                ),
+          BlocProvider(
+            create: (context) => PetHealthPointsBloc(
+              box.getAt(widget.character.id)!,
+            ),
+          )
         ],
         child: Scaffold(
           body: Column(

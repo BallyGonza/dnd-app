@@ -1,51 +1,56 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-import 'pet_health_points_event.dart';
-import 'pet_health_points_state.dart';
+import 'export.dart';
 
 class PetHealthPointsBloc
-    extends HydratedBloc<PetHealthPointsEvent, PetHealthPointsState> {
+    extends Bloc<PetHealthPointsEvent, PetHealthPointsState> {
   PetHealthPointsBloc(
-    this.healthPoints,
-  ) : super(PetHealthPointsState.init(healthPoints.current)) {
+    this.character,
+  ) : super(PetHealthPointsState.init(character.pet[0].healthPoints.current)) {
     on<PetHealthPointsInitialEvent>(_onInit);
     on<PetHealthPointsAddEvent>(_onAdd);
     on<PetHealthPointsSubtractEvent>(_onSubtract);
     on<PetHealthPointsResetEvent>(_onReset);
   }
 
-  final HealthPoints healthPoints;
+  late Character character;
+  final Box<Character> box = Hive.box<Character>('characters_box');
 
   void _onInit(
     PetHealthPointsInitialEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    emit(PetHealthPointsState.init(healthPoints.current));
+    character = box.get(character.id)!;
+    emit(PetHealthPointsState.init(character.pet[0].healthPoints.current));
   }
 
   void _onAdd(
     PetHealthPointsAddEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    healthPoints.add();
-    emit(PetHealthPointsState.updated(healthPoints.current));
+    character.pet[0].healthPoints.add();
+    box.put(character.id, character);
+    emit(PetHealthPointsState.updated(character.pet[0].healthPoints.current));
   }
 
   void _onSubtract(
     PetHealthPointsSubtractEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    healthPoints.subtract();
-    emit(PetHealthPointsState.updated(healthPoints.current));
+    character.pet[0].healthPoints.subtract();
+    box.put(character.id, character);
+    emit(PetHealthPointsState.updated(character.pet[0].healthPoints.current));
   }
 
   void _onReset(
     PetHealthPointsResetEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    healthPoints.reset();
-    emit(PetHealthPointsState.updated(healthPoints.current));
+    character.pet[0].healthPoints.reset();
+    box.put(character.id, character);
+    emit(PetHealthPointsState.updated(character.healthPoints.current));
   }
 
   @override
