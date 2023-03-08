@@ -1,3 +1,4 @@
+import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class BackstoryCard extends StatelessWidget {
@@ -8,25 +9,9 @@ class BackstoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Card(
-        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Backstory',
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              const SizedBox(height: 8),
-              Text(
-                backstory,
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-            ],
-          ),
-        ),
+      child: TitleTextCard(
+        title: 'Backstory',
+        text: backstory,
       ),
     );
   }
