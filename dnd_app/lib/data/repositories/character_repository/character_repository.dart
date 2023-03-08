@@ -13,7 +13,7 @@ class CharacterRepository {
 }
 
 Character theekVarus = Character(
-  id: 1,
+  id: 0,
   name: 'Theek',
   lastName: 'Varus',
   img: 'assets/images/characters/theek_varus/theek_varus.jpg',
@@ -107,7 +107,7 @@ Character theekVarus = Character(
 );
 
 Character calebClock = Character(
-  id: 2,
+  id: 1,
   name: 'Caleb',
   lastName: 'Clock',
   img: 'assets/images/characters/caleb_clock/caleb_clock.png',

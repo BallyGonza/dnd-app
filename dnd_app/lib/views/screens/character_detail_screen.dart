@@ -20,7 +20,7 @@ class CharacterDetailScreen extends StatefulWidget {
 
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   var isDialOpen = ValueNotifier<bool>(false);
-  int index = 0;
+  int selected = 0;
   late Box<Character> box;
   final CharacterRepository characterRepository = CharacterRepository();
 
@@ -28,7 +28,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   void initState() {
     super.initState();
     box = Hive.box<Character>('characters_box');
-    box.get(0) ?? box.put(0, widget.character);
+    box.get(widget.character.id) ??
+        box.put(widget.character.id, widget.character);
   }
 
   @override
@@ -40,12 +41,13 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         providers: [
           BlocProvider(
             create: (context) => CharacterHealthPointsBloc(
-              box.getAt(0)!,
+              box.getAt(widget.character.id)!,
             ),
           ),
           BlocProvider(
             create: (context) => LootBloc(
               characterRepository,
+              widget.character.id,
             ),
           ),
           widget.character.pet.isNotEmpty
@@ -124,7 +126,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.67,
       child: IndexedStack(
-        index: index,
+        index: selected,
         children: <Widget>[
           AbilitiesList(
             abilities: widget.character.abilities,
@@ -186,20 +188,22 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   Widget _button(name, indexButton) {
     return TextButton(
-      onPressed: () => setState(() => index = indexButton),
+      onPressed: () => setState(() => selected = indexButton),
       child: Column(
         children: [
           Text(
             name,
             style: TextStyle(
                 fontSize: 14.0,
-                color: index == indexButton ? Colors.black : Colors.grey[400]),
+                color:
+                    selected == indexButton ? Colors.black : Colors.grey[400]),
           ),
           Container(
             height: 2.0,
             width: 20.0,
-            color:
-                index == indexButton ? Colors.green[200] : Colors.transparent,
+            color: selected == indexButton
+                ? Colors.green[200]
+                : Colors.transparent,
           ),
         ],
       ),

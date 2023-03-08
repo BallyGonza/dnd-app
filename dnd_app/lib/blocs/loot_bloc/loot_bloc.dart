@@ -8,6 +8,7 @@ import 'loot_state.dart';
 class LootBloc extends Bloc<LootEvent, LootState> {
   LootBloc(
     this.characterRepository,
+    this.characterIndex,
   ) : super(const LootState.initial()) {
     on<LootInitialEvent>(_onInit);
     on<LootAddEvent>(_onAdd);
@@ -20,6 +21,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
 
   final CharacterRepository characterRepository;
   late Character character;
+  final int characterIndex;
   late List<Note> notes;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
@@ -27,7 +29,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     LootInitialEvent event,
     Emitter<LootState> emit,
   ) async {
-    character = box.get(0)!;
+    character = box.get(characterIndex)!;
     notes = character.notes;
     emit(LootState.loaded(notes));
   }
@@ -37,7 +39,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes.add(event.note);
-    await box.put(0, character);
+    await box.put(character.id, character);
     emit(LootState.loaded(notes));
   }
 
@@ -46,7 +48,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes[event.index] = event.note;
-    await box.put(0, character);
+    await box.put(character.id, character);
     emit(LootState.loaded(notes));
   }
 
@@ -55,7 +57,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes.removeAt(event.index);
-    await box.put(0, character);
+    await box.put(character.id, character);
     emit(LootState.loaded(notes));
   }
 
@@ -66,7 +68,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     for (var element in event.notes) {
       character.notes.remove(element);
     }
-    box.put(0, character);
+    box.put(character.id, character);
     emit(LootState.loaded(character.notes));
   }
 }

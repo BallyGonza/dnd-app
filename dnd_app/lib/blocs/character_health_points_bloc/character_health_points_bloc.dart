@@ -1,12 +1,12 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'character_health_points_event.dart';
 import 'character_health_points_state.dart';
 
-class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
-    CharacterHealthPointsState> {
+class CharacterHealthPointsBloc
+    extends Bloc<CharacterHealthPointsEvent, CharacterHealthPointsState> {
   CharacterHealthPointsBloc(
     this.character,
   ) : super(CharacterHealthPointsState.init(character.healthPoints.current)) {
@@ -23,7 +23,7 @@ class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     CharacterHealthPointsInitialEvent event,
     Emitter<CharacterHealthPointsState> emit,
   ) {
-    character = box.get(0)!;
+    character = box.get(character.id)!;
     emit(CharacterHealthPointsState.init(character.healthPoints.current));
   }
 
@@ -32,7 +32,7 @@ class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     Emitter<CharacterHealthPointsState> emit,
   ) {
     character.healthPoints.add();
-    box.put(0, character);
+    box.put(character.id, character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
@@ -41,7 +41,7 @@ class CharacterHealthPointsBloc extends HydratedBloc<CharacterHealthPointsEvent,
     Emitter<CharacterHealthPointsState> emit,
   ) {
     character.healthPoints.subtract();
-    box.put(0, character);
+    box.put(character.id, character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
