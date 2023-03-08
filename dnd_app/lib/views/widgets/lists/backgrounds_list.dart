@@ -16,8 +16,9 @@ class BackgroundsList extends StatelessWidget {
       child: Column(
         children: [
           for (final background in backgrounds)
-            TitleTextCard(title: background.name, text: background.description),
-          TitleTextCard(title: 'Languages', text: languages),
+            TitleAndTextCard(
+                title: background.name, text: background.description),
+          TitleAndTextCard(title: 'Languages', text: languages),
         ],
       ),
     );

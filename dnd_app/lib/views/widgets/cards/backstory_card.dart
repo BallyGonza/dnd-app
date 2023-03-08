@@ -9,7 +9,7 @@ class BackstoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: TitleTextCard(
+      child: TitleAndTextCard(
         title: 'Backstory',
         text: backstory,
       ),

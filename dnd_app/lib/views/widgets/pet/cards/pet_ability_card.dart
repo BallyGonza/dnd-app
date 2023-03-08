@@ -31,14 +31,6 @@ class _PetAbilityCardState extends State<PetAbilityCard> {
       },
       child: Container(
         margin: const EdgeInsets.only(left: 20, right: 20),
-        decoration: BoxDecoration(
-          border: Border(
-            bottom: BorderSide(
-              width: 1,
-              color: Colors.grey.shade200,
-            ),
-          ),
-        ),
         padding: const EdgeInsets.only(top: 8, bottom: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,9 +81,11 @@ class _PetAbilityCardState extends State<PetAbilityCard> {
 
                 Text(
                   widget.ability.modifier.abs().toString(),
-                  style: widget.ability.modifier >= 0
+                  style: widget.ability.modifier > 0
                       ? const TextStyle(color: Colors.green, fontSize: 20)
-                      : const TextStyle(color: Colors.red, fontSize: 20),
+                      : widget.ability.modifier == 0
+                          ? const TextStyle(color: Colors.grey, fontSize: 20)
+                          : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
               ],
             ),

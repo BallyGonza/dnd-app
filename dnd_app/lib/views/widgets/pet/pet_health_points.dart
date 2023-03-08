@@ -20,7 +20,7 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         border: Border.all(
-          color: Colors.green.shade300,
+          color: Colors.black,
           width: 0.5,
         ),
       ),

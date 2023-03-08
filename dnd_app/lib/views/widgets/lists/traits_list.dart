@@ -21,7 +21,7 @@ class TraitsList extends StatelessWidget {
           padding: const EdgeInsets.all(0),
           itemCount: traits.length,
           itemBuilder: (context, index) {
-            return TitleTextCard(
+            return TitleAndTextCard(
                 title: traits[index].name, text: traits[index].description);
           },
         ),

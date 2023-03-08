@@ -15,10 +15,10 @@ class WeaponCard extends StatelessWidget {
       child: Stack(
         children: [
           Card(
+            elevation: 5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            elevation: 4,
             child: ListTile(
               title: Padding(
                 padding: const EdgeInsets.all(8.0),
