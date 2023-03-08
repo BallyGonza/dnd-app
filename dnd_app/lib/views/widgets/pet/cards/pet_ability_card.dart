@@ -17,7 +17,7 @@ class PetAbilityCard extends StatefulWidget {
 class _PetAbilityCardState extends State<PetAbilityCard> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         showDialog(
           context: context,
@@ -30,8 +30,7 @@ class _PetAbilityCardState extends State<PetAbilityCard> {
         );
       },
       child: Container(
-        margin: const EdgeInsets.only(left: 20, right: 20),
-        padding: const EdgeInsets.only(top: 8, bottom: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[

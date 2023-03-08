@@ -24,8 +24,7 @@ class WeaponCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   weapon.name,
-                  style: const TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               subtitle: Column(

@@ -27,7 +27,7 @@ class SkillsList extends StatelessWidget {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Skills',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
             ),

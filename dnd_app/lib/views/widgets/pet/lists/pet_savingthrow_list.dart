@@ -1,5 +1,6 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
+import 'package:dnd_app/views/widgets/cards/title_and_child.dart';
 import 'package:flutter/material.dart';
 
 class PetSavingThrowList extends StatefulWidget {
@@ -17,38 +18,18 @@ class _PetSavingThrowListState extends State<PetSavingThrowList> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ExpansionTile(
-        title: const Text(
-          'Saving Throws',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        children: [
-          ListView.builder(
-            shrinkWrap: true,
-            controller: ScrollController(),
-            padding: const EdgeInsets.all(0),
-            itemCount: widget.savingThrows.length,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                child: PetSavingThrowCard(
-                  savingThrow: widget.savingThrows[index],
-                ),
-                onTap: () {
-                  roll = d20.roll();
-                  showDialog(
-                    context: context,
-                    builder: (context) {
-                      return RollAbilitieSkillDialog(
-                          name: widget.savingThrows[index].name,
-                          modifier: widget.savingThrows[index].modifier);
-                    },
-                  );
-                },
-              );
-            },
-          ),
-        ],
+    return TitleAndChildCard(
+      title: 'Saving Throws',
+      child: ListView.builder(
+        shrinkWrap: true,
+        controller: ScrollController(),
+        padding: const EdgeInsets.all(0),
+        itemCount: widget.savingThrows.length,
+        itemBuilder: (context, index) {
+          return PetSavingThrowCard(
+            savingThrow: widget.savingThrows[index],
+          );
+        },
       ),
     );
   }
