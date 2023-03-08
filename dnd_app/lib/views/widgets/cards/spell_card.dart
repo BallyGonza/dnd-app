@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class SpellCard extends StatefulWidget {
   final Spell spell;
+
   const SpellCard({Key? key, required this.spell}) : super(key: key);
 
   @override
@@ -21,49 +22,76 @@ class _SpellCardState extends State<SpellCard> {
     final String comp = widget.spell.comp;
     final String duration = widget.spell.duration;
     final String description = widget.spell.description;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        elevation: 4,
         child: ExpansionPanelList(
           expansionCallback: (int index, bool isExpanded) {
             setState(() {
               this.isExpanded = !isExpanded;
             });
           },
+          dividerColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+          expandedHeaderPadding: EdgeInsets.zero,
+          animationDuration: const Duration(milliseconds: 300),
           children: [
             ExpansionPanel(
               canTapOnHeader: true,
               headerBuilder: (BuildContext context, bool isExpanded) {
-                return ListTile(
-                  title: Text(
-                    name,
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  subtitle: Text(
-                    'Level ${level.toString()}',
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2
-                        ?.copyWith(color: Colors.black.withOpacity(0.5)),
+                return Container(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Level ${level.toString()}',
+                        style: Theme.of(context).textTheme.subtitle2?.copyWith(
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withOpacity(0.5),
+                            ),
+                      ),
+                    ],
                   ),
                 );
               },
               body: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: Column(
                   children: [
-                    SpecField(title: 'Range', details: range),
-                    SpecField(title: 'Cast Time', details: castTime),
-                    SpecField(title: 'Comp', details: comp),
-                    SpecField(title: 'Duration', details: duration),
-                    const SizedBox(height: 6),
-                    Divider(height: 0, thickness: 1, color: Colors.purple[200]),
-                    const SizedBox(height: 6),
+                    GridView(
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 6,
+                      ),
+                      children: [
+                        SpecField(title: 'Range', details: range),
+                        SpecField(title: 'Cast Time', details: castTime),
+                        SpecField(title: 'Components', details: comp),
+                        SpecField(title: 'Duration', details: duration),
+                      ],
+                    ),
+                    Divider(
+                        height: 1,
+                        color: Theme.of(context).colorScheme.primary),
+                    const SizedBox(height: 16),
                     Text(
                       description,
                       style: Theme.of(context).textTheme.bodyText2,
                     ),
-                    const SizedBox(height: 16),
                   ],
                 ),
               ),
@@ -98,7 +126,7 @@ class SpecField extends StatelessWidget {
         Expanded(
           child: Text(
             details,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 12,
             ),

@@ -1,4 +1,3 @@
-import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class TitleTextCard extends StatelessWidget {
