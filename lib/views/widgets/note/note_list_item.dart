@@ -62,7 +62,7 @@ class NoteListItem extends StatelessWidget {
             ),
             const Spacer(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
                   date,

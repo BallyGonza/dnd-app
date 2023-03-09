@@ -16,7 +16,7 @@ class NoteList extends StatefulWidget {
 class _NoteListState extends State<NoteList> {
   final titleController = TextEditingController();
   final contentController = TextEditingController();
-  final format = DateFormat('hh:mm ~ MM/dd/yyyy');
+  final format = DateFormat('hh:mm | MM/dd/yyyy');
 
   @override
   void initState() {
@@ -42,16 +42,20 @@ class _NoteListState extends State<NoteList> {
                       left: 20,
                       right: 20,
                     ),
-                    child: GridView.count(
+                    child: ListView.separated(
                       padding: const EdgeInsets.only(top: 8),
-                      childAspectRatio: 1.21,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
+                      itemCount: notes.length,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        height: 10,
+                      ),
                       shrinkWrap: true,
-                      children: [
-                        for (var index = 0; index < notes.length; index++)
-                          InkWell(
+                      itemBuilder: (context, index) {
+                        return SizedBox(
+                          height: notes[index].content.length > 100 ||
+                                  notes[index].content.contains('\n')
+                              ? 150
+                              : 100,
+                          child: InkWell(
                             onLongPress: () {
                               setState(() {
                                 context
@@ -98,7 +102,8 @@ class _NoteListState extends State<NoteList> {
                               },
                             ),
                           ),
-                      ],
+                        );
+                      },
                     ),
                   ),
                 ),

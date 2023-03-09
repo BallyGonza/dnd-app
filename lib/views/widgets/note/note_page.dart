@@ -20,10 +20,9 @@ class NotePage extends StatefulWidget {
 }
 
 class NotePageState extends State<NotePage> {
-  final format = DateFormat('hh:mm ~ MM/dd/yyyy');
+  final format = DateFormat('hh:mm | MM/dd/yyyy');
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
-  late double _height;
   late Color _currentColor;
   late Color _iconColor;
   late Color _fontColor;
@@ -55,7 +54,6 @@ class NotePageState extends State<NotePage> {
 
   @override
   Widget build(BuildContext context) {
-    _height = MediaQuery.of(context).size.height * 0.5;
     return Scaffold(
       backgroundColor: _currentColor,
       appBar: AppBar(
@@ -82,44 +80,44 @@ class NotePageState extends State<NotePage> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: _height,
-          child: Padding(
-            padding:
-                EdgeInsets.all(MediaQuery.of(context).size.width * (1 / 20)),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                TextField(
-                  controller: _titleController,
-                  decoration: InputDecoration(
-                    hintText: 'Title',
-                    hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    color: _fontColor,
-                  ),
-                  keyboardType: TextInputType.multiline,
-                  maxLines: null,
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * (1 / 20)),
+        child: SingleChildScrollView(
+          child: Wrap(
+            children: [
+              TextField(
+                controller: _titleController,
+                decoration: InputDecoration(
+                  hintText: 'Title',
+                  hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
+                  border: InputBorder.none,
                 ),
-                const SizedBox(height: 8.0),
-                TextField(
-                  controller: _contentController,
-                  decoration: InputDecoration(
-                    hintText: 'Take a note...',
-                    hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
-                    border: InputBorder.none,
-                  ),
-                  style: TextStyle(fontSize: 18.0, color: _fontColor),
-                  keyboardType: TextInputType.multiline,
-                  maxLines: null,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.w500,
+                  color: _fontColor,
                 ),
-              ],
-            ),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+              ),
+              const SizedBox(height: 8.0),
+              TextField(
+                controller: _contentController,
+                decoration: InputDecoration(
+                  hintText: 'Take a note...',
+                  hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
+                  border: InputBorder.none,
+                ),
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: _fontColor,
+                  fontWeight: FontWeight.normal,
+                ),
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+              ),
+            ],
           ),
         ),
       ),
