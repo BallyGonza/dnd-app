@@ -37,64 +37,72 @@ class _NoteListState extends State<NoteList> {
                 initial: () => const CircularProgressIndicator(),
                 loaded: (notes) => SizedBox(
                   height: MediaQuery.of(context).size.height * 0.58,
-                  child: ListView.builder(
+                  child: Padding(
                     padding: const EdgeInsets.only(
-                      bottom: 25,
+                      left: 20,
+                      right: 20,
                     ),
-                    shrinkWrap: true,
-                    itemCount: notes.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onLongPress: () {
-                          setState(() {
-                            context
-                                .read<LootBloc>()
-                                .add(LootEvent.delete(index));
-                          });
-                        },
-                        child: NoteListItem(
-                          title: notes[index].title,
-                          content: notes[index].content,
-                          date: notes[index].date,
-                          color: notes[index].color,
-                          index: index,
-                          onTap: () {
-                            titleController.text = notes[index].title;
-                            contentController.text = notes[index].content;
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => BlocProvider.value(
-                                  value: context.read<LootBloc>(),
-                                  child: NotePage(
-                                    date: notes[index].date,
-                                    valueColor: notes[index].color,
-                                    title: notes[index].title,
-                                    content: notes[index].content,
-                                    buttonText: 'Edit',
-                                    onSaved: (title, content, color) {
-                                      setState(() {
-                                        context.read<LootBloc>().add(
-                                              LootEvent.edit(
-                                                index,
-                                                Note(
-                                                  title: title,
-                                                  content: content,
-                                                  date: format
-                                                      .format(DateTime.now()),
-                                                  color: color,
-                                                ),
-                                              ),
-                                            );
-                                      });
-                                    },
+                    child: GridView.count(
+                      padding: const EdgeInsets.only(top: 8),
+                      childAspectRatio: 1.21,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      shrinkWrap: true,
+                      children: [
+                        for (var index = 0; index < notes.length; index++)
+                          InkWell(
+                            onLongPress: () {
+                              setState(() {
+                                context
+                                    .read<LootBloc>()
+                                    .add(LootEvent.delete(index));
+                              });
+                            },
+                            child: NoteListItem(
+                              title: notes[index].title,
+                              content: notes[index].content,
+                              date: notes[index].date,
+                              color: notes[index].color,
+                              index: index,
+                              onTap: () {
+                                titleController.text = notes[index].title;
+                                contentController.text = notes[index].content;
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (_) => BlocProvider.value(
+                                      value: context.read<LootBloc>(),
+                                      child: NotePage(
+                                        date: notes[index].date,
+                                        valueColor: notes[index].color,
+                                        title: notes[index].title,
+                                        content: notes[index].content,
+                                        buttonText: 'Edit',
+                                        onSaved: (title, content, color) {
+                                          setState(() {
+                                            context.read<LootBloc>().add(
+                                                  LootEvent.edit(
+                                                    index,
+                                                    Note(
+                                                      title: title,
+                                                      content: content,
+                                                      date: format.format(
+                                                          DateTime.now()),
+                                                      color: color,
+                                                    ),
+                                                  ),
+                                                );
+                                          });
+                                        },
+                                      ),
+                                    ),
                                   ),
-                                ),
-                              ),
-                            );
-                          },
-                        ),
-                      );
-                    },
+                                );
+                              },
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               );

@@ -150,28 +150,73 @@ class NotePageState extends State<NotePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Last edited: ${widget.date}',
+                'Edited: ${widget.date}',
                 style: TextStyle(color: _fontColor.withOpacity(0.6)),
               ),
               IconButton(
                 onPressed: () {
-                  showDialog(
+                  showModalBottomSheet(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        title: const Text('Pick a color!'),
-                        content: SingleChildScrollView(
-                          child: BlockPicker(
-                            pickerColor: _currentColor,
-                            onColorChanged: _onColorChanged,
-                          ),
+                      return SizedBox(
+                        height: 196,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: BlockPicker(
+                                // ignore:
+                                availableColors: [
+                                  Colors.white,
+                                  Colors.red,
+                                  Colors.pink,
+                                  Colors.purple,
+                                  Colors.deepPurple,
+                                  Colors.indigo,
+                                  Colors.blue,
+                                  Colors.lightBlue,
+                                  Colors.cyan,
+                                  Colors.teal,
+                                  Colors.green,
+                                  Colors.green[100]!,
+                                  Colors.lime,
+                                  Colors.yellow,
+                                  Colors.amber,
+                                  Colors.orange,
+                                  Colors.deepOrange,
+                                  Colors.brown,
+                                  Colors.grey,
+                                  Colors.blueGrey,
+                                  Colors.black,
+                                  Colors.purple[100]!,
+                                  Colors.red[200]!,
+                                  Colors.indigo[200]!,
+                                ],
+                                layoutBuilder: (context, colors, child) {
+                                  return GridView.count(
+                                    crossAxisCount: 4,
+                                    children: [
+                                      ...colors
+                                          .map(
+                                            (color) => GestureDetector(
+                                              onTap: () {
+                                                _onColorChanged(color);
+                                              },
+                                              child: Container(
+                                                color: color,
+                                              ),
+                                            ),
+                                          )
+                                          .toList(),
+                                    ],
+                                  );
+                                },
+                                pickerColor: _currentColor,
+                                onColorChanged: _onColorChanged,
+                              ),
+                            ),
+                          ],
                         ),
-                        actions: [
-                          TextButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: const Text('Got it'),
-                          ),
-                        ],
                       );
                     },
                   );

@@ -22,7 +22,6 @@ class NoteListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: Container(
-        margin: const EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 5),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Color(color),
@@ -61,7 +60,7 @@ class NoteListItem extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            const SizedBox(height: 16),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
