@@ -36,7 +36,7 @@ class _NoteListState extends State<NoteList> {
                 orElse: () => const SizedBox(),
                 initial: () => const CircularProgressIndicator(),
                 loaded: (notes) => SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.58,
                   child: ListView.builder(
                     padding: const EdgeInsets.only(
                       bottom: 25,
@@ -66,10 +66,11 @@ class _NoteListState extends State<NoteList> {
                                 builder: (_) => BlocProvider.value(
                                   value: context.read<LootBloc>(),
                                   child: NotePage(
+                                    valueColor: notes[index].color,
                                     title: notes[index].title,
                                     content: notes[index].content,
                                     buttonText: 'Edit',
-                                    onSaved: (title, content) {
+                                    onSaved: (title, content, color) {
                                       setState(() {
                                         context.read<LootBloc>().add(
                                               LootEvent.edit(
@@ -79,7 +80,7 @@ class _NoteListState extends State<NoteList> {
                                                   content: content,
                                                   date: format
                                                       .format(DateTime.now()),
-                                                  color: notes[index].color,
+                                                  color: color,
                                                 ),
                                               ),
                                             );
@@ -115,10 +116,11 @@ class _NoteListState extends State<NoteList> {
                   builder: (_) => BlocProvider.value(
                     value: context.read<LootBloc>(),
                     child: NotePage(
+                      valueColor: Colors.white.value,
                       title: '',
                       content: '',
                       buttonText: 'Add',
-                      onSaved: (title, content) {
+                      onSaved: (title, content, color) {
                         setState(() {
                           context.read<LootBloc>().add(
                                 LootEvent.add(
@@ -126,7 +128,7 @@ class _NoteListState extends State<NoteList> {
                                     title: title,
                                     content: content,
                                     date: format.format(DateTime.now()),
-                                    color: Colors.black.value,
+                                    color: color,
                                   ),
                                 ),
                               );

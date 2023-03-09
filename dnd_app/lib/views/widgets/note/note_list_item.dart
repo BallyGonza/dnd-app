@@ -22,57 +22,59 @@ class NoteListItem extends StatelessWidget {
     return GestureDetector(
       onTap: () => onTap(),
       child: Container(
-        margin: const EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 5),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        margin: const EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 5),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Color(color),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.25),
-              blurRadius: 4,
-              offset: const Offset(2, 2),
+              color: Colors.black.withOpacity(0.12),
+              blurRadius: 2,
+              offset: const Offset(0, 1),
             ),
           ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color:
+                    color == Colors.white.value ? Colors.black : Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              content,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: color == Colors.white.value
+                    ? Colors.black.withOpacity(0.6)
+                    : Colors.white.withOpacity(0.6),
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
-                  child: Text(
-                    title,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Text(
+                  date,
+                  style: TextStyle(
+                    color: color == Colors.white.value
+                        ? Colors.black.withOpacity(0.6)
+                        : Colors.white.withOpacity(0.6),
+                    fontSize: 14,
                   ),
                 ),
               ],
-            ),
-            content == '' ? const SizedBox.shrink() : const SizedBox(height: 8),
-            content == ''
-                ? const SizedBox.shrink()
-                : Text(
-                    content,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: TextStyle(
-                      color: Colors.white.withOpacity(0.8),
-                      fontSize: 16,
-                    ),
-                  ),
-            const SizedBox(height: 8),
-            Text(
-              date,
-              style: TextStyle(
-                color: Colors.white.withOpacity(0.6),
-                fontSize: 14,
-              ),
             ),
           ],
         ),
