@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:intl/intl.dart';
 
 class NotePage extends StatefulWidget {
   final String title;
   final String content;
   final String buttonText;
   final int valueColor;
+  final String date;
   final void Function(String title, String content, int currentColor) onSaved;
 
   const NotePage({
@@ -15,6 +17,7 @@ class NotePage extends StatefulWidget {
     required this.buttonText,
     required this.valueColor,
     required this.onSaved,
+    required this.date,
   }) : super(key: key);
 
   @override
@@ -22,12 +25,14 @@ class NotePage extends StatefulWidget {
 }
 
 class NotePageState extends State<NotePage> {
+  final format = DateFormat('hh:mm ~ MM/dd/yyyy');
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
   late double _height;
   late Color _currentColor;
   late Color _iconColor;
-  late Color _fontColor; // Default color
+  late Color _fontColor;
+  bool _keyboardIsVisible = false;
 
   @override
   void initState() {
@@ -37,12 +42,21 @@ class NotePageState extends State<NotePage> {
     _currentColor = Color(widget.valueColor);
     _iconColor = _currentColor != Colors.white ? Colors.white : Colors.black;
     _fontColor = _currentColor != Colors.white ? Colors.white : Colors.black;
+
+    // Add listener to detect keyboard visibility
+    WidgetsBinding.instance.window.viewInsets.bottom != 0
+        ? _keyboardIsVisible = true
+        : _keyboardIsVisible = false;
   }
 
   @override
   void dispose() {
     _titleController.dispose();
     _contentController.dispose();
+    // Remove listener to avoid memory leaks
+    WidgetsBinding.instance.window.viewInsets.bottom != 0
+        ? _keyboardIsVisible = true
+        : _keyboardIsVisible = false;
     super.dispose();
   }
 
@@ -70,31 +84,6 @@ class NotePageState extends State<NotePage> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: const Text('Pick a color!'),
-                    content: SingleChildScrollView(
-                      child: BlockPicker(
-                        pickerColor: _currentColor,
-                        onColorChanged: _onColorChanged,
-                      ),
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Got it'),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-            icon: Icon(Icons.color_lens, color: _iconColor),
-          ),
           IconButton(
             onPressed: () {
               widget.onSaved(
@@ -146,6 +135,50 @@ class NotePageState extends State<NotePage> {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: _currentColor,
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 16.0,
+            right: 16.0,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 16.0,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Last edited: ${widget.date}',
+                style: TextStyle(color: _fontColor.withOpacity(0.6)),
+              ),
+              IconButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('Pick a color!'),
+                        content: SingleChildScrollView(
+                          child: BlockPicker(
+                            pickerColor: _currentColor,
+                            onColorChanged: _onColorChanged,
+                          ),
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('Got it'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                icon: Icon(Icons.color_lens, color: _iconColor),
+              ),
+            ],
           ),
         ),
       ),
