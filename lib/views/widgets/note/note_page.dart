@@ -1,23 +1,18 @@
+import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:intl/intl.dart';
 
 class NotePage extends StatefulWidget {
-  final String title;
-  final String content;
+  final Note note;
   final String buttonText;
-  final int valueColor;
-  final String date;
   final void Function(String title, String content, int currentColor) onSaved;
 
   const NotePage({
     Key? key,
-    required this.title,
-    required this.content,
+    required this.note,
     required this.buttonText,
-    required this.valueColor,
     required this.onSaved,
-    required this.date,
   }) : super(key: key);
 
   @override
@@ -32,31 +27,21 @@ class NotePageState extends State<NotePage> {
   late Color _currentColor;
   late Color _iconColor;
   late Color _fontColor;
-  bool _keyboardIsVisible = false;
 
   @override
   void initState() {
     super.initState();
-    _titleController.text = widget.title;
-    _contentController.text = widget.content;
-    _currentColor = Color(widget.valueColor);
+    _titleController.text = widget.note.title;
+    _contentController.text = widget.note.content;
+    _currentColor = Color(widget.note.color);
     _iconColor = _currentColor != Colors.white ? Colors.white : Colors.black;
     _fontColor = _currentColor != Colors.white ? Colors.white : Colors.black;
-
-    // Add listener to detect keyboard visibility
-    WidgetsBinding.instance.window.viewInsets.bottom != 0
-        ? _keyboardIsVisible = true
-        : _keyboardIsVisible = false;
   }
 
   @override
   void dispose() {
     _titleController.dispose();
     _contentController.dispose();
-    // Remove listener to avoid memory leaks
-    WidgetsBinding.instance.window.viewInsets.bottom != 0
-        ? _keyboardIsVisible = true
-        : _keyboardIsVisible = false;
     super.dispose();
   }
 
@@ -144,13 +129,13 @@ class NotePageState extends State<NotePage> {
           padding: EdgeInsets.only(
             left: 16.0,
             right: 16.0,
-            bottom: MediaQuery.of(context).viewInsets.bottom + 16.0,
+            bottom: MediaQuery.of(context).viewInsets.bottom + 5.0,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Edited: ${widget.date}',
+                'Edited: ${widget.note.date}',
                 style: TextStyle(color: _fontColor.withOpacity(0.6)),
               ),
               IconButton(

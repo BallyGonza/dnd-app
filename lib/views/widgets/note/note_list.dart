@@ -73,10 +73,7 @@ class _NoteListState extends State<NoteList> {
                                     builder: (_) => BlocProvider.value(
                                       value: context.read<LootBloc>(),
                                       child: NotePage(
-                                        date: notes[index].date,
-                                        valueColor: notes[index].color,
-                                        title: notes[index].title,
-                                        content: notes[index].content,
+                                        note: notes[index],
                                         buttonText: 'Edit',
                                         onSaved: (title, content, color) {
                                           setState(() {
@@ -125,10 +122,12 @@ class _NoteListState extends State<NoteList> {
                   builder: (_) => BlocProvider.value(
                     value: context.read<LootBloc>(),
                     child: NotePage(
-                      date: format.format(DateTime.now()),
-                      valueColor: Colors.white.value,
-                      title: '',
-                      content: '',
+                      note: Note(
+                        date: format.format(DateTime.now()),
+                        color: Colors.white.value,
+                        title: '',
+                        content: '',
+                      ),
                       buttonText: 'Add',
                       onSaved: (title, content, color) {
                         setState(() {
