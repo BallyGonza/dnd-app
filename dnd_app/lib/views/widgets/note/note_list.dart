@@ -1,5 +1,5 @@
 import 'package:dnd_app/blocs/blocs.dart';
-import 'package:dnd_app/views/widgets/note/note_modal.dart';
+import 'package:dnd_app/views/widgets/note/note_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
@@ -44,7 +44,7 @@ class _NoteListState extends State<NoteList> {
                     shrinkWrap: true,
                     itemCount: notes.length,
                     itemBuilder: (context, index) {
-                      return GestureDetector(
+                      return InkWell(
                         onLongPress: () {
                           setState(() {
                             context
@@ -61,18 +61,11 @@ class _NoteListState extends State<NoteList> {
                           onTap: () {
                             titleController.text = notes[index].title;
                             contentController.text = notes[index].content;
-                            showModalBottomSheet(
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16),
-                                  topRight: Radius.circular(16),
-                                ),
-                              ),
-                              context: context,
-                              builder: (_) {
-                                return BlocProvider.value(
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => BlocProvider.value(
                                   value: context.read<LootBloc>(),
-                                  child: NoteModal(
+                                  child: NotePage(
                                     title: notes[index].title,
                                     content: notes[index].content,
                                     buttonText: 'Edit',
@@ -93,8 +86,8 @@ class _NoteListState extends State<NoteList> {
                                       });
                                     },
                                   ),
-                                );
-                              },
+                                ),
+                              ),
                             );
                           },
                         ),
@@ -117,15 +110,11 @@ class _NoteListState extends State<NoteList> {
             onPressed: () {
               titleController.clear();
               contentController.clear();
-              showModalBottomSheet(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                context: context,
-                builder: (_) {
-                  return BlocProvider.value(
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => BlocProvider.value(
                     value: context.read<LootBloc>(),
-                    child: NoteModal(
+                    child: NotePage(
                       title: '',
                       content: '',
                       buttonText: 'Add',
@@ -144,8 +133,8 @@ class _NoteListState extends State<NoteList> {
                         });
                       },
                     ),
-                  );
-                },
+                  ),
+                ),
               );
             },
             child: const Icon(Icons.add),
