@@ -2,7 +2,7 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class AbilityCard extends StatefulWidget {
+class AbilityCard extends StatelessWidget {
   final Ability ability;
   final SavingThrow savingThrow;
 
@@ -13,20 +13,16 @@ class AbilityCard extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<AbilityCard> createState() => _AbilityCardState();
-}
-
-class _AbilityCardState extends State<AbilityCard> {
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         showDialog(
           context: context,
           builder: (context) {
             return RollAbilitieSkillDialog(
-                name: widget.ability.name,
-                modifier: widget.savingThrow.modifier);
+              name: ability.name,
+              modifier: savingThrow.modifier,
+            );
           },
         );
       },
@@ -41,11 +37,11 @@ class _AbilityCardState extends State<AbilityCard> {
               spacing: 10,
               children: [
                 Text(
-                    widget.ability.score > 9
-                        ? '${widget.ability.score}'
-                        : '  ${widget.ability.score}',
+                    ability.score > 9
+                        ? '${ability.score}'
+                        : '  ${ability.score}',
                     style: const TextStyle(fontSize: 20)),
-                Text(widget.ability.name, style: const TextStyle(fontSize: 20)),
+                Text(ability.name, style: const TextStyle(fontSize: 20)),
               ],
             ),
             Wrap(
@@ -56,18 +52,18 @@ class _AbilityCardState extends State<AbilityCard> {
                   child: Text('MOD', style: TextStyle(fontSize: 10)),
                 ),
                 const SizedBox(width: 5),
-                widget.ability.modifier < 0
+                ability.modifier < 0
                     ? const SizedBox(
                         width: 1.2,
                       )
                     : const Text(''),
-                widget.ability.modifier > 0
+                ability.modifier > 0
                     ? const Icon(
                         Icons.add,
                         color: Colors.green,
                         size: 10,
                       )
-                    : widget.ability.modifier == 0
+                    : ability.modifier == 0
                         ? const Icon(
                             Icons.add,
                             color: Colors.white,
@@ -79,8 +75,8 @@ class _AbilityCardState extends State<AbilityCard> {
                             size: 10,
                           ),
                 Text(
-                  widget.ability.modifier.abs().toString(),
-                  style: widget.ability.modifier >= 0
+                  ability.modifier.abs().toString(),
+                  style: ability.modifier >= 0
                       ? const TextStyle(color: Colors.green, fontSize: 20)
                       : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
@@ -90,13 +86,13 @@ class _AbilityCardState extends State<AbilityCard> {
                   child: Text('SAVE', style: TextStyle(fontSize: 10)),
                 ),
                 const SizedBox(width: 5),
-                widget.savingThrow.modifier > 0
+                savingThrow.modifier > 0
                     ? const Icon(
                         Icons.add,
                         color: Colors.green,
                         size: 10,
                       )
-                    : widget.savingThrow.modifier == 0
+                    : savingThrow.modifier == 0
                         ? const Icon(
                             Icons.add,
                             color: Colors.white,
@@ -108,13 +104,13 @@ class _AbilityCardState extends State<AbilityCard> {
                             size: 10,
                           ),
                 Text(
-                  widget.savingThrow.modifier.abs().toString(),
-                  style: widget.savingThrow.modifier >= 0
+                  savingThrow.modifier.abs().toString(),
+                  style: savingThrow.modifier >= 0
                       ? const TextStyle(color: Colors.green, fontSize: 20)
                       : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
                 const SizedBox(width: 5),
-                widget.savingThrow.proficiency
+                savingThrow.proficiency
                     ? CircleAvatar(
                         backgroundColor: Colors.green[200],
                         radius: 2,

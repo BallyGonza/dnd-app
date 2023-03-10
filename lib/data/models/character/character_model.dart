@@ -60,6 +60,8 @@ class Character {
   final List<Pet> pet;
   @HiveField(25)
   List<Note> notes;
+  @HiveField(26)
+  Wallet wallet;
 
   Character({
     required this.id,
@@ -88,6 +90,7 @@ class Character {
     required this.backstory,
     required this.pet,
     required this.notes,
+    required this.wallet,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) =>
@@ -123,6 +126,7 @@ class Character {
       backstory: backstory,
       pet: pet,
       notes: notes,
+      wallet: wallet,
     );
   }
 }

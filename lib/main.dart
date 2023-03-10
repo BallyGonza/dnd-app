@@ -19,7 +19,8 @@ Future<void> main() async {
     ..registerAdapter(SkillAdapter())
     ..registerAdapter(CharacterAdapter())
     ..registerAdapter(BackgroundAdapter())
-    ..registerAdapter(SpellAdapter());
+    ..registerAdapter(SpellAdapter())
+    ..registerAdapter(WalletAdapter());
 
   WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
