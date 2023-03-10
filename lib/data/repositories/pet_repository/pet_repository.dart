@@ -12,23 +12,61 @@ Pet ghost = Pet(
     max: 35,
   ),
   abilities: [
-    Ability(name: 'Strength', score: 12, modifier: 1),
-    Ability(name: 'Dexterity', score: 17, modifier: 3),
-    Ability(name: 'Constitution', score: 12, modifier: 1),
-    Ability(name: 'Intelligence', score: 10, modifier: 0),
-    Ability(name: 'Wisdom', score: 13, modifier: 1),
-    Ability(name: 'Charisma', score: 11, modifier: 0),
+    Ability(
+      name: 'Fuerza',
+      score: 12,
+      modifier: 1,
+    ),
+    Ability(
+      name: 'Destreza',
+      score: 17,
+      modifier: 3,
+    ),
+    Ability(
+      name: 'Constitución',
+      score: 12,
+      modifier: 1,
+    ),
+    Ability(
+      name: 'Inteligencia',
+      score: 10,
+      modifier: 0,
+    ),
+    Ability(
+      name: 'Sabiduría',
+      score: 13,
+      modifier: 1,
+    ),
+    Ability(
+      name: 'Carisma',
+      score: 11,
+      modifier: 0,
+    ),
   ],
   allSkills: [
-    Skill(name: 'Perception', modifier: 3, proficiency: false),
-    Skill(name: 'Stealth', modifier: 5, proficiency: true),
+    Skill(
+      name: 'Percepción',
+      modifier: 3,
+      proficiency: false,
+    ),
+    Skill(
+      name: 'Sigilo',
+      modifier: 5,
+      proficiency: true,
+    ),
   ],
   savingThrows: [
-    SavingThrow(name: 'Strength', modifier: 6, proficiency: false),
-    SavingThrow(name: 'Wisdom', modifier: 4, proficiency: false),
+    SavingThrow(
+      name: 'Fuerza',
+      modifier: 6,
+      proficiency: false,
+    ),
+    SavingThrow(
+      name: 'Sabiduría',
+      modifier: 4,
+      proficiency: false,
+    ),
   ],
   weapons: [bite],
   traits: [teleport],
-  favoredEnemy: '',
-  favoredTerrain: '',
 );

@@ -31,6 +31,12 @@ Dice d20 = Dice(
   img: 'assets/images/dices/d20/d20.png',
 );
 
+Dice d100 = Dice(
+  name: 'd100',
+  sides: 100,
+  img: 'assets/images/dices/d20/d20.png',
+);
+
 final dices = <Dice>[
   d4,
   d6,
@@ -38,4 +44,5 @@ final dices = <Dice>[
   d10,
   d12,
   d20,
+  d100,
 ];

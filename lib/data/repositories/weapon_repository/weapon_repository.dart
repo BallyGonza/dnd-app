@@ -2,7 +2,7 @@ import 'package:dnd_app/data/data.dart';
 
 Weapon longBow = Weapon(
   id: 1,
-  name: 'Long Bow',
+  name: 'Arco Largo',
   damage: 7,
   quantityOfDices: 1,
   damageDice: d8,
@@ -24,7 +24,7 @@ Weapon rapier = Weapon(
 
 Weapon dagger = Weapon(
   id: 3,
-  name: 'Dagger',
+  name: 'Daga',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d4,
@@ -35,7 +35,7 @@ Weapon dagger = Weapon(
 
 Weapon bite = Weapon(
   id: 4,
-  name: 'Bite',
+  name: 'Mordida',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d8,

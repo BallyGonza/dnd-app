@@ -31,10 +31,6 @@ class Pet {
   final List<Trait> traits;
   @HiveField(11)
   final List<Skill> allSkills;
-  @HiveField(12)
-  final String favoredEnemy;
-  @HiveField(13)
-  final String favoredTerrain;
 
   Pet({
     required this.name,
@@ -49,8 +45,6 @@ class Pet {
     required this.weapons,
     required this.traits,
     required this.allSkills,
-    required this.favoredEnemy,
-    required this.favoredTerrain,
   });
 
   factory Pet.fromJson(Map<String, dynamic> json) => _$PetFromJson(json);

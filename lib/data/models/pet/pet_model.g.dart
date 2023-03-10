@@ -29,15 +29,13 @@ class PetAdapter extends TypeAdapter<Pet> {
       weapons: (fields[9] as List).cast<Weapon>(),
       traits: (fields[10] as List).cast<Trait>(),
       allSkills: (fields[11] as List).cast<Skill>(),
-      favoredEnemy: fields[12] as String,
-      favoredTerrain: fields[13] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Pet obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(12)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
@@ -61,11 +59,7 @@ class PetAdapter extends TypeAdapter<Pet> {
       ..writeByte(10)
       ..write(obj.traits)
       ..writeByte(11)
-      ..write(obj.allSkills)
-      ..writeByte(12)
-      ..write(obj.favoredEnemy)
-      ..writeByte(13)
-      ..write(obj.favoredTerrain);
+      ..write(obj.allSkills);
   }
 
   @override
@@ -107,8 +101,6 @@ Pet _$PetFromJson(Map<String, dynamic> json) => Pet(
       allSkills: (json['allSkills'] as List<dynamic>)
           .map((e) => Skill.fromJson(e as Map<String, dynamic>))
           .toList(),
-      favoredEnemy: json['favoredEnemy'] as String,
-      favoredTerrain: json['favoredTerrain'] as String,
     );
 
 Map<String, dynamic> _$PetToJson(Pet instance) => <String, dynamic>{
@@ -124,6 +116,4 @@ Map<String, dynamic> _$PetToJson(Pet instance) => <String, dynamic>{
       'weapons': instance.weapons,
       'traits': instance.traits,
       'allSkills': instance.allSkills,
-      'favoredEnemy': instance.favoredEnemy,
-      'favoredTerrain': instance.favoredTerrain,
     };
