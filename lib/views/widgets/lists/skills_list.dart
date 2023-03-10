@@ -40,12 +40,8 @@ class SkillsList extends StatelessWidget {
                 mainAxisSpacing: 0,
               ),
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    SkillCard(
-                      skill: skills[index],
-                    ),
-                  ],
+                return SkillCard(
+                  skill: skills[index],
                 );
               },
             ),

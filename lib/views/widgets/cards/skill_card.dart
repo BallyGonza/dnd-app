@@ -22,28 +22,30 @@ class SkillCard extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              children: [
-                Text(
-                  skill.name,
-                  style: const TextStyle(
-                    fontSize: 15,
-                  ),
+            Flexible(
+              child: Text(
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                skill.name,
+                style: const TextStyle(
+                  fontSize: 15,
                 ),
-                const SizedBox(width: 4),
-                skill.proficiency
-                    ? CircleAvatar(
-                        backgroundColor: Colors.green[200],
-                        radius: 2,
-                      )
-                    : const SizedBox.shrink(),
-              ],
+              ),
             ),
+            const SizedBox(width: 4),
+            skill.proficiency
+                ? CircleAvatar(
+                    backgroundColor: Colors.green[200],
+                    radius: 2,
+                  )
+                : const SizedBox.shrink(),
+            const Spacer(),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 skill.modifier > 0
                     ? const Icon(

@@ -57,7 +57,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           )
         ],
         child: Scaffold(
-          body: Column(
+          body: Wrap(
             children: [
               CharacterDetailsCard(
                 name: widget.character.name,

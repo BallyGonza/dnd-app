@@ -78,7 +78,7 @@ Character theekVarus = Character(
   ],
   spells: [
     speakWithAnimals,
-    rainOfSpikes,
+    stormOfSpikes,
     huntersMark,
     spiritOfHealing,
     animalSense,
@@ -172,7 +172,7 @@ Character calebClock = Character(
   ],
   spells: [
     speakWithAnimals,
-    rainOfSpikes,
+    stormOfSpikes,
     huntersMark,
     spiritOfHealing,
     animalSense,
