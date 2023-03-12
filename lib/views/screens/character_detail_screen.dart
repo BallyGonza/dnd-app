@@ -54,7 +54,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             create: (context) => PetHealthPointsBloc(
               box.getAt(widget.character.id)!,
             ),
-          )
+          ),
+          BlocProvider(
+            create: (context) => WalletBloc(
+              box.getAt(widget.character.id)!,
+            ),
+          ),
         ],
         child: Scaffold(
           body: Wrap(

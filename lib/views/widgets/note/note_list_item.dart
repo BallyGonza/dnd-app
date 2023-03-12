@@ -37,29 +37,36 @@ class NoteListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color:
-                    color == Colors.white.value ? Colors.black : Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              content,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: color == Colors.white.value
-                    ? Colors.black.withOpacity(0.6)
-                    : Colors.white.withOpacity(0.6),
-                fontSize: 16,
-              ),
-            ),
+            title.isNotEmpty
+                ? Text(
+                    title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: color == Colors.white.value
+                          ? Colors.black
+                          : Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                : const SizedBox.shrink(),
+            content.isNotEmpty
+                ? const SizedBox(height: 8)
+                : const SizedBox.shrink(),
+            content.isNotEmpty
+                ? Text(
+                    content,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: color == Colors.white.value
+                          ? Colors.black.withOpacity(0.6)
+                          : Colors.white.withOpacity(0.6),
+                      fontSize: 16,
+                    ),
+                  )
+                : const SizedBox.shrink(),
             const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
