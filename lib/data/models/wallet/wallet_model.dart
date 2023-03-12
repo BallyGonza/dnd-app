@@ -7,15 +7,15 @@ part 'wallet_model.g.dart';
 @HiveType(typeId: 12)
 class Wallet {
   @HiveField(0)
-  final int platinumPieces;
+  int platinumPieces;
   @HiveField(1)
-  final int goldPieces;
+  int goldPieces;
   @HiveField(2)
-  final int electrumPieces;
+  int electrumPieces;
   @HiveField(3)
-  final int silverPieces;
+  int silverPieces;
   @HiveField(4)
-  final int copperPieces;
+  int copperPieces;
 
   Wallet({
     required this.platinumPieces,
@@ -24,6 +24,34 @@ class Wallet {
     required this.silverPieces,
     required this.copperPieces,
   });
+
+  void addPieces({required String pieces}) {
+    if (pieces == 'platinum') {
+      platinumPieces += 1;
+    } else if (pieces == 'gold') {
+      goldPieces += 1;
+    } else if (pieces == 'electrum') {
+      electrumPieces += 1;
+    } else if (pieces == 'silver') {
+      silverPieces += 1;
+    } else if (pieces == 'copper') {
+      copperPieces += 1;
+    }
+  }
+
+  void removePieces({required String pieces}) {
+    if (pieces == 'platinum') {
+      platinumPieces -= 1;
+    } else if (pieces == 'gold') {
+      goldPieces -= 1;
+    } else if (pieces == 'electrum') {
+      electrumPieces -= 1;
+    } else if (pieces == 'silver') {
+      silverPieces -= 1;
+    } else if (pieces == 'copper') {
+      copperPieces -= 1;
+    }
+  }
 
   factory Wallet.fromJson(Map<String, dynamic> json) => _$WalletFromJson(json);
 
