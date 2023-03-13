@@ -67,7 +67,7 @@ Character theekVarus = Character(
       proficiency: false,
     ),
     Skill(
-      name: 'Manejo de Animales',
+      name: 'M. de Animales',
       modifier: 9,
       proficiency: true,
     ),

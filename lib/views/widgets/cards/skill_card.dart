@@ -26,14 +26,11 @@ class SkillCard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Flexible(
-              child: Text(
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                skill.name,
-                style: const TextStyle(
-                  fontSize: 15,
-                ),
+            Text(
+              maxLines: 1,
+              skill.name,
+              style: const TextStyle(
+                fontSize: 15,
               ),
             ),
             const SizedBox(width: 4),
