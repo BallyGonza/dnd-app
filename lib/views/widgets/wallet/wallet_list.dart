@@ -30,77 +30,77 @@ class _WalletListState extends State<WalletList> {
               WalletListItem(
                 coinType: 'Cobre',
                 coinAmount: state.wallet.copperPieces,
-                onTap: () => setState(() {
+                onAdd: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.add('copper'),
                   );
                 }),
-                onDoubleTap: () => setState(() {
+                onSubtract: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.subtract('copper'),
                   );
                 }),
-                color: Colors.brown[300]!,
+                color: const Color(0xFFB87333),
               ),
               WalletListItem(
                 coinType: 'Plata',
                 coinAmount: state.wallet.silverPieces,
-                onTap: () => setState(() {
+                onAdd: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.add('silver'),
                   );
                 }),
-                onDoubleTap: () => setState(() {
+                onSubtract: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.subtract('silver'),
                   );
                 }),
-                color: Colors.grey[300]!,
+                color: const Color(0xFFC0C0C0),
               ),
               WalletListItem(
                 coinType: 'Electrum',
                 coinAmount: state.wallet.electrumPieces,
-                onTap: () => setState(() {
+                onAdd: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.add('electrum'),
                   );
                 }),
-                onDoubleTap: () => setState(() {
+                onSubtract: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.subtract('electrum'),
                   );
                 }),
-                color: Colors.yellow[700]!,
+                color: const Color(0xFFC0D9D9),
               ),
               WalletListItem(
                 coinType: 'Oro',
                 coinAmount: state.wallet.goldPieces,
-                onTap: () => setState(() {
+                onAdd: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.add('gold'),
                   );
                 }),
-                onDoubleTap: () => setState(() {
+                onSubtract: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.subtract('gold'),
                   );
                 }),
-                color: Colors.yellow[300]!,
+                color: const Color(0xFFD4AF37),
               ),
               WalletListItem(
                 coinType: 'Platino',
                 coinAmount: state.wallet.platinumPieces,
-                onTap: () => setState(() {
+                onAdd: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.add('platinum'),
                   );
                 }),
-                onDoubleTap: () => setState(() {
+                onSubtract: () => setState(() {
                   BlocProvider.of<WalletBloc>(context).add(
                     const WalletEvent.subtract('platinum'),
                   );
                 }),
-                color: Colors.green[900]!,
+                color: const Color(0xFFE5E4E2),
               ),
             ],
           ),
