@@ -18,6 +18,8 @@ class WalletListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
@@ -25,8 +27,8 @@ class WalletListItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: Container(
-          width: MediaQuery.of(context).size.width * .9,
-          height: MediaQuery.of(context).size.width * .2,
+          width: mediaQuery.size.width * .9,
+          height: mediaQuery.size.width * .2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
             color: Colors.white,
@@ -37,7 +39,7 @@ class WalletListItem extends StatelessWidget {
             children: [
               // minus button
               SizedBox(
-                width: MediaQuery.of(context).size.width * .2,
+                width: mediaQuery.size.width * .2,
                 child: ElevatedButton(
                   onPressed: onSubtract,
                   style: ElevatedButton.styleFrom(
@@ -48,24 +50,28 @@ class WalletListItem extends StatelessWidget {
                 ),
               ),
 
-              Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                Text(
-                  coinAmount.toString(),
-                  style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * .06),
-                ),
-                Text(
-                  coinType.toUpperCase(),
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * .04,
-                    color: color,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    coinAmount.toString(),
+                    style: TextStyle(
+                      fontSize: mediaQuery.size.width * .06,
+                    ),
                   ),
-                ),
-              ]),
+                  Text(
+                    coinType.toUpperCase(),
+                    style: TextStyle(
+                      fontSize: mediaQuery.size.width * .04,
+                      color: color,
+                    ),
+                  ),
+                ],
+              ),
 
               // plus button
               SizedBox(
-                width: MediaQuery.of(context).size.width * .2,
+                width: mediaQuery.size.width * .2,
                 child: ElevatedButton(
                   onPressed: onAdd,
                   style: ElevatedButton.styleFrom(
