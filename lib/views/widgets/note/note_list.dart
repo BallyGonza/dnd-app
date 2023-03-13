@@ -21,7 +21,6 @@ class _NoteListState extends State<NoteList> {
   @override
   void initState() {
     context.read<LootBloc>().add(const LootEvent.init());
-    context.read<WalletBloc>().add(const WalletEvent.init());
 
     super.initState();
   }
@@ -37,7 +36,7 @@ class _NoteListState extends State<NoteList> {
                 orElse: () => const SizedBox(),
                 initial: () => const CircularProgressIndicator(),
                 loaded: (notes) => SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.58,
+                  height: MediaQuery.of(context).size.height * 0.67,
                   child: Padding(
                     padding: const EdgeInsets.only(
                       left: 20,
@@ -68,7 +67,7 @@ class _NoteListState extends State<NoteList> {
                                                   .contains('\n')
                                           ? 110
                                           : 90
-                                  : 110,
+                                  : 130,
                           child: InkWell(
                             onLongPress: () {
                               setState(() {
@@ -130,9 +129,9 @@ class _NoteListState extends State<NoteList> {
           child: Container(
             width: 56,
             height: 45,
-            margin: const EdgeInsets.only(
+            margin: EdgeInsets.only(
               right: 16,
-              bottom: 71,
+              bottom: MediaQuery.of(context).padding.bottom + 52.5,
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -177,242 +176,7 @@ class _NoteListState extends State<NoteList> {
             ),
           ),
         ),
-        BlocBuilder<WalletBloc, WalletState>(
-          builder: (context, state) {
-            return Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                height: 50,
-                margin: const EdgeInsets.only(
-                  bottom: 5,
-                ),
-                padding: const EdgeInsets.only(
-                  left: 10,
-                  right: 20,
-                ),
-                child: Row(
-                  children: [
-                    InkWell(
-                      onTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.add('copper'),
-                            );
-                      }),
-                      onDoubleTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.subtract('copper'),
-                            );
-                      }),
-                      child: Card(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.brown[300]!,
-                            ),
-                          ),
-                          width: 45,
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            children: [
-                              Text('${state.wallet.copperPieces}'),
-                              Text(
-                                'CP',
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.brown[300]),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.add('silver'),
-                            );
-                      }),
-                      onDoubleTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.subtract('silver'),
-                            );
-                      }),
-                      child: Card(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          width: 45,
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            children: [
-                              Text('${state.wallet.silverPieces}'),
-                              const Text(
-                                'SP',
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.add('electrum'),
-                            );
-                      }),
-                      onDoubleTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.subtract('electrum'),
-                            );
-                      }),
-                      child: Card(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey[600]!,
-                            ),
-                          ),
-                          width: 45,
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            children: [
-                              Text('${state.wallet.electrumPieces}'),
-                              Text(
-                                'EP',
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.grey[600]),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.add('gold'),
-                            );
-                      }),
-                      onDoubleTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.subtract('gold'),
-                            );
-                      }),
-                      child: Card(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.yellow[700]!,
-                            ),
-                          ),
-                          width: 45,
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            children: [
-                              Text('${state.wallet.goldPieces}'),
-                              Text(
-                                'GP',
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.yellow[700]),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.add('platinum'),
-                            );
-                      }),
-                      onDoubleTap: () => setState(() {
-                        context.read<WalletBloc>().add(
-                              const WalletEvent.subtract('platinum'),
-                            );
-                      }),
-                      child: Card(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Colors.grey[300]!,
-                            ),
-                          ),
-                          width: 45,
-                          padding: const EdgeInsets.all(5),
-                          child: Column(
-                            children: [
-                              Text('${state.wallet.platinumPieces}'),
-                              Text(
-                                'PP',
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.grey[300],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        )
       ],
     );
   }
 }
-
-// BlocBuilder<WalletBloc, WalletState>(
-//   builder: (context, state) {
-//     return state.maybeWhen(
-//       orElse: () => const SizedBox(),
-//       init: () => const SizedBox(),
-//       updated: (wallet) => Padding(
-//         padding: const EdgeInsets.only(left: 20),
-//         child: Row(
-//           children: [
-//             Text(
-//               wallet.copperPieces.toString(),
-//               style: const TextStyle(
-//                 fontSize: 20,
-//                 fontWeight: FontWeight.bold,
-//               ),
-//             ),
-//             const SizedBox(width: 10),
-//             ElevatedButton(
-//               style: ElevatedButton.styleFrom(
-//                 backgroundColor: Colors.black,
-//                 shape: const CircleBorder(),
-//               ),
-//               onPressed: () {
-//                 setState(() {
-//                   context.read<WalletBloc>().add(
-//                         const WalletEvent.add('copperPieces'),
-//                       );
-//                 });
-//               },
-//               child: const Icon(Icons.add),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   },
-// ),

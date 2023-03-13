@@ -148,6 +148,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             backstory: widget.character.backstory,
           ),
           const NoteList(),
+          const WalletList(),
           widget.character.pet.isNotEmpty
               ? PetCard(
                   pet: widget.character.pet,
@@ -173,8 +174,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           _button('BACKGROUND', 5),
           _button('BACKSTORY', 6),
           _button('LOOT', 7),
+          _button('WALLET', 8),
           widget.character.pet.isNotEmpty
-              ? _button('PET', 8)
+              ? _button('PET', 9)
               : const SizedBox.shrink(),
           const SizedBox(width: 10),
         ],

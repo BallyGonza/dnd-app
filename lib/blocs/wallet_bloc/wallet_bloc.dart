@@ -15,7 +15,6 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
   }
 
   late Character character;
-  late String pieces;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
   void _onInit(
