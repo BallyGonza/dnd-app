@@ -22,14 +22,14 @@ class WalletListItem extends StatelessWidget {
       onTap: onTap,
       onDoubleTap: onDoubleTap,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(4.0),
         child: Card(
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(color: color),
             ),
-            width: MediaQuery.of(context).size.width * .4,
-            height: MediaQuery.of(context).size.width * .4,
+            width: MediaQuery.of(context).size.width * .9,
+            height: MediaQuery.of(context).size.width * .2,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(

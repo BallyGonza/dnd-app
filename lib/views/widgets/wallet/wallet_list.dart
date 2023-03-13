@@ -23,7 +23,7 @@ class _WalletListState extends State<WalletList> {
     return BlocBuilder<WalletBloc, WalletState>(
       builder: (context, state) {
         return Align(
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           child: Wrap(
             alignment: WrapAlignment.center,
             children: [
