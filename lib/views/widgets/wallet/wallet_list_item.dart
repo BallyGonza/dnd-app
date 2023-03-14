@@ -32,8 +32,8 @@ class WalletListItem extends StatelessWidget {
           height: mediaQuery.size.width * .2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
-            color: Colors.white,
-            border: Border.all(color: color, width: 1),
+            color: color,
+            border: Border.all(color: Colors.white, width: 1),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,10 +44,13 @@ class WalletListItem extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: onSubtract,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: color,
+                    backgroundColor: Colors.white,
                     shape: const CircleBorder(),
                   ),
-                  child: const FaIcon(FontAwesomeIcons.minus),
+                  child: FaIcon(
+                    FontAwesomeIcons.minus,
+                    color: color,
+                  ),
                 ),
               ),
 
@@ -58,13 +61,28 @@ class WalletListItem extends StatelessWidget {
                     coinAmount.toString(),
                     style: TextStyle(
                       fontSize: mediaQuery.size.width * .06,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 1.0,
+                          color: Colors.black.withOpacity(.5),
+                          offset: const Offset(1.0, 1.0),
+                        ),
+                      ],
                     ),
                   ),
                   Text(
                     coinType.toUpperCase(),
                     style: TextStyle(
                       fontSize: mediaQuery.size.width * .04,
-                      color: color,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          blurRadius: 1.0,
+                          color: Colors.black.withOpacity(.5),
+                          offset: const Offset(1.0, 1.0),
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -74,10 +92,13 @@ class WalletListItem extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: onAdd,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: color,
+                    backgroundColor: Colors.white,
                     shape: const CircleBorder(),
                   ),
-                  child: const FaIcon(FontAwesomeIcons.plus),
+                  child: FaIcon(
+                    FontAwesomeIcons.plus,
+                    color: color,
+                  ),
                 ),
               ),
             ],

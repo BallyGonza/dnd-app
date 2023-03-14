@@ -51,7 +51,7 @@ class CharacterDetailsCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: const EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 35),
             width: double.infinity,
             decoration: BoxDecoration(
               color: Colors.black.withOpacity(0.6),
