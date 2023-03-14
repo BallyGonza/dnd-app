@@ -148,13 +148,13 @@ class _NoteListState extends State<NoteList> {
           ),
         ),
         Align(
-          alignment: Alignment.bottomRight,
+          alignment: Alignment.bottomLeft,
           child: Container(
             width: 56,
             height: 45,
-            margin: EdgeInsets.only(
-              right: 16,
-              bottom: MediaQuery.of(context).padding.bottom + 52.5,
+            margin: const EdgeInsets.only(
+              left: 20,
+              bottom: 20,
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(

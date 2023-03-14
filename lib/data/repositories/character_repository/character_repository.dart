@@ -137,7 +137,7 @@ Character theekVarus = Character(
       proficiency: false,
     ),
     Skill(
-      name: 'Juego de Manos',
+      name: 'J. de Manos',
       modifier: 4,
       proficiency: false,
     ),
