@@ -1,6 +1,7 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 class NotePage extends StatefulWidget {
@@ -61,10 +62,7 @@ class NotePageState extends State<NotePage> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
-          icon: Icon(
-            Icons.arrow_back,
-            color: _iconColor,
-          ),
+          icon: FaIcon(FontAwesomeIcons.arrowLeft, color: _iconColor),
         ),
         actions: [
           IconButton(
@@ -76,7 +74,7 @@ class NotePageState extends State<NotePage> {
               );
               Navigator.of(context).pop();
             },
-            icon: Icon(Icons.done, color: _iconColor),
+            icon: FaIcon(FontAwesomeIcons.check, color: _iconColor),
           ),
         ],
       ),
@@ -148,22 +146,20 @@ class NotePageState extends State<NotePage> {
                           children: [
                             Expanded(
                               child: BlockPicker(
-                                // ignore:
                                 availableColors: [
                                   Colors.white,
                                   Colors.red,
                                   Colors.pink,
                                   Colors.purple,
                                   Colors.deepPurple,
+                                  Colors.deepPurple[200]!,
                                   Colors.indigo,
+                                  Colors.indigo[200]!,
                                   Colors.blue,
-                                  Colors.lightBlue,
                                   Colors.cyan,
                                   Colors.teal,
                                   Colors.green,
-                                  Colors.green[100]!,
-                                  Colors.lime,
-                                  Colors.yellow,
+                                  Colors.green[200]!,
                                   Colors.amber,
                                   Colors.orange,
                                   Colors.deepOrange,
@@ -204,7 +200,7 @@ class NotePageState extends State<NotePage> {
                     },
                   );
                 },
-                icon: Icon(Icons.color_lens, color: _iconColor),
+                icon: FaIcon(FontAwesomeIcons.palette, color: _iconColor),
               ),
             ],
           ),

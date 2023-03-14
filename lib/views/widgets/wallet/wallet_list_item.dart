@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WalletListItem extends StatelessWidget {
   final String coinType;
@@ -46,7 +47,7 @@ class WalletListItem extends StatelessWidget {
                     backgroundColor: color,
                     shape: const CircleBorder(),
                   ),
-                  child: const Icon(Icons.remove),
+                  child: const FaIcon(FontAwesomeIcons.minus),
                 ),
               ),
 
@@ -68,8 +69,6 @@ class WalletListItem extends StatelessWidget {
                   ),
                 ],
               ),
-
-              // plus button
               SizedBox(
                 width: mediaQuery.size.width * .2,
                 child: ElevatedButton(
@@ -78,7 +77,7 @@ class WalletListItem extends StatelessWidget {
                     backgroundColor: color,
                     shape: const CircleBorder(),
                   ),
-                  child: const Icon(Icons.add),
+                  child: const FaIcon(FontAwesomeIcons.plus),
                 ),
               ),
             ],

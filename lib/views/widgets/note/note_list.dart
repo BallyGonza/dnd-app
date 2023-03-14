@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 class NoteList extends StatefulWidget {
@@ -194,7 +195,10 @@ class _NoteListState extends State<NoteList> {
                   ),
                 );
               },
-              child: const Icon(Icons.add),
+              child: const FaIcon(
+                FontAwesomeIcons.plus,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
