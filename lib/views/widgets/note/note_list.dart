@@ -1,5 +1,6 @@
 import 'package:dnd_app/blocs/blocs.dart';
 import 'package:dnd_app/views/widgets/note/note_page.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
@@ -17,11 +18,12 @@ class _NoteListState extends State<NoteList> {
   final titleController = TextEditingController();
   final contentController = TextEditingController();
   final format = DateFormat('hh:mm | MM/dd/yyyy');
+  late double _opacity;
 
   @override
   void initState() {
     context.read<LootBloc>().add(const LootEvent.init());
-
+    _opacity = 1;
     super.initState();
   }
 
@@ -52,69 +54,87 @@ class _NoteListState extends State<NoteList> {
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return Dismissible(
-                          key: UniqueKey(),
-                          direction: DismissDirection.endToStart,
-                          onDismissed: (direction) {
-                            setState(() {
-                              context.read<LootBloc>().add(
-                                    LootEvent.delete(index),
-                                  );
-                            });
-                          },
-                          child: SizedBox(
-                            height: notes[index].content.length > 100 ||
-                                    notes[index].content.contains('\n')
-                                ? 150
-                                : notes[index].content.isEmpty ||
-                                        notes[index].title.isEmpty
-                                    ? notes[index].content.length > 50 ||
-                                            notes[index].content.contains('\n')
-                                        ? 120
-                                        : notes[index].content.length > 25 ||
-                                                notes[index]
-                                                    .content
-                                                    .contains('\n')
-                                            ? 110
-                                            : 90
-                                    : 130,
-                            child: NoteListItem(
-                              title: notes[index].title,
-                              content: notes[index].content,
-                              date: notes[index].date,
-                              color: notes[index].color,
-                              index: index,
-                              onTap: () {
-                                titleController.text = notes[index].title;
-                                contentController.text = notes[index].content;
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (_) => BlocProvider.value(
-                                      value: context.read<LootBloc>(),
-                                      child: NotePage(
-                                        note: notes[index],
-                                        buttonText: 'Edit',
-                                        onSaved: (title, content, color) {
-                                          setState(() {
-                                            context.read<LootBloc>().add(
-                                                  LootEvent.edit(
-                                                    index,
-                                                    Note(
-                                                      title: title,
-                                                      content: content,
-                                                      date: format.format(
-                                                          DateTime.now()),
-                                                      color: color,
+                        return Slidable(
+                          key: ValueKey(notes[index]),
+                          endActionPane: ActionPane(
+                            motion: const ScrollMotion(),
+                            children: [
+                              SlidableAction(
+                                padding: const EdgeInsets.all(10),
+                                borderRadius: BorderRadius.circular(10),
+                                onPressed: (context) {
+                                  setState(() {
+                                    context.read<LootBloc>().add(
+                                          LootEvent.delete(index),
+                                        );
+                                  });
+                                },
+                                backgroundColor: const Color(0xFFFE4A49),
+                                foregroundColor: Colors.white,
+                                icon: Icons.delete,
+                                label: 'Delete',
+                              ),
+                            ],
+                          ),
+                          child: AnimatedOpacity(
+                            opacity: _opacity,
+                            duration: const Duration(milliseconds: 300),
+                            child: SizedBox(
+                              height: notes[index].content.length > 100 ||
+                                      notes[index].content.contains('\n')
+                                  ? 150
+                                  : notes[index].content.isEmpty ||
+                                          notes[index].title.isEmpty
+                                      ? notes[index].content.length > 50 ||
+                                              notes[index]
+                                                  .content
+                                                  .contains('\n')
+                                          ? 120
+                                          : notes[index].content.length > 25 ||
+                                                  notes[index]
+                                                      .content
+                                                      .contains('\n')
+                                              ? 110
+                                              : 90
+                                      : 130,
+                              child: NoteListItem(
+                                title: notes[index].title,
+                                content: notes[index].content,
+                                date: notes[index].date,
+                                color: notes[index].color,
+                                index: index,
+                                onTap: () {
+                                  titleController.text = notes[index].title;
+                                  contentController.text = notes[index].content;
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => BlocProvider.value(
+                                        value: context.read<LootBloc>(),
+                                        child: NotePage(
+                                          note: notes[index],
+                                          buttonText: 'Edit',
+                                          onSaved: (title, content, color) {
+                                            setState(() {
+                                              context.read<LootBloc>().add(
+                                                    LootEvent.edit(
+                                                      index,
+                                                      Note(
+                                                        title: title,
+                                                        content: content,
+                                                        date: format.format(
+                                                            DateTime.now()),
+                                                        color: color,
+                                                      ),
                                                     ),
-                                                  ),
-                                                );
-                                          });
-                                        },
+                                                  );
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         );
