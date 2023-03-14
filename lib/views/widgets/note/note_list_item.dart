@@ -11,15 +11,13 @@ class NoteListItem extends StatelessWidget {
     required this.index,
   }) : super(key: key);
 
-  final String title;
-  final String content;
-  final String date;
+  final String title, content, date;
   final int color, index;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () => onTap(),
       child: Container(
         padding: const EdgeInsets.all(16),

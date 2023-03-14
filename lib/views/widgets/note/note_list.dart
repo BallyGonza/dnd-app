@@ -52,30 +52,32 @@ class _NoteListState extends State<NoteList> {
                       ),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          height: notes[index].content.length > 100 ||
-                                  notes[index].content.contains('\n')
-                              ? 150
-                              : notes[index].content.isEmpty ||
-                                      notes[index].title.isEmpty
-                                  ? notes[index].content.length > 50 ||
-                                          notes[index].content.contains('\n')
-                                      ? 120
-                                      : notes[index].content.length > 25 ||
-                                              notes[index]
-                                                  .content
-                                                  .contains('\n')
-                                          ? 110
-                                          : 90
-                                  : 130,
-                          child: InkWell(
-                            onLongPress: () {
-                              setState(() {
-                                context
-                                    .read<LootBloc>()
-                                    .add(LootEvent.delete(index));
-                              });
-                            },
+                        return Dismissible(
+                          key: UniqueKey(),
+                          direction: DismissDirection.endToStart,
+                          onDismissed: (direction) {
+                            setState(() {
+                              context.read<LootBloc>().add(
+                                    LootEvent.delete(index),
+                                  );
+                            });
+                          },
+                          child: SizedBox(
+                            height: notes[index].content.length > 100 ||
+                                    notes[index].content.contains('\n')
+                                ? 150
+                                : notes[index].content.isEmpty ||
+                                        notes[index].title.isEmpty
+                                    ? notes[index].content.length > 50 ||
+                                            notes[index].content.contains('\n')
+                                        ? 120
+                                        : notes[index].content.length > 25 ||
+                                                notes[index]
+                                                    .content
+                                                    .contains('\n')
+                                            ? 110
+                                            : 90
+                                    : 130,
                             child: NoteListItem(
                               title: notes[index].title,
                               content: notes[index].content,
