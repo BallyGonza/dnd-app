@@ -51,3 +51,13 @@ Trait teleport = Trait(
   description:
       'Puede transportarse hasta 8mts de distancia junto a cualquier objeto que este llevando.\n\nAntes o después de transportarse, puede usar una Mordida como parte de la acción.',
 );
+
+Trait multiAttack = Trait(
+  name: 'Multiataque',
+  description: 'Realiza dos ataques, uno con su mordida y otro con las garras.',
+);
+
+Trait acuteSmell = Trait(
+  name: 'Olfato Agudo',
+  description: 'Ventaja en chequeos de percepción que involucren olfato.',
+);

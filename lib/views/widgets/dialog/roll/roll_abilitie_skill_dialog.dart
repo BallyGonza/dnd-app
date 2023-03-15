@@ -61,7 +61,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                 : Column(
                     children: [
                       const Divider(),
-                      SumRow(
+                      SumRollRow(
                         roll: roll,
                         modifier: widget.modifier,
                       ),
@@ -90,7 +90,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   void _rollAndAddToRolls() {
     return setState(() {
       roll = d20.roll();
-      rolls.add(roll + widget.modifier);
+      rolls.add(roll);
     });
   }
 }

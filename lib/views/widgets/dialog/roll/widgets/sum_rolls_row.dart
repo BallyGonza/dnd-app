@@ -1,18 +1,20 @@
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
-class SumRow extends StatelessWidget {
-  const SumRow({super.key, required this.modifier, required this.roll});
+class SumRollsRow extends StatelessWidget {
+  const SumRollsRow({super.key, required this.modifier, required this.rolls});
 
   final int modifier;
-  final int roll;
+  final List<int> rolls;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        RollText(roll: roll),
+        SumRollText(
+          rolls: rolls,
+        ),
         const SizedBox(width: 10),
         PlusMinusIcon(modifier: modifier),
         const SizedBox(width: 10),
@@ -30,7 +32,7 @@ class SumRow extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         Text(
-          '${roll + modifier}',
+          '${rolls.reduce((value, element) => value + element) + modifier}',
           style: const TextStyle(
             fontSize: 20,
             color: Colors.black,

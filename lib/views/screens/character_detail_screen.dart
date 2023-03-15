@@ -51,6 +51,11 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             ),
           ),
           BlocProvider(
+            create: (context) => WildFormHealthPointsBloc(
+              box.getAt(widget.character.id)!,
+            ),
+          ),
+          BlocProvider(
             create: (context) => PetHealthPointsBloc(
               box.getAt(widget.character.id)!,
             ),
@@ -139,8 +144,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           const NoteList(),
           const WalletList(),
           widget.character.wildForms.isNotEmpty
-              ? PetCard(
-                  pets: widget.character.wildForms,
+              ? WildFormCard(
+                  wildForms: widget.character.wildForms,
                 )
               : const SizedBox.shrink(),
           widget.character.pets.isNotEmpty

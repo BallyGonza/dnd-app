@@ -45,10 +45,16 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
               rolls.isEmpty
                   ? const SizedBox()
                   : Center(
-                      child: RollText(
-                      roll: roll,
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold,
+                      child: Text(
+                      roll.toString(),
+                      style: TextStyle(
+                        fontSize: 60,
+                        color: roll == dice.sides
+                            ? highestDiceColor
+                            : roll == 1
+                                ? lowestDiceColor
+                                : Colors.black,
+                      ),
                     )),
               rolls.isEmpty ? const SizedBox.shrink() : const Divider(),
               rolls.isEmpty

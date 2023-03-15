@@ -17,6 +17,7 @@ class RollDamageDiceDialog extends StatefulWidget {
 class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
   int roll = 0;
   List<int> rolls = [];
+  bool _rerolling = false;
 
   @override
   void initState() {
@@ -61,22 +62,70 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
                       ),
                     ),
                   )
-                : SumRow(
-                    modifier: modifier,
-                    roll: roll,
-                  ),
+                : _rerolling
+                    ? const Center(
+                        child: SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
+                    : widget.weapon.quantityOfDices == 1
+                        ? SumRollRow(
+                            modifier: modifier,
+                            roll: roll,
+                          )
+                        : SumRollsRow(
+                            modifier: modifier,
+                            rolls: rolls,
+                          ),
             rolls.isEmpty ? const SizedBox.shrink() : const Divider(),
             rolls.isEmpty
                 ? const SizedBox.shrink()
-                : ListOfRolls(
-                    rolls: rolls,
-                    dice: dice,
-                    modifier: modifier,
+                : Wrap(
+                    alignment: WrapAlignment.center,
+                    children: rolls
+                        .map(
+                          (roll) => InkWell(
+                            onTap: () {
+                              dice == d20 || widget.weapon.quantityOfDices == 1
+                                  ? null
+                                  : setState(() {
+                                      _rerolling = true;
+                                      int newRoll = dice.roll();
+                                      rolls[rolls.indexOf(roll)] = newRoll;
+                                      // after rerolling, wait 1 second and set _rerolling to false
+                                      Future.delayed(const Duration(seconds: 1),
+                                          () {
+                                        setState(() {
+                                          _rerolling = false;
+                                        });
+                                      });
+                                    });
+                            },
+                            child: Chip(
+                              backgroundColor: (roll == 1)
+                                  ? lowestDiceColor
+                                  : (roll == widget.dice.sides)
+                                      ? highestDiceColor
+                                      : Colors.black,
+                              label: Text(
+                                '$roll',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
                   ),
             DiceButton(
               dice: dice,
               onPressed: () {
-                _rollAndAddToRolls(dice, modifier);
+                _rollAndAddToRolls(widget.weapon, modifier);
               },
             )
           ],
@@ -85,10 +134,18 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
     );
   }
 
-  void _rollAndAddToRolls(Dice dice, int modifier) {
-    return setState(() {
-      roll = dice.roll();
-      rolls.add(roll + modifier);
+  void _rollAndAddToRolls(Weapon weapon, int modifier) {
+    setState(() {
+      rolls.clear();
+      if (weapon.quantityOfDices == 1) {
+        roll = weapon.damageDice.roll();
+        rolls.add(roll);
+      } else {
+        for (int i = 0; i < weapon.quantityOfDices; i++) {
+          roll = weapon.damageDice.roll();
+          rolls.add(roll);
+        }
+      }
     });
   }
 }

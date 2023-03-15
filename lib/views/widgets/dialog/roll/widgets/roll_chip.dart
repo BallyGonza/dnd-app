@@ -16,9 +16,9 @@ class RollChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
-      backgroundColor: (roll == 1 + modifier)
+      backgroundColor: (roll == 1)
           ? lowestDiceColor
-          : (roll == dice.sides + modifier)
+          : (roll == dice.sides)
               ? highestDiceColor
               : Colors.black,
       label: Text(
