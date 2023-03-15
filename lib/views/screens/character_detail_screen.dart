@@ -65,18 +65,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           body: Wrap(
             children: [
               CharacterDetailsCard(
-                name: widget.character.name,
-                lastName: widget.character.lastName,
-                img: widget.character.img,
-                race: widget.character.race,
-                armor: widget.character.armor,
-                level: widget.character.level,
-                speed: widget.character.speed,
-                classes: widget.character.classes,
-                initiative: widget.character.initiative,
-                profileImg: widget.character.profileImg,
-                healthPoints: widget.character.healthPoints,
-                passivePerception: widget.character.passivePerception,
+                character: widget.character,
               ),
               _navigationButtons(),
               _stackedWidgets(),
@@ -149,9 +138,14 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           ),
           const NoteList(),
           const WalletList(),
-          widget.character.pet.isNotEmpty
+          widget.character.wildForms.isNotEmpty
               ? PetCard(
-                  pet: widget.character.pet,
+                  pets: widget.character.wildForms,
+                )
+              : const SizedBox.shrink(),
+          widget.character.pets.isNotEmpty
+              ? PetCard(
+                  pets: widget.character.pets,
                 )
               : const SizedBox.shrink(),
         ],
@@ -175,8 +169,11 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           _button('BACKSTORY', 6),
           _button('LOOT', 7),
           _button('WALLET', 8),
-          widget.character.pet.isNotEmpty
-              ? _button('PET', 9)
+          widget.character.wildForms.isNotEmpty
+              ? _button('WILD FORM', 9)
+              : const SizedBox.shrink(),
+          widget.character.pets.isNotEmpty
+              ? _button('PET', 10)
               : const SizedBox.shrink(),
           const SizedBox(width: 10),
         ],

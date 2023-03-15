@@ -14,10 +14,12 @@ class Initiative extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(
-              '+',
-              style: TextStyle(fontSize: 15, color: color),
-            ),
+            initiative > 0
+                ? Text(
+                    '+',
+                    style: TextStyle(fontSize: 15, color: color),
+                  )
+                : const SizedBox.shrink(),
             Text(
               '$initiative',
               style: TextStyle(fontSize: 20, color: color),

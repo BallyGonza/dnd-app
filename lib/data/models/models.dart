@@ -3,7 +3,7 @@ export 'note/note.dart';
 export 'ability/ability.dart';
 export 'background/background.dart';
 export 'dice/dice.dart';
-export 'pet/pet.dart';
+export 'animal/animal.dart';
 export 'saving_throw/saving_throw.dart';
 export 'skill/skill.dart';
 export 'trait/trait.dart';

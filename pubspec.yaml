@@ -79,8 +79,12 @@ flutter:
 
     - assets/images/characters/theek_varus/
     - assets/images/characters/caleb_clock/
+    - assets/images/characters/vaunea/
 
     - assets/images/animals/blink_dog/
+    - assets/images/animals/tressym/
+    - assets/images/animals/bear/
+
 
     - assets/images/weapons/
 

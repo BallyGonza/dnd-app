@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dnd_app/data/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
@@ -57,10 +56,12 @@ class Character {
   @HiveField(23)
   final String backstory;
   @HiveField(24)
-  final List<Pet> pet;
+  final List<Animal> pets;
   @HiveField(25)
-  List<Note> notes;
+  final List<Animal> wildForms;
   @HiveField(26)
+  List<Note> notes;
+  @HiveField(27)
   Wallet wallet;
 
   Character({
@@ -88,7 +89,8 @@ class Character {
     required this.spells,
     required this.background,
     required this.backstory,
-    required this.pet,
+    required this.pets,
+    required this.wildForms,
     required this.notes,
     required this.wallet,
   });
@@ -124,7 +126,8 @@ class Character {
       spells: spells,
       background: background,
       backstory: backstory,
-      pet: pet,
+      pets: pets,
+      wildForms: wildForms,
       notes: notes,
       wallet: wallet,
     );

@@ -11,7 +11,7 @@ Future<void> main() async {
     ..registerAdapter(NoteAdapter())
     ..registerAdapter(HealthPointsAdapter())
     ..registerAdapter(DiceAdapter())
-    ..registerAdapter(PetAdapter())
+    ..registerAdapter(AnimalAdapter())
     ..registerAdapter(AbilityAdapter())
     ..registerAdapter(SavingThrowAdapter())
     ..registerAdapter(WeaponAdapter())

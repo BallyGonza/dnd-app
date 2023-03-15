@@ -8,7 +8,7 @@ class PetHealthPointsBloc
     extends Bloc<PetHealthPointsEvent, PetHealthPointsState> {
   PetHealthPointsBloc(
     this.character,
-  ) : super(PetHealthPointsState.init(character.pet[0].healthPoints.current)) {
+  ) : super(PetHealthPointsState.init(character.pets[0].healthPoints.current)) {
     on<PetHealthPointsInitialEvent>(_onInit);
     on<PetHealthPointsAddEvent>(_onAdd);
     on<PetHealthPointsSubtractEvent>(_onSubtract);
@@ -23,32 +23,32 @@ class PetHealthPointsBloc
     Emitter<PetHealthPointsState> emit,
   ) {
     character = box.get(character.id)!;
-    emit(PetHealthPointsState.init(character.pet[0].healthPoints.current));
+    emit(PetHealthPointsState.init(character.pets[0].healthPoints.current));
   }
 
   void _onAdd(
     PetHealthPointsAddEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    character.pet[0].healthPoints.add();
+    character.pets[0].healthPoints.add();
     box.put(character.id, character);
-    emit(PetHealthPointsState.updated(character.pet[0].healthPoints.current));
+    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
   void _onSubtract(
     PetHealthPointsSubtractEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    character.pet[0].healthPoints.subtract();
+    character.pets[0].healthPoints.subtract();
     box.put(character.id, character);
-    emit(PetHealthPointsState.updated(character.pet[0].healthPoints.current));
+    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
   void _onReset(
     PetHealthPointsResetEvent event,
     Emitter<PetHealthPointsState> emit,
   ) {
-    character.pet[0].healthPoints.reset();
+    character.pets[0].healthPoints.reset();
     box.put(character.id, character);
     emit(PetHealthPointsState.updated(character.healthPoints.current));
   }

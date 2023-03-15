@@ -5,35 +5,16 @@ import 'package:flutter/material.dart';
 class CharacterDetailsCard extends StatelessWidget {
   const CharacterDetailsCard({
     Key? key,
-    required this.name,
-    required this.lastName,
-    required this.img,
-    required this.profileImg,
-    required this.race,
-    required this.classes,
-    required this.level,
-    required this.healthPoints,
-    required this.armor,
-    required this.speed,
-    required this.initiative,
-    required this.passivePerception,
+    required this.character,
   }) : super(key: key);
 
-  final String name;
-  final String lastName;
-  final String img;
-  final String profileImg;
-  final String race;
-  final List<String> classes;
-  final int level;
-  final HealthPoints healthPoints;
-  final int armor;
-  final int speed;
-  final int initiative;
-  final int passivePerception;
+  final Character character;
 
   @override
   Widget build(BuildContext context) {
+    final name = character.name,
+        lastName = character.lastName,
+        level = character.level;
     return Container(
       width: double.infinity,
       height: 200,
@@ -43,7 +24,7 @@ class CharacterDetailsCard extends StatelessWidget {
             Colors.black.withOpacity(0.6),
             BlendMode.darken,
           ),
-          image: AssetImage(img),
+          image: AssetImage(character.banner),
           fit: BoxFit.cover,
         ),
       ),
@@ -68,9 +49,9 @@ class CharacterDetailsCard extends StatelessWidget {
                       );
                     },
                     child: Hero(
-                      tag: 'profile_$profileImg',
+                      tag: 'profile_$character.profileImg',
                       child: CircleAvatar(
-                        backgroundImage: AssetImage(profileImg),
+                        backgroundImage: AssetImage(character.profileImg),
                       ),
                     ),
                   ),
@@ -79,7 +60,7 @@ class CharacterDetailsCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        race,
+                        character.race,
                         style: const TextStyle(
                           fontSize: 11,
                           fontStyle: FontStyle.italic,
@@ -94,7 +75,7 @@ class CharacterDetailsCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${classes[0]} / ${classes[1]} | Lvl. $level',
+                        '${character.classes[0]} / ${character.classes[1]} | Lvl. $level',
                         style: const TextStyle(
                           fontSize: 11,
                           fontStyle: FontStyle.italic,
@@ -105,7 +86,7 @@ class CharacterDetailsCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   CharacterHealthPoints(
-                    max: healthPoints.max,
+                    max: character.healthPoints.max,
                     color: Colors.white,
                   ),
                 ],
@@ -116,19 +97,19 @@ class CharacterDetailsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ArmorClass(
-                armor: armor,
+                armor: character.armor,
                 color: Colors.white,
               ),
               Initiative(
-                initiative: initiative,
+                initiative: character.initiative,
                 color: Colors.white,
               ),
               Speed(
-                speed: speed,
+                speed: character.speed,
                 color: Colors.white,
               ),
               PassivePerception(
-                passivePerception: passivePerception,
+                passivePerception: character.passivePerception,
                 color: Colors.white,
               ),
             ],
@@ -146,8 +127,8 @@ class CharacterDetailsCard extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Hero(
-          tag: 'image_$img',
-          child: Image.asset(img),
+          tag: 'image_$character.img',
+          child: Image.asset(character.img),
         ),
       ),
     );

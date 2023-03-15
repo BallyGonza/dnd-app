@@ -2,11 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:dnd_app/data/data.dart';
 
-part 'pet_model.g.dart';
+part 'animal_model.g.dart';
 
 @JsonSerializable()
 @HiveType(typeId: 5)
-class Pet {
+class Animal {
   @HiveField(0)
   final String name;
   @HiveField(1)
@@ -20,34 +20,40 @@ class Pet {
   @HiveField(5)
   final int speed;
   @HiveField(6)
-  HealthPoints healthPoints;
+  final int? climb;
   @HiveField(7)
-  final List<Ability> abilities;
+  final int? fly;
   @HiveField(8)
-  final List<SavingThrow> savingThrows;
+  HealthPoints healthPoints;
   @HiveField(9)
-  final List<Weapon> weapons;
+  final List<Ability> abilities;
   @HiveField(10)
-  final List<Trait> traits;
+  final List<SavingThrow> savingThrows;
   @HiveField(11)
-  final List<Skill> allSkills;
+  final List<Weapon> weapons;
+  @HiveField(12)
+  final List<Trait> traits;
+  @HiveField(13)
+  final List<Skill> skills;
 
-  Pet({
+  Animal({
     required this.name,
     required this.race,
     required this.img,
     required this.profileImg,
     required this.armor,
     required this.speed,
+    this.climb,
+    this.fly,
     required this.healthPoints,
     required this.abilities,
     required this.savingThrows,
     required this.weapons,
     required this.traits,
-    required this.allSkills,
+    required this.skills,
   });
 
-  factory Pet.fromJson(Map<String, dynamic> json) => _$PetFromJson(json);
+  factory Animal.fromJson(Map<String, dynamic> json) => _$AnimalFromJson(json);
 
-  Map<String, dynamic> toJson() => _$PetToJson(this);
+  Map<String, dynamic> toJson() => _$AnimalToJson(this);
 }

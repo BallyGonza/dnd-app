@@ -41,16 +41,17 @@ class CharacterAdapter extends TypeAdapter<Character> {
       spells: (fields[21] as List).cast<Spell>(),
       background: (fields[22] as List).cast<Background>(),
       backstory: fields[23] as String,
-      pet: (fields[24] as List).cast<Pet>(),
-      notes: (fields[25] as List).cast<Note>(),
-      wallet: fields[26] as Wallet,
+      pets: (fields[24] as List).cast<Animal>(),
+      wildForms: (fields[25] as List).cast<Animal>(),
+      notes: (fields[26] as List).cast<Note>(),
+      wallet: fields[27] as Wallet,
     );
   }
 
   @override
   void write(BinaryWriter writer, Character obj) {
     writer
-      ..writeByte(27)
+      ..writeByte(28)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -100,10 +101,12 @@ class CharacterAdapter extends TypeAdapter<Character> {
       ..writeByte(23)
       ..write(obj.backstory)
       ..writeByte(24)
-      ..write(obj.pet)
+      ..write(obj.pets)
       ..writeByte(25)
-      ..write(obj.notes)
+      ..write(obj.wildForms)
       ..writeByte(26)
+      ..write(obj.notes)
+      ..writeByte(27)
       ..write(obj.wallet);
   }
 
@@ -163,8 +166,11 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
           .map((e) => Background.fromJson(e as Map<String, dynamic>))
           .toList(),
       backstory: json['backstory'] as String,
-      pet: (json['pet'] as List<dynamic>)
-          .map((e) => Pet.fromJson(e as Map<String, dynamic>))
+      pets: (json['pets'] as List<dynamic>)
+          .map((e) => Animal.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      wildForms: (json['wildForms'] as List<dynamic>)
+          .map((e) => Animal.fromJson(e as Map<String, dynamic>))
           .toList(),
       notes: (json['notes'] as List<dynamic>)
           .map((e) => Note.fromJson(e as Map<String, dynamic>))
@@ -197,7 +203,8 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'spells': instance.spells,
       'background': instance.background,
       'backstory': instance.backstory,
-      'pet': instance.pet,
+      'pets': instance.pets,
+      'wildForms': instance.wildForms,
       'notes': instance.notes,
       'wallet': instance.wallet,
     };
