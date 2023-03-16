@@ -6,3 +6,4 @@ export 'note/note.dart';
 export 'pet/pet.dart';
 export 'wild_form/wild_form.dart';
 export 'wallet/wallet.dart';
+export 'navigation_bar/navigation_bar.dart';

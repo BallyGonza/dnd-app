@@ -72,7 +72,15 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               CharacterDetailsCard(
                 character: widget.character,
               ),
-              _navigationButtons(),
+              NavBar(
+                character: widget.character,
+                selected: selected,
+                onPressed: (index) {
+                  setState(() {
+                    selected = index;
+                  });
+                },
+              ),
               _stackedWidgets(),
             ],
           ),
@@ -153,58 +161,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   pets: widget.character.pets,
                 )
               : const SizedBox.shrink(),
-        ],
-      ),
-    );
-  }
-
-  Widget _navigationButtons() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          const SizedBox(width: 10),
-          _button('ABILITIES', 0),
-          _button('SKILLS', 1),
-          _button('ATTACKS', 2),
-          _button('SPELLS', 3),
-          _button('TRAITS', 4),
-          _button('BACKGROUND', 5),
-          _button('BACKSTORY', 6),
-          _button('LOOT', 7),
-          _button('WALLET', 8),
-          widget.character.wildForms.isNotEmpty
-              ? _button('WILD FORM', 9)
-              : const SizedBox.shrink(),
-          widget.character.pets.isNotEmpty
-              ? _button('PET', 10)
-              : const SizedBox.shrink(),
-          const SizedBox(width: 10),
-        ],
-      ),
-    );
-  }
-
-  Widget _button(name, indexButton) {
-    return TextButton(
-      onPressed: () => setState(() => selected = indexButton),
-      child: Column(
-        children: [
-          Text(
-            name,
-            style: TextStyle(
-                fontSize: 14.0,
-                color:
-                    selected == indexButton ? Colors.black : Colors.grey[400]),
-          ),
-          Container(
-            height: 2.0,
-            width: 20.0,
-            color: selected == indexButton
-                ? Colors.green[200]
-                : Colors.transparent,
-          ),
         ],
       ),
     );
