@@ -30,40 +30,82 @@ class _WildFormCardState extends State<WildFormCard> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(10.0),
+                  height: MediaQuery.of(context).size.height * 0.18,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Colors.black,
+                        Colors.grey[900]!,
+                        Colors.grey[800]!,
+                        Colors.grey[700]!,
+                        Colors.grey[600]!,
+                        Colors.grey[500]!,
+                        Colors.grey[400]!,
+                        Colors.grey[300]!,
+                        Colors.grey[200]!,
+                        Colors.grey[100]!,
+                        Colors.grey[50]!,
+                        Colors.white,
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                     image: DecorationImage(
                       image: AssetImage(widget.wildForms[0].img),
-                      fit: BoxFit.contain,
-                      alignment: Alignment.centerRight,
+                      fit: BoxFit.fitWidth,
                       opacity: 0.5,
                     ),
                   ),
                   child: Column(
                     children: [
-                      ListTile(
-                        title: Text(widget.wildForms[0].name,
-                            style: const TextStyle(fontSize: 20)),
-                        subtitle: Text(
-                          widget.wildForms[0].race,
-                          style: const TextStyle(color: Colors.grey),
+                      Container(
+                        margin: const EdgeInsets.only(top: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(widget.wildForms[0].name,
+                                    style: const TextStyle(
+                                        fontSize: 20, color: Colors.white)),
+                                Text(
+                                  widget.wildForms[0].race,
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontStyle: FontStyle.italic),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 50,
+                            ),
+                            SizedBox(
+                              height: 43,
+                              width: 66,
+                              child: WildFormHealthPoints(
+                                max: widget.wildForms[0].healthPoints.max,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      Padding(
+                      Container(
+                        margin: const EdgeInsets.only(top: 10.0),
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ArmorClass(
                               armor: widget.wildForms[0].armor,
-                              color: Colors.black,
-                            ),
-                            WildFormHealthPoints(
-                              max: widget.wildForms[0].healthPoints.max,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                             Speed(
                               speed: widget.wildForms[0].speed,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                           ],
                         ),

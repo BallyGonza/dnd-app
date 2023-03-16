@@ -20,7 +20,7 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         border: Border.all(
-          color: Colors.black,
+          color: Colors.white,
           width: 0.5,
         ),
       ),
