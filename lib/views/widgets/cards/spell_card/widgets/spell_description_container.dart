@@ -14,6 +14,12 @@ class SpellDescriptionContainer extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: const BoxDecoration(
         color: Colors.white,
+        image: DecorationImage(
+          image: AssetImage('assets/images/logos/spell_back.png'),
+          fit: BoxFit.contain,
+          alignment: Alignment.center,
+          opacity: 0.1,
+        ),
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
       ),
       child: Text(

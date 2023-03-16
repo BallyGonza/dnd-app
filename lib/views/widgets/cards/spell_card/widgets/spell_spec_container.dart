@@ -22,7 +22,8 @@ class SpellSpecContainer extends StatelessWidget {
               Radius.circular(5.0),
             ),
           ),
-          width: 156,
+          width: MediaQuery.of(context).size.width * 0.44,
+          height: 42,
           child: Column(
             children: [
               Text(
@@ -34,11 +35,18 @@ class SpellSpecContainer extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              Text(
-                specDetail,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 2.0),
+                  child: Text(
+                    specDetail,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14,
+                    ),
+                  ),
                 ),
               ),
             ],
