@@ -22,13 +22,14 @@ class WalletAdapter extends TypeAdapter<Wallet> {
       electrumPieces: fields[2] as int,
       silverPieces: fields[3] as int,
       copperPieces: fields[4] as int,
+      needWallet: fields[5] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, Wallet obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(6)
       ..writeByte(0)
       ..write(obj.platinumPieces)
       ..writeByte(1)
@@ -38,7 +39,9 @@ class WalletAdapter extends TypeAdapter<Wallet> {
       ..writeByte(3)
       ..write(obj.silverPieces)
       ..writeByte(4)
-      ..write(obj.copperPieces);
+      ..write(obj.copperPieces)
+      ..writeByte(5)
+      ..write(obj.needWallet);
   }
 
   @override
@@ -62,6 +65,7 @@ Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
       electrumPieces: json['electrumPieces'] as int,
       silverPieces: json['silverPieces'] as int,
       copperPieces: json['copperPieces'] as int,
+      needWallet: json['needWallet'] as bool,
     );
 
 Map<String, dynamic> _$WalletToJson(Wallet instance) => <String, dynamic>{
@@ -70,4 +74,5 @@ Map<String, dynamic> _$WalletToJson(Wallet instance) => <String, dynamic>{
       'electrumPieces': instance.electrumPieces,
       'silverPieces': instance.silverPieces,
       'copperPieces': instance.copperPieces,
+      'needWallet': instance.needWallet,
     };

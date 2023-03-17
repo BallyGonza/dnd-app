@@ -22,60 +22,60 @@ class NavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const SizedBox(width: 10),
-          NavigationBarButton(
-            name: 'ABILITIES',
-            indexButton: 0,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'SKILLS',
-            indexButton: 1,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'ATTACKS',
-            indexButton: 2,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'SPELLS',
-            indexButton: 3,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'TRAITS',
-            indexButton: 4,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'BACKGROUND',
-            indexButton: 5,
-            selected: selected,
-            onPressed: onPressed,
-          ),
-          NavigationBarButton(
-            name: 'BACKSTORY',
-            indexButton: 6,
-            selected: selected,
-            onPressed: onPressed,
-          ),
+          character.abilities.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'ABILITIES',
+                  indexButton: 0,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.skills.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'SKILLS',
+                  indexButton: 1,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.weapons.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'WEAPONS',
+                  indexButton: 2,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.spells.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'SPELLS',
+                  indexButton: 3,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.traits.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'TRAITS',
+                  indexButton: 4,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
           NavigationBarButton(
             name: 'LOOT',
             indexButton: 7,
             selected: selected,
             onPressed: onPressed,
           ),
-          NavigationBarButton(
-            name: 'WALLET',
-            indexButton: 8,
-            selected: selected,
-            onPressed: onPressed,
-          ),
+          character.wallet.needWallet
+              ? NavigationBarButton(
+                  name: 'WALLET',
+                  indexButton: 8,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
           character.wildForms.isNotEmpty
               ? NavigationBarButton(
                   name: 'WILD FORM',
@@ -88,6 +88,24 @@ class NavBar extends StatelessWidget {
               ? NavigationBarButton(
                   name: 'PET',
                   indexButton: 10,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.background.isNotEmpty || character.languages.isNotEmpty
+              ? NavigationBarButton(
+                  name: character.background.isNotEmpty
+                      ? 'BACKGROUND'
+                      : 'LANGUAGES',
+                  indexButton: 5,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
+          character.backstory != ''
+              ? NavigationBarButton(
+                  name: 'BACKSTORY',
+                  indexButton: 6,
                   selected: selected,
                   onPressed: onPressed,
                 )

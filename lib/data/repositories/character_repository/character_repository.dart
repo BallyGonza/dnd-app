@@ -84,6 +84,7 @@ Character theekVarus = Character(
     elementalWeapon
   ],
   wallet: Wallet(
+    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -192,6 +193,7 @@ Character vaunea = Character(
   wildForms: [bear],
   notes: [],
   wallet: Wallet(
+    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -278,15 +280,7 @@ Character evendurGreycastle = Character(
   ],
   weapons: [oneHandedSword, twoHandedSword, axe],
   languages: 'Común, Enano',
-  traits: [
-    divineSense,
-    layingOfHands,
-    channelingDivinity,
-    hexCurse,
-    divineHealth,
-    auraOfProtection,
-    tirelessAvenger
-  ],
+  traits: [],
   spells: [
     frost,
     minorIllusion,
@@ -303,31 +297,15 @@ Character evendurGreycastle = Character(
   wildForms: [],
   notes: [],
   wallet: Wallet(
+    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
     goldPieces: 0,
     platinumPieces: 0,
   ),
-  background: [
-    Background(
-      name: 'Rasgos de Personalidad',
-      description: 'WIP',
-    ),
-    Background(
-      name: 'Ideales',
-      description: 'WIP',
-    ),
-    Background(
-      name: 'Vínculos',
-      description: 'WIP',
-    ),
-    Background(
-      name: 'Defectos',
-      description: 'WIP',
-    ),
-  ],
-  backstory: 'WIP',
+  background: [],
+  backstory: '',
   img: 'assets/images/characters/evendur_greycastle/evendur_greycastle.jpeg',
   profileImg:
       'assets/images/characters/evendur_greycastle/evendur_greycastle_profile.jpeg',

@@ -133,22 +133,30 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           SkillsList(
             skills: widget.character.skills,
           ),
-          WeaponsList(
-            weapons: widget.character.weapons,
-          ),
-          SpellsList(
-            spells: widget.character.spells,
-          ),
-          TraitsList(
-            traits: widget.character.traits,
-          ),
+          widget.character.weapons.isNotEmpty
+              ? WeaponsList(
+                  weapons: widget.character.weapons,
+                )
+              : const SizedBox.shrink(),
+          widget.character.spells.isNotEmpty
+              ? SpellsList(
+                  spells: widget.character.spells,
+                )
+              : const SizedBox.shrink(),
+          widget.character.traits.isNotEmpty
+              ? TraitsList(
+                  traits: widget.character.traits,
+                )
+              : const SizedBox.shrink(),
           BackgroundsList(
             backgrounds: widget.character.background,
             languages: widget.character.languages,
           ),
-          BackstoryCard(
-            backstory: widget.character.backstory,
-          ),
+          widget.character.backstory != ''
+              ? BackstoryCard(
+                  backstory: widget.character.backstory,
+                )
+              : const SizedBox.shrink(),
           const NoteList(),
           const WalletList(),
           widget.character.wildForms.isNotEmpty
