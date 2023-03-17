@@ -2,7 +2,7 @@ import 'package:dnd_app/data/data.dart';
 
 Spell speakWithAnimals = Spell(
   name: 'Hablar con Animales',
-  level: 1,
+  level: '1',
   range: 'Propio',
   castTime: '1 acción (R)',
   duration: '10 min',
@@ -17,7 +17,7 @@ Spell speakWithAnimals = Spell(
 
 Spell stormOfSpikes = Spell(
   name: 'Tormenta de Espinas',
-  level: 1,
+  level: '1',
   range: 'Propio',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 min)',
@@ -32,7 +32,7 @@ Spell stormOfSpikes = Spell(
 
 Spell huntersMark = Spell(
   name: 'Marca del Cazador',
-  level: 1,
+  level: '1',
   range: '18 metros',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 hora)',
@@ -49,7 +49,7 @@ Spell huntersMark = Spell(
 
 Spell spiritOfHealing = Spell(
   name: 'Espíritu de Sanación',
-  level: 2,
+  level: '2',
   range: '12 metros',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 min)',
@@ -68,7 +68,7 @@ Spell spiritOfHealing = Spell(
 
 Spell animalSense = Spell(
     name: 'Sentido Animal (R)',
-    level: 2,
+    level: '2',
     range: 'Toque',
     castTime: '1 acción',
     duration: 'Conc. (1 hora)',
@@ -78,7 +78,7 @@ Spell animalSense = Spell(
 
 Spell revive = Spell(
     name: 'Revivificar',
-    level: 3,
+    level: '3',
     range: 'Toque',
     castTime: '1 acción',
     duration: 'Instantáneo',
@@ -94,7 +94,7 @@ Spell revive = Spell(
 
 Spell elementalWeapon = Spell(
   name: 'Arma Elemental',
-  level: 3,
+  level: '3',
   range: 'Toque',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 hora)',
@@ -107,4 +107,51 @@ Spell elementalWeapon = Spell(
       Si usas este hechizo a nivel 5 o 6, el bonus en chequeos de ataque aumenta a +2 y el daño extra a 2d4.
       
       Si usas este hechizo a nivel 7 o superior, el bonus en chequeos de ataque aumenta a +3 y el daño extra a 3d4.''',
+);
+
+Spell druidcraft = Spell(
+  name: 'Druidcraft',
+  level: 'Cantrip',
+  range: '6 metros',
+  castTime: '1 acción',
+  duration: 'Instantáneo',
+  comp: 'V, S',
+  description: '''Crea una de los siguientes efectos:
+  
+  - Un efecto sensorial que predice el clima aproximado del área en las próximas 24 horas.
+  
+  - Hacer florecer instantáneamente el capullo de una flor.
+  
+  - Apagar o prender la llama de una vela, antorcha o una pequeña fogata.
+  
+  - Crear un efecto sensorial natural no-dañino, como hojas cayendo, una corriente de viento, o sonidos de animales pequeños.
+  
+  El efecto no puede exceder un area de 1mt3.''',
+);
+
+Spell repair = Spell(
+    name: 'Reparar',
+    level: 'Cantrip',
+    range: 'Toque',
+    castTime: '1 minuto',
+    duration: 'Instantáneo',
+    comp: 'V, S, M (piedra imantada)',
+    description:
+        '''Repara un objeto que toques, como una cadena rota, una llave partida en dos o una rasgadura en una tela. La rotura no puede ser superior a 30cm. La reparación causada por el hechizo no deja rastros del daño reparado.
+        
+        Este hechizo puede reparar objetos mágicos, pero no puede devolverles la magia imbuida en ellos en caso de haberla perdido.''');
+
+Spell animalFriendship = Spell(
+  name: 'Amistad Animal',
+  level: '1',
+  range: '6 metros',
+  castTime: '1 acción',
+  duration: '24 horas',
+  comp: 'V, S, M (algún alimento)',
+  description:
+      '''Este hechizo te permite persuadir a una bestia de que no eres una amenaza y establecer una conexión amistosa con ella. Elige una bestia que puedas ver dentro del rango. La bestia debe ser capaz de verte y oírte. Si la inteligencia de la bestia es 4 o superior, el hechizo falla. De lo contrario, la bestia realiza una tirada de salvación de Sabiduría, si falla queda encantada por ti mientras dure el hechizo.
+      
+      Durante la duración del hechizo, la bestia será amistosa contigo y no te atacará a menos que se sienta amenazada o provocada. También puedes comunicarte con la bestia telepáticamente y persuadirla para que realice tareas simples y no peligrosas para ella.
+      
+      Si tú o uno de tus aliados daña a la bestia, el hechizo termina de inmediato. A niveles más altos, puedes elegir una criatura extra como objetivo por cada nivel extra por encima del nivel 1.''',
 );

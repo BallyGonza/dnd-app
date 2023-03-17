@@ -9,7 +9,7 @@ class Spell {
   @HiveField(0)
   final String name;
   @HiveField(1)
-  final int level;
+  final String level;
   @HiveField(2)
   final String range;
   @HiveField(3)

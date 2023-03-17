@@ -6,7 +6,7 @@ class SpellLevelContainer extends StatelessWidget {
     required this.level,
   }) : super(key: key);
 
-  final int level;
+  final String level;
 
   @override
   Widget build(BuildContext context) {

@@ -65,3 +65,47 @@ Weapon claws = Weapon(
   range: 5,
   img: 'assets/images/weapons/claws.png',
 );
+
+Weapon hammer = Weapon(
+  id: 7,
+  name: 'Martillo',
+  damage: 4,
+  quantityOfDices: 2,
+  damageDice: d6,
+  checkDice: d20,
+  range: 8,
+  img: 'assets/images/weapons/hammer.png',
+);
+
+Weapon axe = Weapon(
+  id: 8,
+  name: 'Hacha',
+  damage: 4,
+  quantityOfDices: 1,
+  damageDice: d6,
+  checkDice: d20,
+  range: 8,
+  img: 'assets/images/weapons/axe.png',
+);
+
+Weapon sword = Weapon(
+  id: 9,
+  name: 'Espada',
+  damage: 4,
+  quantityOfDices: 1,
+  damageDice: d6,
+  checkDice: d20,
+  range: 8,
+  img: 'assets/images/weapons/sword.png',
+);
+
+Weapon hammerOfFire = Weapon(
+  id: 10,
+  name: 'Martillo de Fuego',
+  damage: 4,
+  quantityOfDices: 2,
+  damageDice: d6,
+  checkDice: d20,
+  range: 8,
+  img: 'assets/images/weapons/hammer.png',
+);

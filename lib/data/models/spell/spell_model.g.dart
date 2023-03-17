@@ -18,7 +18,7 @@ class SpellAdapter extends TypeAdapter<Spell> {
     };
     return Spell(
       name: fields[0] as String,
-      level: fields[1] as int,
+      level: fields[1] as String,
       range: fields[2] as String,
       castTime: fields[3] as String,
       duration: fields[4] as String,
@@ -64,7 +64,7 @@ class SpellAdapter extends TypeAdapter<Spell> {
 
 Spell _$SpellFromJson(Map<String, dynamic> json) => Spell(
       name: json['name'] as String,
-      level: json['level'] as int,
+      level: json['level'] as String,
       range: json['range'] as String,
       castTime: json['castTime'] as String,
       duration: json['duration'] as String,
