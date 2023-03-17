@@ -18,57 +18,60 @@ class SumRollRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Image.asset(
+          dice.img,
+          width: 20,
+          height: 20,
+        ),
+        const Spacer(),
         Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Image.asset(
-                dice.img,
-                width: 20,
+          children: <Widget>[
+            Row(
+              children: [
+                RollText(
+                  roll: roll,
+                ),
+                thrashRoll != 0
+                    ? Opacity(
+                        opacity: 0.3,
+                        child: Text(
+                          ' ($thrashRoll)',
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ],
+            ),
+            const SizedBox(width: 10),
+            PlusMinusIcon(modifier: modifier),
+            const SizedBox(width: 10),
+            Text(
+              '${modifier.abs()}',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.black,
               ),
             ),
-            RollText(
-              roll: roll,
+            const SizedBox(width: 10),
+            const Icon(
+              Icons.arrow_forward,
+              size: 20,
             ),
-            thrashRoll != 0
-                ? Opacity(
-                    opacity: 0.3,
-                    child: Text(
-                      ' ($thrashRoll)',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal,
-                      ),
-                    ),
-                  )
-                : const SizedBox.shrink(),
+            const SizedBox(width: 10),
+            Text(
+              '${roll + modifier}',
+              style: const TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            )
           ],
         ),
-        const SizedBox(width: 10),
-        PlusMinusIcon(modifier: modifier),
-        const SizedBox(width: 10),
-        Text(
-          '${modifier.abs()}',
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-          ),
-        ),
-        const SizedBox(width: 10),
-        const Icon(
-          Icons.arrow_forward,
-          size: 20,
-        ),
-        const SizedBox(width: 10),
-        Text(
-          '${roll + modifier}',
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.black,
-          ),
-        )
       ],
     );
   }

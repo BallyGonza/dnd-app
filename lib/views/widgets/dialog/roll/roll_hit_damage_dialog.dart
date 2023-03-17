@@ -18,14 +18,16 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   int _toHitRoll = 0;
   int _damageRoll = 0;
   int _trashRoll = 0;
-  List<int> _toHitRolls = [];
-  List<int> _damageRolls = [];
+  late List<int> _toHitRolls;
+  late List<int> _damageRolls;
   late bool _advantage;
   late bool _disadvantage;
   bool _rerolling = false;
 
   @override
   void initState() {
+    _damageRolls = [];
+    _toHitRolls = [];
     _advantage = false;
     _disadvantage = false;
     _toHitRolls.clear();
@@ -34,147 +36,169 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   }
 
   @override
+  void dispose() {
+    _damageRolls.clear();
+    _toHitRolls.clear();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Dice dice = widget.weapon.damageDice;
     final int modifier = widget.weapon.damage;
-    final String weapongImg = widget.weapon.img;
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
-      title: Row(
-        children: [
-          Text(
-            '${widget.weapon.name} [${widget.weapon.quantityOfDices}d${dice.name.toUpperCase()}]',
-            style: const TextStyle(
-              fontSize: 20,
-            ),
-          ),
-          const Spacer(),
-          Image(
-            image: AssetImage(weapongImg),
-            height: 30,
-            width: 30,
-          ),
-        ],
-      ),
       content: SingleChildScrollView(
-        child: ListBody(
-          children: <Widget>[
-            _damageRolls.isEmpty ? const SizedBox.shrink() : const Divider(),
-            _damageRoll == 0
-                ? const SizedBox.shrink()
-                : Column(
-                    children: [
-                      SumRollRow(
-                        modifier: widget.weapon.range,
-                        roll: _toHitRoll,
-                        thrashRoll: _trashRoll,
-                        dice: d20,
-                      ),
-                      const SizedBox(height: 4),
-                      _rerolling
-                          ? const SizedBox(
-                              height: 10,
-                              width: 10,
-                              child: CircularProgressIndicator(
-                                color: Colors.black,
-                              ),
-                            )
-                          : SumDamageRollsRow(
-                              toHitRoll: _toHitRoll,
-                              modifier: modifier,
-                              rolls: _damageRolls,
-                            ),
-                    ],
+        child: SizedBox(
+          width: 500,
+          child: ListBody(
+            children: <Widget>[
+              ListTile(
+                title: Text(
+                  widget.weapon.name,
+                  style: const TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
                   ),
-            _damageRolls.isEmpty ? const SizedBox.shrink() : const Divider(),
-            _damageRolls.isEmpty
-                ? const SizedBox.shrink()
-                : Wrap(
-                    alignment: WrapAlignment.center,
-                    children: _damageRolls
-                        .map(
-                          (roll) => InkWell(
-                            onTap: () {
-                              dice == d20 || widget.weapon.quantityOfDices == 1
-                                  ? null
-                                  : setState(() {
-                                      _rerolling = true;
-                                      int newRoll = dice.roll();
-                                      _damageRolls[_damageRolls.indexOf(roll)] =
-                                          newRoll;
-                                      Future.delayed(const Duration(seconds: 1),
-                                          () {
-                                        setState(() {
-                                          _rerolling = false;
-                                        });
-                                      });
-                                    });
-                            },
-                            child: Chip(
-                              backgroundColor: (roll == 1)
-                                  ? lowestDiceColor
-                                  : (roll == widget.dice.sides)
-                                      ? highestDiceColor
-                                      : Colors.black,
-                              label: Text(
-                                '$roll',
-                                style: const TextStyle(
-                                  color: Colors.white,
+                ),
+              ),
+              _damageRoll == 0
+                  ? const SizedBox.shrink()
+                  : Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SumRollRow(
+                            modifier: widget.weapon.range,
+                            roll: _toHitRoll,
+                            thrashRoll: _trashRoll,
+                            dice: d20,
+                          ),
+                        ),
+                        _rerolling
+                            ? const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: SizedBox(
+                                  height: 17,
+                                  width: 16,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              )
+                            : Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: SumDamageRollsRow(
+                                  dice: widget.weapon.damageDice,
+                                  toHitRoll: _toHitRoll,
+                                  modifier: modifier,
+                                  rolls: _damageRolls,
                                 ),
                               ),
-                            ),
+                      ],
+                    ),
+              _damageRolls.isEmpty
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
                           ),
-                        )
-                        .toList(),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: _damageRolls
+                              .map(
+                                (roll) => InkWell(
+                                  onTap: () {
+                                    dice == d20 ||
+                                            widget.weapon.quantityOfDices == 1
+                                        ? null
+                                        : setState(() {
+                                            _rerolling = true;
+                                            int newRoll = dice.roll();
+                                            _damageRolls[_damageRolls
+                                                .indexOf(roll)] = newRoll;
+                                            Future.delayed(
+                                                const Duration(seconds: 1), () {
+                                              setState(() {
+                                                _rerolling = false;
+                                              });
+                                            });
+                                          });
+                                  },
+                                  child: Chip(
+                                    backgroundColor: (roll == 1)
+                                        ? lowestDiceColor
+                                        : (roll == widget.dice.sides)
+                                            ? highestDiceColor
+                                            : Colors.black,
+                                    label: Text(
+                                      '$roll',
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
+              SizedBox(
+                height: 40,
+                child: CheckboxListTile(
+                  checkboxShape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                   ),
-            SizedBox(
-              height: 40,
-              child: CheckboxListTile(
-                checkboxShape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
+                  activeColor: Colors.black,
+                  value: _advantage,
+                  onChanged: (value) {
+                    setState(() {
+                      _advantage = value!;
+                      _disadvantage = false;
+                    });
+                  },
+                  title: const Text("Ventaja"),
                 ),
-                activeColor: Colors.black,
-                value: _advantage,
-                onChanged: (value) {
-                  setState(() {
-                    _advantage = value!;
-                    _disadvantage = false;
-                  });
-                },
-                title: const Text("Ventaja"),
               ),
-            ),
-            SizedBox(
-              height: 40,
-              child: CheckboxListTile(
-                activeColor: Colors.black,
-                checkboxShape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+              SizedBox(
+                height: 40,
+                child: CheckboxListTile(
+                  activeColor: Colors.black,
+                  checkboxShape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                   ),
+                  value: _disadvantage,
+                  onChanged: (value) {
+                    setState(() {
+                      _disadvantage = value!;
+                      _advantage = false;
+                    });
+                  },
+                  title: const Text("Desventaja"),
                 ),
-                value: _disadvantage,
-                onChanged: (value) {
-                  setState(() {
-                    _disadvantage = value!;
-                    _advantage = false;
-                  });
-                },
-                title: const Text("Desventaja"),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            DiceButton(
-              dice: dice,
-              onPressed: () {
-                _rollAndAddToRolls(widget.weapon, modifier);
-              },
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              WeaponButton(
+                weapon: widget.weapon,
+                onPressed: () {
+                  _rollAndAddToRolls(widget.weapon, modifier);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
