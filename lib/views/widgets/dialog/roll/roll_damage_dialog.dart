@@ -35,7 +35,7 @@ class _RollDamageDiceDialogState extends State<RollDamageDiceDialog> {
       title: Row(
         children: [
           Text(
-            'Damage [${dice.name.toUpperCase()}]',
+            'Damage [${widget.weapon.quantityOfDices}d${dice.name.toUpperCase()}]',
             style: const TextStyle(
               fontSize: 20,
             ),

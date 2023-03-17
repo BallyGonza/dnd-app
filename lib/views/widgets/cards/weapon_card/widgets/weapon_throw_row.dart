@@ -28,6 +28,12 @@ class WeaponThrowRow extends StatelessWidget {
               style: const TextStyle(fontSize: 20),
             ),
             const Spacer(),
+            weapon.quantityOfDices > 1 && title == 'DAMAGE'
+                ? Text(
+                    '${weapon.quantityOfDices}d',
+                    style: const TextStyle(fontSize: 20),
+                  )
+                : const SizedBox(),
             Image.asset(
               title == 'TO HIT' ? weapon.checkDice.img : weapon.damageDice.img,
               width: 20,
