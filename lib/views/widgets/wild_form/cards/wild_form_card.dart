@@ -30,7 +30,7 @@ class _WildFormCardState extends State<WildFormCard> {
               children: [
                 Container(
                   margin: const EdgeInsets.all(10.0),
-                  height: MediaQuery.of(context).size.height * 0.18,
+                  height: MediaQuery.of(context).size.height * 0.17,
                   width: MediaQuery.of(context).size.width * 0.85,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -82,13 +82,9 @@ class _WildFormCardState extends State<WildFormCard> {
                             const SizedBox(
                               width: 50,
                             ),
-                            SizedBox(
-                              height: 43,
-                              width: 66,
-                              child: WildFormHealthPoints(
-                                max: widget.wildForms[0].healthPoints.max,
-                                color: Colors.white,
-                              ),
+                            WildFormHealthPoints(
+                              max: widget.wildForms[0].healthPoints.max,
+                              color: Colors.white,
                             ),
                           ],
                         ),

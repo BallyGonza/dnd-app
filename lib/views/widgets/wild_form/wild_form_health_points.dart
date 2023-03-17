@@ -28,11 +28,14 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
         padding: const EdgeInsets.all(5.0),
         child: Column(
           children: [
-            Text(
-              'HIT POINTS',
-              style: TextStyle(
-                fontSize: 8,
-                color: widget.color,
+            FittedBox(
+              fit: BoxFit.contain,
+              child: Text(
+                'HIT POINTS',
+                style: TextStyle(
+                  fontSize: 8,
+                  color: widget.color,
+                ),
               ),
             ),
             Row(
@@ -46,11 +49,14 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                   child: BlocBuilder<WildFormHealthPointsBloc,
                       WildFormHealthPointsState>(
                     builder: (context, state) {
-                      return Text(
-                        state.current.toString(),
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: widget.color,
+                      return FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          state.current.toString(),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: widget.color,
+                          ),
                         ),
                       );
                     },
@@ -68,11 +74,14 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                     BlocProvider.of<WildFormHealthPointsBloc>(context)
                         .add(const WildFormHealthPointsEvent.add());
                   },
-                  child: Text(
-                    '${widget.max}',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: widget.color,
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: Text(
+                      '${widget.max}',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: widget.color,
+                      ),
                     ),
                   ),
                 ),

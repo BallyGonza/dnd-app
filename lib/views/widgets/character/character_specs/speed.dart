@@ -19,7 +19,7 @@ class Speed extends StatelessWidget {
               style: TextStyle(fontSize: 20, color: color),
             ),
             Text(
-              'FT',
+              'Mts',
               style: TextStyle(fontSize: 10, color: color),
             ),
           ],
