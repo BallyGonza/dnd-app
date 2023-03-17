@@ -148,17 +148,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   traits: widget.character.traits,
                 )
               : const SizedBox.shrink(),
-          BackgroundsList(
-            backgrounds: widget.character.background,
-            languages: widget.character.languages,
+          NoteList(
+            needWallet: widget.character.wallet.needWallet,
           ),
-          widget.character.backstory != ''
-              ? BackstoryCard(
-                  backstory: widget.character.backstory,
-                )
-              : const SizedBox.shrink(),
-          const NoteList(),
-          const WalletList(),
           widget.character.wildForms.isNotEmpty
               ? WildFormCard(
                   wildForms: widget.character.wildForms,
@@ -167,6 +159,15 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           widget.character.pets.isNotEmpty
               ? PetCard(
                   pets: widget.character.pets,
+                )
+              : const SizedBox.shrink(),
+          BackgroundsList(
+            backgrounds: widget.character.background,
+            languages: widget.character.languages,
+          ),
+          widget.character.backstory != ''
+              ? BackstoryCard(
+                  backstory: widget.character.backstory,
                 )
               : const SizedBox.shrink(),
         ],

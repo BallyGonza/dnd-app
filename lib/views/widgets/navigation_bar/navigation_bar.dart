@@ -64,22 +64,14 @@ class NavBar extends StatelessWidget {
               : const SizedBox.shrink(),
           NavigationBarButton(
             name: 'LOOT',
-            indexButton: 7,
+            indexButton: 5,
             selected: selected,
             onPressed: onPressed,
           ),
-          character.wallet.needWallet
-              ? NavigationBarButton(
-                  name: 'WALLET',
-                  indexButton: 8,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
           character.wildForms.isNotEmpty
               ? NavigationBarButton(
                   name: 'WILD FORM',
-                  indexButton: 9,
+                  indexButton: 6,
                   selected: selected,
                   onPressed: onPressed,
                 )
@@ -87,7 +79,7 @@ class NavBar extends StatelessWidget {
           character.pets.isNotEmpty
               ? NavigationBarButton(
                   name: 'PET',
-                  indexButton: 10,
+                  indexButton: 7,
                   selected: selected,
                   onPressed: onPressed,
                 )
@@ -97,7 +89,7 @@ class NavBar extends StatelessWidget {
                   name: character.background.isNotEmpty
                       ? 'BACKGROUND'
                       : 'LANGUAGES',
-                  indexButton: 5,
+                  indexButton: 8,
                   selected: selected,
                   onPressed: onPressed,
                 )
@@ -105,7 +97,7 @@ class NavBar extends StatelessWidget {
           character.backstory != ''
               ? NavigationBarButton(
                   name: 'BACKSTORY',
-                  indexButton: 6,
+                  indexButton: 9,
                   selected: selected,
                   onPressed: onPressed,
                 )
