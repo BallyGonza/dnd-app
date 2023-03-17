@@ -155,3 +155,153 @@ Spell animalFriendship = Spell(
       
       Si tú o uno de tus aliados daña a la bestia, el hechizo termina de inmediato. A niveles más altos, puedes elegir una criatura extra como objetivo por cada nivel extra por encima del nivel 1.''',
 );
+
+Spell frost = Spell(
+  name: 'Helada',
+  level: 'Cantrip',
+  range: '12 metros',
+  castTime: '1 acción',
+  duration: 'Instantáneo',
+  comp: 'V, S',
+  description:
+      '''Invocas un frío entumecedor alrededor de un objetivo. La criatura realiza una tirada de salvación de Constitución.
+      
+      Si falla, recibe 1d6 de daño por frío y tiene desventaja en su próximo ataque con armas antes del final de su próximo turno.
+      
+      El daño de este hechizo aumenta en 1d6 a los niveles 5, 11 y 17 del usuario.''',
+);
+
+Spell minorIllusion = Spell(
+  name: 'Ilusión Menor',
+  level: 'Cantrip',
+  range: '12 metros',
+  castTime: '1 acción',
+  duration: '1 minuto',
+  comp: 'S, M (hebra de lana)',
+  description:
+      '''Creas un sonido o una imagen de un objeto que no mida más de 1 metro. La ilusión termina antes si vuelves a usar este hechizo o si lo cancelas usando una acción.
+      
+      Si creas un sonido, puedes variar su volumen y hacer que sea continuo o por intervalos. También puedes modificar el sonido a medida que lo desees.
+      
+      Una criatura puede usar una acción para examinar la ilusión realizando un chequeo de Investigación contra tu dificultad de lanzamiento de hechizos. Si la criatura logra discernir la ilusión, podrá ver a través de ella.''',
+);
+
+Spell command = Spell(
+  name: 'Comando',
+  level: '1',
+  range: '12 metros',
+  castTime: '1 acción',
+  duration: '1 ronda',
+  comp: 'V',
+  description:
+      '''Exclamas un comando de una o dos palabras a una criatura que elijas. La criatura realiza una tirada de salvación de Sabiduría.
+      
+      Si falla, obedece tu comando. El hechizo falla si la criatura es un no-muerto, si no entiende tu idioma, si tu comando le causaría daño directo o si no tiene manera de obedecerlo.
+      
+      A niveles más altos, puedes afectar a una criatura adicional por cada nivel extra por encima del nivel 1. Las criaturas deben estar a menos de 6 metros de distancia entre ellas.''',
+);
+
+Spell cureWounds = Spell(
+  name: 'Curar Heridas',
+  level: '1',
+  range: 'Toque',
+  castTime: '1 acción',
+  duration: 'Instantáneo',
+  comp: 'V, S',
+  description:
+      '''Una criatura que toques recupera puntos de vida igual a 1d8 más tu modificador de hechizos.
+      
+      Este hechizo no funciona en no-muertos o en máquinas.
+      
+      A niveles más altos, la cantidad de puntos de vida recuperados aumenta en 1d8 por cada nivel extra por encima del nivel 1.''',
+);
+
+Spell ruin = Spell(
+  name: 'Perdición',
+  level: '1',
+  range: '6 metros',
+  castTime: '1 acción',
+  duration: 'Conc. (1 min)',
+  comp: 'V, S, M (sangre)',
+  description:
+      '''Hasta 3 criaturas que puedas ver realizan una tirada de salvación de Carisma.
+      
+      Si un objetivo falla, cada vez que realice un chequeo de ataque o una tirada de salvación, debe lanzar 1d4 y restar el número obtenido al resultado.
+      
+      A niveles más altos, puedes afectar a una criatura adicional por cada nivel extra por encima del nivel 1.''',
+);
+
+Spell punishmentOfThunder = Spell(
+  name: 'Castigo del Trueno',
+  level: '1',
+  range: 'Propio',
+  castTime: '1 acción bonus',
+  duration: 'Conc. (1 min)',
+  comp: 'V',
+  description:
+      '''La primera vez que golpees a un objetivo con un ataque cuerpo a cuerpo durante la duración de este hechizo, tu arma emite un estruendo audible hasta a 60 metros de distancia y el ataque causa 2d6 puntos de daño por trueno adicionales.
+      
+      Si el objetivo es una criatura, debe realizar una tirada de salvación de Fuerza. Si falla, es empujada 2 metros hacia atrás y cae al suelo.''',
+);
+
+Spell icyRebuke = Spell(
+  name: 'Reprensión Helada',
+  level: '1',
+  range: '12 metros',
+  castTime: '1 reacción',
+  duration: 'Instantáneo',
+  comp: 'V, S',
+  description:
+      '''Una criatura que te haya causado daño realiza una tirada de salvación de Destreza. Si falla, recibe 2d10 puntos de daño por frío o la mitad del daño si logra la tirada.
+      
+      A niveles más altos, el hechizo causa 1d10 puntos de daño adicionales por cada nivel extra por encima del nivel 1.''',
+);
+
+Spell armorOfAgathys = Spell(
+  name: 'Armadura de Agathys',
+  level: 'q',
+  range: 'Toque',
+  castTime: '1 acción',
+  duration: '1 hora',
+  comp: 'V, S, M (agua)',
+  description:
+      '''Una fuerza mágica te rodea manifestándose en forma de hielo espectral alrededor de tu cuerpo y tu armadura. Obtienes 5 puntos de vida temporales mientras dure el hechizo.
+      
+      Si una criatura te daña con un ataque cuerpo a cuerpo mientras tienes esos puntos de vida adicionales, la criatura recibe 5 puntos de daño por frío.
+      
+      A niveles más altos, la cantidad de vida adicional y el daño causado aumentan en 5 puntos por cada nivel extra por encima del nivel 1.''',
+);
+
+Spell invokeMount = Spell(
+  name: 'Invocar Montura',
+  level: '2',
+  range: '6 metros',
+  castTime: '10 minutos',
+  duration: 'Instantáneo',
+  comp: 'V, S',
+  description: '''Invocas una montura mágica y creas una unión mental con ella.
+      
+      Puede tomar la forma de un caballo de guerra, un camello, un pony, un alce o un mastín (pueden seleccionarse otras monturas a discreción del DM).
+      
+      La montura tiene las estadísticas de la criatura elegida, pero se la considera celestial, feérica o abismal.
+      
+      Si su inteligencia es 5 o menos, pasa a ser 6 y aprende a entender uno de tus idiomas.
+      
+      Mientras esté a menos de 500 metros de ti, puedes comunicarte telepáticamente con tu montura.
+      
+      La montura puede ser usada tanto dentro como fuera del combate y la unión contigo es tan profunda e instintiva que cualquier hechizo que uses cuyo objetivo seas tú mismo también afecta a tu montura.
+      
+      Si sus puntos de vida llegan a cero, desaparece. Puedes usar una reacción para hacerla desaparecer o para terminar la unión y hacerla desaparecer.''',
+);
+
+Spell mistyStep = Spell(
+  name: 'Paso de la Niebla',
+  level: '2',
+  range: 'Propio',
+  castTime: '1 acción bonus',
+  duration: 'Instantáneo',
+  comp: 'V',
+  description: '''Una niebla mágica te rodea brevemente.
+  
+  Te teletransportas hasta 6 metros a un lugar desocupado que puedas ver.''',
+);
