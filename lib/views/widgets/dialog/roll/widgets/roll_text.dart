@@ -9,9 +9,13 @@ class RollText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       roll.toString(),
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 20,
-        color: Colors.black,
+        color: roll == 1
+            ? Colors.red
+            : roll == 20
+                ? Colors.green
+                : Colors.black,
         fontWeight: FontWeight.normal,
       ),
     );

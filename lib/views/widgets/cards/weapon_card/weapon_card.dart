@@ -14,45 +14,39 @@ class WeaponCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: Stack(
         children: [
-          Card(
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: ListTile(
-              title: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  weapon.name,
-                  style: Theme.of(context).textTheme.headline6,
-                ),
+          InkWell(
+            onTap: () => showDialog(
+              context: context,
+              builder: (context) => RollHitDamageDiceDialog(
+                weapon: weapon,
+                dice: weapon.damageDice,
               ),
-              subtitle: Column(
-                children: [
-                  WeaponThrowRow(
-                    title: 'TO HIT',
-                    weapon: weapon,
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (BuildContext context) =>
-                          RollAbilitieSkillDialog(
-                        name: 'To Hit [${d20.name.toUpperCase()}]',
-                        modifier: weapon.range,
-                      ),
-                    ),
+            ),
+            child: Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: ListTile(
+                title: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    weapon.name,
+                    style: Theme.of(context).textTheme.headline6,
                   ),
-                  WeaponThrowRow(
-                    title: 'DAMAGE',
-                    weapon: weapon,
-                    onTap: () => showDialog(
-                      context: context,
-                      builder: (context) => RollDamageDiceDialog(
-                        weapon: weapon,
-                        dice: weapon.damageDice,
-                      ),
+                ),
+                subtitle: Column(
+                  children: [
+                    WeaponThrowRow(
+                      title: 'TO HIT',
+                      weapon: weapon,
                     ),
-                  ),
-                ],
+                    WeaponThrowRow(
+                      title: 'DAMAGE',
+                      weapon: weapon,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

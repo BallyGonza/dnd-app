@@ -18,6 +18,7 @@ class RollAbilitieSkillDialog extends StatefulWidget {
 class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   List<int> rolls = [];
   int roll = 0;
+  int _trashRoll = 0;
 
   @override
   void initState() {
@@ -63,7 +64,9 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                       const Divider(),
                       SumRollRow(
                         roll: roll,
+                        thrashRoll: _trashRoll,
                         modifier: widget.modifier,
+                        dice: d20,
                       ),
                       const Divider(),
                       rolls.isEmpty
