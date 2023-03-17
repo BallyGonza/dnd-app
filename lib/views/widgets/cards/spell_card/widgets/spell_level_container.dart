@@ -11,7 +11,7 @@ class SpellLevelContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Nivel $level',
+      level,
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 16,

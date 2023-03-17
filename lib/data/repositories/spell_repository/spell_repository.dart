@@ -2,7 +2,7 @@ import 'package:dnd_app/data/data.dart';
 
 Spell speakWithAnimals = Spell(
   name: 'Hablar con Animales',
-  level: '1',
+  level: 'Nivel 1',
   range: 'Propio',
   castTime: '1 acción (R)',
   duration: '10 min',
@@ -17,7 +17,7 @@ Spell speakWithAnimals = Spell(
 
 Spell stormOfSpikes = Spell(
   name: 'Tormenta de Espinas',
-  level: '1',
+  level: 'Nivel 1',
   range: 'Propio',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 min)',
@@ -32,7 +32,7 @@ Spell stormOfSpikes = Spell(
 
 Spell huntersMark = Spell(
   name: 'Marca del Cazador',
-  level: '1',
+  level: 'Nivel 1',
   range: '18 metros',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 hora)',
@@ -49,7 +49,7 @@ Spell huntersMark = Spell(
 
 Spell spiritOfHealing = Spell(
   name: 'Espíritu de Sanación',
-  level: '2',
+  level: 'Nivel 2',
   range: '12 metros',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 min)',
@@ -68,7 +68,7 @@ Spell spiritOfHealing = Spell(
 
 Spell animalSense = Spell(
     name: 'Sentido Animal (R)',
-    level: '2',
+    level: 'Nivel 2',
     range: 'Toque',
     castTime: '1 acción',
     duration: 'Conc. (1 hora)',
@@ -78,7 +78,7 @@ Spell animalSense = Spell(
 
 Spell revive = Spell(
     name: 'Revivificar',
-    level: '3',
+    level: 'Nivel 3',
     range: 'Toque',
     castTime: '1 acción',
     duration: 'Instantáneo',
@@ -94,7 +94,7 @@ Spell revive = Spell(
 
 Spell elementalWeapon = Spell(
   name: 'Arma Elemental',
-  level: '3',
+  level: 'Nivel 3',
   range: 'Toque',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 hora)',
@@ -143,7 +143,7 @@ Spell repair = Spell(
 
 Spell animalFriendship = Spell(
   name: 'Amistad Animal',
-  level: '1',
+  level: 'Nivel 1',
   range: '6 metros',
   castTime: '1 acción',
   duration: '24 horas',
@@ -188,7 +188,7 @@ Spell minorIllusion = Spell(
 
 Spell command = Spell(
   name: 'Comando',
-  level: '1',
+  level: 'Nivel 1',
   range: '12 metros',
   castTime: '1 acción',
   duration: '1 ronda',
@@ -203,7 +203,7 @@ Spell command = Spell(
 
 Spell cureWounds = Spell(
   name: 'Curar Heridas',
-  level: '1',
+  level: 'Nivel 1',
   range: 'Toque',
   castTime: '1 acción',
   duration: 'Instantáneo',
@@ -218,7 +218,7 @@ Spell cureWounds = Spell(
 
 Spell ruin = Spell(
   name: 'Perdición',
-  level: '1',
+  level: 'Nivel 1',
   range: '6 metros',
   castTime: '1 acción',
   duration: 'Conc. (1 min)',
@@ -233,7 +233,7 @@ Spell ruin = Spell(
 
 Spell punishmentOfThunder = Spell(
   name: 'Castigo del Trueno',
-  level: '1',
+  level: 'Nivel 1',
   range: 'Propio',
   castTime: '1 acción bonus',
   duration: 'Conc. (1 min)',
@@ -246,7 +246,7 @@ Spell punishmentOfThunder = Spell(
 
 Spell icyRebuke = Spell(
   name: 'Reprensión Helada',
-  level: '1',
+  level: 'Nivel 1',
   range: '12 metros',
   castTime: '1 reacción',
   duration: 'Instantáneo',
@@ -259,7 +259,7 @@ Spell icyRebuke = Spell(
 
 Spell armorOfAgathys = Spell(
   name: 'Armadura de Agathys',
-  level: 'q',
+  level: 'Nivel 1',
   range: 'Toque',
   castTime: '1 acción',
   duration: '1 hora',
@@ -274,7 +274,7 @@ Spell armorOfAgathys = Spell(
 
 Spell invokeMount = Spell(
   name: 'Invocar Montura',
-  level: '2',
+  level: 'Nivel 2',
   range: '6 metros',
   castTime: '10 minutos',
   duration: 'Instantáneo',
@@ -296,7 +296,7 @@ Spell invokeMount = Spell(
 
 Spell mistyStep = Spell(
   name: 'Paso de la Niebla',
-  level: '2',
+  level: 'Nivel Nivel 2',
   range: 'Propio',
   castTime: '1 acción bonus',
   duration: 'Instantáneo',

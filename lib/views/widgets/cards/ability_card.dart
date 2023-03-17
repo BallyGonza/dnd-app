@@ -76,9 +76,11 @@ class AbilityCard extends StatelessWidget {
                           ),
                 Text(
                   ability.modifier.abs().toString(),
-                  style: ability.modifier >= 0
+                  style: ability.modifier > 0
                       ? const TextStyle(color: Colors.green, fontSize: 20)
-                      : const TextStyle(color: Colors.red, fontSize: 20),
+                      : ability.modifier == 0
+                          ? const TextStyle(color: Colors.grey, fontSize: 20)
+                          : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
                 const SizedBox(width: 20),
                 const Padding(
@@ -105,9 +107,11 @@ class AbilityCard extends StatelessWidget {
                           ),
                 Text(
                   savingThrow.modifier.abs().toString(),
-                  style: savingThrow.modifier >= 0
+                  style: savingThrow.modifier > 0
                       ? const TextStyle(color: Colors.green, fontSize: 20)
-                      : const TextStyle(color: Colors.red, fontSize: 20),
+                      : savingThrow.modifier == 0
+                          ? const TextStyle(color: Colors.grey, fontSize: 20)
+                          : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
                 const SizedBox(width: 5),
                 savingThrow.proficiency

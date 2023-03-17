@@ -63,9 +63,11 @@ class SkillCard extends StatelessWidget {
                           ),
                 Text(
                   skill.modifier.abs().toString(),
-                  style: skill.modifier >= 0
+                  style: skill.modifier > 0
                       ? const TextStyle(color: Colors.green, fontSize: 15)
-                      : const TextStyle(color: Colors.red, fontSize: 15),
+                      : skill.modifier == 0
+                          ? const TextStyle(color: Colors.grey, fontSize: 15)
+                          : const TextStyle(color: Colors.red, fontSize: 15),
                 ),
               ],
             ),

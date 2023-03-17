@@ -174,8 +174,7 @@ Trait layingOfHands = Trait(
 Trait channelingDivinity = Trait(
   name: 'Canalizar Divinidad',
   description: '''- Rechzar enemigo.
-
-      - Voto de enemistad.''',
+  - Voto de enemistad.''',
 );
 
 Trait hexCurse = Trait(
