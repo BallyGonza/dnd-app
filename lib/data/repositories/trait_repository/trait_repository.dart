@@ -155,14 +155,14 @@ Trait divineSense = Trait(
   name: 'Sentido Divino',
   description:
       '''Puedes utilizar tu acción para detectar en un radio de 18 metros la presencia de:
-      
-      - Celestiales
-      - Abisales
-      - Elementales
-      - Feéricas
-      - No-muertas
-      
-      Asimismo, puedes detectar la presencia de lugares u objetos mágicos dentro del mismo rango. Si logras detectar alguna criatura u objeto mágico, puedes emplear tu acción para conocer su ubicación exacta dentro de los 18 metros.''',
+
+    - Celestiales
+    - Abisales
+    - Elementales
+    - Feéricas
+    - No-muertas
+
+    Asimismo, puedes detectar la presencia de lugares u objetos mágicos dentro del mismo rango. Si logras detectar alguna criatura u objeto mágico, puedes emplear tu acción para conocer su ubicación exacta dentro de los 18 metros.''',
 );
 
 Trait layingOfHands = Trait(
@@ -173,8 +173,9 @@ Trait layingOfHands = Trait(
 
 Trait channelingDivinity = Trait(
   name: 'Canalizar Divinidad',
-  description: '''- Rechzar enemigo.
-  - Voto de enemistad.''',
+  description: '''
+- Rechzar enemigo: WIP
+- Voto de enemistad: WIP''',
 );
 
 Trait hexCurse = Trait(
