@@ -42,6 +42,20 @@ class Wallet {
     }
   }
 
+  void setPieces({required String pieces, required int amount}) {
+    if (pieces == 'platinum') {
+      platinumPieces = amount;
+    } else if (pieces == 'gold') {
+      goldPieces = amount;
+    } else if (pieces == 'electrum') {
+      electrumPieces = amount;
+    } else if (pieces == 'silver') {
+      silverPieces = amount;
+    } else if (pieces == 'copper') {
+      copperPieces = amount;
+    }
+  }
+
   void removePieces({required String pieces}) {
     if (pieces == 'platinum' && platinumPieces > 0) {
       platinumPieces -= 1;

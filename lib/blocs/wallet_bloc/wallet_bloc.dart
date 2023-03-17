@@ -12,6 +12,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     on<WalletInitialEvent>(_onInit);
     on<WalletAddEvent>(_onAdd);
     on<WalletSubtractEvent>(_onSubtract);
+    on<WalletSetEvent>(_onSet);
   }
 
   late Character character;
@@ -39,6 +40,15 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     Emitter<WalletState> emit,
   ) {
     character.wallet.removePieces(pieces: event.pieces);
+    box.put(character.id, character);
+    emit(WalletState.updated(character.wallet));
+  }
+
+  void _onSet(
+    WalletSetEvent event,
+    Emitter<WalletState> emit,
+  ) {
+    character.wallet.setPieces(pieces: event.pieces, amount: event.amount);
     box.put(character.id, character);
     emit(WalletState.updated(character.wallet));
   }

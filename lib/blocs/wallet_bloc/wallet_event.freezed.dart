@@ -21,6 +21,7 @@ mixin _$WalletEvent {
     required TResult Function() init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
+    required TResult Function(String pieces, int amount) set,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$WalletEvent {
     TResult? Function()? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
+    TResult? Function(String pieces, int amount)? set,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$WalletEvent {
     TResult Function()? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
+    TResult Function(String pieces, int amount)? set,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$WalletEvent {
     required TResult Function(WalletInitialEvent value) init,
     required TResult Function(WalletAddEvent value) add,
     required TResult Function(WalletSubtractEvent value) subtract,
+    required TResult Function(WalletSetEvent value) set,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$WalletEvent {
     TResult? Function(WalletInitialEvent value)? init,
     TResult? Function(WalletAddEvent value)? add,
     TResult? Function(WalletSubtractEvent value)? subtract,
+    TResult? Function(WalletSetEvent value)? set,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$WalletEvent {
     TResult Function(WalletInitialEvent value)? init,
     TResult Function(WalletAddEvent value)? add,
     TResult Function(WalletSubtractEvent value)? subtract,
+    TResult Function(WalletSetEvent value)? set,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     required TResult Function() init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
+    required TResult Function(String pieces, int amount) set,
   }) {
     return init();
   }
@@ -131,6 +138,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     TResult? Function()? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
+    TResult? Function(String pieces, int amount)? set,
   }) {
     return init?.call();
   }
@@ -141,6 +149,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     TResult Function()? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
+    TResult Function(String pieces, int amount)? set,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -155,6 +164,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     required TResult Function(WalletInitialEvent value) init,
     required TResult Function(WalletAddEvent value) add,
     required TResult Function(WalletSubtractEvent value) subtract,
+    required TResult Function(WalletSetEvent value) set,
   }) {
     return init(this);
   }
@@ -165,6 +175,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     TResult? Function(WalletInitialEvent value)? init,
     TResult? Function(WalletAddEvent value)? add,
     TResult? Function(WalletSubtractEvent value)? subtract,
+    TResult? Function(WalletSetEvent value)? set,
   }) {
     return init?.call(this);
   }
@@ -175,6 +186,7 @@ class _$WalletInitialEvent implements WalletInitialEvent {
     TResult Function(WalletInitialEvent value)? init,
     TResult Function(WalletAddEvent value)? add,
     TResult Function(WalletSubtractEvent value)? subtract,
+    TResult Function(WalletSetEvent value)? set,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -255,6 +267,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     required TResult Function() init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
+    required TResult Function(String pieces, int amount) set,
   }) {
     return add(pieces);
   }
@@ -265,6 +278,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     TResult? Function()? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
+    TResult? Function(String pieces, int amount)? set,
   }) {
     return add?.call(pieces);
   }
@@ -275,6 +289,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     TResult Function()? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
+    TResult Function(String pieces, int amount)? set,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -289,6 +304,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     required TResult Function(WalletInitialEvent value) init,
     required TResult Function(WalletAddEvent value) add,
     required TResult Function(WalletSubtractEvent value) subtract,
+    required TResult Function(WalletSetEvent value) set,
   }) {
     return add(this);
   }
@@ -299,6 +315,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     TResult? Function(WalletInitialEvent value)? init,
     TResult? Function(WalletAddEvent value)? add,
     TResult? Function(WalletSubtractEvent value)? subtract,
+    TResult? Function(WalletSetEvent value)? set,
   }) {
     return add?.call(this);
   }
@@ -309,6 +326,7 @@ class _$WalletAddEvent implements WalletAddEvent {
     TResult Function(WalletInitialEvent value)? init,
     TResult Function(WalletAddEvent value)? add,
     TResult Function(WalletSubtractEvent value)? subtract,
+    TResult Function(WalletSetEvent value)? set,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -395,6 +413,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     required TResult Function() init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
+    required TResult Function(String pieces, int amount) set,
   }) {
     return subtract(pieces);
   }
@@ -405,6 +424,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     TResult? Function()? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
+    TResult? Function(String pieces, int amount)? set,
   }) {
     return subtract?.call(pieces);
   }
@@ -415,6 +435,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     TResult Function()? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
+    TResult Function(String pieces, int amount)? set,
     required TResult orElse(),
   }) {
     if (subtract != null) {
@@ -429,6 +450,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     required TResult Function(WalletInitialEvent value) init,
     required TResult Function(WalletAddEvent value) add,
     required TResult Function(WalletSubtractEvent value) subtract,
+    required TResult Function(WalletSetEvent value) set,
   }) {
     return subtract(this);
   }
@@ -439,6 +461,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     TResult? Function(WalletInitialEvent value)? init,
     TResult? Function(WalletAddEvent value)? add,
     TResult? Function(WalletSubtractEvent value)? subtract,
+    TResult? Function(WalletSetEvent value)? set,
   }) {
     return subtract?.call(this);
   }
@@ -449,6 +472,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
     TResult Function(WalletInitialEvent value)? init,
     TResult Function(WalletAddEvent value)? add,
     TResult Function(WalletSubtractEvent value)? subtract,
+    TResult Function(WalletSetEvent value)? set,
     required TResult orElse(),
   }) {
     if (subtract != null) {
@@ -465,5 +489,160 @@ abstract class WalletSubtractEvent implements WalletEvent {
   String get pieces;
   @JsonKey(ignore: true)
   _$$WalletSubtractEventCopyWith<_$WalletSubtractEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$WalletSetEventCopyWith<$Res> {
+  factory _$$WalletSetEventCopyWith(
+          _$WalletSetEvent value, $Res Function(_$WalletSetEvent) then) =
+      __$$WalletSetEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String pieces, int amount});
+}
+
+/// @nodoc
+class __$$WalletSetEventCopyWithImpl<$Res>
+    extends _$WalletEventCopyWithImpl<$Res, _$WalletSetEvent>
+    implements _$$WalletSetEventCopyWith<$Res> {
+  __$$WalletSetEventCopyWithImpl(
+      _$WalletSetEvent _value, $Res Function(_$WalletSetEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? pieces = null,
+    Object? amount = null,
+  }) {
+    return _then(_$WalletSetEvent(
+      null == pieces
+          ? _value.pieces
+          : pieces // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WalletSetEvent implements WalletSetEvent {
+  const _$WalletSetEvent(this.pieces, this.amount);
+
+  @override
+  final String pieces;
+  @override
+  final int amount;
+
+  @override
+  String toString() {
+    return 'WalletEvent.set(pieces: $pieces, amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WalletSetEvent &&
+            (identical(other.pieces, pieces) || other.pieces == pieces) &&
+            (identical(other.amount, amount) || other.amount == amount));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, pieces, amount);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WalletSetEventCopyWith<_$WalletSetEvent> get copyWith =>
+      __$$WalletSetEventCopyWithImpl<_$WalletSetEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String pieces) add,
+    required TResult Function(String pieces) subtract,
+    required TResult Function(String pieces, int amount) set,
+  }) {
+    return set(pieces, amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String pieces)? add,
+    TResult? Function(String pieces)? subtract,
+    TResult? Function(String pieces, int amount)? set,
+  }) {
+    return set?.call(pieces, amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String pieces)? add,
+    TResult Function(String pieces)? subtract,
+    TResult Function(String pieces, int amount)? set,
+    required TResult orElse(),
+  }) {
+    if (set != null) {
+      return set(pieces, amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WalletInitialEvent value) init,
+    required TResult Function(WalletAddEvent value) add,
+    required TResult Function(WalletSubtractEvent value) subtract,
+    required TResult Function(WalletSetEvent value) set,
+  }) {
+    return set(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(WalletInitialEvent value)? init,
+    TResult? Function(WalletAddEvent value)? add,
+    TResult? Function(WalletSubtractEvent value)? subtract,
+    TResult? Function(WalletSetEvent value)? set,
+  }) {
+    return set?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WalletInitialEvent value)? init,
+    TResult Function(WalletAddEvent value)? add,
+    TResult Function(WalletSubtractEvent value)? subtract,
+    TResult Function(WalletSetEvent value)? set,
+    required TResult orElse(),
+  }) {
+    if (set != null) {
+      return set(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WalletSetEvent implements WalletEvent {
+  const factory WalletSetEvent(final String pieces, final int amount) =
+      _$WalletSetEvent;
+
+  String get pieces;
+  int get amount;
+  @JsonKey(ignore: true)
+  _$$WalletSetEventCopyWith<_$WalletSetEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -11,4 +11,8 @@ class WalletEvent with _$WalletEvent {
   const factory WalletEvent.subtract(
     String pieces,
   ) = WalletSubtractEvent;
+  const factory WalletEvent.set(
+    String pieces,
+    int amount,
+  ) = WalletSetEvent;
 }

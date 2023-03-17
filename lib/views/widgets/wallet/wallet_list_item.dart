@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class WalletListItem extends StatelessWidget {
+class WalletListItem extends StatefulWidget {
   final String coinType;
-  final int coinAmount;
+  int coinAmount;
   final VoidCallback onAdd;
   final VoidCallback onSubtract;
   final Color color;
 
-  const WalletListItem({
+  WalletListItem({
     Key? key,
     required this.coinType,
     required this.coinAmount,
@@ -17,6 +17,11 @@ class WalletListItem extends StatelessWidget {
     required this.color,
   }) : super(key: key);
 
+  @override
+  State<WalletListItem> createState() => _WalletListItemState();
+}
+
+class _WalletListItemState extends State<WalletListItem> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -32,7 +37,7 @@ class WalletListItem extends StatelessWidget {
           height: mediaQuery.size.width * .2,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
-            color: color,
+            color: widget.color,
             border: Border.all(color: Colors.white, width: 1),
           ),
           child: Row(
@@ -42,14 +47,14 @@ class WalletListItem extends StatelessWidget {
               SizedBox(
                 width: mediaQuery.size.width * .2,
                 child: ElevatedButton(
-                  onPressed: onSubtract,
+                  onPressed: widget.onSubtract,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: const CircleBorder(),
                   ),
                   child: FaIcon(
                     FontAwesomeIcons.minus,
-                    color: color,
+                    color: widget.color,
                   ),
                 ),
               ),
@@ -58,7 +63,7 @@ class WalletListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    coinAmount.toString(),
+                    widget.coinAmount.toString(),
                     style: TextStyle(
                       fontSize: mediaQuery.size.width * .06,
                       color: Colors.white,
@@ -72,7 +77,7 @@ class WalletListItem extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    coinType.toUpperCase(),
+                    widget.coinType.toUpperCase(),
                     style: TextStyle(
                       fontSize: mediaQuery.size.width * .04,
                       color: Colors.white,
@@ -90,14 +95,14 @@ class WalletListItem extends StatelessWidget {
               SizedBox(
                 width: mediaQuery.size.width * .2,
                 child: ElevatedButton(
-                  onPressed: onAdd,
+                  onPressed: widget.onAdd,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     shape: const CircleBorder(),
                   ),
                   child: FaIcon(
                     FontAwesomeIcons.plus,
-                    color: color,
+                    color: widget.color,
                   ),
                 ),
               ),
