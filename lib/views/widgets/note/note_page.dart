@@ -21,7 +21,6 @@ class NotePage extends StatefulWidget {
 }
 
 class NotePageState extends State<NotePage> {
-  final format = DateFormat('hh:mm | MM/dd/yyyy');
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
   late Color _currentColor;
@@ -87,7 +86,7 @@ class NotePageState extends State<NotePage> {
               TextField(
                 controller: _titleController,
                 decoration: InputDecoration(
-                  hintText: 'Title',
+                  hintText: 'Titulo',
                   hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
                   border: InputBorder.none,
                 ),
@@ -97,23 +96,50 @@ class NotePageState extends State<NotePage> {
                   color: _fontColor,
                 ),
                 keyboardType: TextInputType.multiline,
-                maxLines: null,
+                autofocus: true,
+                maxLines: 1,
+                cursorWidth: 2,
+                textAlign: TextAlign.left,
+                cursorColor: _fontColor,
+                textCapitalization: TextCapitalization.sentences,
+                autocorrect: true,
+                toolbarOptions: const ToolbarOptions(
+                  copy: true,
+                  paste: true,
+                  selectAll: true,
+                  cut: true,
+                ),
               ),
               const SizedBox(height: 8.0),
-              TextField(
-                controller: _contentController,
-                decoration: InputDecoration(
-                  hintText: 'Take a note...',
-                  hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
-                  border: InputBorder.none,
+              SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: TextField(
+                  controller: _contentController,
+                  decoration: InputDecoration(
+                    hintText: 'Descripción...',
+                    hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
+                    border: InputBorder.none,
+                  ),
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    color: _fontColor,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  keyboardType: TextInputType.multiline,
+                  cursorWidth: 2,
+                  textAlign: TextAlign.left,
+                  cursorColor: _fontColor,
+                  cursorHeight: 20,
+                  textCapitalization: TextCapitalization.sentences,
+                  autocorrect: true,
+                  maxLines: null,
+                  toolbarOptions: const ToolbarOptions(
+                    copy: true,
+                    paste: true,
+                    selectAll: true,
+                    cut: true,
+                  ),
                 ),
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: _fontColor,
-                  fontWeight: FontWeight.normal,
-                ),
-                keyboardType: TextInputType.multiline,
-                maxLines: null,
               ),
             ],
           ),
@@ -149,27 +175,31 @@ class NotePageState extends State<NotePage> {
                                 availableColors: [
                                   Colors.white,
                                   Colors.red,
-                                  Colors.pink,
+                                  Colors.red[300]!,
                                   Colors.purple,
+                                  Colors.purple[200]!,
+                                  Colors.purple[100]!,
                                   Colors.deepPurple,
+                                  Colors.deepPurple[300]!,
                                   Colors.deepPurple[200]!,
                                   Colors.indigo,
                                   Colors.indigo[200]!,
                                   Colors.blue,
+                                  Colors.blue[200]!,
                                   Colors.cyan,
+                                  Colors.cyan[200]!,
                                   Colors.teal,
+                                  Colors.teal[200]!,
                                   Colors.green,
                                   Colors.green[200]!,
-                                  Colors.amber,
-                                  Colors.orange,
+                                  Colors.green[300]!,
+                                  Colors.orange[300]!,
                                   Colors.deepOrange,
                                   Colors.brown,
+                                  Colors.brown[200]!,
                                   Colors.grey,
                                   Colors.blueGrey,
                                   Colors.black,
-                                  Colors.purple[100]!,
-                                  Colors.red[200]!,
-                                  Colors.indigo[200]!,
                                 ],
                                 layoutBuilder: (context, colors, child) {
                                   return GridView.count(

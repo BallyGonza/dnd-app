@@ -22,7 +22,7 @@ class NoteList extends StatefulWidget {
 class _NoteListState extends State<NoteList> {
   final titleController = TextEditingController();
   final contentController = TextEditingController();
-  final format = DateFormat('hh:mm | MM/dd/yyyy');
+  final format = DateFormat('HH:mm | MM/dd/yyyy');
   late double _opacity;
   late bool _walletOpen;
   late Color _selected;

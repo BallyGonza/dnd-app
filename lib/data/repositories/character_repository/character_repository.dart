@@ -310,7 +310,7 @@ Character evendurGreycastle = Character(
   profileImg:
       'assets/images/characters/evendur_greycastle/evendur_greycastle_profile.jpeg',
   banner:
-      'assets/images/characters/evendur_greycastle/evendur_greycastle_banner.jpg',
+      'assets/images/characters/evendur_greycastle/evendur_greycastle_banner.jpeg',
 );
 
 final List<Character> defaultCharacters = [
