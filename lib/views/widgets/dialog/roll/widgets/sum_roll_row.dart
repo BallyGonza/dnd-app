@@ -52,9 +52,13 @@ class SumRollRow extends StatelessWidget {
             const SizedBox(width: 10),
             Text(
               '${modifier.abs()}',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
-                color: Colors.black,
+                color: modifier < 0
+                    ? Colors.red
+                    : modifier > 0
+                        ? Colors.green
+                        : Colors.grey,
               ),
             ),
             const SizedBox(width: 10),

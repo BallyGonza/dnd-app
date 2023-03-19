@@ -25,6 +25,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
 
   @override
   void initState() {
+    rolls.clear();
     advantageRolls.clear();
     _advantage = false;
     _disadvantage = false;
@@ -41,13 +42,37 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  widget.name,
-                  style: const TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                  ),
+                child: Row(
+                  children: [
+                    Text(
+                      widget.name,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const Spacer(),
+                    rolls.isNotEmpty
+                        ? const SizedBox.shrink()
+                        : PlusMinusIcon(
+                            modifier: widget.modifier,
+                          ),
+                    rolls.isNotEmpty
+                        ? const SizedBox.shrink()
+                        : Text(
+                            widget.modifier.abs().toString(),
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: widget.modifier > 0
+                                  ? highestDiceColor
+                                  : widget.modifier < 0
+                                      ? lowestDiceColor
+                                      : Colors.grey,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                  ],
                 ),
               ),
               roll == 0

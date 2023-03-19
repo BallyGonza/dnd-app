@@ -36,6 +36,7 @@ dependencies:
   flutter_colorpicker: ^1.0.3
   flutter_slidable: ^2.0.0
   flutter_speed_dial: ^6.0.0
+  flutter_svg: ^1.1.6
   font_awesome_flutter: ^10.4.0
   freezed: ^2.3.2
   freezed_annotation: ^2.2.0
@@ -89,6 +90,9 @@ flutter:
 
 
     - assets/images/weapons/
+    - assets/images/saving_throws/
+    - assets/images/character_classes/
+
 
     - assets/images/dices/
     - assets/images/dices/d4/
