@@ -17,74 +17,129 @@ class RollAbilitieSkillDialog extends StatefulWidget {
 
 class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   List<int> rolls = [];
+  List<int> advantageRolls = [];
   int roll = 0;
   int _trashRoll = 0;
+  late bool _advantage;
+  late bool _disadvantage;
 
   @override
   void initState() {
-    rolls.clear();
+    advantageRolls.clear();
+    _advantage = false;
+    _disadvantage = false;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Row(
-        children: [
-          Text(
-            widget.name,
-            style: const TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-          const Spacer(),
-          Image(
-            image: AssetImage(d20.img),
-            height: 30,
-            width: 30,
-          ),
-        ],
-      ),
       content: SingleChildScrollView(
-        child: ListBody(
-          children: <Widget>[
-            roll == 0
-                ? const Center(
-                    child: Text(
-                      'Roll the dice!',
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  )
-                : Column(
-                    children: [
-                      const Divider(),
-                      SumRollRow(
+        child: SizedBox(
+          width: 500,
+          child: ListBody(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  widget.name,
+                  style: const TextStyle(
+                    fontSize: 25,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              roll == 0
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: SumRollRow(
                         roll: roll,
                         thrashRoll: _trashRoll,
                         modifier: widget.modifier,
                         dice: d20,
                       ),
-                      const Divider(),
-                      rolls.isEmpty
-                          ? const SizedBox()
-                          : ListOfRolls(
-                              rolls: rolls,
-                              dice: d20,
-                              modifier: widget.modifier,
-                            )
-                    ],
+                    ),
+              rolls.isEmpty
+                  ? const SizedBox.shrink()
+                  : Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Wrap(
+                          alignment: WrapAlignment.center,
+                          children: rolls
+                              .map(
+                                (roll) => Chip(
+                                  backgroundColor: (roll == 1)
+                                      ? lowestDiceColor
+                                      : (roll == d20.sides)
+                                          ? highestDiceColor
+                                          : Colors.black,
+                                  label: Text(
+                                    '$roll',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                        ),
+                      ),
+                    ),
+              SizedBox(
+                height: 40,
+                child: CheckboxListTile(
+                  checkboxShape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                   ),
-            DiceButton(
-              dice: d20,
-              onPressed: () {
-                _rollAndAddToRolls();
-              },
-            ),
-          ],
+                  activeColor: Colors.black,
+                  value: _advantage,
+                  onChanged: (value) {
+                    setState(() {
+                      _advantage = value!;
+                      _disadvantage = false;
+                    });
+                  },
+                  title: const Text("Ventaja"),
+                ),
+              ),
+              SizedBox(
+                height: 40,
+                child: CheckboxListTile(
+                  activeColor: Colors.black,
+                  checkboxShape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  value: _disadvantage,
+                  onChanged: (value) {
+                    setState(() {
+                      _disadvantage = value!;
+                      _advantage = false;
+                    });
+                  },
+                  title: const Text("Desventaja"),
+                ),
+              ),
+              DiceButton(
+                dice: d20,
+                onPressed: () {
+                  _rollAndAddToRolls();
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -92,7 +147,28 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
 
   void _rollAndAddToRolls() {
     return setState(() {
+      advantageRolls.clear();
+
       roll = d20.roll();
+
+      if (_advantage) {
+        advantageRolls.add(roll);
+        roll = d20.roll();
+        advantageRolls.add(roll);
+        roll = advantageRolls
+            .reduce((value, element) => value > element ? value : element);
+        _trashRoll = advantageRolls
+            .reduce((value, element) => value < element ? value : element);
+      } else if (_disadvantage) {
+        advantageRolls.add(roll);
+        roll = d20.roll();
+        advantageRolls.add(roll);
+        roll = advantageRolls
+            .reduce((value, element) => value < element ? value : element);
+        _trashRoll = advantageRolls
+            .reduce((value, element) => value > element ? value : element);
+      }
+
       rolls.add(roll);
     });
   }
