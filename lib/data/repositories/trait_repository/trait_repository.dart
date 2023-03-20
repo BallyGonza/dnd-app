@@ -35,56 +35,25 @@ Trait naturalHealing = Trait(
 Trait favoredTerrain = Trait(
   name: 'Terreno Favorecido',
   description:
-      '''Al realizar un chequeo de Investigación, Percepción o Supervivencia que esté relacionado con estos terrenos, usas el doble de tu modificador.
-      
-      A su vez, al viajar durante una hora o más por estos terrenos, obtienes los siguientes beneficios:
-      
-      - Aunque sea terreno difícil, no disminuye el tiempo de viaje de tu grupo.
-      
-      - Tu grupo no se puede perder excepto por efectos mágicos.
-      
-      - Permaneces alerta a tus alrededores aunque estés realizando tareas como juntar comida o rastrear huellas.
-      
-      - Si viajas solo, puedes moverte sigilosamente a velocidad normal.
-      
-      - Al buscar comida en estos terrenos, obtienes el doble de lo que normalmente obtendrías.
-      
-      - Al rastrear criaturas, puedes identificar su tamaño, cantidad aproximada y hace cuánto tiempo pasaron por esa zona.
-      
-      [Woods and Mountains]''',
+      'Al realizar un chequeo de Investigación, Percepción o Supervivencia que esté relacionado con estos terrenos, usas el doble de tu modificador.\n\nA su vez, al viajar durante una hora o más por estos terrenos, obtienes los siguientes beneficios:\n\n- Aunque sea terreno difícil, no disminuye el tiempo de viaje de tu grupo.\n\n- Tu grupo no se puede perder excepto por efectos mágicos.\n\n- Permaneces alerta a tus alrededores aunque estés realizando tareas como juntar comida o rastrear huellas.\n\n- Si viajas solo, puedes moverte sigilosamente a velocidad normal.\n\n- Al buscar comida en estos terrenos, obtienes el doble de lo que normalmente obtendrías.\n\n- Al rastrear criaturas, puedes identificar su tamaño, cantidad aproximada y hace cuánto tiempo pasaron por esa zona.\n\n[Woods and Mountains]',
 );
 
 Trait primalInstinct = Trait(
   name: 'Instinto Primal',
   description:
-      '''Hasta 6 veces al dia, podes usar como una acción tu alerta primal.
-        
-        Revela en 1km a la redonda o 6km en tu terreno favorecido la presencia de criaturas:
-        
-        -> Celestiales
-        -> Aberraciones
-        -> Dragones
-        -> Elementales
-        -> Feys
-        -> Abismales
-        -> No-muertos
-        
-        Esta habilidad no revela su ubicación ni su cantidad, solo su presencia.''',
+      'Hasta 6 veces al dia, podes usar como una acción tu alerta primal.\n\nRevela en 1km a la redonda o 6km en tu terreno favorecido la presencia de criaturas:\n\n-> Celestiales\n-> Aberraciones\n-> Dragones\n-> Elementales\n-> Feys\n-> Abismales\n-> No-muertos\n\nEsta habilidad no revela su ubicación ni su cantidad, solo su presencia.',
 );
 
 Trait stealthyHunter = Trait(
   name: 'Cazador Sigiloso',
-  description: '''Puedes usar la acción de Esconderse como una acción bonus.
-
-  Además, si estabas escondido al comienzo de un combate, los ataques que realices no revelan tu posición durante la primera ronda de ese combate, siempre y cuando permanezcas bajo las mismas condiciones en las que te escondiste.''',
+  description:
+      'Puedes usar la acción de Esconderse como una acción bonus.\n\nAdemás, si estabas escondido al comienzo de un combate, los ataques que realices no revelan tu posición durante la primera ronda de ese combate, siempre y cuando permanezcas bajo las mismas condiciones en las que te escondiste.',
 );
 
 Trait teleport = Trait(
   name: 'Teletransporte',
   description:
-      '''Puede transportarse hasta 8mts de distancia junto a cualquier objeto que este llevando.
-      
-      Antes o después de transportarse, puede usar una Mordida como parte de la acción.''',
+      'Puede transportarse hasta 8mts de distancia junto a cualquier objeto que este llevando.\n\nAntes o después de transportarse, puede usar una Mordida como parte de la acción.',
 );
 
 Trait multiAttack = Trait(
@@ -145,8 +114,3 @@ Trait wildForm = Trait(
   description:
       'Como acción bonus, puedes transformarte en una bestia durante un número de horas igual a la mitad de tu nivel de druida (redondeado hacia abajo). La transformación termina si usas otra acción bonus para cancelarla, si tus puntos de vida (en esta nueva forma) se reducen a cero o si se acaba el tiempo. Puedes usar esta habilidad dos veces por día. Recuperas los usos después de un descanso corto.',
 );
-
-Trait wheatherHunter = Trait(
-    name: 'Cazador del Clima y la Naturaleza',
-    description:
-        'Gracias a su experiencia viviendo tanto en altamar como en el bosque, posee un talento natural para prever las condiciones climáticas en las próximas 24 horas. Además, su habilidad para sobrevivir sola le ha otorgado una gran capacidad para obtener pieles y otros elementos de valor de sus presas.');
