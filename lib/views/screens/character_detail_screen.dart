@@ -1,4 +1,5 @@
 import 'package:dnd_app/theme.dart';
+import 'package:dnd_app/views/widgets/navigation_bar/widgets/navigation_bar_button.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +24,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   int selected = 0;
   late Box<Character> box;
   final CharacterRepository characterRepository = CharacterRepository();
+  final PageController _pageController = PageController(
+    initialPage: 0,
+  );
 
   @override
   void initState() {
@@ -73,14 +77,15 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 character: widget.character,
               ),
               NavBar(
-                character: widget.character,
-                selected: selected,
-                onPressed: (index) {
-                  setState(() {
-                    selected = index;
-                  });
-                },
-              ),
+                  character: widget.character,
+                  selected: selected,
+                  onPressed: (index) {
+                    _pageController.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 600),
+                      curve: Curves.ease,
+                    );
+                  }),
               _stackedWidgets(),
             ],
           ),
@@ -123,8 +128,13 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   Widget _stackedWidgets() {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.67,
-      child: IndexedStack(
-        index: selected,
+      child: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            selected = index;
+          });
+        },
         children: <Widget>[
           AbilitiesList(
             abilities: widget.character.abilities,

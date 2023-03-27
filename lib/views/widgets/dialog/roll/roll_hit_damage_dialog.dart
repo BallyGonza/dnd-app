@@ -179,7 +179,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                             ),
                     ),
               SizedBox(
-                height: 40,
+                height: 50,
                 child: CheckboxListTile(
                   checkboxShape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
@@ -201,7 +201,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 50,
                 child: CheckboxListTile(
                   activeColor: Colors.red,
                   checkboxShape: const RoundedRectangleBorder(
