@@ -96,7 +96,6 @@ class NotePageState extends State<NotePage> {
                   color: _fontColor,
                 ),
                 keyboardType: TextInputType.multiline,
-                autofocus: true,
                 maxLines: 1,
                 cursorWidth: 2,
                 textAlign: TextAlign.left,

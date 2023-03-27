@@ -19,11 +19,10 @@ class NoteList extends StatefulWidget {
   State<NoteList> createState() => _NoteListState();
 }
 
-class _NoteListState extends State<NoteList> {
+class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
   final titleController = TextEditingController();
   final contentController = TextEditingController();
   final format = DateFormat('HH:mm | MM/dd/yyyy');
-  late double _opacity;
   late bool _walletOpen;
   late Color _selected;
 
@@ -32,7 +31,6 @@ class _NoteListState extends State<NoteList> {
     _walletOpen = false;
     _selected = Colors.green[300]!;
     context.read<LootBloc>().add(const LootEvent.init());
-    _opacity = 1;
     super.initState();
   }
 
@@ -115,9 +113,10 @@ class _NoteListState extends State<NoteList> {
                                           ],
                                         ),
                                         child: AnimatedOpacity(
-                                          opacity: _opacity,
+                                          curve: Curves.easeInOut,
+                                          opacity: 1,
                                           duration:
-                                              const Duration(milliseconds: 300),
+                                              const Duration(milliseconds: 700),
                                           child: SizedBox(
                                             height: notes[index]
                                                             .content

@@ -12,8 +12,16 @@ class SpellCard extends StatefulWidget {
   SpellCardState createState() => SpellCardState();
 }
 
-class SpellCardState extends State<SpellCard> {
+class SpellCardState extends State<SpellCard> with TickerProviderStateMixin {
   bool isExpanded = false;
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,54 +35,60 @@ class SpellCardState extends State<SpellCard> {
               onTap: () {
                 setState(() {
                   isExpanded = !isExpanded;
+                  isExpanded ? _controller.forward() : _controller.reverse();
                 });
               },
               child: SpellNameContainer(spellName: widget.spell.name),
             ),
-            Visibility(
-              visible: isExpanded,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8, right: 8),
-                child: Column(
-                  children: [
-                    Container(
-                        padding: const EdgeInsets.all(1),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                SpellSpecContainer(
-                                    spec: 'CASTING TIME',
-                                    specDetail: widget.spell.castTime),
-                                const SizedBox(height: 4),
-                                SpellSpecContainer(
-                                    spec: 'COMPONENTS',
-                                    specDetail: widget.spell.comp),
-                              ],
-                            ),
-                            const SizedBox(width: 4),
-                            Column(
-                              children: [
-                                SpellSpecContainer(
-                                    spec: 'RANGE',
-                                    specDetail: widget.spell.range),
-                                const SizedBox(height: 4),
-                                SpellSpecContainer(
-                                    spec: 'DURATION',
-                                    specDetail: widget.spell.duration),
-                              ],
-                            ),
-                          ],
-                        )),
-                    const SizedBox(height: 20),
-                    SpellDescriptionContainer(
-                      spellDescription: widget.spell.description,
-                    ),
-                    const SizedBox(height: 4),
-                    SpellLevelContainer(level: widget.spell.level),
-                    const SizedBox(height: 4),
-                  ],
+            AnimatedSize(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.fastOutSlowIn,
+              child: SizeTransition(
+                sizeFactor: _controller,
+                axisAlignment: 0.0,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  child: Column(
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.all(1),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                children: [
+                                  SpellSpecContainer(
+                                      spec: 'CASTING TIME',
+                                      specDetail: widget.spell.castTime),
+                                  const SizedBox(height: 4),
+                                  SpellSpecContainer(
+                                      spec: 'COMPONENTS',
+                                      specDetail: widget.spell.comp),
+                                ],
+                              ),
+                              const SizedBox(width: 4),
+                              Column(
+                                children: [
+                                  SpellSpecContainer(
+                                      spec: 'RANGE',
+                                      specDetail: widget.spell.range),
+                                  const SizedBox(height: 4),
+                                  SpellSpecContainer(
+                                      spec: 'DURATION',
+                                      specDetail: widget.spell.duration),
+                                ],
+                              ),
+                            ],
+                          )),
+                      const SizedBox(height: 20),
+                      SpellDescriptionContainer(
+                        spellDescription: widget.spell.description,
+                      ),
+                      const SizedBox(height: 4),
+                      SpellLevelContainer(level: widget.spell.level),
+                      const SizedBox(height: 4),
+                    ],
+                  ),
                 ),
               ),
             ),
