@@ -48,7 +48,7 @@ class SumDamageRollsRow extends StatelessWidget {
               '${modifier.abs()}',
               style: const TextStyle(
                 fontSize: 20,
-                color: Colors.black,
+                color: Colors.green,
               ),
             ),
             const SizedBox(width: 10),

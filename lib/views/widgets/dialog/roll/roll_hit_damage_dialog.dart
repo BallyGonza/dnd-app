@@ -78,7 +78,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                         ),
                         _rerolling
                             ? const Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: EdgeInsets.all(9.0),
                                 child: SizedBox(
                                   height: 17,
                                   width: 16,
@@ -102,53 +102,81 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                   ? const SizedBox.shrink()
                   : Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Wrap(
-                          alignment: WrapAlignment.center,
-                          children: _damageRolls
-                              .map(
-                                (roll) => InkWell(
-                                  onTap: () {
-                                    dice == d20 ||
-                                            widget.weapon.quantityOfDices == 1
-                                        ? null
-                                        : setState(() {
-                                            _rerolling = true;
-                                            int newRoll = dice.roll();
-                                            _damageRolls[_damageRolls
-                                                .indexOf(roll)] = newRoll;
-                                            Future.delayed(
-                                                const Duration(seconds: 1), () {
-                                              setState(() {
-                                                _rerolling = false;
-                                              });
-                                            });
-                                          });
-                                  },
-                                  child: Chip(
-                                    backgroundColor: (roll == 1)
-                                        ? lowestDiceColor
-                                        : (roll == widget.dice.sides)
-                                            ? highestDiceColor
-                                            : Colors.black,
-                                    label: Text(
-                                      '$roll',
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
+                      child: _rerolling
+                          ? const SizedBox.shrink()
+                          : Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.black,
                                 ),
-                              )
-                              .toList(),
-                        ),
-                      ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Wrap(
+                                alignment: WrapAlignment.center,
+                                children: _damageRolls
+                                    .map(
+                                      (roll) => GestureDetector(
+                                        onTap: () {
+                                          dice == d20 ||
+                                                  widget.weapon
+                                                          .quantityOfDices ==
+                                                      1
+                                              ? null
+                                              : setState(() {
+                                                  _rerolling = true;
+                                                  int newRoll = dice.roll();
+                                                  _damageRolls[_damageRolls
+                                                      .indexOf(roll)] = newRoll;
+                                                  Future.delayed(
+                                                      const Duration(
+                                                          seconds: 2), () {
+                                                    setState(() {
+                                                      _rerolling = false;
+                                                    });
+                                                  });
+                                                });
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 5,
+                                          ),
+                                          child: Chip(
+                                            backgroundColor: (roll == 1)
+                                                ? lowestDiceColor
+                                                : (roll == widget.dice.sides)
+                                                    ? highestDiceColor
+                                                    : Colors.black,
+                                            label: SizedBox(
+                                              width: 40,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Image.asset(
+                                                    widget
+                                                        .weapon.damageDice.img,
+                                                    color: Colors.white,
+                                                    height: 20,
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Text(
+                                                    '$roll',
+                                                    style: const TextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                    .toList(),
+                              ),
+                            ),
                     ),
               SizedBox(
                 height: 40,
@@ -158,7 +186,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                       Radius.circular(10),
                     ),
                   ),
-                  activeColor: Colors.black,
+                  activeColor: Colors.green,
                   value: _advantage,
                   onChanged: (value) {
                     setState(() {
@@ -166,13 +194,16 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                       _disadvantage = false;
                     });
                   },
-                  title: const Text("Ventaja"),
+                  title: const Text("Ventaja",
+                      style: TextStyle(
+                        color: Colors.green,
+                      )),
                 ),
               ),
               SizedBox(
                 height: 40,
                 child: CheckboxListTile(
-                  activeColor: Colors.black,
+                  activeColor: Colors.red,
                   checkboxShape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -185,7 +216,10 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                       _advantage = false;
                     });
                   },
-                  title: const Text("Desventaja"),
+                  title: const Text("Desventaja",
+                      style: TextStyle(
+                        color: Colors.red,
+                      )),
                 ),
               ),
               const SizedBox(
