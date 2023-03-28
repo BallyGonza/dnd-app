@@ -47,7 +47,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                     Text(
                       widget.name,
                       style: const TextStyle(
-                        fontSize: 25,
+                        fontSize: 22,
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
                       ),
@@ -63,14 +63,14 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                         : Text(
                             widget.modifier.abs().toString(),
                             style: TextStyle(
-                              fontSize: 25,
-                              color: widget.modifier > 0
-                                  ? highestDiceColor
-                                  : widget.modifier < 0
-                                      ? lowestDiceColor
-                                      : Colors.grey,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                fontSize: 22,
+                                color: widget.modifier > 0
+                                    ? highestDiceColor
+                                    : widget.modifier < 0
+                                        ? lowestDiceColor
+                                        : Colors.grey,
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FontStyle.italic),
                           ),
                   ],
                 ),
@@ -119,49 +119,81 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                         ),
                       ),
                     ),
-              SizedBox(
-                height: 40,
-                child: CheckboxListTile(
-                  checkboxShape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            width: 150,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text("Ventaja",
+                                    style: TextStyle(color: Colors.green)),
+                                Checkbox(
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  activeColor: Colors.green,
+                                  value: _advantage,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _advantage = value!;
+                                      _disadvantage = false;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Desventaja",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                                Checkbox(
+                                  activeColor: Colors.red,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  value: _disadvantage,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _disadvantage = value!;
+                                      _advantage = false;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  activeColor: Colors.black,
-                  value: _advantage,
-                  onChanged: (value) {
-                    setState(() {
-                      _advantage = value!;
-                      _disadvantage = false;
-                    });
-                  },
-                  title: const Text("Ventaja"),
-                ),
-              ),
-              SizedBox(
-                height: 40,
-                child: CheckboxListTile(
-                  activeColor: Colors.black,
-                  checkboxShape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
+                    DiceButton(
+                      dice: d20,
+                      onPressed: () {
+                        _rollAndAddToRolls();
+                      },
                     ),
-                  ),
-                  value: _disadvantage,
-                  onChanged: (value) {
-                    setState(() {
-                      _disadvantage = value!;
-                      _advantage = false;
-                    });
-                  },
-                  title: const Text("Desventaja"),
+                  ],
                 ),
-              ),
-              DiceButton(
-                dice: d20,
-                onPressed: () {
-                  _rollAndAddToRolls();
-                },
               ),
             ],
           ),

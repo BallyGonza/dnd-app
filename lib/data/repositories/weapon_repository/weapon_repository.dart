@@ -2,7 +2,8 @@ import 'package:dnd_app/data/data.dart';
 
 Weapon longBow = Weapon(
   id: 1,
-  name: 'Arco Largo',
+  name: 'Arco',
+  description: 'Arco largo',
   damage: 7,
   quantityOfDices: 1,
   damageDice: d8,
@@ -14,6 +15,7 @@ Weapon longBow = Weapon(
 Weapon rapier = Weapon(
   id: 2,
   name: 'Rapier',
+  description: 'Espada corta',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d8,
@@ -25,6 +27,7 @@ Weapon rapier = Weapon(
 Weapon dagger = Weapon(
   id: 3,
   name: 'Daga',
+  description: 'Daga corta',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d4,
@@ -36,6 +39,7 @@ Weapon dagger = Weapon(
 Weapon biteBlinkDog = Weapon(
   id: 4,
   name: 'Mordida',
+  description: '',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d8,
@@ -47,6 +51,7 @@ Weapon biteBlinkDog = Weapon(
 Weapon biteBear = Weapon(
   id: 5,
   name: 'Mordida',
+  description: '',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d8,
@@ -58,6 +63,7 @@ Weapon biteBear = Weapon(
 Weapon claws = Weapon(
   id: 6,
   name: 'Garras',
+  description: '',
   damage: 4,
   quantityOfDices: 2,
   damageDice: d6,
@@ -69,6 +75,7 @@ Weapon claws = Weapon(
 Weapon hammer = Weapon(
   id: 7,
   name: 'Martillo',
+  description: 'Martillo de guerra',
   damage: 4,
   quantityOfDices: 2,
   damageDice: d6,
@@ -80,6 +87,7 @@ Weapon hammer = Weapon(
 Weapon axe = Weapon(
   id: 8,
   name: 'Hacha',
+  description: 'Hacha de guerra',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d6,
@@ -92,6 +100,7 @@ Weapon axe = Weapon(
 Weapon sword = Weapon(
   id: 9,
   name: 'Espada',
+  description: 'Espada de una mano',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d6,
@@ -103,10 +112,12 @@ Weapon sword = Weapon(
 // Martillo de Fuego de Vaunea?
 Weapon hammerOfFire = Weapon(
   id: 10,
-  name: 'Martillo de Fuego',
+  name: 'Martillo',
+  description: 'Martillo de fuego',
   damage: 4,
   quantityOfDices: 2,
   damageDice: d6,
+  plusDamageDice: d8,
   checkDice: d20,
   range: 8,
   img: 'assets/images/weapons/hammer.png',
@@ -115,7 +126,8 @@ Weapon hammerOfFire = Weapon(
 // Espada una mano de Evendur
 Weapon oneHandedSword = Weapon(
   id: 11,
-  name: 'Espada de una mano',
+  name: 'Espada',
+  description: 'Espada de una mano',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d8,
@@ -127,7 +139,8 @@ Weapon oneHandedSword = Weapon(
 // Espada dos manos de Evendur
 Weapon twoHandedSword = Weapon(
   id: 12,
-  name: 'Espada de dos manos',
+  name: 'Espada',
+  description: 'Espada de dos manos',
   damage: 4,
   quantityOfDices: 1,
   damageDice: d10,

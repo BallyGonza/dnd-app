@@ -58,12 +58,7 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
                     )),
               rolls.isEmpty ? const SizedBox.shrink() : const Divider(),
               rolls.isEmpty
-                  ? const Center(
-                      child: Text('Roll the dice!',
-                          style: TextStyle(
-                            fontSize: 20,
-                          )),
-                    )
+                  ? const SizedBox.shrink()
                   : Wrap(
                       alignment: WrapAlignment.center,
                       children: rolls

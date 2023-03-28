@@ -45,7 +45,7 @@ class SumDamageRollsRow extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               PlusMinusIcon(modifier: modifier),
-              const SizedBox(width: 10),
+              SizedBox(width: modifier > 9 ? 10 : 20),
               Text(
                 '${modifier.abs()}',
                 style: const TextStyle(
@@ -58,7 +58,12 @@ class SumDamageRollsRow extends StatelessWidget {
                 Icons.arrow_forward,
                 size: 20,
               ),
-              const SizedBox(width: 10),
+              SizedBox(
+                  width: rolls.reduce((value, element) => value + element) +
+                              modifier >
+                          9
+                      ? 10
+                      : 20),
               Text(
                 '${rolls.reduce((value, element) => value + element) + modifier}',
                 style: const TextStyle(

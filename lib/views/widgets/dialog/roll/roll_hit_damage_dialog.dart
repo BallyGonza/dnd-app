@@ -53,14 +53,44 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
           width: 500,
           child: ListBody(
             children: <Widget>[
-              ListTile(
-                title: Text(
-                  widget.weapon.name,
-                  style: const TextStyle(
-                    fontSize: 25,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          widget.weapon.name,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        const Spacer(),
+                        Text(
+                          '${widget.weapon.quantityOfDices}d${widget.weapon.damageDice.sides}',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      widget.weapon.description,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.normal,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               _damageRoll == 0
@@ -146,62 +176,89 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                               ),
                             ),
                     ),
-              SizedBox(
-                height: 50,
-                child: CheckboxListTile(
-                  checkboxShape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 150,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Ventaja",
+                                  style: TextStyle(
+                                    color: Colors.green,
+                                  ),
+                                ),
+                                Checkbox(
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  activeColor: Colors.green,
+                                  value: _advantage,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _advantage = value!;
+                                      _disadvantage = false;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: 150,
+                            height: 30,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Desventaja",
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                  ),
+                                ),
+                                Checkbox(
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  activeColor: Colors.red,
+                                  value: _disadvantage,
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _disadvantage = value!;
+                                      _advantage = false;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  activeColor: Colors.green,
-                  value: _advantage,
-                  onChanged: (value) {
-                    setState(() {
-                      _advantage = value!;
-                      _disadvantage = false;
-                    });
-                  },
-                  title: const Text(
-                    "Ventaja",
-                    style: TextStyle(
-                      color: Colors.green,
+                    WeaponButton(
+                      weapon: widget.weapon,
+                      onPressed: () {
+                        _rollAndAddToRolls(widget.weapon, modifier);
+                      },
                     ),
-                  ),
+                  ],
                 ),
-              ),
-              SizedBox(
-                height: 50,
-                child: CheckboxListTile(
-                  activeColor: Colors.red,
-                  checkboxShape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  value: _disadvantage,
-                  onChanged: (value) {
-                    setState(() {
-                      _disadvantage = value!;
-                      _advantage = false;
-                    });
-                  },
-                  title: const Text(
-                    "Desventaja",
-                    style: TextStyle(
-                      color: Colors.red,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              WeaponButton(
-                weapon: widget.weapon,
-                onPressed: () {
-                  _rollAndAddToRolls(widget.weapon, modifier);
-                },
               ),
             ],
           ),

@@ -12,24 +12,30 @@ class Weapon {
   @HiveField(1)
   final String name;
   @HiveField(2)
-  final int damage;
+  final String description;
   @HiveField(3)
-  final int quantityOfDices;
+  final int damage;
   @HiveField(4)
-  final Dice damageDice;
+  final int quantityOfDices;
   @HiveField(5)
-  final Dice checkDice;
+  final Dice damageDice;
   @HiveField(6)
-  final int range;
+  final Dice? plusDamageDice;
   @HiveField(7)
+  final Dice checkDice;
+  @HiveField(8)
+  final int range;
+  @HiveField(9)
   final String img;
 
   Weapon({
     required this.id,
     required this.name,
+    required this.description,
     required this.damage,
     required this.quantityOfDices,
     required this.damageDice,
+    this.plusDamageDice,
     required this.checkDice,
     required this.range,
     required this.img,
