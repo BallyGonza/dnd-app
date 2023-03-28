@@ -12,60 +12,68 @@ class WeaponCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      child: Stack(
-        children: [
-          InkWell(
-            onTap: () => showDialog(
-              context: context,
-              builder: (context) => RollHitDamageDiceDialog(
-                weapon: weapon,
-                dice: weapon.damageDice,
-              ),
-            ),
-            child: Card(
+      child: InkWell(
+        onTap: () => showDialog(
+          context: context,
+          builder: (context) => RollHitDamageDiceDialog(
+            weapon: weapon,
+            dice: weapon.damageDice,
+          ),
+        ),
+        child: Stack(
+          children: [
+            Card(
               elevation: 5,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: ListTile(
-                title: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    weapon.name,
-                    style: Theme.of(context).textTheme.headline6,
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(
+                      weapon.name,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    subtitle: Text(
+                      weapon.description,
+                    ),
                   ),
-                ),
-                subtitle: Column(
-                  children: [
-                    WeaponThrowRow(
-                      title: 'TO HIT',
-                      weapon: weapon,
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(bottom: 10, left: 15, right: 15),
+                    child: Column(
+                      children: [
+                        WeaponThrowRow(
+                          title: 'TO HIT',
+                          weapon: weapon,
+                        ),
+                        WeaponThrowRow(
+                          title: 'DAMAGE',
+                          weapon: weapon,
+                        ),
+                      ],
                     ),
-                    WeaponThrowRow(
-                      title: 'DAMAGE',
-                      weapon: weapon,
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  top: 15,
+                  right: 15,
+                  left: MediaQuery.of(context).size.width * 0.58),
+              height: 145,
+              width: 120,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(weapon.img),
+                  fit: BoxFit.fitWidth,
+                  opacity: 0.1,
                 ),
               ),
             ),
-          ),
-          Container(
-            margin: EdgeInsets.only(
-                top: 15,
-                right: 15,
-                left: MediaQuery.of(context).size.width * 0.6),
-            height: 100,
-            width: 100,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(weapon.img),
-                fit: BoxFit.fitHeight,
-                opacity: 0.1,
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

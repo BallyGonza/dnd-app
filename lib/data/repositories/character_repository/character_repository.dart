@@ -169,7 +169,7 @@ Character vaunea = Character(
     Skill(name: 'Supervivencia', modifier: 5, proficiency: true),
     Skill(name: 'T. Animales', modifier: 1, proficiency: false),
   ],
-  weapons: [hammer, axe, sword],
+  weapons: [hammerOfFire, hammer, axe, sword],
   languages: 'Común, Gigante',
   traits: [
     rockResistance,
