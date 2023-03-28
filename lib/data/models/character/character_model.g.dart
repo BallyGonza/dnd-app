@@ -45,13 +45,14 @@ class CharacterAdapter extends TypeAdapter<Character> {
       wildForms: (fields[25] as List).cast<Animal>(),
       notes: (fields[26] as List).cast<Note>(),
       wallet: fields[27] as Wallet,
+      password: fields[28] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Character obj) {
     writer
-      ..writeByte(28)
+      ..writeByte(29)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -107,7 +108,9 @@ class CharacterAdapter extends TypeAdapter<Character> {
       ..writeByte(26)
       ..write(obj.notes)
       ..writeByte(27)
-      ..write(obj.wallet);
+      ..write(obj.wallet)
+      ..writeByte(28)
+      ..write(obj.password);
   }
 
   @override
@@ -176,6 +179,7 @@ Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
           .map((e) => Note.fromJson(e as Map<String, dynamic>))
           .toList(),
       wallet: Wallet.fromJson(json['wallet'] as Map<String, dynamic>),
+      password: json['password'] as String,
     );
 
 Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
@@ -207,4 +211,5 @@ Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
       'wildForms': instance.wildForms,
       'notes': instance.notes,
       'wallet': instance.wallet,
+      'password': instance.password,
     };

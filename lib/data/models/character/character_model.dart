@@ -63,6 +63,8 @@ class Character {
   List<Note> notes;
   @HiveField(27)
   Wallet wallet;
+  @HiveField(28)
+  final String password;
 
   Character({
     required this.id,
@@ -93,6 +95,7 @@ class Character {
     required this.wildForms,
     required this.notes,
     required this.wallet,
+    required this.password,
   });
 
   factory Character.fromJson(Map<String, dynamic> json) =>
@@ -130,6 +133,7 @@ class Character {
       wildForms: wildForms,
       notes: notes,
       wallet: wallet,
+      password: password,
     );
   }
 }

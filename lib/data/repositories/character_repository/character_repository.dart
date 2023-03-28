@@ -118,6 +118,7 @@ Character theekVarus = Character(
   img: 'assets/images/characters/theek_varus/theek_varus.jpeg',
   profileImg: 'assets/images/characters/theek_varus/theek_varus_profile.jpeg',
   banner: 'assets/images/characters/theek_varus/theek_varus_banner.jpeg',
+  password: 'test',
 );
 
 Character vaunea = Character(
@@ -224,6 +225,7 @@ Character vaunea = Character(
   img: 'assets/images/characters/vaunea/vaunea.jpg',
   profileImg: 'assets/images/characters/vaunea/vaunea_profile.jpg',
   banner: 'assets/images/characters/vaunea/vaunea_banner.jpg',
+  password: 'test',
 );
 
 Character evendurGreycastle = Character(
@@ -307,6 +309,7 @@ Character evendurGreycastle = Character(
       'assets/images/characters/evendur_greycastle/evendur_greycastle_profile.jpeg',
   banner:
       'assets/images/characters/evendur_greycastle/evendur_greycastle_banner.jpeg',
+  password: 'test',
 );
 
 final List<Character> defaultCharacters = [

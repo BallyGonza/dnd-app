@@ -117,6 +117,7 @@ Weapon hammerOfFire = Weapon(
   damage: 4,
   quantityOfDamageDices: 2,
   damageDice: d6,
+  quantityOfPlusDamageDices: 1,
   plusDamageDice: d8,
   checkDice: d20,
   range: 8,
