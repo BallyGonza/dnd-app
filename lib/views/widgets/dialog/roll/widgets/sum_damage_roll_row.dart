@@ -22,51 +22,54 @@ class SumDamageRollsRow extends StatelessWidget {
         rolls[i] = rolls[i] * 2;
       }
     }
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image.asset(
-          dice.img,
-          height: 20,
-          width: 20,
-        ),
-        const Spacer(),
-        Row(
-          children: <Widget>[
-            Text(
-              rolls.reduce((value, element) => value + element).toString(),
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
-                fontWeight: FontWeight.normal,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(
+            dice.img,
+            height: 20,
+            width: 20,
+          ),
+          const Spacer(),
+          Row(
+            children: <Widget>[
+              Text(
+                rolls.reduce((value, element) => value + element).toString(),
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            PlusMinusIcon(modifier: modifier),
-            const SizedBox(width: 10),
-            Text(
-              '${modifier.abs()}',
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.green,
+              const SizedBox(width: 10),
+              PlusMinusIcon(modifier: modifier),
+              const SizedBox(width: 10),
+              Text(
+                '${modifier.abs()}',
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.green,
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            const Icon(
-              Icons.arrow_forward,
-              size: 20,
-            ),
-            const SizedBox(width: 10),
-            Text(
-              '${rolls.reduce((value, element) => value + element) + modifier}',
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.black,
+              const SizedBox(width: 10),
+              const Icon(
+                Icons.arrow_forward,
+                size: 20,
               ),
-            ),
-          ],
-        ),
-      ],
+              const SizedBox(width: 10),
+              Text(
+                '${rolls.reduce((value, element) => value + element) + modifier}',
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

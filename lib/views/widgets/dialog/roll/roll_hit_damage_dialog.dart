@@ -67,34 +67,19 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                   ? const SizedBox.shrink()
                   : Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: SumRollRow(
-                            modifier: widget.weapon.range,
-                            roll: _toHitRoll,
-                            thrashRoll: _trashRoll,
-                            dice: d20,
-                          ),
+                        SumRollRow(
+                          modifier: widget.weapon.range,
+                          roll: _toHitRoll,
+                          thrashRoll: _trashRoll,
+                          dice: d20,
                         ),
                         _rerolling
-                            ? const Padding(
-                                padding: EdgeInsets.all(9.0),
-                                child: SizedBox(
-                                  height: 17,
-                                  width: 16,
-                                  child: CircularProgressIndicator(
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              )
-                            : Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SumDamageRollsRow(
-                                  dice: widget.weapon.damageDice,
-                                  toHitRoll: _toHitRoll,
-                                  modifier: modifier,
-                                  rolls: _damageRolls,
-                                ),
+                            ? const Loading()
+                            : SumDamageRollsRow(
+                                dice: widget.weapon.damageDice,
+                                toHitRoll: _toHitRoll,
+                                modifier: modifier,
+                                rolls: _damageRolls,
                               ),
                       ],
                     ),
@@ -117,24 +102,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                                     .map(
                                       (roll) => GestureDetector(
                                         onTap: () {
-                                          dice == d20 ||
-                                                  widget.weapon
-                                                          .quantityOfDices ==
-                                                      1
-                                              ? null
-                                              : setState(() {
-                                                  _rerolling = true;
-                                                  int newRoll = dice.roll();
-                                                  _damageRolls[_damageRolls
-                                                      .indexOf(roll)] = newRoll;
-                                                  Future.delayed(
-                                                      const Duration(
-                                                          seconds: 2), () {
-                                                    setState(() {
-                                                      _rerolling = false;
-                                                    });
-                                                  });
-                                                });
+                                          _reRoll(dice, roll);
                                         },
                                         child: Padding(
                                           padding: const EdgeInsets.symmetric(
@@ -194,10 +162,12 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                       _disadvantage = false;
                     });
                   },
-                  title: const Text("Ventaja",
-                      style: TextStyle(
-                        color: Colors.green,
-                      )),
+                  title: const Text(
+                    "Ventaja",
+                    style: TextStyle(
+                      color: Colors.green,
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
@@ -216,10 +186,12 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                       _advantage = false;
                     });
                   },
-                  title: const Text("Desventaja",
-                      style: TextStyle(
-                        color: Colors.red,
-                      )),
+                  title: const Text(
+                    "Desventaja",
+                    style: TextStyle(
+                      color: Colors.red,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -236,6 +208,21 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
         ),
       ),
     );
+  }
+
+  void _reRoll(Dice dice, int roll) {
+    dice == d20 || widget.weapon.quantityOfDices == 1
+        ? null
+        : setState(() {
+            _rerolling = true;
+            int newRoll = dice.roll();
+            _damageRolls[_damageRolls.indexOf(roll)] = newRoll;
+            Future.delayed(const Duration(seconds: 2), () {
+              setState(() {
+                _rerolling = false;
+              });
+            });
+          });
   }
 
   void _rollAndAddToRolls(Weapon weapon, int modifier) {
@@ -264,5 +251,25 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
         _damageRolls.add(_damageRoll);
       }
     });
+  }
+}
+
+class Loading extends StatelessWidget {
+  const Loading({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.all(9.0),
+      child: SizedBox(
+        height: 17,
+        width: 16,
+        child: CircularProgressIndicator(
+          color: Colors.black,
+        ),
+      ),
+    );
   }
 }
