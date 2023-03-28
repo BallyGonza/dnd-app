@@ -120,7 +120,7 @@ Weapon hammerOfFire = Weapon(
   plusDamageDice: d8,
   checkDice: d20,
   range: 8,
-  img: 'assets/images/weapons/hammer.png',
+  img: 'assets/images/weapons/hammer_of_fire.png',
 );
 
 // Espada una mano de Evendur
