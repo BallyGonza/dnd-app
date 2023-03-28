@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
+import 'widgets/widgets.dart';
+
 class NoteList extends StatefulWidget {
   final bool needWallet;
   const NoteList({
@@ -46,29 +48,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                     return state.maybeWhen(
                         orElse: () => const CircularProgressIndicator(),
                         loaded: (notes) => notes.isEmpty
-                            ? SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.47,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Image(
-                                      image: AssetImage(
-                                          'assets/images/wallpapers/treasure_no_background.png'),
-                                      height: 300,
-                                    ),
-                                    Text(
-                                      'Nothing here yet...',
-                                      style: TextStyle(
-                                        fontStyle: FontStyle.italic,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFFA9A9A9),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
+                            ? const NoNotes()
                             : SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.67,
@@ -112,97 +92,52 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                                             ),
                                           ],
                                         ),
-                                        child: AnimatedOpacity(
-                                          curve: Curves.easeInOut,
-                                          opacity: 1,
-                                          duration:
-                                              const Duration(milliseconds: 700),
-                                          child: SizedBox(
-                                            height: notes[index]
-                                                            .content
-                                                            .length >
-                                                        100 ||
-                                                    notes[index]
-                                                        .content
-                                                        .contains('\n')
-                                                ? 150
-                                                : notes[index]
-                                                            .content
-                                                            .isEmpty ||
-                                                        notes[index]
-                                                            .title
-                                                            .isEmpty
-                                                    ? notes[index]
-                                                                    .content
-                                                                    .length >
-                                                                50 ||
-                                                            notes[index]
-                                                                .content
-                                                                .contains('\n')
-                                                        ? 120
-                                                        : notes[index]
-                                                                        .content
-                                                                        .length >
-                                                                    25 ||
-                                                                notes[index]
-                                                                    .content
-                                                                    .contains(
-                                                                        '\n')
-                                                            ? 110
-                                                            : 90
-                                                    : 130,
-                                            child: NoteListItem(
-                                              title: notes[index].title,
-                                              content: notes[index].content,
-                                              date: notes[index].date,
-                                              color: notes[index].color,
-                                              index: index,
-                                              onTap: () {
-                                                titleController.text =
-                                                    notes[index].title;
-                                                contentController.text =
-                                                    notes[index].content;
-                                                Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                    builder: (_) =>
-                                                        BlocProvider.value(
-                                                      value: context
-                                                          .read<LootBloc>(),
-                                                      child: NotePage(
-                                                        note: notes[index],
-                                                        buttonText: 'Edit',
-                                                        onSaved: (title,
-                                                            content, color) {
-                                                          setState(() {
-                                                            context
-                                                                .read<
-                                                                    LootBloc>()
-                                                                .add(
-                                                                  LootEvent
-                                                                      .edit(
-                                                                    index,
-                                                                    Note(
-                                                                      title:
-                                                                          title,
-                                                                      content:
-                                                                          content,
-                                                                      date: format
-                                                                          .format(
-                                                                              DateTime.now()),
-                                                                      color:
-                                                                          color,
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                          });
-                                                        },
-                                                      ),
-                                                    ),
+                                        child: NoteListItem(
+                                          title: notes[index].title,
+                                          content: notes[index].content,
+                                          date: notes[index].date,
+                                          color: notes[index].color,
+                                          index: index,
+                                          onTap: () {
+                                            titleController.text =
+                                                notes[index].title;
+                                            contentController.text =
+                                                notes[index].content;
+                                            Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                builder: (_) =>
+                                                    BlocProvider.value(
+                                                  value:
+                                                      context.read<LootBloc>(),
+                                                  child: NotePage(
+                                                    note: notes[index],
+                                                    buttonText: 'Edit',
+                                                    onSaved: (title, content,
+                                                        color) {
+                                                      setState(() {
+                                                        context
+                                                            .read<LootBloc>()
+                                                            .add(
+                                                              LootEvent.edit(
+                                                                index,
+                                                                Note(
+                                                                  title: title,
+                                                                  content:
+                                                                      content,
+                                                                  date: format.format(
+                                                                      DateTime
+                                                                          .now()),
+                                                                  color: color,
+                                                                ),
+                                                              ),
+                                                            );
+                                                      });
+                                                    },
                                                   ),
-                                                );
-                                              },
-                                            ),
-                                          ),
+                                                ),
+                                              ),
+                                            );
+                                          },
                                         ),
                                       );
                                     },

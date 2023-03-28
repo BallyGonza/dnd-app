@@ -21,6 +21,15 @@ class NoteListItem extends StatelessWidget {
       onTap: () => onTap(),
       child: Container(
         padding: const EdgeInsets.all(16),
+        height: content.length > 100 || content.contains('\n')
+            ? 150
+            : content.isEmpty || title.isEmpty
+                ? content.length > 50 || content.contains('\n')
+                    ? 120
+                    : content.length > 25 || content.contains('\n')
+                        ? 110
+                        : 90
+                : 130,
         decoration: BoxDecoration(
           color: Color(color),
           borderRadius: BorderRadius.circular(8),
