@@ -84,7 +84,6 @@ Character theekVarus = Character(
     elementalWeapon
   ],
   wallet: Wallet(
-    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -192,7 +191,6 @@ Character vaunea = Character(
   wildForms: [bear],
   notes: [],
   wallet: Wallet(
-    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -296,7 +294,6 @@ Character evendurGreycastle = Character(
   wildForms: [],
   notes: [],
   wallet: Wallet(
-    needWallet: true,
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,

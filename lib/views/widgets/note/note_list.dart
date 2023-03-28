@@ -1,20 +1,16 @@
 import 'package:dnd_app/blocs/blocs.dart';
-import 'package:dnd_app/views/widgets/note/note_page.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 
 import 'widgets/widgets.dart';
 
 class NoteList extends StatefulWidget {
-  final bool needWallet;
   const NoteList({
     Key? key,
-    required this.needWallet,
   }) : super(key: key);
 
   @override
@@ -99,44 +95,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                                           color: notes[index].color,
                                           index: index,
                                           onTap: () {
-                                            titleController.text =
-                                                notes[index].title;
-                                            contentController.text =
-                                                notes[index].content;
-                                            Navigator.of(context).push(
-                                              MaterialPageRoute(
-                                                builder: (_) =>
-                                                    BlocProvider.value(
-                                                  value:
-                                                      context.read<LootBloc>(),
-                                                  child: NotePage(
-                                                    note: notes[index],
-                                                    buttonText: 'Edit',
-                                                    onSaved: (title, content,
-                                                        color) {
-                                                      setState(() {
-                                                        context
-                                                            .read<LootBloc>()
-                                                            .add(
-                                                              LootEvent.edit(
-                                                                index,
-                                                                Note(
-                                                                  title: title,
-                                                                  content:
-                                                                      content,
-                                                                  date: format.format(
-                                                                      DateTime
-                                                                          .now()),
-                                                                  color: color,
-                                                                ),
-                                                              ),
-                                                            );
-                                                      });
-                                                    },
-                                                  ),
-                                                ),
-                                              ),
-                                            );
+                                            _editLoot(notes, index, context);
                                           },
                                         ),
                                       );
@@ -171,6 +130,37 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
           ),
         ),
       ],
+    );
+  }
+
+  void _editLoot(List<Note> notes, int index, BuildContext context) {
+    titleController.text = notes[index].title;
+    contentController.text = notes[index].content;
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: context.read<LootBloc>(),
+          child: NotePage(
+            note: notes[index],
+            buttonText: 'Edit',
+            onSaved: (title, content, color) {
+              setState(() {
+                context.read<LootBloc>().add(
+                      LootEvent.edit(
+                        index,
+                        Note(
+                          title: title,
+                          content: content,
+                          date: format.format(DateTime.now()),
+                          color: color,
+                        ),
+                      ),
+                    );
+              });
+            },
+          ),
+        ),
+      ),
     );
   }
 

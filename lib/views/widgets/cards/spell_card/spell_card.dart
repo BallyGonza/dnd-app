@@ -50,36 +50,7 @@ class SpellCardState extends State<SpellCard> with TickerProviderStateMixin {
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: Column(
                     children: [
-                      Container(
-                          padding: const EdgeInsets.all(1),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  SpellSpecContainer(
-                                      spec: 'CASTING TIME',
-                                      specDetail: widget.spell.castTime),
-                                  const SizedBox(height: 4),
-                                  SpellSpecContainer(
-                                      spec: 'COMPONENTS',
-                                      specDetail: widget.spell.comp),
-                                ],
-                              ),
-                              const SizedBox(width: 4),
-                              Column(
-                                children: [
-                                  SpellSpecContainer(
-                                      spec: 'RANGE',
-                                      specDetail: widget.spell.range),
-                                  const SizedBox(height: 4),
-                                  SpellSpecContainer(
-                                      spec: 'DURATION',
-                                      specDetail: widget.spell.duration),
-                                ],
-                              ),
-                            ],
-                          )),
+                      SpellSpecs(spell: widget.spell),
                       const SizedBox(height: 20),
                       SpellDescriptionContainer(
                         spellDescription: widget.spell.description,

@@ -16,8 +16,6 @@ class Wallet {
   int silverPieces;
   @HiveField(4)
   int copperPieces;
-  @HiveField(5)
-  bool needWallet;
 
   Wallet({
     required this.platinumPieces,
@@ -25,7 +23,6 @@ class Wallet {
     required this.electrumPieces,
     required this.silverPieces,
     required this.copperPieces,
-    required this.needWallet,
   });
 
   void addPieces({required String pieces}) {

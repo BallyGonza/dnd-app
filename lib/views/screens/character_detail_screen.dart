@@ -158,9 +158,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   traits: widget.character.traits,
                 )
               : const SizedBox.shrink(),
-          NoteList(
-            needWallet: widget.character.wallet.needWallet,
-          ),
+          const NoteList(),
           widget.character.wildForms.isNotEmpty
               ? WildFormCard(
                   wildForms: widget.character.wildForms,
