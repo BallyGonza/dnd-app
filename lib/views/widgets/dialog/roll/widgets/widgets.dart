@@ -1,4 +1,5 @@
 export 'sum_roll_row.dart';
+export 'sum_roll_weapon_row.dart';
 export 'roll_text.dart';
 export 'sum_roll_text.dart';
 export 'sum_damage_roll_row.dart';

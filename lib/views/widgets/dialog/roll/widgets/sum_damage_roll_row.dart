@@ -1,77 +1,127 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SumDamageRollsRow extends StatelessWidget {
-  const SumDamageRollsRow(
-      {super.key,
-      required this.modifier,
-      required this.rolls,
-      required this.toHitRoll,
-      required this.dice});
+  SumDamageRollsRow({
+    super.key,
+    required this.weapon,
+    required this.damageRolls,
+    required this.plusDamageRolls,
+    required this.toHitRoll,
+  });
 
-  final Dice dice;
-  final int modifier;
+  final Weapon weapon;
   final int toHitRoll;
-  final List<int> rolls;
+  final List<int> damageRolls;
+  final List<int> plusDamageRolls;
+  int totalDamage = 0;
 
   @override
   Widget build(BuildContext context) {
     if (toHitRoll == 20) {
-      for (int i = 0; i < rolls.length; i++) {
-        rolls[i] = rolls[i] * 2;
+      for (int i = 0; i < damageRolls.length; i++) {
+        damageRolls[i] = damageRolls[i] * 2;
       }
     }
+
+    if (plusDamageRolls.isEmpty) {
+      totalDamage = damageRolls.reduce((value, element) => value + element) +
+          weapon.range;
+    } else {
+      totalDamage = damageRolls.reduce((value, element) => value + element) +
+          plusDamageRolls.reduce((value, element) => value + element) +
+          weapon.range;
+    }
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.asset(
-            dice.img,
-            height: 20,
-            width: 20,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          SizedBox(
+            width: 65,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  children: [
+                    weapon.quantityOfDices > 1
+                        ? Text(
+                            '${weapon.quantityOfDices}x',
+                            style: const TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          )
+                        : const SizedBox.shrink(),
+                    Image.asset(
+                      weapon.damageDice.img,
+                      width: 20,
+                      height: 20,
+                    ),
+                  ],
+                ),
+                Text(
+                  damageRolls
+                      .reduce((value, element) => value + element)
+                      .toString(),
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
           ),
-          const Spacer(),
-          Row(
-            children: <Widget>[
-              Text(
-                rolls.reduce((value, element) => value + element).toString(),
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              const SizedBox(width: 10),
-              PlusMinusIcon(modifier: modifier),
-              SizedBox(width: modifier > 9 ? 10 : 20),
-              Text(
-                '${modifier.abs()}',
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.green,
-                ),
-              ),
-              const SizedBox(width: 10),
-              const Icon(
-                Icons.arrow_forward,
-                size: 20,
-              ),
-              SizedBox(
-                  width: rolls.reduce((value, element) => value + element) +
-                              modifier >
-                          9
-                      ? 10
-                      : 20),
-              Text(
-                '${rolls.reduce((value, element) => value + element) + modifier}',
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
-              ),
-            ],
+          plusDamageRolls.isNotEmpty
+              ? SizedBox(
+                  width: 65,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      const FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: Colors.green,
+                        size: 15,
+                      ),
+                      Image.asset(
+                        weapon.plusDamageDice!.img,
+                        width: 20,
+                        height: 20,
+                      ),
+                      Text(
+                        plusDamageRolls
+                            .reduce((value, element) => value + element)
+                            .toString(),
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              : const SizedBox.shrink(),
+          PlusMinusIcon(modifier: weapon.range),
+          Text(
+            '${weapon.range.abs()}',
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.green,
+            ),
+          ),
+          const FaIcon(FontAwesomeIcons.arrowRight, size: 15),
+          Text(
+            '$totalDamage',
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+            ),
           ),
         ],
       ),

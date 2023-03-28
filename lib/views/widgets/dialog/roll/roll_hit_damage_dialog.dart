@@ -17,9 +17,11 @@ class RollHitDamageDiceDialog extends StatefulWidget {
 class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   int _toHitRoll = 0;
   int _damageRoll = 0;
+  int _plusDamageRoll = 0;
   int _trashRoll = 0;
   late List<int> _toHitRolls;
   late List<int> _damageRolls;
+  late List<int> _plusDamageRolls;
   late bool _advantage;
   late bool _disadvantage;
   bool _rerolling = false;
@@ -27,17 +29,20 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   @override
   void initState() {
     _damageRolls = [];
+    _plusDamageRolls = [];
     _toHitRolls = [];
     _advantage = false;
     _disadvantage = false;
     _toHitRolls.clear();
     _damageRolls.clear();
+    _plusDamageRolls.clear();
     super.initState();
   }
 
   @override
   void dispose() {
     _damageRolls.clear();
+    _plusDamageRolls.clear();
     _toHitRolls.clear();
     super.dispose();
   }
@@ -97,19 +102,18 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                   ? const SizedBox.shrink()
                   : Column(
                       children: [
-                        SumRollRow(
-                          modifier: widget.weapon.range,
+                        SumRollWeaponRow(
+                          weapon: widget.weapon,
                           roll: _toHitRoll,
                           thrashRoll: _trashRoll,
-                          dice: d20,
                         ),
                         _rerolling
                             ? const Loading()
                             : SumDamageRollsRow(
-                                dice: widget.weapon.damageDice,
+                                weapon: widget.weapon,
                                 toHitRoll: _toHitRoll,
-                                modifier: modifier,
-                                rolls: _damageRolls,
+                                damageRolls: _damageRolls,
+                                plusDamageRolls: _plusDamageRolls,
                               ),
                       ],
                     ),
@@ -126,53 +130,121 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Wrap(
-                                alignment: WrapAlignment.center,
-                                children: _damageRolls
-                                    .map(
-                                      (roll) => GestureDetector(
-                                        onTap: () {
-                                          _reRoll(dice, roll);
-                                        },
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 5,
-                                          ),
-                                          child: Chip(
-                                            backgroundColor: (roll == 1)
-                                                ? lowestDiceColor
-                                                : (roll == widget.dice.sides)
-                                                    ? highestDiceColor
-                                                    : Colors.black,
-                                            label: SizedBox(
-                                              width: 40,
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Image.asset(
-                                                    widget
-                                                        .weapon.damageDice.img,
-                                                    color: Colors.white,
-                                                    height: 20,
+                              child: Column(
+                                children: [
+                                  Wrap(
+                                    alignment: WrapAlignment.center,
+                                    children: _damageRolls
+                                        .map(
+                                          (roll) => GestureDetector(
+                                            onTap: () {
+                                              _reRollDamageRoll(dice, roll);
+                                            },
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal: 5,
+                                              ),
+                                              child: Chip(
+                                                backgroundColor: (roll == 1)
+                                                    ? lowestDiceColor
+                                                    : (roll ==
+                                                            widget.dice.sides)
+                                                        ? highestDiceColor
+                                                        : Colors.black,
+                                                label: SizedBox(
+                                                  width: 40,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Image.asset(
+                                                        widget.weapon.damageDice
+                                                            .img,
+                                                        color: Colors.white,
+                                                        height: 20,
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 5,
+                                                      ),
+                                                      Text(
+                                                        '$roll',
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
-                                                  const SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    '$roll',
-                                                    style: const TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ],
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                    )
-                                    .toList(),
+                                        )
+                                        .toList(),
+                                  ),
+                                  widget.weapon.plusDamageDice != null
+                                      ? Wrap(
+                                          alignment: WrapAlignment.center,
+                                          children: _plusDamageRolls
+                                              .map(
+                                                (roll) => GestureDetector(
+                                                  onTap: () {
+                                                    _reRollPlusDamageRoll(
+                                                        dice, roll);
+                                                  },
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                      horizontal: 5,
+                                                    ),
+                                                    child: Chip(
+                                                      backgroundColor: (roll ==
+                                                              1)
+                                                          ? lowestDiceColor
+                                                          : (roll ==
+                                                                  widget.dice
+                                                                      .sides)
+                                                              ? highestDiceColor
+                                                              : Colors.black,
+                                                      label: SizedBox(
+                                                        width: 40,
+                                                        child: Row(
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Image.asset(
+                                                              widget
+                                                                  .weapon
+                                                                  .plusDamageDice!
+                                                                  .img,
+                                                              color:
+                                                                  Colors.white,
+                                                              height: 20,
+                                                            ),
+                                                            const SizedBox(
+                                                              width: 5,
+                                                            ),
+                                                            Text(
+                                                              '$roll',
+                                                              style:
+                                                                  const TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                              .toList(),
+                                        )
+                                      : const SizedBox.shrink(),
+                                ],
                               ),
                             ),
                     ),
@@ -267,7 +339,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
     );
   }
 
-  void _reRoll(Dice dice, int roll) {
+  void _reRollDamageRoll(Dice dice, int roll) {
     dice == d20 || widget.weapon.quantityOfDices == 1
         ? null
         : setState(() {
@@ -282,9 +354,25 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
           });
   }
 
+  void _reRollPlusDamageRoll(Dice dice, int roll) {
+    dice == d20 || widget.weapon.quantityOfDices == 1
+        ? null
+        : setState(() {
+            _rerolling = true;
+            int newRoll = dice.roll();
+            _plusDamageRolls[_plusDamageRolls.indexOf(roll)] = newRoll;
+            Future.delayed(const Duration(seconds: 2), () {
+              setState(() {
+                _rerolling = false;
+              });
+            });
+          });
+  }
+
   void _rollAndAddToRolls(Weapon weapon, int modifier) {
     setState(() {
       _damageRolls.clear();
+      _plusDamageRolls.clear();
       _toHitRolls.clear();
       _trashRoll = 0;
 
@@ -306,6 +394,11 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
       for (int i = 0; i < weapon.quantityOfDices; i++) {
         _damageRoll = weapon.damageDice.roll();
         _damageRolls.add(_damageRoll);
+      }
+
+      if (weapon.plusDamageDice != null) {
+        _plusDamageRoll = weapon.plusDamageDice!.roll();
+        _plusDamageRolls.add(_plusDamageRoll);
       }
     });
   }
