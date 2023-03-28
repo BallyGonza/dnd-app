@@ -1,6 +1,7 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SumRollWeaponRow extends StatelessWidget {
   const SumRollWeaponRow({
@@ -19,21 +20,25 @@ class SumRollWeaponRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            weapon.checkDice.img,
-            width: 20,
-            height: 20,
+          Row(
+            children: [
+              Image.asset(
+                weapon.checkDice.img,
+                width: 20,
+                height: 20,
+              ),
+              const SizedBox(width: 10),
+              RollText(
+                roll: roll,
+              ),
+            ],
           ),
-          const Spacer(),
           Row(
             children: <Widget>[
               Row(
                 children: [
-                  RollText(
-                    roll: roll,
-                  ),
                   thrashRoll != 0
                       ? Opacity(
                           opacity: 0.3,
@@ -63,10 +68,7 @@ class SumRollWeaponRow extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 10),
-              const Icon(
-                Icons.arrow_forward,
-                size: 20,
-              ),
+              const FaIcon(FontAwesomeIcons.arrowRight, size: 15),
               const SizedBox(width: 10),
               Text(
                 '${roll + weapon.range}',

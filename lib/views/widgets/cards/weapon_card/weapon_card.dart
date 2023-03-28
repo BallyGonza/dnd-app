@@ -36,6 +36,11 @@ class WeaponCard extends StatelessWidget {
                     ),
                     subtitle: Text(
                       weapon.description,
+                      style: TextStyle(
+                        color: Colors.grey[500],
+                        fontSize: 13,
+                        fontStyle: FontStyle.italic,
+                      ),
                     ),
                   ),
                   Padding(

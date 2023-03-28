@@ -3,12 +3,13 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class SumRollRow extends StatelessWidget {
-  const SumRollRow(
-      {super.key,
-      required this.modifier,
-      required this.roll,
-      required this.dice,
-      required this.thrashRoll});
+  const SumRollRow({
+    super.key,
+    required this.modifier,
+    required this.roll,
+    required this.dice,
+    required this.thrashRoll,
+  });
 
   final int modifier;
   final int roll;
@@ -20,21 +21,25 @@ class SumRollRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            dice.img,
-            width: 20,
-            height: 20,
+          Row(
+            children: [
+              Image.asset(
+                dice.img,
+                width: 20,
+                height: 20,
+              ),
+              const SizedBox(width: 10),
+              RollText(
+                roll: roll,
+              ),
+            ],
           ),
-          const Spacer(),
           Row(
             children: <Widget>[
               Row(
                 children: [
-                  RollText(
-                    roll: roll,
-                  ),
                   thrashRoll != 0
                       ? Opacity(
                           opacity: 0.3,

@@ -75,17 +75,27 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                         ),
                         const Spacer(),
                         Text(
-                          '${widget.weapon.quantityOfDices}d${widget.weapon.damageDice.sides}',
+                          '${widget.weapon.quantityOfDices}d${widget.weapon.damageDice.sides} ',
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 17,
                             color: Colors.black,
                             fontWeight: FontWeight.w500,
                             fontStyle: FontStyle.italic,
                           ),
                         ),
+                        widget.weapon.plusDamageDice != null
+                            ? Text(
+                                '+ 1d${widget.weapon.plusDamageDice!.sides}',
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              )
+                            : const SizedBox.shrink(),
                       ],
                     ),
-                    const SizedBox(height: 5),
                     Text(
                       widget.weapon.description,
                       style: const TextStyle(
