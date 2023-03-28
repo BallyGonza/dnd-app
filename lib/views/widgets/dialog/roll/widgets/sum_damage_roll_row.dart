@@ -47,9 +47,9 @@ class SumDamageRollsRow extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    weapon.quantityOfDices > 1
+                    weapon.quantityOfDamageDices > 1
                         ? Text(
-                            '${weapon.quantityOfDices}d',
+                            '${weapon.quantityOfDamageDices}d',
                             style: const TextStyle(
                               fontSize: 15,
                               color: Colors.black,

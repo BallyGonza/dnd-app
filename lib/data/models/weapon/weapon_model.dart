@@ -16,16 +16,18 @@ class Weapon {
   @HiveField(3)
   final int damage;
   @HiveField(4)
-  final int quantityOfDices;
+  final int quantityOfDamageDices;
   @HiveField(5)
   final Dice damageDice;
   @HiveField(6)
   final Dice? plusDamageDice;
   @HiveField(7)
-  final Dice checkDice;
+  final int? quantityOfPlusDamageDices;
   @HiveField(8)
-  final int range;
+  final Dice checkDice;
   @HiveField(9)
+  final int range;
+  @HiveField(10)
   final String img;
 
   Weapon({
@@ -33,9 +35,10 @@ class Weapon {
     required this.name,
     required this.description,
     required this.damage,
-    required this.quantityOfDices,
+    required this.quantityOfDamageDices,
     required this.damageDice,
     this.plusDamageDice,
+    this.quantityOfPlusDamageDices,
     required this.checkDice,
     required this.range,
     required this.img,

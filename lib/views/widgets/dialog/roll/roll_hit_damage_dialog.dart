@@ -75,7 +75,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                         ),
                         const Spacer(),
                         Text(
-                          '${widget.weapon.quantityOfDices}d${widget.weapon.damageDice.sides} ',
+                          '${widget.weapon.quantityOfDamageDices}d${widget.weapon.damageDice.sides} ',
                           style: const TextStyle(
                             fontSize: 17,
                             color: Colors.black,
@@ -350,7 +350,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   }
 
   void _reRollDamageRoll(Dice dice, int roll) {
-    dice == d20 || widget.weapon.quantityOfDices == 1
+    dice == d20 || widget.weapon.quantityOfDamageDices == 1
         ? null
         : setState(() {
             _rerolling = true;
@@ -365,7 +365,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
   }
 
   void _reRollPlusDamageRoll(Dice dice, int roll) {
-    dice == d20 || widget.weapon.quantityOfDices == 1
+    dice == d20 || widget.weapon.quantityOfDamageDices == 1
         ? null
         : setState(() {
             _rerolling = true;
@@ -401,7 +401,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
         _toHitRoll = _toHitRolls.reduce((a, b) => a < b ? a : b);
       }
 
-      for (int i = 0; i < weapon.quantityOfDices; i++) {
+      for (int i = 0; i < weapon.quantityOfDamageDices; i++) {
         _damageRoll = weapon.damageDice.roll();
         _damageRolls.add(_damageRoll);
       }

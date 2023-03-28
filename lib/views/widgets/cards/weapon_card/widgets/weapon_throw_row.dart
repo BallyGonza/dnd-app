@@ -22,9 +22,9 @@ class WeaponThrowRow extends StatelessWidget {
             style: const TextStyle(fontSize: 20),
           ),
           const Spacer(),
-          weapon.quantityOfDices > 1 && title == 'DAMAGE'
+          weapon.quantityOfDamageDices > 1 && title == 'DAMAGE'
               ? Text(
-                  '${weapon.quantityOfDices}d',
+                  '${weapon.quantityOfDamageDices}d',
                   style: const TextStyle(fontSize: 20),
                 )
               : const SizedBox(),

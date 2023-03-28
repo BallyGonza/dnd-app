@@ -21,19 +21,20 @@ class WeaponAdapter extends TypeAdapter<Weapon> {
       name: fields[1] as String,
       description: fields[2] as String,
       damage: fields[3] as int,
-      quantityOfDices: fields[4] as int,
+      quantityOfDamageDices: fields[4] as int,
       damageDice: fields[5] as Dice,
       plusDamageDice: fields[6] as Dice?,
-      checkDice: fields[7] as Dice,
-      range: fields[8] as int,
-      img: fields[9] as String,
+      quantityOfPlusDamageDices: fields[7] as int?,
+      checkDice: fields[8] as Dice,
+      range: fields[9] as int,
+      img: fields[10] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Weapon obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -43,16 +44,18 @@ class WeaponAdapter extends TypeAdapter<Weapon> {
       ..writeByte(3)
       ..write(obj.damage)
       ..writeByte(4)
-      ..write(obj.quantityOfDices)
+      ..write(obj.quantityOfDamageDices)
       ..writeByte(5)
       ..write(obj.damageDice)
       ..writeByte(6)
       ..write(obj.plusDamageDice)
       ..writeByte(7)
-      ..write(obj.checkDice)
+      ..write(obj.quantityOfPlusDamageDices)
       ..writeByte(8)
-      ..write(obj.range)
+      ..write(obj.checkDice)
       ..writeByte(9)
+      ..write(obj.range)
+      ..writeByte(10)
       ..write(obj.img);
   }
 
@@ -76,11 +79,12 @@ Weapon _$WeaponFromJson(Map<String, dynamic> json) => Weapon(
       name: json['name'] as String,
       description: json['description'] as String,
       damage: json['damage'] as int,
-      quantityOfDices: json['quantityOfDices'] as int,
+      quantityOfDamageDices: json['quantityOfDamageDices'] as int,
       damageDice: Dice.fromJson(json['damageDice'] as Map<String, dynamic>),
       plusDamageDice: json['plusDamageDice'] == null
           ? null
           : Dice.fromJson(json['plusDamageDice'] as Map<String, dynamic>),
+      quantityOfPlusDamageDices: json['quantityOfPlusDamageDices'] as int?,
       checkDice: Dice.fromJson(json['checkDice'] as Map<String, dynamic>),
       range: json['range'] as int,
       img: json['img'] as String,
@@ -91,9 +95,10 @@ Map<String, dynamic> _$WeaponToJson(Weapon instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'damage': instance.damage,
-      'quantityOfDices': instance.quantityOfDices,
+      'quantityOfDamageDices': instance.quantityOfDamageDices,
       'damageDice': instance.damageDice,
       'plusDamageDice': instance.plusDamageDice,
+      'quantityOfPlusDamageDices': instance.quantityOfPlusDamageDices,
       'checkDice': instance.checkDice,
       'range': instance.range,
       'img': instance.img,
