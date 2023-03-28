@@ -153,73 +153,59 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
             padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
             child: Row(
               children: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: const CircleBorder(),
-                    padding: const EdgeInsets.all(10),
-                  ),
-                  onPressed: () {
-                    titleController.clear();
-                    contentController.clear();
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => BlocProvider.value(
-                          value: context.read<LootBloc>(),
-                          child: NotePage(
-                            note: Note(
-                              date: format.format(DateTime.now()),
-                              color: Colors.white.value,
-                              title: '',
-                              content: '',
-                            ),
-                            buttonText: 'Add',
-                            onSaved: (title, content, color) {
-                              setState(() {
-                                context.read<LootBloc>().add(
-                                      LootEvent.add(
-                                        Note(
-                                          title: title,
-                                          content: content,
-                                          date: format.format(DateTime.now()),
-                                          color: color,
-                                        ),
-                                      ),
-                                    );
-                              });
-                            },
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                  child: const FaIcon(
-                    FontAwesomeIcons.plus,
-                    color: Colors.white,
-                  ),
+                NewLootButton(
+                  onPressed: () => _newLoot(context),
                 ),
-                widget.needWallet
-                    ? ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: _selected,
-                          shape: const CircleBorder(),
-                          padding: const EdgeInsets.all(10),
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _walletOpen = !_walletOpen;
-                            _selected =
-                                _walletOpen ? Colors.grey : Colors.green[300]!;
-                          });
-                        },
-                        child: const Icon(FontAwesomeIcons.wallet),
-                      )
-                    : const SizedBox.shrink()
+                WalletButton(
+                  onPressed: () {
+                    setState(() {
+                      _walletOpen = !_walletOpen;
+                      _selected =
+                          _walletOpen ? Colors.grey : Colors.green[300]!;
+                    });
+                  },
+                  selected: _selected,
+                )
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+
+  void _newLoot(BuildContext context) {
+    titleController.clear();
+    contentController.clear();
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: context.read<LootBloc>(),
+          child: NotePage(
+            note: Note(
+              date: format.format(DateTime.now()),
+              color: Colors.white.value,
+              title: '',
+              content: '',
+            ),
+            buttonText: 'Add',
+            onSaved: (title, content, color) {
+              setState(() {
+                context.read<LootBloc>().add(
+                      LootEvent.add(
+                        Note(
+                          title: title,
+                          content: content,
+                          date: format.format(DateTime.now()),
+                          color: color,
+                        ),
+                      ),
+                    );
+              });
+            },
+          ),
+        ),
+      ),
     );
   }
 }
