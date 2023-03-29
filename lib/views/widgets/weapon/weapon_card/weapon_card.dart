@@ -11,7 +11,9 @@ class WeaponCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+      ),
       child: InkWell(
         onTap: () => showDialog(
           context: context,
@@ -66,15 +68,14 @@ class WeaponCard extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(
-                  top: 15,
-                  right: 15,
-                  left: MediaQuery.of(context).size.width * 0.58),
-              height: 145,
-              width: 120,
+                right: 15,
+                left: MediaQuery.of(context).size.width * 0.55,
+              ),
+              height: 180,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(weapon.img),
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.contain,
                   opacity: 0.1,
                 ),
               ),
