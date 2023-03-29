@@ -225,7 +225,7 @@ Character vaunea = Character(
   img: 'assets/images/characters/vaunea/vaunea.jpg',
   profileImg: 'assets/images/characters/vaunea/vaunea_profile.jpg',
   banner: 'assets/images/characters/vaunea/vaunea_banner.jpg',
-  password: 'test',
+  password: 'vaunea438',
 );
 
 Character evendurGreycastle = Character(

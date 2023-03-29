@@ -7,9 +7,18 @@ class CharacterSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Dungeons & Dragons'),
-        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        title: const Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            'Dungeons & Dragons',
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: const CharactersList(),
     );
