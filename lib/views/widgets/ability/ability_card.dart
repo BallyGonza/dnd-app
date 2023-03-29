@@ -27,8 +27,7 @@ class AbilityCard extends StatelessWidget {
         );
       },
       child: Container(
-        margin: const EdgeInsets.only(left: 20, right: 20),
-        padding: const EdgeInsets.only(top: 8, bottom: 8),
+        padding: const EdgeInsets.only(top: 8, bottom: 8, left: 20, right: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -47,10 +46,7 @@ class AbilityCard extends StatelessWidget {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 2),
-                  child: Text('MOD', style: TextStyle(fontSize: 10)),
-                ),
+                const Text('MOD', style: TextStyle(fontSize: 10)),
                 const SizedBox(width: 5),
                 ability.modifier < 0
                     ? const SizedBox(
@@ -83,10 +79,7 @@ class AbilityCard extends StatelessWidget {
                           : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
                 const SizedBox(width: 20),
-                const Padding(
-                  padding: EdgeInsets.only(top: 2),
-                  child: Text('SAVE', style: TextStyle(fontSize: 10)),
-                ),
+                const Text('SAVE', style: TextStyle(fontSize: 10)),
                 const SizedBox(width: 5),
                 savingThrow.modifier > 0
                     ? const Icon(
