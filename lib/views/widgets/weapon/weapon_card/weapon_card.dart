@@ -42,31 +42,6 @@ class WeaponCard extends StatelessWidget {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                    trailing: SizedBox(
-                      width: weapon.plusDamageDice == null ? 30 : 80,
-                      child: Row(
-                        children: [
-                          Text(
-                            '${weapon.quantityOfDamageDices}d${weapon.damageDice.sides}',
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                          weapon.plusDamageDice != null
-                              ? Text(
-                                  '+ ${weapon.quantityOfPlusDamageDices}d${weapon.plusDamageDice!.sides}',
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 13,
-                                    fontStyle: FontStyle.italic,
-                                  ),
-                                )
-                              : const SizedBox.shrink(),
-                        ],
-                      ),
-                    ),
                   ),
                   Padding(
                     padding:

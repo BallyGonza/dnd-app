@@ -109,7 +109,6 @@ Weapon sword = Weapon(
   img: 'assets/images/weapons/sword.png',
 );
 
-// Martillo de Fuego de Vaunea?
 Weapon hammerOfFire = Weapon(
   id: 10,
   name: 'Martillo',
