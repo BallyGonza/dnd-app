@@ -55,12 +55,17 @@ class CharacterCard extends StatelessWidget {
                             ))),
                   ),
                   TextField(
+                    autofocus: true,
                     maxLines: 1,
                     controller: passwordController,
                     obscureText: true,
+                    cursorColor: Colors.black,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Contraseña',
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
                     ),
                   ),
                   Padding(

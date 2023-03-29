@@ -41,5 +41,4 @@ ThemeData appTheme = ThemeData(
       color: Colors.black,
     ),
   ),
-  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
 );

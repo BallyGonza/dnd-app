@@ -31,7 +31,7 @@ class SpellCardState extends State<SpellCard> with TickerProviderStateMixin {
         color: Colors.purple[100],
         child: Column(
           children: <Widget>[
-            InkWell(
+            GestureDetector(
               onTap: () {
                 setState(() {
                   isExpanded = !isExpanded;
