@@ -2,11 +2,11 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
 
 class NotePage extends StatefulWidget {
   final Note note;
   final String buttonText;
+  final bool isNewNote;
   final void Function(String title, String content, int currentColor) onSaved;
 
   const NotePage({
@@ -14,6 +14,7 @@ class NotePage extends StatefulWidget {
     required this.note,
     required this.buttonText,
     required this.onSaved,
+    required this.isNewNote,
   }) : super(key: key);
 
   @override
@@ -26,10 +27,12 @@ class NotePageState extends State<NotePage> {
   late Color _currentColor;
   late Color _iconColor;
   late Color _fontColor;
+  late bool _isEditing;
 
   @override
   void initState() {
     super.initState();
+    _isEditing = widget.isNewNote ? true : false;
     _titleController.text = widget.note.title;
     _contentController.text = widget.note.content;
     _currentColor = Color(widget.note.color);
@@ -65,6 +68,14 @@ class NotePageState extends State<NotePage> {
         ),
         actions: [
           IconButton(
+              icon: FaIcon(FontAwesomeIcons.pencil, color: _iconColor),
+              onPressed: () {
+                // habilitar edicion
+                setState(() {
+                  _isEditing = !_isEditing;
+                });
+              }),
+          IconButton(
             onPressed: () {
               widget.onSaved(
                 _titleController.text,
@@ -84,6 +95,7 @@ class NotePageState extends State<NotePage> {
           child: Wrap(
             children: [
               TextField(
+                enabled: _isEditing,
                 controller: _titleController,
                 decoration: InputDecoration(
                   hintText: 'Titulo',
@@ -113,6 +125,7 @@ class NotePageState extends State<NotePage> {
               SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: TextField(
+                  enabled: _isEditing,
                   controller: _contentController,
                   decoration: InputDecoration(
                     hintText: 'Descripción...',

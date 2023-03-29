@@ -141,6 +141,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
         builder: (_) => BlocProvider.value(
           value: context.read<LootBloc>(),
           child: NotePage(
+            isNewNote: false,
             note: notes[index],
             buttonText: 'Edit',
             onSaved: (title, content, color) {
@@ -172,6 +173,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
         builder: (_) => BlocProvider.value(
           value: context.read<LootBloc>(),
           child: NotePage(
+            isNewNote: true,
             note: Note(
               date: format.format(DateTime.now()),
               color: Colors.white.value,
