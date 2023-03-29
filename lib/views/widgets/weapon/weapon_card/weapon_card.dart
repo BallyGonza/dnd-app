@@ -34,14 +34,16 @@ class WeaponCard extends StatelessWidget {
                       weapon.name,
                       style: Theme.of(context).textTheme.headline6,
                     ),
-                    subtitle: Text(
-                      weapon.description,
-                      style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 13,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
+                    subtitle: weapon.description != ''
+                        ? Text(
+                            weapon.description,
+                            style: TextStyle(
+                              color: Colors.grey[500],
+                              fontSize: 13,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          )
+                        : null,
                   ),
                   Padding(
                     padding:
