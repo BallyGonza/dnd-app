@@ -49,7 +49,8 @@ class CharacterCard extends StatelessWidget {
               '${character.classes[0]} ${character.classes[1]}',
               style: const TextStyle(
                 fontSize: 12,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
               ),
             ),
             onTap: () {

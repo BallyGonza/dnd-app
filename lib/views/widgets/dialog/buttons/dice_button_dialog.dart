@@ -36,8 +36,8 @@ class _DiceButtonState extends State<DiceButton>
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
       height: 60,
+      width: 60,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,

@@ -24,54 +24,63 @@ class WeaponCard extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(
-                      weapon.name,
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    subtitle: weapon.description != ''
-                        ? Text(
+            SizedBox(
+              height: 100,
+              child: Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            weapon.name,
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          Text(
                             weapon.description,
-                            style: TextStyle(
-                              color: Colors.grey[500],
-                              fontSize: 13,
+                            style: const TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
                               fontStyle: FontStyle.italic,
                             ),
-                          )
-                        : null,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(bottom: 10, left: 15, right: 15),
-                    child: Column(
-                      children: [
-                        WeaponThrowRow(
-                          title: 'TO HIT',
-                          weapon: weapon,
-                        ),
-                        WeaponThrowRow(
-                          title: 'DAMAGE',
-                          weapon: weapon,
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          WeaponThrowRow(
+                            title: 'TO HIT',
+                            weapon: weapon,
+                          ),
+                          WeaponThrowRow(
+                            title: 'DAMAGE',
+                            weapon: weapon,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
               margin: EdgeInsets.only(
-                right: 15,
-                left: MediaQuery.of(context).size.width * 0.55,
+                top: 10,
+                right: MediaQuery.of(context).size.width * 0.6,
               ),
-              height: 180,
+              height: 80,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(weapon.img),

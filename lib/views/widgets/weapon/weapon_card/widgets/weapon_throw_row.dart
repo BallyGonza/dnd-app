@@ -13,37 +13,29 @@ class WeaponThrowRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(fontSize: 20),
-          ),
-          const Spacer(),
-          weapon.quantityOfDamageDices > 1 && title == 'DAMAGE'
-              ? Text(
-                  '${weapon.quantityOfDamageDices}d',
-                  style: const TextStyle(fontSize: 20),
-                )
-              : const SizedBox(),
-          Image.asset(
-            title == 'TO HIT' ? weapon.checkDice.img : weapon.damageDice.img,
-            width: 20,
-          ),
-          const SizedBox(width: 5),
-          const Text(
-            '+',
-            style: TextStyle(fontSize: 15),
-          ),
-          const SizedBox(width: 5),
-          Text(
-            title == 'TO HIT' ? '${weapon.range}' : '${weapon.damage}',
-            style: const TextStyle(fontSize: 20),
-          ),
-        ],
-      ),
+    return Row(
+      children: [
+        weapon.quantityOfDamageDices > 1 && title == 'DAMAGE'
+            ? Text(
+                '${weapon.quantityOfDamageDices}d',
+                style: const TextStyle(fontSize: 20),
+              )
+            : const SizedBox(width: 25),
+        Image.asset(
+          title == 'TO HIT' ? weapon.checkDice.img : weapon.damageDice.img,
+          width: 20,
+        ),
+        const SizedBox(width: 5),
+        const Text(
+          '+',
+          style: TextStyle(fontSize: 15),
+        ),
+        const SizedBox(width: 5),
+        Text(
+          title == 'TO HIT' ? '${weapon.range}' : '${weapon.damage}',
+          style: const TextStyle(fontSize: 20),
+        ),
+      ],
     );
   }
 }

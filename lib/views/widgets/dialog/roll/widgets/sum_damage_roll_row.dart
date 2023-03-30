@@ -38,43 +38,36 @@ class SumDamageRollsRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          SizedBox(
-            width: 65,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  children: [
-                    weapon.quantityOfDamageDices > 1
-                        ? Text(
-                            '${weapon.quantityOfDamageDices}d',
-                            style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          )
-                        : const SizedBox.shrink(),
-                    Image.asset(
-                      weapon.damageDice.img,
-                      width: 20,
-                      height: 20,
-                    ),
-                  ],
-                ),
-                Text(
-                  damageRolls
-                      .reduce((value, element) => value + element)
-                      .toString(),
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-              ],
+          Row(
+            children: [
+              weapon.quantityOfDamageDices > 1
+                  ? Text(
+                      '${weapon.quantityOfDamageDices}d',
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    )
+                  : const SizedBox.shrink(),
+              Image.asset(
+                weapon.damageDice.img,
+                width: 20,
+                height: 20,
+              ),
+            ],
+          ),
+          const SizedBox(
+            width: 4,
+          ),
+          Text(
+            damageRolls.reduce((value, element) => value + element).toString(),
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.normal,
             ),
           ),
           plusDamageRolls.isNotEmpty
@@ -107,7 +100,13 @@ class SumDamageRollsRow extends StatelessWidget {
                   ),
                 )
               : const SizedBox.shrink(),
+          const SizedBox(
+            width: 4,
+          ),
           PlusMinusIcon(modifier: weapon.range),
+          const SizedBox(
+            width: 4,
+          ),
           Text(
             '${weapon.range.abs()}',
             style: const TextStyle(
@@ -115,7 +114,13 @@ class SumDamageRollsRow extends StatelessWidget {
               color: Colors.green,
             ),
           ),
+          const SizedBox(
+            width: 4,
+          ),
           const FaIcon(FontAwesomeIcons.arrowRight, size: 15),
+          const SizedBox(
+            width: 4,
+          ),
           Text(
             '$totalDamage',
             style: const TextStyle(

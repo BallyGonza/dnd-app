@@ -30,7 +30,7 @@ class SumRollRow extends StatelessWidget {
                 width: 20,
                 height: 20,
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 5),
               RollText(
                 roll: roll,
               ),
