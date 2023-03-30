@@ -309,7 +309,7 @@ Character evendurGreycastle = Character(
       'assets/images/characters/evendur_greycastle/evendur_greycastle_profile.jpeg',
   banner:
       'assets/images/characters/evendur_greycastle/evendur_greycastle_banner.jpeg',
-  password: 'test',
+  password: 'Bocha100',
 );
 
 final List<Character> defaultCharacters = [
