@@ -108,7 +108,7 @@ class SumDamageRollsRow extends StatelessWidget {
             width: 4,
           ),
           Text(
-            '${weapon.range.abs()}',
+            '${weapon.damage.abs()}',
             style: const TextStyle(
               fontSize: 20,
               color: Colors.green,

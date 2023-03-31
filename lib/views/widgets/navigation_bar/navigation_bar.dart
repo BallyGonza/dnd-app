@@ -8,15 +8,18 @@ class NavBar extends StatelessWidget {
     required this.character,
     required this.selected,
     required this.onPressed,
+    required this.navController,
   }) : super(key: key);
 
   final Character character;
   final int selected;
   final Function(int) onPressed;
+  final ScrollController navController;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: navController,
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,24 +57,34 @@ class NavBar extends StatelessWidget {
                   onPressed: onPressed,
                 )
               : const SizedBox.shrink(),
-          character.traits.isNotEmpty
+          NavigationBarButton(
+            name: 'LOOT',
+            indexButton: 4,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          character.background.isNotEmpty || character.languages.isNotEmpty
               ? NavigationBarButton(
-                  name: 'TRAITS',
-                  indexButton: 4,
+                  name: character.background.isNotEmpty
+                      ? 'BACKGROUND'
+                      : 'LANGUAGES',
+                  indexButton: 5,
                   selected: selected,
                   onPressed: onPressed,
                 )
               : const SizedBox.shrink(),
-          NavigationBarButton(
-            name: 'LOOT',
-            indexButton: 5,
-            selected: selected,
-            onPressed: onPressed,
-          ),
+          character.traits.isNotEmpty
+              ? NavigationBarButton(
+                  name: 'TRAITS',
+                  indexButton: 6,
+                  selected: selected,
+                  onPressed: onPressed,
+                )
+              : const SizedBox.shrink(),
           character.wildForms.isNotEmpty
               ? NavigationBarButton(
                   name: 'WILD FORM',
-                  indexButton: 6,
+                  indexButton: 7,
                   selected: selected,
                   onPressed: onPressed,
                 )
@@ -79,16 +92,6 @@ class NavBar extends StatelessWidget {
           character.pets.isNotEmpty
               ? NavigationBarButton(
                   name: 'PET',
-                  indexButton: 7,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.background.isNotEmpty || character.languages.isNotEmpty
-              ? NavigationBarButton(
-                  name: character.background.isNotEmpty
-                      ? 'BACKGROUND'
-                      : 'LANGUAGES',
                   indexButton: 8,
                   selected: selected,
                   onPressed: onPressed,

@@ -1,5 +1,5 @@
 import 'package:dnd_app/theme.dart';
-import 'package:dnd_app/views/widgets/navigation_bar/widgets/navigation_bar_button.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +26,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   final CharacterRepository characterRepository = CharacterRepository();
   final PageController _pageController = PageController(
     initialPage: 0,
+  );
+  final ScrollController _navController = ScrollController(
+    initialScrollOffset: 0,
   );
 
   @override
@@ -77,6 +80,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                 character: widget.character,
               ),
               NavBar(
+                  navController: _navController,
                   character: widget.character,
                   selected: selected,
                   onPressed: (index) {
@@ -133,6 +137,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         onPageChanged: (index) {
           setState(() {
             selected = index;
+
+            _navController.animateTo(
+              index * 25.0,
+              duration: const Duration(milliseconds: 600),
+              curve: Curves.ease,
+            );
           });
         },
         children: <Widget>[
@@ -153,12 +163,16 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   spells: widget.character.spells,
                 )
               : const SizedBox.shrink(),
+          const NoteList(),
+          BackgroundsList(
+            backgrounds: widget.character.background,
+            languages: widget.character.languages,
+          ),
           widget.character.traits.isNotEmpty
               ? TraitsList(
                   traits: widget.character.traits,
                 )
               : const SizedBox.shrink(),
-          const NoteList(),
           widget.character.wildForms.isNotEmpty
               ? WildFormCard(
                   wildForms: widget.character.wildForms,
@@ -169,10 +183,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   pets: widget.character.pets,
                 )
               : const SizedBox.shrink(),
-          BackgroundsList(
-            backgrounds: widget.character.background,
-            languages: widget.character.languages,
-          ),
           widget.character.backstory != ''
               ? BackstoryCard(
                   backstory: widget.character.backstory,
