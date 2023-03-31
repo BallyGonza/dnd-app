@@ -127,7 +127,7 @@ Character vaunea = Character(
   lastName: '',
   level: 9,
   race: 'Goliath',
-  classes: ['Barbarian', 'Druid', 'Guerrera del totem'],
+  classes: ['Barbarian (7)', 'Druid (2)', 'Guerrera del totem'],
   armor: 13,
   initiative: -1,
   speed: 8,

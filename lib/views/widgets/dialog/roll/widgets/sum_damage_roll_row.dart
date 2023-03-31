@@ -28,11 +28,11 @@ class SumDamageRollsRow extends StatelessWidget {
 
     if (plusDamageRolls.isEmpty) {
       totalDamage = damageRolls.reduce((value, element) => value + element) +
-          weapon.range;
+          weapon.damage;
     } else {
       totalDamage = damageRolls.reduce((value, element) => value + element) +
           plusDamageRolls.reduce((value, element) => value + element) +
-          weapon.range;
+          weapon.damage;
     }
 
     return Padding(
@@ -103,7 +103,7 @@ class SumDamageRollsRow extends StatelessWidget {
           const SizedBox(
             width: 4,
           ),
-          PlusMinusIcon(modifier: weapon.range),
+          PlusMinusIcon(modifier: weapon.damage),
           const SizedBox(
             width: 4,
           ),

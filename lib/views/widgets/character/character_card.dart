@@ -13,19 +13,16 @@ class CharacterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final String name = character.name.toString();
     final String lastName = character.lastName.toString();
-    final String level = character.level.toString();
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ClipRect(
-        clipBehavior: Clip.antiAlias,
-        child: Container(
+      child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
               image: AssetImage(character.banner),
               fit: BoxFit.cover,
-              opacity: 0.5,
+              opacity: 0.3,
             ),
           ),
           child: ListTile(
@@ -49,7 +46,7 @@ class CharacterCard extends StatelessWidget {
               '${character.classes[0]} ${character.classes[1]}',
               style: const TextStyle(
                 fontSize: 12,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 fontStyle: FontStyle.italic,
               ),
             ),
@@ -97,6 +94,7 @@ class CharacterCard extends StatelessWidget {
                               onPressed: () {
                                 if (character.password ==
                                     passwordController.text) {
+                                  passwordController.clear();
                                   Navigator.pop(context);
                                   Navigator.push(
                                     context,
@@ -124,18 +122,8 @@ class CharacterCard extends StatelessWidget {
                   ),
                 ),
               );
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => CharacterDetailScreen(
-              //       character: character,
-              //     ),
-              //   ),
-              // );
             },
-          ),
-        ),
-      ),
+          )),
     );
   }
 
