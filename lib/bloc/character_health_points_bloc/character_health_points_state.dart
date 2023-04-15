@@ -8,7 +8,7 @@ class CharacterHealthPointsState with _$CharacterHealthPointsState {
       CharacterHealthPointsInitial;
   const factory CharacterHealthPointsState.loading() =
       CharacterHealthPointsLoading;
-  const factory CharacterHealthPointsState.updated(
+  const factory CharacterHealthPointsState.loaded(
     int current,
   ) = CharacterHealthPointsUpdated;
 }

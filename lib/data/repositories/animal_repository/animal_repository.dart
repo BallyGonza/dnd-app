@@ -10,6 +10,7 @@ class AnimalRepository {
 List<AnimalModel> defaultAnimals = [ghost, bear, chimuelo];
 
 AnimalModel ghost = AnimalModel(
+  id: 0,
   name: 'Ghost',
   race: 'Blink Dog',
   img: 'assets/images/animals/blink_dog/blink_dog.jpeg',
@@ -81,6 +82,7 @@ AnimalModel ghost = AnimalModel(
 );
 
 AnimalModel chimuelo = AnimalModel(
+  id: 1,
   name: 'Chimuelo',
   race: 'Tressym',
   img: 'assets/images/animals/tressym/tressym.jpeg',
@@ -154,6 +156,7 @@ AnimalModel chimuelo = AnimalModel(
 );
 
 AnimalModel bear = AnimalModel(
+  id: 2,
   name: 'Bear',
   race: 'Brown Bear',
   img: 'assets/images/animals/bear/bear.jpeg',

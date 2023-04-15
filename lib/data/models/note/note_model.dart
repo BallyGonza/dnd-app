@@ -1,28 +1,25 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'note_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 11)
 class Note extends HiveObject {
   @HiveField(0)
-  String title;
+  final int id;
   @HiveField(1)
-  String content;
+  String title;
   @HiveField(2)
-  String date;
+  String content;
   @HiveField(3)
+  String date;
+  @HiveField(4)
   int color;
 
   Note({
+    required this.id,
     required this.title,
     required this.content,
     required this.date,
     required this.color,
   });
-
-  factory Note.fromJson(Map<String, dynamic> json) => _$NoteFromJson(json);
-
-  Map<String, dynamic> toJson() => _$NoteToJson(this);
 }

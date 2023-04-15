@@ -6,7 +6,7 @@ part 'pet_health_points_state.freezed.dart';
 class PetHealthPointsState with _$PetHealthPointsState {
   const factory PetHealthPointsState.initial() = PetHealthPointsInitial;
   const factory PetHealthPointsState.loading() = PetHealthPointsLoading;
-  const factory PetHealthPointsState.updated(
+  const factory PetHealthPointsState.loaded(
     int current,
   ) = PetHealthPointsUpdated;
 }

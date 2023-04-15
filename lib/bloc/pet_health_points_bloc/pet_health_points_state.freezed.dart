@@ -20,21 +20,21 @@ mixin _$PetHealthPointsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$PetHealthPointsState {
   TResult map<TResult extends Object?>({
     required TResult Function(PetHealthPointsInitial value) initial,
     required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) updated,
+    required TResult Function(PetHealthPointsUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PetHealthPointsInitial value)? initial,
     TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? updated,
+    TResult? Function(PetHealthPointsUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PetHealthPointsInitial value)? initial,
     TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? updated,
+    TResult Function(PetHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,7 +121,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return initial();
   }
@@ -131,7 +131,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return initial?.call();
   }
@@ -141,7 +141,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -155,7 +155,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(PetHealthPointsInitial value) initial,
     required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) updated,
+    required TResult Function(PetHealthPointsUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -165,7 +165,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PetHealthPointsInitial value)? initial,
     TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? updated,
+    TResult? Function(PetHealthPointsUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -175,7 +175,7 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PetHealthPointsInitial value)? initial,
     TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? updated,
+    TResult Function(PetHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -229,7 +229,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return loading();
   }
@@ -239,7 +239,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return loading?.call();
   }
@@ -249,7 +249,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -263,7 +263,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(PetHealthPointsInitial value) initial,
     required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) updated,
+    required TResult Function(PetHealthPointsUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -273,7 +273,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PetHealthPointsInitial value)? initial,
     TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? updated,
+    TResult? Function(PetHealthPointsUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -283,7 +283,7 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PetHealthPointsInitial value)? initial,
     TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? updated,
+    TResult Function(PetHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -338,7 +338,7 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
 
   @override
   String toString() {
-    return 'PetHealthPointsState.updated(current: $current)';
+    return 'PetHealthPointsState.loaded(current: $current)';
   }
 
   @override
@@ -364,9 +364,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
-    return updated(current);
+    return loaded(current);
   }
 
   @override
@@ -374,9 +374,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
-    return updated?.call(current);
+    return loaded?.call(current);
   }
 
   @override
@@ -384,11 +384,11 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(current);
+    if (loaded != null) {
+      return loaded(current);
     }
     return orElse();
   }
@@ -398,9 +398,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(PetHealthPointsInitial value) initial,
     required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) updated,
+    required TResult Function(PetHealthPointsUpdated value) loaded,
   }) {
-    return updated(this);
+    return loaded(this);
   }
 
   @override
@@ -408,9 +408,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PetHealthPointsInitial value)? initial,
     TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? updated,
+    TResult? Function(PetHealthPointsUpdated value)? loaded,
   }) {
-    return updated?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -418,11 +418,11 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PetHealthPointsInitial value)? initial,
     TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? updated,
+    TResult Function(PetHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }

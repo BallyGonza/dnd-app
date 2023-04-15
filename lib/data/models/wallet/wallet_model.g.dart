@@ -17,11 +17,11 @@ class WalletModelAdapter extends TypeAdapter<WalletModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return WalletModel(
-      platinumPieces: fields[0] as int,
-      goldPieces: fields[1] as int,
-      electrumPieces: fields[2] as int,
-      silverPieces: fields[3] as int,
-      copperPieces: fields[4] as int,
+      platinum: fields[0] as int,
+      gold: fields[1] as int,
+      electrum: fields[2] as int,
+      silver: fields[3] as int,
+      copper: fields[4] as int,
     );
   }
 
@@ -30,15 +30,15 @@ class WalletModelAdapter extends TypeAdapter<WalletModel> {
     writer
       ..writeByte(5)
       ..writeByte(0)
-      ..write(obj.platinumPieces)
+      ..write(obj.platinum)
       ..writeByte(1)
-      ..write(obj.goldPieces)
+      ..write(obj.gold)
       ..writeByte(2)
-      ..write(obj.electrumPieces)
+      ..write(obj.electrum)
       ..writeByte(3)
-      ..write(obj.silverPieces)
+      ..write(obj.silver)
       ..writeByte(4)
-      ..write(obj.copperPieces);
+      ..write(obj.copper);
   }
 
   @override

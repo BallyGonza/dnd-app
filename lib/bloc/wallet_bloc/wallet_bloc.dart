@@ -23,7 +23,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     Emitter<WalletState> emit,
   ) async {
     character = await characterRepository.getCharacter(event.characterId);
-    emit(WalletState.updated(character.wallet));
+    emit(WalletState.loaded(character.wallet));
   }
 
   Future<void> _onAdd(
@@ -32,7 +32,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
   ) async {
     character.wallet.addPieces(pieces: event.pieces);
     await characterRepository.updateCharacter(character);
-    emit(WalletState.updated(character.wallet));
+    emit(WalletState.loaded(character.wallet));
   }
 
   Future<void> _onSubtract(
@@ -41,7 +41,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
   ) async {
     character.wallet.removePieces(pieces: event.pieces);
     await characterRepository.updateCharacter(character);
-    emit(WalletState.updated(character.wallet));
+    emit(WalletState.loaded(character.wallet));
   }
 
   Future<void> _onSet(
@@ -50,6 +50,6 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
   ) async {
     character.wallet.setPieces(pieces: event.pieces, amount: event.amount);
     await characterRepository.updateCharacter(character);
-    emit(WalletState.updated(character.wallet));
+    emit(WalletState.loaded(character.wallet));
   }
 }

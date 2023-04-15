@@ -8,7 +8,7 @@ class WildFormHealthPointsState with _$WildFormHealthPointsState {
       WildFormHealthPointsInitial;
   const factory WildFormHealthPointsState.loading() =
       WildFormHealthPointsLoading;
-  const factory WildFormHealthPointsState.updated(
+  const factory WildFormHealthPointsState.loaded(
     int current,
   ) = WildFormHealthPointsUpdated;
 }

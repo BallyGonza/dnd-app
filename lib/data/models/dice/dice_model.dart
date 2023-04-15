@@ -7,13 +7,16 @@ part 'dice_model.g.dart';
 @HiveType(typeId: 2)
 class DiceModel {
   @HiveField(0)
-  final String name;
+  final int id;
   @HiveField(1)
-  final int sides;
+  final String name;
   @HiveField(2)
+  final int sides;
+  @HiveField(3)
   final String img;
 
   DiceModel({
+    required this.id,
     required this.name,
     required this.sides,
     required this.img,

@@ -20,21 +20,21 @@ mixin _$CharacterHealthPointsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$CharacterHealthPointsState {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterHealthPointsInitial value) initial,
     required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) updated,
+    required TResult Function(CharacterHealthPointsUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterHealthPointsInitial value)? initial,
     TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? updated,
+    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterHealthPointsInitial value)? initial,
     TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? updated,
+    TResult Function(CharacterHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return initial();
   }
@@ -136,7 +136,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return initial?.call();
   }
@@ -146,7 +146,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -160,7 +160,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterHealthPointsInitial value) initial,
     required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) updated,
+    required TResult Function(CharacterHealthPointsUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -170,7 +170,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterHealthPointsInitial value)? initial,
     TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? updated,
+    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -180,7 +180,7 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterHealthPointsInitial value)? initial,
     TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? updated,
+    TResult Function(CharacterHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -239,7 +239,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return loading();
   }
@@ -249,7 +249,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return loading?.call();
   }
@@ -259,7 +259,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -273,7 +273,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterHealthPointsInitial value) initial,
     required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) updated,
+    required TResult Function(CharacterHealthPointsUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -283,7 +283,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterHealthPointsInitial value)? initial,
     TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? updated,
+    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -293,7 +293,7 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterHealthPointsInitial value)? initial,
     TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? updated,
+    TResult Function(CharacterHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -352,7 +352,7 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
 
   @override
   String toString() {
-    return 'CharacterHealthPointsState.updated(current: $current)';
+    return 'CharacterHealthPointsState.loaded(current: $current)';
   }
 
   @override
@@ -378,9 +378,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
-    return updated(current);
+    return loaded(current);
   }
 
   @override
@@ -388,9 +388,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
-    return updated?.call(current);
+    return loaded?.call(current);
   }
 
   @override
@@ -398,11 +398,11 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(current);
+    if (loaded != null) {
+      return loaded(current);
     }
     return orElse();
   }
@@ -412,9 +412,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterHealthPointsInitial value) initial,
     required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) updated,
+    required TResult Function(CharacterHealthPointsUpdated value) loaded,
   }) {
-    return updated(this);
+    return loaded(this);
   }
 
   @override
@@ -422,9 +422,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterHealthPointsInitial value)? initial,
     TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? updated,
+    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
   }) {
-    return updated?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -432,11 +432,11 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterHealthPointsInitial value)? initial,
     TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? updated,
+    TResult Function(CharacterHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }

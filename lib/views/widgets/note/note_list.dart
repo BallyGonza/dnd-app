@@ -156,6 +156,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                       LootEvent.edit(
                         index,
                         Note(
+                          id: notes[index].id,
                           title: title,
                           content: content,
                           date: format.format(DateTime.now()),
@@ -179,6 +180,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
         builder: (_) => NotePage(
           isNewNote: true,
           note: Note(
+            id: 0,
             date: format.format(DateTime.now()),
             color: Colors.white.value,
             title: '',
@@ -190,6 +192,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
               context.read<LootBloc>().add(
                     LootEvent.add(
                       Note(
+                        id: DateTime.now().millisecondsSinceEpoch,
                         title: title,
                         content: content,
                         date: format.format(DateTime.now()),

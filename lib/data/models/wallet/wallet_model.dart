@@ -5,63 +5,63 @@ part 'wallet_model.g.dart';
 @HiveType(typeId: 12)
 class WalletModel {
   @HiveField(0)
-  int platinumPieces;
+  int platinum;
   @HiveField(1)
-  int goldPieces;
+  int gold;
   @HiveField(2)
-  int electrumPieces;
+  int electrum;
   @HiveField(3)
-  int silverPieces;
+  int silver;
   @HiveField(4)
-  int copperPieces;
+  int copper;
 
   WalletModel({
-    required this.platinumPieces,
-    required this.goldPieces,
-    required this.electrumPieces,
-    required this.silverPieces,
-    required this.copperPieces,
+    required this.platinum,
+    required this.gold,
+    required this.electrum,
+    required this.silver,
+    required this.copper,
   });
 
   void addPieces({required String pieces}) {
     if (pieces == 'platinum') {
-      platinumPieces += 1;
+      platinum += 1;
     } else if (pieces == 'gold') {
-      goldPieces += 1;
+      gold += 1;
     } else if (pieces == 'electrum') {
-      electrumPieces += 1;
+      electrum += 1;
     } else if (pieces == 'silver') {
-      silverPieces += 1;
+      silver += 1;
     } else if (pieces == 'copper') {
-      copperPieces += 1;
+      copper += 1;
     }
   }
 
   void setPieces({required String pieces, required int amount}) {
     if (pieces == 'platinum') {
-      platinumPieces = amount;
+      platinum = amount;
     } else if (pieces == 'gold') {
-      goldPieces = amount;
+      gold = amount;
     } else if (pieces == 'electrum') {
-      electrumPieces = amount;
+      electrum = amount;
     } else if (pieces == 'silver') {
-      silverPieces = amount;
+      silver = amount;
     } else if (pieces == 'copper') {
-      copperPieces = amount;
+      copper = amount;
     }
   }
 
   void removePieces({required String pieces}) {
-    if (pieces == 'platinum' && platinumPieces > 0) {
-      platinumPieces -= 1;
-    } else if (pieces == 'gold' && goldPieces > 0) {
-      goldPieces -= 1;
-    } else if (pieces == 'electrum' && electrumPieces > 0) {
-      electrumPieces -= 1;
-    } else if (pieces == 'silver' && silverPieces > 0) {
-      silverPieces -= 1;
-    } else if (pieces == 'copper' && copperPieces > 0) {
-      copperPieces -= 1;
+    if (pieces == 'platinum' && platinum > 0) {
+      platinum -= 1;
+    } else if (pieces == 'gold' && gold > 0) {
+      gold -= 1;
+    } else if (pieces == 'electrum' && electrum > 0) {
+      electrum -= 1;
+    } else if (pieces == 'silver' && silver > 0) {
+      silver -= 1;
+    } else if (pieces == 'copper' && copper > 0) {
+      copper -= 1;
     }
   }
 }

@@ -6,35 +6,38 @@ part 'animal_model.g.dart';
 @HiveType(typeId: 5)
 class AnimalModel {
   @HiveField(0)
-  final String name;
+  final int id;
   @HiveField(1)
-  final String race;
+  final String name;
   @HiveField(2)
-  final String img;
+  final String race;
   @HiveField(3)
-  final String profileImg;
+  final String img;
   @HiveField(4)
-  final int armor;
+  final String profileImg;
   @HiveField(5)
-  final int speed;
+  final int armor;
   @HiveField(6)
-  final int? climb;
+  final int speed;
   @HiveField(7)
-  final int? fly;
+  final int? climb;
   @HiveField(8)
-  HealthPointsModel healthPoints;
+  final int? fly;
   @HiveField(9)
-  final List<AbilityModel> abilities;
+  HealthPointsModel healthPoints;
   @HiveField(10)
-  final List<SavingThrowModel> savingThrows;
+  final List<AbilityModel> abilities;
   @HiveField(11)
-  final List<WeaponModel> weapons;
+  final List<SavingThrowModel> savingThrows;
   @HiveField(12)
-  final List<TraitModel> traits;
+  final List<WeaponModel> weapons;
   @HiveField(13)
+  final List<TraitModel> traits;
+  @HiveField(14)
   final List<SkillModel> skills;
 
   AnimalModel({
+    required this.id,
     required this.name,
     required this.race,
     required this.img,

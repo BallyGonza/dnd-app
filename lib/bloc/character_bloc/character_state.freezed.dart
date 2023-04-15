@@ -20,21 +20,21 @@ mixin _$CharacterState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterModel> characters) updated,
+    required TResult Function(List<CharacterModel> characters) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterModel> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterModel> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$CharacterState {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
     required TResult Function(CharacterLoading value) loading,
-    required TResult Function(CharacterUpdated value) updated,
+    required TResult Function(CharacterUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
     TResult? Function(CharacterLoading value)? loading,
-    TResult? Function(CharacterUpdated value)? updated,
+    TResult? Function(CharacterUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
     TResult Function(CharacterLoading value)? loading,
-    TResult Function(CharacterUpdated value)? updated,
+    TResult Function(CharacterUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterModel> characters) updated,
+    required TResult Function(List<CharacterModel> characters) loaded,
   }) {
     return initial();
   }
@@ -130,7 +130,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterModel> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? loaded,
   }) {
     return initial?.call();
   }
@@ -140,7 +140,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterModel> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -154,7 +154,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
     required TResult Function(CharacterLoading value) loading,
-    required TResult Function(CharacterUpdated value) updated,
+    required TResult Function(CharacterUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -164,7 +164,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
     TResult? Function(CharacterLoading value)? loading,
-    TResult? Function(CharacterUpdated value)? updated,
+    TResult? Function(CharacterUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -174,7 +174,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
     TResult Function(CharacterLoading value)? loading,
-    TResult Function(CharacterUpdated value)? updated,
+    TResult Function(CharacterUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,7 +228,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterModel> characters) updated,
+    required TResult Function(List<CharacterModel> characters) loaded,
   }) {
     return loading();
   }
@@ -238,7 +238,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterModel> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? loaded,
   }) {
     return loading?.call();
   }
@@ -248,7 +248,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterModel> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -262,7 +262,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
     required TResult Function(CharacterLoading value) loading,
-    required TResult Function(CharacterUpdated value) updated,
+    required TResult Function(CharacterUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -272,7 +272,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
     TResult? Function(CharacterLoading value)? loading,
-    TResult? Function(CharacterUpdated value)? updated,
+    TResult? Function(CharacterUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -282,7 +282,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
     TResult Function(CharacterLoading value)? loading,
-    TResult Function(CharacterUpdated value)? updated,
+    TResult Function(CharacterUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -343,7 +343,7 @@ class _$CharacterUpdated implements CharacterUpdated {
 
   @override
   String toString() {
-    return 'CharacterState.updated(characters: $characters)';
+    return 'CharacterState.loaded(characters: $characters)';
   }
 
   @override
@@ -370,9 +370,9 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterModel> characters) updated,
+    required TResult Function(List<CharacterModel> characters) loaded,
   }) {
-    return updated(characters);
+    return loaded(characters);
   }
 
   @override
@@ -380,9 +380,9 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterModel> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? loaded,
   }) {
-    return updated?.call(characters);
+    return loaded?.call(characters);
   }
 
   @override
@@ -390,11 +390,11 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterModel> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(characters);
+    if (loaded != null) {
+      return loaded(characters);
     }
     return orElse();
   }
@@ -404,9 +404,9 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
     required TResult Function(CharacterLoading value) loading,
-    required TResult Function(CharacterUpdated value) updated,
+    required TResult Function(CharacterUpdated value) loaded,
   }) {
-    return updated(this);
+    return loaded(this);
   }
 
   @override
@@ -414,9 +414,9 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
     TResult? Function(CharacterLoading value)? loading,
-    TResult? Function(CharacterUpdated value)? updated,
+    TResult? Function(CharacterUpdated value)? loaded,
   }) {
-    return updated?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -424,11 +424,11 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
     TResult Function(CharacterLoading value)? loading,
-    TResult Function(CharacterUpdated value)? updated,
+    TResult Function(CharacterUpdated value)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }

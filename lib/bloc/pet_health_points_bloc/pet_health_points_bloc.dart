@@ -22,7 +22,7 @@ class PetHealthPointsBloc
     Emitter<PetHealthPointsState> emit,
   ) async {
     character = await characterRepository.getCharacter(event.characterId);
-    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
+    emit(PetHealthPointsState.loaded(character.pets[0].healthPoints.current));
   }
 
   Future<void> _onAdd(
@@ -31,7 +31,7 @@ class PetHealthPointsBloc
   ) async {
     character.pets[0].healthPoints.add();
     await characterRepository.updateCharacter(character);
-    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
+    emit(PetHealthPointsState.loaded(character.pets[0].healthPoints.current));
   }
 
   Future<void> _onSubtract(
@@ -40,7 +40,7 @@ class PetHealthPointsBloc
   ) async {
     character.pets[0].healthPoints.subtract();
     await characterRepository.updateCharacter(character);
-    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
+    emit(PetHealthPointsState.loaded(character.pets[0].healthPoints.current));
   }
 
   Future<void> _onReset(
@@ -49,6 +49,6 @@ class PetHealthPointsBloc
   ) async {
     character.pets[0].healthPoints.reset();
     await characterRepository.updateCharacter(character);
-    emit(PetHealthPointsState.updated(character.healthPoints.current));
+    emit(PetHealthPointsState.loaded(character.healthPoints.current));
   }
 }

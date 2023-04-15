@@ -11,7 +11,7 @@ class CharactersList extends StatelessWidget {
     return BlocBuilder<CharacterBloc, CharacterState>(
       builder: (context, state) {
         return state.maybeWhen(
-          updated: (characters) {
+          loaded: (characters) {
             return ListView.builder(
               itemCount: characters.length,
               itemBuilder: (context, index) {

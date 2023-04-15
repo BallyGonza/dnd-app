@@ -23,6 +23,6 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     for (final character in characters) {
       await characterRepository.addCharacterIfNotExists(character);
     }
-    emit(CharacterState.updated(characters));
+    emit(CharacterState.loaded(characters));
   }
 }

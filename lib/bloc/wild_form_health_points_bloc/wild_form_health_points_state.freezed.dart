@@ -20,21 +20,21 @@ mixin _$WildFormHealthPointsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$WildFormHealthPointsState {
   TResult map<TResult extends Object?>({
     required TResult Function(WildFormHealthPointsInitial value) initial,
     required TResult Function(WildFormHealthPointsLoading value) loading,
-    required TResult Function(WildFormHealthPointsUpdated value) updated,
+    required TResult Function(WildFormHealthPointsUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WildFormHealthPointsInitial value)? initial,
     TResult? Function(WildFormHealthPointsLoading value)? loading,
-    TResult? Function(WildFormHealthPointsUpdated value)? updated,
+    TResult? Function(WildFormHealthPointsUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WildFormHealthPointsInitial value)? initial,
     TResult Function(WildFormHealthPointsLoading value)? loading,
-    TResult Function(WildFormHealthPointsUpdated value)? updated,
+    TResult Function(WildFormHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,7 +125,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return initial();
   }
@@ -135,7 +135,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return initial?.call();
   }
@@ -145,7 +145,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -159,7 +159,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(WildFormHealthPointsInitial value) initial,
     required TResult Function(WildFormHealthPointsLoading value) loading,
-    required TResult Function(WildFormHealthPointsUpdated value) updated,
+    required TResult Function(WildFormHealthPointsUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -169,7 +169,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WildFormHealthPointsInitial value)? initial,
     TResult? Function(WildFormHealthPointsLoading value)? loading,
-    TResult? Function(WildFormHealthPointsUpdated value)? updated,
+    TResult? Function(WildFormHealthPointsUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -179,7 +179,7 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WildFormHealthPointsInitial value)? initial,
     TResult Function(WildFormHealthPointsLoading value)? loading,
-    TResult Function(WildFormHealthPointsUpdated value)? updated,
+    TResult Function(WildFormHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -238,7 +238,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
     return loading();
   }
@@ -248,7 +248,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
     return loading?.call();
   }
@@ -258,7 +258,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -272,7 +272,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(WildFormHealthPointsInitial value) initial,
     required TResult Function(WildFormHealthPointsLoading value) loading,
-    required TResult Function(WildFormHealthPointsUpdated value) updated,
+    required TResult Function(WildFormHealthPointsUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -282,7 +282,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WildFormHealthPointsInitial value)? initial,
     TResult? Function(WildFormHealthPointsLoading value)? loading,
-    TResult? Function(WildFormHealthPointsUpdated value)? updated,
+    TResult? Function(WildFormHealthPointsUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -292,7 +292,7 @@ class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WildFormHealthPointsInitial value)? initial,
     TResult Function(WildFormHealthPointsLoading value)? loading,
-    TResult Function(WildFormHealthPointsUpdated value)? updated,
+    TResult Function(WildFormHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -351,7 +351,7 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
 
   @override
   String toString() {
-    return 'WildFormHealthPointsState.updated(current: $current)';
+    return 'WildFormHealthPointsState.loaded(current: $current)';
   }
 
   @override
@@ -377,9 +377,9 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(int current) updated,
+    required TResult Function(int current) loaded,
   }) {
-    return updated(current);
+    return loaded(current);
   }
 
   @override
@@ -387,9 +387,9 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(int current)? updated,
+    TResult? Function(int current)? loaded,
   }) {
-    return updated?.call(current);
+    return loaded?.call(current);
   }
 
   @override
@@ -397,11 +397,11 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(int current)? updated,
+    TResult Function(int current)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(current);
+    if (loaded != null) {
+      return loaded(current);
     }
     return orElse();
   }
@@ -411,9 +411,9 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(WildFormHealthPointsInitial value) initial,
     required TResult Function(WildFormHealthPointsLoading value) loading,
-    required TResult Function(WildFormHealthPointsUpdated value) updated,
+    required TResult Function(WildFormHealthPointsUpdated value) loaded,
   }) {
-    return updated(this);
+    return loaded(this);
   }
 
   @override
@@ -421,9 +421,9 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WildFormHealthPointsInitial value)? initial,
     TResult? Function(WildFormHealthPointsLoading value)? loading,
-    TResult? Function(WildFormHealthPointsUpdated value)? updated,
+    TResult? Function(WildFormHealthPointsUpdated value)? loaded,
   }) {
-    return updated?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -431,11 +431,11 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WildFormHealthPointsInitial value)? initial,
     TResult Function(WildFormHealthPointsLoading value)? loading,
-    TResult Function(WildFormHealthPointsUpdated value)? updated,
+    TResult Function(WildFormHealthPointsUpdated value)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }

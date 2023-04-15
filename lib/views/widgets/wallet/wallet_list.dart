@@ -28,7 +28,7 @@ class _WalletListState extends State<WalletList> {
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () => const CircularProgressIndicator(),
-          updated: (wallet) => Align(
+          loaded: (wallet) => Align(
             alignment: Alignment.topCenter,
             child: Wrap(
               alignment: WrapAlignment.center,
@@ -49,7 +49,7 @@ class _WalletListState extends State<WalletList> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                wallet.copperPieces = int.parse(value);
+                                wallet.copper = int.parse(value);
                               });
                             },
                           ),
@@ -61,7 +61,7 @@ class _WalletListState extends State<WalletList> {
                                     context.read<WalletBloc>().add(
                                           WalletEvent.set(
                                             'copper',
-                                            wallet.copperPieces,
+                                            wallet.copper,
                                           ),
                                         );
                                   },
@@ -79,7 +79,7 @@ class _WalletListState extends State<WalletList> {
                   }),
                   child: WalletListItem(
                     coinType: 'Cobre',
-                    coinAmount: wallet.copperPieces,
+                    coinAmount: wallet.copper,
                     onAdd: () => setState(
                       () {
                         context.read<WalletBloc>().add(
@@ -112,7 +112,7 @@ class _WalletListState extends State<WalletList> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                wallet.silverPieces = int.parse(value);
+                                wallet.silver = int.parse(value);
                               });
                             },
                           ),
@@ -124,7 +124,7 @@ class _WalletListState extends State<WalletList> {
                                     context.read<WalletBloc>().add(
                                           WalletEvent.set(
                                             'silver',
-                                            wallet.silverPieces,
+                                            wallet.silver,
                                           ),
                                         );
                                   },
@@ -142,7 +142,7 @@ class _WalletListState extends State<WalletList> {
                   }),
                   child: WalletListItem(
                     coinType: 'Plata',
-                    coinAmount: wallet.silverPieces,
+                    coinAmount: wallet.silver,
                     onAdd: () => setState(() {
                       context.read<WalletBloc>().add(
                             const WalletEvent.add('silver'),
@@ -173,7 +173,7 @@ class _WalletListState extends State<WalletList> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                wallet.electrumPieces = int.parse(value);
+                                wallet.electrum = int.parse(value);
                               });
                             },
                           ),
@@ -185,7 +185,7 @@ class _WalletListState extends State<WalletList> {
                                     context.read<WalletBloc>().add(
                                           WalletEvent.set(
                                             'electrum',
-                                            wallet.electrumPieces,
+                                            wallet.electrum,
                                           ),
                                         );
                                   },
@@ -203,7 +203,7 @@ class _WalletListState extends State<WalletList> {
                   }),
                   child: WalletListItem(
                     coinType: 'Electrum',
-                    coinAmount: wallet.electrumPieces,
+                    coinAmount: wallet.electrum,
                     onAdd: () => setState(() {
                       context.read<WalletBloc>().add(
                             const WalletEvent.add('electrum'),
@@ -234,7 +234,7 @@ class _WalletListState extends State<WalletList> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                wallet.goldPieces = int.parse(value);
+                                wallet.gold = int.parse(value);
                               });
                             },
                           ),
@@ -246,7 +246,7 @@ class _WalletListState extends State<WalletList> {
                                     context.read<WalletBloc>().add(
                                           WalletEvent.set(
                                             'gold',
-                                            wallet.goldPieces,
+                                            wallet.gold,
                                           ),
                                         );
                                   },
@@ -264,7 +264,7 @@ class _WalletListState extends State<WalletList> {
                   }),
                   child: WalletListItem(
                     coinType: 'Oro',
-                    coinAmount: wallet.goldPieces,
+                    coinAmount: wallet.gold,
                     onAdd: () => setState(() {
                       context.read<WalletBloc>().add(
                             const WalletEvent.add('gold'),
@@ -294,7 +294,7 @@ class _WalletListState extends State<WalletList> {
                             ),
                             onChanged: (value) {
                               setState(() {
-                                wallet.platinumPieces = int.parse(value);
+                                wallet.platinum = int.parse(value);
                               });
                             },
                           ),
@@ -306,7 +306,7 @@ class _WalletListState extends State<WalletList> {
                                     context.read<WalletBloc>().add(
                                           WalletEvent.set(
                                             'platinum',
-                                            wallet.platinumPieces,
+                                            wallet.platinum,
                                           ),
                                         );
                                   },
@@ -324,7 +324,7 @@ class _WalletListState extends State<WalletList> {
                   }),
                   child: WalletListItem(
                     coinType: 'Platino',
-                    coinAmount: wallet.platinumPieces,
+                    coinAmount: wallet.platinum,
                     onAdd: () => setState(() {
                       context.read<WalletBloc>().add(
                             const WalletEvent.add('platinum'),

@@ -52,7 +52,7 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () => const CircularProgressIndicator(),
-                        updated: (healthPoints) => Text(
+                        loaded: (healthPoints) => Text(
                           '$healthPoints',
                           style: TextStyle(
                             fontSize: 20,

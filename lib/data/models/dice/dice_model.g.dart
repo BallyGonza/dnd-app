@@ -17,21 +17,24 @@ class DiceModelAdapter extends TypeAdapter<DiceModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return DiceModel(
-      name: fields[0] as String,
-      sides: fields[1] as int,
-      img: fields[2] as String,
+      id: fields[0] as int,
+      name: fields[1] as String,
+      sides: fields[2] as int,
+      img: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, DiceModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
-      ..write(obj.name)
+      ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.sides)
+      ..write(obj.name)
       ..writeByte(2)
+      ..write(obj.sides)
+      ..writeByte(3)
       ..write(obj.img);
   }
 

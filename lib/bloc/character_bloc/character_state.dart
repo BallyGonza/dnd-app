@@ -7,7 +7,7 @@ part 'character_state.freezed.dart';
 class CharacterState with _$CharacterState {
   const factory CharacterState.initial() = CharacterInitial;
   const factory CharacterState.loading() = CharacterLoading;
-  const factory CharacterState.updated(
+  const factory CharacterState.loaded(
     List<CharacterModel> characters,
   ) = CharacterUpdated;
 }

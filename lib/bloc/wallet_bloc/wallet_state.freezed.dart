@@ -20,21 +20,21 @@ mixin _$WalletState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WalletModel wallet) updated,
+    required TResult Function(WalletModel wallet) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WalletModel wallet)? updated,
+    TResult? Function(WalletModel wallet)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WalletModel wallet)? updated,
+    TResult Function(WalletModel wallet)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +42,21 @@ mixin _$WalletState {
   TResult map<TResult extends Object?>({
     required TResult Function(WalletInitial value) initial,
     required TResult Function(WalletLoading value) loading,
-    required TResult Function(WalletUpdated value) updated,
+    required TResult Function(WalletUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WalletInitial value)? initial,
     TResult? Function(WalletLoading value)? loading,
-    TResult? Function(WalletUpdated value)? updated,
+    TResult? Function(WalletUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletInitial value)? initial,
     TResult Function(WalletLoading value)? loading,
-    TResult Function(WalletUpdated value)? updated,
+    TResult Function(WalletUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$WalletInitial implements WalletInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WalletModel wallet) updated,
+    required TResult Function(WalletModel wallet) loaded,
   }) {
     return initial();
   }
@@ -130,7 +130,7 @@ class _$WalletInitial implements WalletInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WalletModel wallet)? updated,
+    TResult? Function(WalletModel wallet)? loaded,
   }) {
     return initial?.call();
   }
@@ -140,7 +140,7 @@ class _$WalletInitial implements WalletInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WalletModel wallet)? updated,
+    TResult Function(WalletModel wallet)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -154,7 +154,7 @@ class _$WalletInitial implements WalletInitial {
   TResult map<TResult extends Object?>({
     required TResult Function(WalletInitial value) initial,
     required TResult Function(WalletLoading value) loading,
-    required TResult Function(WalletUpdated value) updated,
+    required TResult Function(WalletUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -164,7 +164,7 @@ class _$WalletInitial implements WalletInitial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WalletInitial value)? initial,
     TResult? Function(WalletLoading value)? loading,
-    TResult? Function(WalletUpdated value)? updated,
+    TResult? Function(WalletUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -174,7 +174,7 @@ class _$WalletInitial implements WalletInitial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletInitial value)? initial,
     TResult Function(WalletLoading value)? loading,
-    TResult Function(WalletUpdated value)? updated,
+    TResult Function(WalletUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,7 +228,7 @@ class _$WalletLoading implements WalletLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WalletModel wallet) updated,
+    required TResult Function(WalletModel wallet) loaded,
   }) {
     return loading();
   }
@@ -238,7 +238,7 @@ class _$WalletLoading implements WalletLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WalletModel wallet)? updated,
+    TResult? Function(WalletModel wallet)? loaded,
   }) {
     return loading?.call();
   }
@@ -248,7 +248,7 @@ class _$WalletLoading implements WalletLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WalletModel wallet)? updated,
+    TResult Function(WalletModel wallet)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -262,7 +262,7 @@ class _$WalletLoading implements WalletLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(WalletInitial value) initial,
     required TResult Function(WalletLoading value) loading,
-    required TResult Function(WalletUpdated value) updated,
+    required TResult Function(WalletUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -272,7 +272,7 @@ class _$WalletLoading implements WalletLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WalletInitial value)? initial,
     TResult? Function(WalletLoading value)? loading,
-    TResult? Function(WalletUpdated value)? updated,
+    TResult? Function(WalletUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -282,7 +282,7 @@ class _$WalletLoading implements WalletLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletInitial value)? initial,
     TResult Function(WalletLoading value)? loading,
-    TResult Function(WalletUpdated value)? updated,
+    TResult Function(WalletUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -337,7 +337,7 @@ class _$WalletUpdated implements WalletUpdated {
 
   @override
   String toString() {
-    return 'WalletState.updated(wallet: $wallet)';
+    return 'WalletState.loaded(wallet: $wallet)';
   }
 
   @override
@@ -362,9 +362,9 @@ class _$WalletUpdated implements WalletUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(WalletModel wallet) updated,
+    required TResult Function(WalletModel wallet) loaded,
   }) {
-    return updated(wallet);
+    return loaded(wallet);
   }
 
   @override
@@ -372,9 +372,9 @@ class _$WalletUpdated implements WalletUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(WalletModel wallet)? updated,
+    TResult? Function(WalletModel wallet)? loaded,
   }) {
-    return updated?.call(wallet);
+    return loaded?.call(wallet);
   }
 
   @override
@@ -382,11 +382,11 @@ class _$WalletUpdated implements WalletUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(WalletModel wallet)? updated,
+    TResult Function(WalletModel wallet)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(wallet);
+    if (loaded != null) {
+      return loaded(wallet);
     }
     return orElse();
   }
@@ -396,9 +396,9 @@ class _$WalletUpdated implements WalletUpdated {
   TResult map<TResult extends Object?>({
     required TResult Function(WalletInitial value) initial,
     required TResult Function(WalletLoading value) loading,
-    required TResult Function(WalletUpdated value) updated,
+    required TResult Function(WalletUpdated value) loaded,
   }) {
-    return updated(this);
+    return loaded(this);
   }
 
   @override
@@ -406,9 +406,9 @@ class _$WalletUpdated implements WalletUpdated {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WalletInitial value)? initial,
     TResult? Function(WalletLoading value)? loading,
-    TResult? Function(WalletUpdated value)? updated,
+    TResult? Function(WalletUpdated value)? loaded,
   }) {
-    return updated?.call(this);
+    return loaded?.call(this);
   }
 
   @override
@@ -416,11 +416,11 @@ class _$WalletUpdated implements WalletUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WalletInitial value)? initial,
     TResult Function(WalletLoading value)? loading,
-    TResult Function(WalletUpdated value)? updated,
+    TResult Function(WalletUpdated value)? loaded,
     required TResult orElse(),
   }) {
-    if (updated != null) {
-      return updated(this);
+    if (loaded != null) {
+      return loaded(this);
     }
     return orElse();
   }

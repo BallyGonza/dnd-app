@@ -7,7 +7,7 @@ part 'wallet_state.freezed.dart';
 class WalletState with _$WalletState {
   const factory WalletState.initial() = WalletInitial;
   const factory WalletState.loading() = WalletLoading;
-  const factory WalletState.updated(
+  const factory WalletState.loaded(
     WalletModel wallet,
   ) = WalletUpdated;
 }

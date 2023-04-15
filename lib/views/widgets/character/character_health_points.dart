@@ -62,7 +62,7 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                       CharacterHealthPointsState>(
                     builder: (context, state) {
                       return state.maybeWhen(
-                        updated: (current) {
+                        loaded: (current) {
                           return Text(
                             '$current',
                             style: const TextStyle(

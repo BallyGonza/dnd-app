@@ -27,7 +27,7 @@ class CharacterHealthPointsBloc
     character = await characterRepository.getCharacter(
       event.characterId,
     );
-    emit(CharacterHealthPointsState.updated(character.healthPoints.current));
+    emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 
   Future<void> _onAdd(
@@ -36,7 +36,7 @@ class CharacterHealthPointsBloc
   ) async {
     character.healthPoints.add();
     await characterRepository.updateCharacter(character);
-    emit(CharacterHealthPointsState.updated(character.healthPoints.current));
+    emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 
   Future<void> _onSubtract(
@@ -45,7 +45,7 @@ class CharacterHealthPointsBloc
   ) async {
     character.healthPoints.subtract();
     await characterRepository.updateCharacter(character);
-    emit(CharacterHealthPointsState.updated(character.healthPoints.current));
+    emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 
   Future<void> _onReset(
@@ -54,6 +54,6 @@ class CharacterHealthPointsBloc
   ) async {
     character.healthPoints.reset();
     await characterRepository.updateCharacter(character);
-    emit(CharacterHealthPointsState.updated(character.healthPoints.current));
+    emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 }
