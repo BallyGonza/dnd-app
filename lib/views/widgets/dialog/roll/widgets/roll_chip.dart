@@ -11,7 +11,7 @@ class RollChip extends StatelessWidget {
 
   final int roll;
   final int modifier;
-  final Dice dice;
+  final DiceModel dice;
 
   @override
   Widget build(BuildContext context) {

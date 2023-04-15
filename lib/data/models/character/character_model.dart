@@ -1,12 +1,10 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'character_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 0)
-class Character {
+class CharacterModel {
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -34,39 +32,39 @@ class Character {
   @HiveField(12)
   final int passivePerception;
   @HiveField(13)
-  final Dice hitDice;
+  final DiceModel hitDice;
   @HiveField(14)
-  HealthPoints healthPoints;
+  HealthPointsModel healthPoints;
   @HiveField(15)
-  final List<Ability> abilities;
+  final List<AbilityModel> abilities;
   @HiveField(16)
-  final List<Skill> skills;
+  final List<SkillModel> skills;
   @HiveField(17)
-  final List<SavingThrow> savingThrows;
+  final List<SavingThrowModel> savingThrows;
   @HiveField(18)
-  final List<Weapon> weapons;
+  final List<WeaponModel> weapons;
   @HiveField(19)
   final String languages;
   @HiveField(20)
-  final List<Trait> traits;
+  final List<TraitModel> traits;
   @HiveField(21)
-  final List<Spell> spells;
+  final List<SpellModel> spells;
   @HiveField(22)
-  final List<Background> background;
+  final List<BackgroundModel> background;
   @HiveField(23)
   final String backstory;
   @HiveField(24)
-  final List<Animal> pets;
+  final List<AnimalModel> pets;
   @HiveField(25)
-  final List<Animal> wildForms;
+  final List<AnimalModel> wildForms;
   @HiveField(26)
   List<Note> notes;
   @HiveField(27)
-  Wallet wallet;
+  WalletModel wallet;
   @HiveField(28)
   final String password;
 
-  Character({
+  CharacterModel({
     required this.id,
     required this.name,
     required this.lastName,
@@ -98,13 +96,8 @@ class Character {
     required this.password,
   });
 
-  factory Character.fromJson(Map<String, dynamic> json) =>
-      _$CharacterFromJson(json);
-
-  Map<String, dynamic> toJson() => _$CharacterToJson(this);
-
-  Character copyWith({required List<Note> notes}) {
-    return Character(
+  CharacterModel copyWith({required List<Note> notes}) {
+    return CharacterModel(
       id: id,
       name: name,
       lastName: lastName,

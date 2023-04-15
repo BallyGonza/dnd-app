@@ -1,12 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:dnd_app/data/data.dart';
 
 part 'animal_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 5)
-class Animal {
+class AnimalModel {
   @HiveField(0)
   final String name;
   @HiveField(1)
@@ -24,19 +22,19 @@ class Animal {
   @HiveField(7)
   final int? fly;
   @HiveField(8)
-  HealthPoints healthPoints;
+  HealthPointsModel healthPoints;
   @HiveField(9)
-  final List<Ability> abilities;
+  final List<AbilityModel> abilities;
   @HiveField(10)
-  final List<SavingThrow> savingThrows;
+  final List<SavingThrowModel> savingThrows;
   @HiveField(11)
-  final List<Weapon> weapons;
+  final List<WeaponModel> weapons;
   @HiveField(12)
-  final List<Trait> traits;
+  final List<TraitModel> traits;
   @HiveField(13)
-  final List<Skill> skills;
+  final List<SkillModel> skills;
 
-  Animal({
+  AnimalModel({
     required this.name,
     required this.race,
     required this.img,
@@ -52,8 +50,4 @@ class Animal {
     required this.traits,
     required this.skills,
   });
-
-  factory Animal.fromJson(Map<String, dynamic> json) => _$AnimalFromJson(json);
-
-  Map<String, dynamic> toJson() => _$AnimalToJson(this);
 }

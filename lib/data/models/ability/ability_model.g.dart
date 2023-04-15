@@ -6,17 +6,17 @@ part of 'ability_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AbilityAdapter extends TypeAdapter<Ability> {
+class AbilityModelAdapter extends TypeAdapter<AbilityModel> {
   @override
   final int typeId = 3;
 
   @override
-  Ability read(BinaryReader reader) {
+  AbilityModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Ability(
+    return AbilityModel(
       name: fields[0] as String,
       score: fields[1] as int,
       modifier: fields[2] as int,
@@ -24,7 +24,7 @@ class AbilityAdapter extends TypeAdapter<Ability> {
   }
 
   @override
-  void write(BinaryWriter writer, Ability obj) {
+  void write(BinaryWriter writer, AbilityModel obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,23 +41,7 @@ class AbilityAdapter extends TypeAdapter<Ability> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AbilityAdapter &&
+      other is AbilityModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Ability _$AbilityFromJson(Map<String, dynamic> json) => Ability(
-      name: json['name'] as String,
-      score: json['score'] as int,
-      modifier: json['modifier'] as int,
-    );
-
-Map<String, dynamic> _$AbilityToJson(Ability instance) => <String, dynamic>{
-      'name': instance.name,
-      'score': instance.score,
-      'modifier': instance.modifier,
-    };

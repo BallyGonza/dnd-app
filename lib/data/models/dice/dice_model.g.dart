@@ -6,17 +6,17 @@ part of 'dice_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class DiceAdapter extends TypeAdapter<Dice> {
+class DiceModelAdapter extends TypeAdapter<DiceModel> {
   @override
   final int typeId = 2;
 
   @override
-  Dice read(BinaryReader reader) {
+  DiceModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Dice(
+    return DiceModel(
       name: fields[0] as String,
       sides: fields[1] as int,
       img: fields[2] as String,
@@ -24,7 +24,7 @@ class DiceAdapter extends TypeAdapter<Dice> {
   }
 
   @override
-  void write(BinaryWriter writer, Dice obj) {
+  void write(BinaryWriter writer, DiceModel obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,23 +41,7 @@ class DiceAdapter extends TypeAdapter<Dice> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DiceAdapter &&
+      other is DiceModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Dice _$DiceFromJson(Map<String, dynamic> json) => Dice(
-      name: json['name'] as String,
-      sides: json['sides'] as int,
-      img: json['img'] as String,
-    );
-
-Map<String, dynamic> _$DiceToJson(Dice instance) => <String, dynamic>{
-      'name': instance.name,
-      'sides': instance.sides,
-      'img': instance.img,
-    };

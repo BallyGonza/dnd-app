@@ -14,7 +14,7 @@ class SumRollRow extends StatelessWidget {
   final int modifier;
   final int roll;
   final int thrashRoll;
-  final Dice dice;
+  final DiceModel dice;
 
   @override
   Widget build(BuildContext context) {

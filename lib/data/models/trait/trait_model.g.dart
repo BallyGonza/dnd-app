@@ -6,24 +6,24 @@ part of 'trait_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class TraitAdapter extends TypeAdapter<Trait> {
+class TraitModelAdapter extends TypeAdapter<TraitModel> {
   @override
   final int typeId = 9;
 
   @override
-  Trait read(BinaryReader reader) {
+  TraitModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Trait(
+    return TraitModel(
       name: fields[0] as String,
       description: fields[1] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Trait obj) {
+  void write(BinaryWriter writer, TraitModel obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -38,21 +38,7 @@ class TraitAdapter extends TypeAdapter<Trait> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is TraitAdapter &&
+      other is TraitModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Trait _$TraitFromJson(Map<String, dynamic> json) => Trait(
-      name: json['name'] as String,
-      description: json['description'] as String,
-    );
-
-Map<String, dynamic> _$TraitToJson(Trait instance) => <String, dynamic>{
-      'name': instance.name,
-      'description': instance.description,
-    };

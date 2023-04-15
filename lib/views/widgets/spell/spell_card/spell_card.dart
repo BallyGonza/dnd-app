@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'widgets/widgets.dart';
 
 class SpellCard extends StatefulWidget {
-  final Spell spell;
+  final SpellModel spell;
 
   const SpellCard({super.key, required this.spell});
 

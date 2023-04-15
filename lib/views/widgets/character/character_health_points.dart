@@ -1,19 +1,19 @@
-import 'package:dnd_app/blocs/blocs.dart';
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharacterHealthPoints extends StatefulWidget {
-  const CharacterHealthPoints(
-      {Key? key,
-      required this.character,
-      required this.max,
-      required this.color})
-      : super(key: key);
+  const CharacterHealthPoints({
+    Key? key,
+    required this.character,
+    required this.max,
+    required this.color,
+  }) : super(key: key);
 
   final int max;
   final Color color;
-  final Character character;
+  final CharacterModel character;
 
   @override
   State<CharacterHealthPoints> createState() => _CharacterHealthPointsState();

@@ -4,14 +4,38 @@ import 'package:hive_flutter/hive_flutter.dart';
 class CharacterRepository {
   CharacterRepository();
 
-  final Box<Character> box = Hive.box<Character>('characters_box');
+  final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
 
-  Future<Character> getCharacter(int id) async {
+  //get default characters
+  Future<List<CharacterModel>> getDefaultCharacters() async {
+    return defaultCharacters;
+  }
+
+  //get character of the box
+  Future<CharacterModel> getCharacter(int id) async {
     return box.get(id)!;
+  }
+
+  //add character to the box if not exists
+  Future<void> addCharacterIfNotExists(CharacterModel character) async {
+    if (!box.containsKey(character.id)) {
+      await box.put(character.id, character);
+    }
+  }
+
+  //update character
+  Future<void> updateCharacter(CharacterModel character) async {
+    await box.put(character.id, character);
   }
 }
 
-Character theekVarus = Character(
+final List<CharacterModel> defaultCharacters = [
+  theekVarus,
+  vaunea,
+  evendurGreycastle
+];
+
+CharacterModel theekVarus = CharacterModel(
   id: 0,
   name: 'Theek',
   lastName: 'Varus',
@@ -24,42 +48,42 @@ Character theekVarus = Character(
   passivePerception: 19,
   classes: ['Ranger', 'Beastmaster'],
   languages: 'Común, Elfíco y Draconico',
-  healthPoints: HealthPoints(current: 84, max: 84),
+  healthPoints: HealthPointsModel(current: 84, max: 84),
   abilities: [
-    Ability(name: 'Fuerza', score: 8, modifier: -1),
-    Ability(name: 'Destreza', score: 18, modifier: 4),
-    Ability(name: 'Constitución', score: 17, modifier: 3),
-    Ability(name: 'Inteligencia', score: 15, modifier: 2),
-    Ability(name: 'Sabiduría', score: 20, modifier: 5),
-    Ability(name: 'Carisma', score: 8, modifier: -1),
+    AbilityModel(name: 'Fuerza', score: 8, modifier: -1),
+    AbilityModel(name: 'Destreza', score: 18, modifier: 4),
+    AbilityModel(name: 'Constitución', score: 17, modifier: 3),
+    AbilityModel(name: 'Inteligencia', score: 15, modifier: 2),
+    AbilityModel(name: 'Sabiduría', score: 20, modifier: 5),
+    AbilityModel(name: 'Carisma', score: 8, modifier: -1),
   ],
   savingThrows: [
-    SavingThrow(name: 'Fuerza', modifier: 3, proficiency: true),
-    SavingThrow(name: 'Destreza', modifier: 8, proficiency: true),
-    SavingThrow(name: 'Constitucion', modifier: 3, proficiency: false),
-    SavingThrow(name: 'Inteligencia', modifier: 2, proficiency: false),
-    SavingThrow(name: 'Sabiduria', modifier: 5, proficiency: false),
-    SavingThrow(name: 'Carisma', modifier: -1, proficiency: false),
+    SavingThrowModel(name: 'Fuerza', modifier: 3, proficiency: true),
+    SavingThrowModel(name: 'Destreza', modifier: 8, proficiency: true),
+    SavingThrowModel(name: 'Constitucion', modifier: 3, proficiency: false),
+    SavingThrowModel(name: 'Inteligencia', modifier: 2, proficiency: false),
+    SavingThrowModel(name: 'Sabiduria', modifier: 5, proficiency: false),
+    SavingThrowModel(name: 'Carisma', modifier: -1, proficiency: false),
   ],
   skills: [
-    Skill(name: 'Acrobacias', modifier: 4, proficiency: false),
-    Skill(name: 'Atletismo', modifier: -1, proficiency: false),
-    Skill(name: 'Conoc. Arcano', modifier: 2, proficiency: false),
-    Skill(name: 'Engaño', modifier: -1, proficiency: false),
-    Skill(name: 'Historia', modifier: 2, proficiency: false),
-    Skill(name: 'Interpretacion', modifier: 5, proficiency: false),
-    Skill(name: 'Intimidación', modifier: -1, proficiency: false),
-    Skill(name: 'Investigación', modifier: 6, proficiency: true),
-    Skill(name: 'J. de Manos', modifier: 4, proficiency: false),
-    Skill(name: 'Medicina', modifier: 5, proficiency: false),
-    Skill(name: 'Naturaleza', modifier: 2, proficiency: true),
-    Skill(name: 'Percepción', modifier: 9, proficiency: true),
-    Skill(name: 'Perspicacia', modifier: -1, proficiency: false),
-    Skill(name: 'Persuasion', modifier: -1, proficiency: false),
-    Skill(name: 'Religión', modifier: 2, proficiency: false),
-    Skill(name: 'Sigilo', modifier: 8, proficiency: true),
-    Skill(name: 'Supervivencia', modifier: 5, proficiency: false),
-    Skill(name: 'T. Animales', modifier: 9, proficiency: true),
+    SkillModel(name: 'Acrobacias', modifier: 4, proficiency: false),
+    SkillModel(name: 'Atletismo', modifier: -1, proficiency: false),
+    SkillModel(name: 'Conoc. Arcano', modifier: 2, proficiency: false),
+    SkillModel(name: 'Engaño', modifier: -1, proficiency: false),
+    SkillModel(name: 'Historia', modifier: 2, proficiency: false),
+    SkillModel(name: 'Interpretacion', modifier: 5, proficiency: false),
+    SkillModel(name: 'Intimidación', modifier: -1, proficiency: false),
+    SkillModel(name: 'Investigación', modifier: 6, proficiency: true),
+    SkillModel(name: 'J. de Manos', modifier: 4, proficiency: false),
+    SkillModel(name: 'Medicina', modifier: 5, proficiency: false),
+    SkillModel(name: 'Naturaleza', modifier: 2, proficiency: true),
+    SkillModel(name: 'Percepción', modifier: 9, proficiency: true),
+    SkillModel(name: 'Perspicacia', modifier: -1, proficiency: false),
+    SkillModel(name: 'Persuasion', modifier: -1, proficiency: false),
+    SkillModel(name: 'Religión', modifier: 2, proficiency: false),
+    SkillModel(name: 'Sigilo', modifier: 8, proficiency: true),
+    SkillModel(name: 'Supervivencia', modifier: 5, proficiency: false),
+    SkillModel(name: 'T. Animales', modifier: 9, proficiency: true),
   ],
   pets: [ghost],
   weapons: [longBow, rapier, dagger],
@@ -82,7 +106,7 @@ Character theekVarus = Character(
     revive,
     elementalWeapon
   ],
-  wallet: Wallet(
+  wallet: WalletModel(
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -92,22 +116,22 @@ Character theekVarus = Character(
   notes: [],
   wildForms: [],
   background: [
-    Background(
+    BackgroundModel(
       name: 'Rasgos de Personalidad',
       description:
           'Siente un llamado natural a explorar nuevos y desconocidos lugares.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Ideales',
       description:
           'La vida, asi como las estaciones, están en constante cambio, y lo natural es aceptar y adaptarse a estos cambios.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Vínculos',
       description:
           'Siente una union particular con la tierra de sus ancestros, confía en que de allí proviene su verdadera esencia.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Defectos',
       description: 'Obstinado en cambiar de opinion.',
     ),
@@ -120,7 +144,7 @@ Character theekVarus = Character(
   password: 'test',
 );
 
-Character vaunea = Character(
+CharacterModel vaunea = CharacterModel(
   id: 1,
   name: 'Vaunea',
   lastName: '',
@@ -132,42 +156,42 @@ Character vaunea = Character(
   speed: 8,
   passivePerception: 19,
   hitDice: d10,
-  healthPoints: HealthPoints(current: 123, max: 123),
+  healthPoints: HealthPointsModel(current: 123, max: 123),
   abilities: [
-    Ability(name: 'Fuerza', score: 19, modifier: 4),
-    Ability(name: 'Destreza', score: 8, modifier: -1),
-    Ability(name: 'Constitución', score: 19, modifier: 4),
-    Ability(name: 'Inteligencia', score: 12, modifier: 1),
-    Ability(name: 'Sabiduría', score: 12, modifier: 1),
-    Ability(name: 'Carisma', score: 10, modifier: 0),
+    AbilityModel(name: 'Fuerza', score: 19, modifier: 4),
+    AbilityModel(name: 'Destreza', score: 8, modifier: -1),
+    AbilityModel(name: 'Constitución', score: 19, modifier: 4),
+    AbilityModel(name: 'Inteligencia', score: 12, modifier: 1),
+    AbilityModel(name: 'Sabiduría', score: 12, modifier: 1),
+    AbilityModel(name: 'Carisma', score: 10, modifier: 0),
   ],
   savingThrows: [
-    SavingThrow(name: 'Fuerza', modifier: 8, proficiency: true),
-    SavingThrow(name: 'Destreza', modifier: -1, proficiency: false),
-    SavingThrow(name: 'Constitucion', modifier: 8, proficiency: true),
-    SavingThrow(name: 'Inteligencia', modifier: 1, proficiency: false),
-    SavingThrow(name: 'Sabiduria', modifier: 1, proficiency: false),
-    SavingThrow(name: 'Carisma', modifier: 0, proficiency: false),
+    SavingThrowModel(name: 'Fuerza', modifier: 8, proficiency: true),
+    SavingThrowModel(name: 'Destreza', modifier: -1, proficiency: false),
+    SavingThrowModel(name: 'Constitucion', modifier: 8, proficiency: true),
+    SavingThrowModel(name: 'Inteligencia', modifier: 1, proficiency: false),
+    SavingThrowModel(name: 'Sabiduria', modifier: 1, proficiency: false),
+    SavingThrowModel(name: 'Carisma', modifier: 0, proficiency: false),
   ],
   skills: [
-    Skill(name: 'Acrobacias', modifier: -1, proficiency: false),
-    Skill(name: 'Atletismo', modifier: 8, proficiency: true),
-    Skill(name: 'Conoc. Arcano', modifier: 1, proficiency: false),
-    Skill(name: 'Engaño', modifier: 0, proficiency: false),
-    Skill(name: 'Historia', modifier: 1, proficiency: false),
-    Skill(name: 'Interpretacion', modifier: 0, proficiency: false),
-    Skill(name: 'Intimidación', modifier: 0, proficiency: false),
-    Skill(name: 'Investigación', modifier: 1, proficiency: false),
-    Skill(name: 'J. de Manos', modifier: -1, proficiency: false),
-    Skill(name: 'Medicina', modifier: 1, proficiency: false),
-    Skill(name: 'Naturaleza', modifier: 5, proficiency: true),
-    Skill(name: 'Percepción', modifier: 5, proficiency: true),
-    Skill(name: 'Perspicacia', modifier: 1, proficiency: false),
-    Skill(name: 'Persuasion', modifier: 0, proficiency: false),
-    Skill(name: 'Religión', modifier: 1, proficiency: false),
-    Skill(name: 'Sigilo', modifier: -1, proficiency: false),
-    Skill(name: 'Supervivencia', modifier: 5, proficiency: true),
-    Skill(name: 'T. Animales', modifier: 1, proficiency: false),
+    SkillModel(name: 'Acrobacias', modifier: -1, proficiency: false),
+    SkillModel(name: 'Atletismo', modifier: 8, proficiency: true),
+    SkillModel(name: 'Conoc. Arcano', modifier: 1, proficiency: false),
+    SkillModel(name: 'Engaño', modifier: 0, proficiency: false),
+    SkillModel(name: 'Historia', modifier: 1, proficiency: false),
+    SkillModel(name: 'Interpretacion', modifier: 0, proficiency: false),
+    SkillModel(name: 'Intimidación', modifier: 0, proficiency: false),
+    SkillModel(name: 'Investigación', modifier: 1, proficiency: false),
+    SkillModel(name: 'J. de Manos', modifier: -1, proficiency: false),
+    SkillModel(name: 'Medicina', modifier: 1, proficiency: false),
+    SkillModel(name: 'Naturaleza', modifier: 5, proficiency: true),
+    SkillModel(name: 'Percepción', modifier: 5, proficiency: true),
+    SkillModel(name: 'Perspicacia', modifier: 1, proficiency: false),
+    SkillModel(name: 'Persuasion', modifier: 0, proficiency: false),
+    SkillModel(name: 'Religión', modifier: 1, proficiency: false),
+    SkillModel(name: 'Sigilo', modifier: -1, proficiency: false),
+    SkillModel(name: 'Supervivencia', modifier: 5, proficiency: true),
+    SkillModel(name: 'T. Animales', modifier: 1, proficiency: false),
   ],
   weapons: [hammerOfFire, hammer, axe, sword],
   languages: 'Común, Gigante',
@@ -190,7 +214,7 @@ Character vaunea = Character(
   pets: [chimuelo],
   wildForms: [bear],
   notes: [],
-  wallet: Wallet(
+  wallet: WalletModel(
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -198,22 +222,22 @@ Character vaunea = Character(
     platinumPieces: 0,
   ),
   background: [
-    Background(
+    BackgroundModel(
       name: 'Rasgos de Personalidad',
       description:
           'El dinero no representa para ella algo de tanto valor como la comida y otros bienes prácticos y útiles.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Ideales',
       description:
           'Heredando el carácter reservado de sus padres, opina que meterse en los asuntos personales de otros no vale la pena y sólo puede traer problemas.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Vínculos',
       description:
           'Tiende a ser más apegada a la naturaleza que a los seres vivos, ya que sobrevivió todo este tiempo gracias a ella.',
     ),
-    Background(
+    BackgroundModel(
       name: 'Defectos',
       description:
           'Si bien no es ajena a las interacciones sociales, le cuesta mucho confiar en los demás, en especial en aquellos que acaba de conocer.',
@@ -227,7 +251,7 @@ Character vaunea = Character(
   password: 'vaunea438',
 );
 
-Character evendurGreycastle = Character(
+CharacterModel evendurGreycastle = CharacterModel(
   id: 2,
   name: 'Evendur',
   lastName: 'Greycastle',
@@ -239,42 +263,42 @@ Character evendurGreycastle = Character(
   speed: 6,
   passivePerception: 10,
   hitDice: d10,
-  healthPoints: HealthPoints(current: 115, max: 115),
+  healthPoints: HealthPointsModel(current: 115, max: 115),
   abilities: [
-    Ability(name: 'Fuerza', score: 18, modifier: 4),
-    Ability(name: 'Destreza', score: 11, modifier: 0),
-    Ability(name: 'Constitución', score: 16, modifier: 3),
-    Ability(name: 'Inteligencia', score: 14, modifier: 2),
-    Ability(name: 'Sabiduría', score: 10, modifier: 0),
-    Ability(name: 'Carisma', score: 18, modifier: 4),
+    AbilityModel(name: 'Fuerza', score: 18, modifier: 4),
+    AbilityModel(name: 'Destreza', score: 11, modifier: 0),
+    AbilityModel(name: 'Constitución', score: 16, modifier: 3),
+    AbilityModel(name: 'Inteligencia', score: 14, modifier: 2),
+    AbilityModel(name: 'Sabiduría', score: 10, modifier: 0),
+    AbilityModel(name: 'Carisma', score: 18, modifier: 4),
   ],
   savingThrows: [
-    SavingThrow(name: 'Fuerza', modifier: 4, proficiency: false),
-    SavingThrow(name: 'Destreza', modifier: 0, proficiency: false),
-    SavingThrow(name: 'Constitucion', modifier: 3, proficiency: false),
-    SavingThrow(name: 'Inteligencia', modifier: 2, proficiency: false),
-    SavingThrow(name: 'Sabiduria', modifier: 3, proficiency: true),
-    SavingThrow(name: 'Carisma', modifier: 7, proficiency: true),
+    SavingThrowModel(name: 'Fuerza', modifier: 4, proficiency: false),
+    SavingThrowModel(name: 'Destreza', modifier: 0, proficiency: false),
+    SavingThrowModel(name: 'Constitucion', modifier: 3, proficiency: false),
+    SavingThrowModel(name: 'Inteligencia', modifier: 2, proficiency: false),
+    SavingThrowModel(name: 'Sabiduria', modifier: 3, proficiency: true),
+    SavingThrowModel(name: 'Carisma', modifier: 7, proficiency: true),
   ],
   skills: [
-    Skill(name: 'Acrobacias', modifier: 0, proficiency: false),
-    Skill(name: 'Atletismo', modifier: 5, proficiency: true),
-    Skill(name: 'Conoc. Arcano', modifier: 2, proficiency: false),
-    Skill(name: 'Engaño', modifier: 4, proficiency: false),
-    Skill(name: 'Historia', modifier: 2, proficiency: false),
-    Skill(name: 'Interpretacion', modifier: 4, proficiency: false),
-    Skill(name: 'Intimidación', modifier: 7, proficiency: true),
-    Skill(name: 'Investigación', modifier: 2, proficiency: false),
-    Skill(name: 'J. de Manos', modifier: 0, proficiency: false),
-    Skill(name: 'Medicina', modifier: 0, proficiency: false),
-    Skill(name: 'Naturaleza', modifier: 2, proficiency: false),
-    Skill(name: 'Percepción', modifier: 0, proficiency: false),
-    Skill(name: 'Perspicacia', modifier: 0, proficiency: false),
-    Skill(name: 'Persuasion', modifier: 7, proficiency: true),
-    Skill(name: 'Religión', modifier: 2, proficiency: true),
-    Skill(name: 'Sigilo', modifier: 0, proficiency: false),
-    Skill(name: 'Supervivencia', modifier: 0, proficiency: true),
-    Skill(name: 'T. Animales', modifier: 0, proficiency: false),
+    SkillModel(name: 'Acrobacias', modifier: 0, proficiency: false),
+    SkillModel(name: 'Atletismo', modifier: 5, proficiency: true),
+    SkillModel(name: 'Conoc. Arcano', modifier: 2, proficiency: false),
+    SkillModel(name: 'Engaño', modifier: 4, proficiency: false),
+    SkillModel(name: 'Historia', modifier: 2, proficiency: false),
+    SkillModel(name: 'Interpretacion', modifier: 4, proficiency: false),
+    SkillModel(name: 'Intimidación', modifier: 7, proficiency: true),
+    SkillModel(name: 'Investigación', modifier: 2, proficiency: false),
+    SkillModel(name: 'J. de Manos', modifier: 0, proficiency: false),
+    SkillModel(name: 'Medicina', modifier: 0, proficiency: false),
+    SkillModel(name: 'Naturaleza', modifier: 2, proficiency: false),
+    SkillModel(name: 'Percepción', modifier: 0, proficiency: false),
+    SkillModel(name: 'Perspicacia', modifier: 0, proficiency: false),
+    SkillModel(name: 'Persuasion', modifier: 7, proficiency: true),
+    SkillModel(name: 'Religión', modifier: 2, proficiency: true),
+    SkillModel(name: 'Sigilo', modifier: 0, proficiency: false),
+    SkillModel(name: 'Supervivencia', modifier: 0, proficiency: true),
+    SkillModel(name: 'T. Animales', modifier: 0, proficiency: false),
   ],
   weapons: [oneHandedSword, twoHandedSword, axe],
   languages: 'Común, Enano',
@@ -294,7 +318,7 @@ Character evendurGreycastle = Character(
   pets: [],
   wildForms: [],
   notes: [],
-  wallet: Wallet(
+  wallet: WalletModel(
     copperPieces: 0,
     silverPieces: 0,
     electrumPieces: 0,
@@ -310,9 +334,3 @@ Character evendurGreycastle = Character(
       'assets/images/characters/evendur_greycastle/evendur_greycastle_banner.jpeg',
   password: 'Bocha100',
 );
-
-final List<Character> defaultCharacters = [
-  theekVarus,
-  vaunea,
-  evendurGreycastle
-];

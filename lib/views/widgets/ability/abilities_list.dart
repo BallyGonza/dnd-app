@@ -3,8 +3,8 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class AbilitiesList extends StatelessWidget {
-  final List<Ability> abilities;
-  final List<SavingThrow> savingThrows;
+  final List<AbilityModel> abilities;
+  final List<SavingThrowModel> savingThrows;
 
   const AbilitiesList(
       {Key? key, required this.abilities, required this.savingThrows})

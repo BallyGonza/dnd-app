@@ -1,6 +1,5 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import 'wallet_event.dart';
 import 'wallet_state.dart';
@@ -16,8 +15,8 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
   }
 
   final CharacterRepository characterRepository = CharacterRepository();
-  late Character character;
-  final Box<Character> box = Hive.box<Character>('characters_box');
+
+  late CharacterModel character;
 
   Future<void> _onInit(
     WalletInitialEvent event,
@@ -27,30 +26,30 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     emit(WalletState.updated(character.wallet));
   }
 
-  void _onAdd(
+  Future<void> _onAdd(
     WalletAddEvent event,
     Emitter<WalletState> emit,
-  ) {
+  ) async {
     character.wallet.addPieces(pieces: event.pieces);
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(WalletState.updated(character.wallet));
   }
 
-  void _onSubtract(
+  Future<void> _onSubtract(
     WalletSubtractEvent event,
     Emitter<WalletState> emit,
-  ) {
+  ) async {
     character.wallet.removePieces(pieces: event.pieces);
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(WalletState.updated(character.wallet));
   }
 
-  void _onSet(
+  Future<void> _onSet(
     WalletSetEvent event,
     Emitter<WalletState> emit,
-  ) {
+  ) async {
     character.wallet.setPieces(pieces: event.pieces, amount: event.amount);
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(WalletState.updated(character.wallet));
   }
 }

@@ -6,17 +6,17 @@ part of 'skill_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class SkillAdapter extends TypeAdapter<Skill> {
+class SkillModelAdapter extends TypeAdapter<SkillModel> {
   @override
   final int typeId = 7;
 
   @override
-  Skill read(BinaryReader reader) {
+  SkillModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Skill(
+    return SkillModel(
       name: fields[0] as String,
       modifier: fields[1] as int,
       proficiency: fields[2] as bool,
@@ -24,7 +24,7 @@ class SkillAdapter extends TypeAdapter<Skill> {
   }
 
   @override
-  void write(BinaryWriter writer, Skill obj) {
+  void write(BinaryWriter writer, SkillModel obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,23 +41,7 @@ class SkillAdapter extends TypeAdapter<Skill> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SkillAdapter &&
+      other is SkillModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Skill _$SkillFromJson(Map<String, dynamic> json) => Skill(
-      name: json['name'] as String,
-      modifier: json['modifier'] as int,
-      proficiency: json['proficiency'] as bool,
-    );
-
-Map<String, dynamic> _$SkillToJson(Skill instance) => <String, dynamic>{
-      'name': instance.name,
-      'modifier': instance.modifier,
-      'proficiency': instance.proficiency,
-    };

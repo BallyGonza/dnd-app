@@ -1,67 +1,76 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-Animal ghost = Animal(
+class AnimalRepository {
+  AnimalRepository();
+
+  final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
+}
+
+List<AnimalModel> defaultAnimals = [ghost, bear, chimuelo];
+
+AnimalModel ghost = AnimalModel(
   name: 'Ghost',
   race: 'Blink Dog',
   img: 'assets/images/animals/blink_dog/blink_dog.jpeg',
   profileImg: 'assets/images/animals/blink_dog/blink_dog_profile.jpeg',
   armor: 16,
   speed: 8,
-  healthPoints: HealthPoints(
+  healthPoints: HealthPointsModel(
     current: 35,
     max: 35,
   ),
   abilities: [
-    Ability(
+    AbilityModel(
       name: 'Fuerza',
       score: 12,
       modifier: 1,
     ),
-    Ability(
+    AbilityModel(
       name: 'Destreza',
       score: 17,
       modifier: 3,
     ),
-    Ability(
+    AbilityModel(
       name: 'Constitución',
       score: 12,
       modifier: 1,
     ),
-    Ability(
+    AbilityModel(
       name: 'Inteligencia',
       score: 10,
       modifier: 0,
     ),
-    Ability(
+    AbilityModel(
       name: 'Sabiduría',
       score: 13,
       modifier: 1,
     ),
-    Ability(
+    AbilityModel(
       name: 'Carisma',
       score: 11,
       modifier: 0,
     ),
   ],
   skills: [
-    Skill(
+    SkillModel(
       name: 'Percepción',
       modifier: 3,
       proficiency: false,
     ),
-    Skill(
+    SkillModel(
       name: 'Sigilo',
       modifier: 5,
       proficiency: true,
     ),
   ],
   savingThrows: [
-    SavingThrow(
+    SavingThrowModel(
       name: 'Fuerza',
       modifier: 6,
       proficiency: false,
     ),
-    SavingThrow(
+    SavingThrowModel(
       name: 'Sabiduría',
       modifier: 4,
       proficiency: false,
@@ -71,7 +80,7 @@ Animal ghost = Animal(
   traits: [teleport],
 );
 
-Animal chimuelo = Animal(
+AnimalModel chimuelo = AnimalModel(
   name: 'Chimuelo',
   race: 'Tressym',
   img: 'assets/images/animals/tressym/tressym.jpeg',
@@ -80,61 +89,61 @@ Animal chimuelo = Animal(
   speed: 8,
   climb: 8,
   fly: 8,
-  healthPoints: HealthPoints(
+  healthPoints: HealthPointsModel(
     current: 6,
     max: 6,
   ),
   abilities: [
-    Ability(
+    AbilityModel(
       name: 'Fuerza',
       score: 3,
       modifier: -4,
     ),
-    Ability(
+    AbilityModel(
       name: 'Destreza',
       score: 15,
       modifier: 2,
     ),
-    Ability(
+    AbilityModel(
       name: 'Constitución',
       score: 12,
       modifier: 1,
     ),
-    Ability(
+    AbilityModel(
       name: 'Inteligencia',
       score: 11,
       modifier: 0,
     ),
-    Ability(
+    AbilityModel(
       name: 'Sabiduría',
       score: 12,
       modifier: 1,
     ),
-    Ability(
+    AbilityModel(
       name: 'Carisma',
       score: 12,
       modifier: 1,
     ),
   ],
   skills: [
-    Skill(
+    SkillModel(
       name: 'Percepción',
       modifier: 5,
       proficiency: false,
     ),
-    Skill(
+    SkillModel(
       name: 'Sigilo',
       modifier: 5,
       proficiency: false,
     ),
   ],
   savingThrows: [
-    SavingThrow(
+    SavingThrowModel(
       name: 'Fuerza',
       modifier: 0,
       proficiency: false,
     ),
-    SavingThrow(
+    SavingThrowModel(
       name: 'Sabiduría',
       modifier: 2,
       proficiency: false,
@@ -144,7 +153,7 @@ Animal chimuelo = Animal(
   traits: [],
 );
 
-Animal bear = Animal(
+AnimalModel bear = AnimalModel(
   name: 'Bear',
   race: 'Brown Bear',
   img: 'assets/images/animals/bear/bear.jpeg',
@@ -152,22 +161,22 @@ Animal bear = Animal(
   armor: 11,
   speed: 8,
   climb: 6,
-  healthPoints: HealthPoints(
+  healthPoints: HealthPointsModel(
     current: 34,
     max: 34,
   ),
   abilities: [
-    Ability(
+    AbilityModel(
       name: 'Fuerza',
       score: 19,
       modifier: 4,
     ),
-    Ability(
+    AbilityModel(
       name: 'Destreza',
       score: 10,
       modifier: 0,
     ),
-    Ability(
+    AbilityModel(
       name: 'Constitución',
       score: 16,
       modifier: 3,

@@ -11,7 +11,7 @@ class NavBar extends StatelessWidget {
     required this.navController,
   }) : super(key: key);
 
-  final Character character;
+  final CharacterModel character;
   final int selected;
   final Function(int) onPressed;
   final ScrollController navController;

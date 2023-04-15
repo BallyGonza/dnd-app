@@ -1,17 +1,15 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'health_points_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 1)
-class HealthPoints {
+class HealthPointsModel {
   @HiveField(0)
   int current;
   @HiveField(1)
   int max;
 
-  HealthPoints({
+  HealthPointsModel({
     required this.current,
     required this.max,
   });
@@ -33,9 +31,4 @@ class HealthPoints {
   void reset() {
     current = max;
   }
-
-  factory HealthPoints.fromJson(Map<String, dynamic> json) =>
-      _$HealthPointsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$HealthPointsToJson(this);
 }

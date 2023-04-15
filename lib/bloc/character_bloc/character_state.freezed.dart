@@ -20,21 +20,21 @@ mixin _$CharacterState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Character> characters) updated,
+    required TResult Function(List<CharacterModel> characters) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Character> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Character> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Character> characters) updated,
+    required TResult Function(List<CharacterModel> characters) updated,
   }) {
     return initial();
   }
@@ -130,7 +130,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Character> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? updated,
   }) {
     return initial?.call();
   }
@@ -140,7 +140,7 @@ class _$CharacterInitial implements CharacterInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Character> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? updated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,7 +228,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Character> characters) updated,
+    required TResult Function(List<CharacterModel> characters) updated,
   }) {
     return loading();
   }
@@ -238,7 +238,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Character> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? updated,
   }) {
     return loading?.call();
   }
@@ -248,7 +248,7 @@ class _$CharacterLoading implements CharacterLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Character> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? updated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -302,7 +302,7 @@ abstract class _$$CharacterUpdatedCopyWith<$Res> {
           _$CharacterUpdated value, $Res Function(_$CharacterUpdated) then) =
       __$$CharacterUpdatedCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Character> characters});
+  $Res call({List<CharacterModel> characters});
 }
 
 /// @nodoc
@@ -322,7 +322,7 @@ class __$$CharacterUpdatedCopyWithImpl<$Res>
       null == characters
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<Character>,
+              as List<CharacterModel>,
     ));
   }
 }
@@ -330,12 +330,12 @@ class __$$CharacterUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CharacterUpdated implements CharacterUpdated {
-  const _$CharacterUpdated(final List<Character> characters)
+  const _$CharacterUpdated(final List<CharacterModel> characters)
       : _characters = characters;
 
-  final List<Character> _characters;
+  final List<CharacterModel> _characters;
   @override
-  List<Character> get characters {
+  List<CharacterModel> get characters {
     if (_characters is EqualUnmodifiableListView) return _characters;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_characters);
@@ -370,7 +370,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Character> characters) updated,
+    required TResult Function(List<CharacterModel> characters) updated,
   }) {
     return updated(characters);
   }
@@ -380,7 +380,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Character> characters)? updated,
+    TResult? Function(List<CharacterModel> characters)? updated,
   }) {
     return updated?.call(characters);
   }
@@ -390,7 +390,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Character> characters)? updated,
+    TResult Function(List<CharacterModel> characters)? updated,
     required TResult orElse(),
   }) {
     if (updated != null) {
@@ -435,10 +435,10 @@ class _$CharacterUpdated implements CharacterUpdated {
 }
 
 abstract class CharacterUpdated implements CharacterState {
-  const factory CharacterUpdated(final List<Character> characters) =
+  const factory CharacterUpdated(final List<CharacterModel> characters) =
       _$CharacterUpdated;
 
-  List<Character> get characters;
+  List<CharacterModel> get characters;
   @JsonKey(ignore: true)
   _$$CharacterUpdatedCopyWith<_$CharacterUpdated> get copyWith =>
       throw _privateConstructorUsedError;

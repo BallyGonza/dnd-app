@@ -6,17 +6,17 @@ part of 'character_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class CharacterAdapter extends TypeAdapter<Character> {
+class CharacterModelAdapter extends TypeAdapter<CharacterModel> {
   @override
   final int typeId = 0;
 
   @override
-  Character read(BinaryReader reader) {
+  CharacterModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Character(
+    return CharacterModel(
       id: fields[0] as int,
       name: fields[1] as String,
       lastName: fields[2] as String,
@@ -30,27 +30,27 @@ class CharacterAdapter extends TypeAdapter<Character> {
       initiative: fields[10] as int,
       speed: fields[11] as int,
       passivePerception: fields[12] as int,
-      hitDice: fields[13] as Dice,
-      healthPoints: fields[14] as HealthPoints,
-      abilities: (fields[15] as List).cast<Ability>(),
-      skills: (fields[16] as List).cast<Skill>(),
-      savingThrows: (fields[17] as List).cast<SavingThrow>(),
-      weapons: (fields[18] as List).cast<Weapon>(),
+      hitDice: fields[13] as DiceModel,
+      healthPoints: fields[14] as HealthPointsModel,
+      abilities: (fields[15] as List).cast<AbilityModel>(),
+      skills: (fields[16] as List).cast<SkillModel>(),
+      savingThrows: (fields[17] as List).cast<SavingThrowModel>(),
+      weapons: (fields[18] as List).cast<WeaponModel>(),
       languages: fields[19] as String,
-      traits: (fields[20] as List).cast<Trait>(),
-      spells: (fields[21] as List).cast<Spell>(),
-      background: (fields[22] as List).cast<Background>(),
+      traits: (fields[20] as List).cast<TraitModel>(),
+      spells: (fields[21] as List).cast<SpellModel>(),
+      background: (fields[22] as List).cast<BackgroundModel>(),
       backstory: fields[23] as String,
-      pets: (fields[24] as List).cast<Animal>(),
-      wildForms: (fields[25] as List).cast<Animal>(),
+      pets: (fields[24] as List).cast<AnimalModel>(),
+      wildForms: (fields[25] as List).cast<AnimalModel>(),
       notes: (fields[26] as List).cast<Note>(),
-      wallet: fields[27] as Wallet,
+      wallet: fields[27] as WalletModel,
       password: fields[28] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Character obj) {
+  void write(BinaryWriter writer, CharacterModel obj) {
     writer
       ..writeByte(29)
       ..writeByte(0)
@@ -119,97 +119,7 @@ class CharacterAdapter extends TypeAdapter<Character> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is CharacterAdapter &&
+      other is CharacterModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Character _$CharacterFromJson(Map<String, dynamic> json) => Character(
-      id: json['id'] as int,
-      name: json['name'] as String,
-      lastName: json['lastName'] as String,
-      img: json['img'] as String,
-      profileImg: json['profileImg'] as String,
-      banner: json['banner'] as String,
-      race: json['race'] as String,
-      classes:
-          (json['classes'] as List<dynamic>).map((e) => e as String).toList(),
-      level: json['level'] as int,
-      armor: json['armor'] as int,
-      initiative: json['initiative'] as int,
-      speed: json['speed'] as int,
-      passivePerception: json['passivePerception'] as int,
-      hitDice: Dice.fromJson(json['hitDice'] as Map<String, dynamic>),
-      healthPoints:
-          HealthPoints.fromJson(json['healthPoints'] as Map<String, dynamic>),
-      abilities: (json['abilities'] as List<dynamic>)
-          .map((e) => Ability.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      skills: (json['skills'] as List<dynamic>)
-          .map((e) => Skill.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      savingThrows: (json['savingThrows'] as List<dynamic>)
-          .map((e) => SavingThrow.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      weapons: (json['weapons'] as List<dynamic>)
-          .map((e) => Weapon.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      languages: json['languages'] as String,
-      traits: (json['traits'] as List<dynamic>)
-          .map((e) => Trait.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      spells: (json['spells'] as List<dynamic>)
-          .map((e) => Spell.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      background: (json['background'] as List<dynamic>)
-          .map((e) => Background.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      backstory: json['backstory'] as String,
-      pets: (json['pets'] as List<dynamic>)
-          .map((e) => Animal.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      wildForms: (json['wildForms'] as List<dynamic>)
-          .map((e) => Animal.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      notes: (json['notes'] as List<dynamic>)
-          .map((e) => Note.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      wallet: Wallet.fromJson(json['wallet'] as Map<String, dynamic>),
-      password: json['password'] as String,
-    );
-
-Map<String, dynamic> _$CharacterToJson(Character instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'lastName': instance.lastName,
-      'img': instance.img,
-      'profileImg': instance.profileImg,
-      'banner': instance.banner,
-      'race': instance.race,
-      'classes': instance.classes,
-      'level': instance.level,
-      'armor': instance.armor,
-      'initiative': instance.initiative,
-      'speed': instance.speed,
-      'passivePerception': instance.passivePerception,
-      'hitDice': instance.hitDice,
-      'healthPoints': instance.healthPoints,
-      'abilities': instance.abilities,
-      'skills': instance.skills,
-      'savingThrows': instance.savingThrows,
-      'weapons': instance.weapons,
-      'languages': instance.languages,
-      'traits': instance.traits,
-      'spells': instance.spells,
-      'background': instance.background,
-      'backstory': instance.backstory,
-      'pets': instance.pets,
-      'wildForms': instance.wildForms,
-      'notes': instance.notes,
-      'wallet': instance.wallet,
-      'password': instance.password,
-    };

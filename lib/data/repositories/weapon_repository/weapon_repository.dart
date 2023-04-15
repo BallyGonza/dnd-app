@@ -1,6 +1,28 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-Weapon longBow = Weapon(
+class WeaponRepository {
+  WeaponRepository();
+
+  final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
+}
+
+List<WeaponModel> defaultWeapons = [
+  longBow,
+  rapier,
+  dagger,
+  biteBlinkDog,
+  biteBear,
+  claws,
+  hammer,
+  hammerOfFire,
+  axe,
+  sword,
+  oneHandedSword,
+  twoHandedSword,
+];
+
+WeaponModel longBow = WeaponModel(
   id: 1,
   name: 'Arco',
   description: 'Arco largo',
@@ -12,7 +34,7 @@ Weapon longBow = Weapon(
   img: 'assets/images/weapons/long_bow.png',
 );
 
-Weapon rapier = Weapon(
+WeaponModel rapier = WeaponModel(
   id: 2,
   name: 'Rapier',
   description: 'Espada corta',
@@ -24,7 +46,7 @@ Weapon rapier = Weapon(
   img: 'assets/images/weapons/rapier.png',
 );
 
-Weapon dagger = Weapon(
+WeaponModel dagger = WeaponModel(
   id: 3,
   name: 'Daga',
   description: 'Daga corta',
@@ -36,7 +58,7 @@ Weapon dagger = Weapon(
   img: 'assets/images/weapons/dagger.png',
 );
 
-Weapon biteBlinkDog = Weapon(
+WeaponModel biteBlinkDog = WeaponModel(
   id: 4,
   name: 'Mordida',
   description: '',
@@ -48,7 +70,7 @@ Weapon biteBlinkDog = Weapon(
   img: 'assets/images/weapons/bite.png',
 );
 
-Weapon biteBear = Weapon(
+WeaponModel biteBear = WeaponModel(
   id: 5,
   name: 'Mordida',
   description: '',
@@ -60,7 +82,7 @@ Weapon biteBear = Weapon(
   img: 'assets/images/weapons/bite.png',
 );
 
-Weapon claws = Weapon(
+WeaponModel claws = WeaponModel(
   id: 6,
   name: 'Garras',
   description: '',
@@ -72,7 +94,7 @@ Weapon claws = Weapon(
   img: 'assets/images/weapons/claws.png',
 );
 
-Weapon hammer = Weapon(
+WeaponModel hammer = WeaponModel(
   id: 7,
   name: 'Martillo',
   description: 'Martillo de guerra',
@@ -84,7 +106,7 @@ Weapon hammer = Weapon(
   img: 'assets/images/weapons/hammer.png',
 );
 
-Weapon axe = Weapon(
+WeaponModel axe = WeaponModel(
   id: 8,
   name: 'Hacha',
   description: 'Hacha de guerra',
@@ -97,7 +119,7 @@ Weapon axe = Weapon(
 );
 
 // Espada de Vaunea
-Weapon sword = Weapon(
+WeaponModel sword = WeaponModel(
   id: 9,
   name: 'Espada',
   description: 'Espada de una mano',
@@ -109,7 +131,7 @@ Weapon sword = Weapon(
   img: 'assets/images/weapons/sword.png',
 );
 
-Weapon hammerOfFire = Weapon(
+WeaponModel hammerOfFire = WeaponModel(
   id: 10,
   name: 'Martillo',
   description: 'Martillo de fuego',
@@ -124,7 +146,7 @@ Weapon hammerOfFire = Weapon(
 );
 
 // Espada una mano de Evendur
-Weapon oneHandedSword = Weapon(
+WeaponModel oneHandedSword = WeaponModel(
   id: 11,
   name: 'Espada',
   description: 'Espada de una mano',
@@ -137,7 +159,7 @@ Weapon oneHandedSword = Weapon(
 );
 
 // Espada dos manos de Evendur
-Weapon twoHandedSword = Weapon(
+WeaponModel twoHandedSword = WeaponModel(
   id: 12,
   name: 'Espada',
   description: 'Espada de dos manos',

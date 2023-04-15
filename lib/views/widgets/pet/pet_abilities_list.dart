@@ -1,10 +1,10 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
-import 'package:dnd_app/views/widgets/title_and_child.dart';
+
 import 'package:flutter/material.dart';
 
 class PetAbilitiesList extends StatefulWidget {
-  final List<Ability> abilities;
+  final List<AbilityModel> abilities;
 
   const PetAbilitiesList({Key? key, required this.abilities}) : super(key: key);
 

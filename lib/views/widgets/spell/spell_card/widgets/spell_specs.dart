@@ -6,7 +6,7 @@ import 'widgets.dart';
 class SpellSpecs extends StatelessWidget {
   const SpellSpecs({super.key, required this.spell});
 
-  final Spell spell;
+  final SpellModel spell;
 
   @override
   Widget build(BuildContext context) {

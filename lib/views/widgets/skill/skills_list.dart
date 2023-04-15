@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class SkillsList extends StatelessWidget {
-  final List<Skill> skills;
+  final List<SkillModel> skills;
 
   const SkillsList({Key? key, required this.skills}) : super(key: key);
 

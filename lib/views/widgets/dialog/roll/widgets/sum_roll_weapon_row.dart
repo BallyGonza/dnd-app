@@ -11,7 +11,7 @@ class SumRollWeaponRow extends StatelessWidget {
     required this.thrashRoll,
   });
 
-  final Weapon weapon;
+  final WeaponModel weapon;
   final int roll;
   final int thrashRoll;
 

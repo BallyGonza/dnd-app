@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetAbilityCard extends StatefulWidget {
-  final Ability ability;
+  final AbilityModel ability;
 
   const PetAbilityCard({
     Key? key,

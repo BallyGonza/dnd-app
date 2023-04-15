@@ -6,7 +6,7 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
-  final Character character;
+  final CharacterModel character;
 
   const CharacterDetailScreen({
     Key? key,
@@ -68,7 +68,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
     );
   }
 
-  SpeedDialChild _diceFABItem({required Dice dice}) {
+  SpeedDialChild _diceFABItem({required DiceModel dice}) {
     return SpeedDialChild(
       child: Image.asset(dice.img, width: 30, height: 30),
       backgroundColor: Colors.white,

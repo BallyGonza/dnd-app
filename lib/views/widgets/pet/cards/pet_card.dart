@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetCard extends StatefulWidget {
-  final List<Animal> pets;
+  final List<AnimalModel> pets;
   const PetCard({Key? key, required this.pets}) : super(key: key);
 
   @override

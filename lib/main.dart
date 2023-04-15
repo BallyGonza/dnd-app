@@ -1,37 +1,39 @@
-import 'package:dnd_app/blocs/blocs.dart';
-import 'package:dnd_app/theme.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
-import 'package:flutter/material.dart';
+import 'package:dnd_app/bloc/bloc.dart';
+import 'package:dnd_app/theme.dart';
 
 Future<void> main() async {
   Hive
     ..registerAdapter(NoteAdapter())
-    ..registerAdapter(HealthPointsAdapter())
-    ..registerAdapter(DiceAdapter())
-    ..registerAdapter(AnimalAdapter())
-    ..registerAdapter(AbilityAdapter())
-    ..registerAdapter(SavingThrowAdapter())
-    ..registerAdapter(WeaponAdapter())
-    ..registerAdapter(TraitAdapter())
-    ..registerAdapter(SkillAdapter())
-    ..registerAdapter(CharacterAdapter())
-    ..registerAdapter(BackgroundAdapter())
-    ..registerAdapter(SpellAdapter())
-    ..registerAdapter(WalletAdapter());
+    ..registerAdapter(HealthPointsModelAdapter())
+    ..registerAdapter(DiceModelAdapter())
+    ..registerAdapter(AnimalModelAdapter())
+    ..registerAdapter(AbilityModelAdapter())
+    ..registerAdapter(SavingThrowModelAdapter())
+    ..registerAdapter(WeaponModelAdapter())
+    ..registerAdapter(TraitModelAdapter())
+    ..registerAdapter(SkillModelAdapter())
+    ..registerAdapter(CharacterModelAdapter())
+    ..registerAdapter(BackgroundModelAdapter())
+    ..registerAdapter(SpellModelAdapter())
+    ..registerAdapter(WalletModelAdapter());
 
   WidgetsFlutterBinding.ensureInitialized();
 
   await Hive.initFlutter();
-  await Hive.openBox<Character>('characters_box');
+  await Hive.openBox<CharacterModel>('characters_box');
 
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CharacterBloc(),
+          create: (context) => CharacterBloc(
+            CharacterRepository(),
+          ),
         ),
         BlocProvider(
           create: (context) => CharacterHealthPointsBloc(

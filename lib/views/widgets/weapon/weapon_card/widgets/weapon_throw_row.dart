@@ -8,7 +8,7 @@ class WeaponThrowRow extends StatelessWidget {
     required this.title,
   }) : super(key: key);
 
-  final Weapon weapon;
+  final WeaponModel weapon;
   final String title;
 
   @override

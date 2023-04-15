@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class RollDiceDialog extends StatefulWidget {
-  final Dice dice;
+  final DiceModel dice;
 
   const RollDiceDialog({Key? key, required this.dice}) : super(key: key);
 
@@ -22,7 +22,7 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final Dice dice = widget.dice;
+    final DiceModel dice = widget.dice;
     return AlertDialog(
         actionsAlignment: MainAxisAlignment.spaceBetween,
         content: SingleChildScrollView(
@@ -91,7 +91,7 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
         ));
   }
 
-  void _rollAndAddToRolls(Dice dice) {
+  void _rollAndAddToRolls(DiceModel dice) {
     return setState(() {
       roll = dice.roll();
       rolls.add(roll);

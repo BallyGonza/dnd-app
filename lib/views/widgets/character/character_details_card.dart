@@ -8,7 +8,7 @@ class CharacterDetailsCard extends StatelessWidget {
     required this.character,
   }) : super(key: key);
 
-  final Character character;
+  final CharacterModel character;
 
   @override
   Widget build(BuildContext context) {

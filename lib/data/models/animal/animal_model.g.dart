@@ -6,17 +6,17 @@ part of 'animal_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class AnimalAdapter extends TypeAdapter<Animal> {
+class AnimalModelAdapter extends TypeAdapter<AnimalModel> {
   @override
   final int typeId = 5;
 
   @override
-  Animal read(BinaryReader reader) {
+  AnimalModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Animal(
+    return AnimalModel(
       name: fields[0] as String,
       race: fields[1] as String,
       img: fields[2] as String,
@@ -25,17 +25,17 @@ class AnimalAdapter extends TypeAdapter<Animal> {
       speed: fields[5] as int,
       climb: fields[6] as int?,
       fly: fields[7] as int?,
-      healthPoints: fields[8] as HealthPoints,
-      abilities: (fields[9] as List).cast<Ability>(),
-      savingThrows: (fields[10] as List).cast<SavingThrow>(),
-      weapons: (fields[11] as List).cast<Weapon>(),
-      traits: (fields[12] as List).cast<Trait>(),
-      skills: (fields[13] as List).cast<Skill>(),
+      healthPoints: fields[8] as HealthPointsModel,
+      abilities: (fields[9] as List).cast<AbilityModel>(),
+      savingThrows: (fields[10] as List).cast<SavingThrowModel>(),
+      weapons: (fields[11] as List).cast<WeaponModel>(),
+      traits: (fields[12] as List).cast<TraitModel>(),
+      skills: (fields[13] as List).cast<SkillModel>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, Animal obj) {
+  void write(BinaryWriter writer, AnimalModel obj) {
     writer
       ..writeByte(14)
       ..writeByte(0)
@@ -74,56 +74,7 @@ class AnimalAdapter extends TypeAdapter<Animal> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AnimalAdapter &&
+      other is AnimalModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Animal _$AnimalFromJson(Map<String, dynamic> json) => Animal(
-      name: json['name'] as String,
-      race: json['race'] as String,
-      img: json['img'] as String,
-      profileImg: json['profileImg'] as String,
-      armor: json['armor'] as int,
-      speed: json['speed'] as int,
-      climb: json['climb'] as int?,
-      fly: json['fly'] as int?,
-      healthPoints:
-          HealthPoints.fromJson(json['healthPoints'] as Map<String, dynamic>),
-      abilities: (json['abilities'] as List<dynamic>)
-          .map((e) => Ability.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      savingThrows: (json['savingThrows'] as List<dynamic>)
-          .map((e) => SavingThrow.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      weapons: (json['weapons'] as List<dynamic>)
-          .map((e) => Weapon.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      traits: (json['traits'] as List<dynamic>)
-          .map((e) => Trait.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      skills: (json['skills'] as List<dynamic>)
-          .map((e) => Skill.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$AnimalToJson(Animal instance) => <String, dynamic>{
-      'name': instance.name,
-      'race': instance.race,
-      'img': instance.img,
-      'profileImg': instance.profileImg,
-      'armor': instance.armor,
-      'speed': instance.speed,
-      'climb': instance.climb,
-      'fly': instance.fly,
-      'healthPoints': instance.healthPoints,
-      'abilities': instance.abilities,
-      'savingThrows': instance.savingThrows,
-      'weapons': instance.weapons,
-      'traits': instance.traits,
-      'skills': instance.skills,
-    };

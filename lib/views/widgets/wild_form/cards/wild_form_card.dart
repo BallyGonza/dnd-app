@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormCard extends StatefulWidget {
-  final List<Animal> wildForms;
+  final List<AnimalModel> wildForms;
   const WildFormCard({Key? key, required this.wildForms}) : super(key: key);
 
   @override

@@ -8,6 +8,6 @@ class CharacterState with _$CharacterState {
   const factory CharacterState.initial() = CharacterInitial;
   const factory CharacterState.loading() = CharacterLoading;
   const factory CharacterState.updated(
-    List<Character> characters,
+    List<CharacterModel> characters,
   ) = CharacterUpdated;
 }

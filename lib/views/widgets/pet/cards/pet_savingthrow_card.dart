@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetSavingThrowCard extends StatefulWidget {
-  final SavingThrow savingThrow;
+  final SavingThrowModel savingThrow;
 
   const PetSavingThrowCard({
     Key? key,

@@ -9,7 +9,7 @@ class WeaponButton extends StatefulWidget {
   }) : super(key: key);
 
   final Function onPressed;
-  final Weapon weapon;
+  final WeaponModel weapon;
 
   @override
   State<WeaponButton> createState() => _WeaponButtonState();

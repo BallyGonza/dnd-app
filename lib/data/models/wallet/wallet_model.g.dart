@@ -6,17 +6,17 @@ part of 'wallet_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class WalletAdapter extends TypeAdapter<Wallet> {
+class WalletModelAdapter extends TypeAdapter<WalletModel> {
   @override
   final int typeId = 12;
 
   @override
-  Wallet read(BinaryReader reader) {
+  WalletModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Wallet(
+    return WalletModel(
       platinumPieces: fields[0] as int,
       goldPieces: fields[1] as int,
       electrumPieces: fields[2] as int,
@@ -26,7 +26,7 @@ class WalletAdapter extends TypeAdapter<Wallet> {
   }
 
   @override
-  void write(BinaryWriter writer, Wallet obj) {
+  void write(BinaryWriter writer, WalletModel obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)
@@ -47,27 +47,7 @@ class WalletAdapter extends TypeAdapter<Wallet> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is WalletAdapter &&
+      other is WalletModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Wallet _$WalletFromJson(Map<String, dynamic> json) => Wallet(
-      platinumPieces: json['platinumPieces'] as int,
-      goldPieces: json['goldPieces'] as int,
-      electrumPieces: json['electrumPieces'] as int,
-      silverPieces: json['silverPieces'] as int,
-      copperPieces: json['copperPieces'] as int,
-    );
-
-Map<String, dynamic> _$WalletToJson(Wallet instance) => <String, dynamic>{
-      'platinumPieces': instance.platinumPieces,
-      'goldPieces': instance.goldPieces,
-      'electrumPieces': instance.electrumPieces,
-      'silverPieces': instance.silverPieces,
-      'copperPieces': instance.copperPieces,
-    };

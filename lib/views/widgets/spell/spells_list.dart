@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class SpellsList extends StatelessWidget {
   const SpellsList({Key? key, required this.spells}) : super(key: key);
 
-  final List<Spell> spells;
+  final List<SpellModel> spells;
 
   @override
   Widget build(BuildContext context) {

@@ -10,7 +10,7 @@ class ListOfRolls extends StatelessWidget {
       required this.modifier});
 
   final List<int> rolls;
-  final Dice dice;
+  final DiceModel dice;
   final int modifier;
 
   @override

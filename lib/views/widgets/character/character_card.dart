@@ -8,7 +8,7 @@ class CharacterCard extends StatelessWidget {
     required this.character,
   }) : super(key: key);
 
-  final Character character;
+  final CharacterModel character;
 
   final passwordController = TextEditingController();
 

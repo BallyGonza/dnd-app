@@ -1,4 +1,4 @@
-import 'package:dnd_app/blocs/blocs.dart';
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/views/views.dart';

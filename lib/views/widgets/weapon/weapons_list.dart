@@ -5,7 +5,7 @@ import 'package:dnd_app/views/views.dart';
 class WeaponsList extends StatelessWidget {
   const WeaponsList({Key? key, required this.weapons}) : super(key: key);
 
-  final List<Weapon> weapons;
+  final List<WeaponModel> weapons;
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import 'pet_health_points_event.dart';
 import 'pet_health_points_state.dart';
@@ -16,8 +15,7 @@ class PetHealthPointsBloc
     on<PetHealthPointsResetEvent>(_onReset);
   }
   final CharacterRepository characterRepository = CharacterRepository();
-  late Character character;
-  final Box<Character> box = Hive.box<Character>('characters_box');
+  late CharacterModel character;
 
   Future<void> _onInit(
     PetHealthPointsInitialEvent event,
@@ -27,30 +25,30 @@ class PetHealthPointsBloc
     emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
-  void _onAdd(
+  Future<void> _onAdd(
     PetHealthPointsAddEvent event,
     Emitter<PetHealthPointsState> emit,
-  ) {
+  ) async {
     character.pets[0].healthPoints.add();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
-  void _onSubtract(
+  Future<void> _onSubtract(
     PetHealthPointsSubtractEvent event,
     Emitter<PetHealthPointsState> emit,
-  ) {
+  ) async {
     character.pets[0].healthPoints.subtract();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
-  void _onReset(
+  Future<void> _onReset(
     PetHealthPointsResetEvent event,
     Emitter<PetHealthPointsState> emit,
-  ) {
+  ) async {
     character.pets[0].healthPoints.reset();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(PetHealthPointsState.updated(character.healthPoints.current));
   }
 }

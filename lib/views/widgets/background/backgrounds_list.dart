@@ -7,7 +7,7 @@ class BackgroundsList extends StatelessWidget {
       {Key? key, required this.backgrounds, required this.languages})
       : super(key: key);
 
-  final List<Background> backgrounds;
+  final List<BackgroundModel> backgrounds;
   final String languages;
 
   @override

@@ -3,8 +3,8 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class AbilityCard extends StatelessWidget {
-  final Ability ability;
-  final SavingThrow savingThrow;
+  final AbilityModel ability;
+  final SavingThrowModel savingThrow;
 
   const AbilityCard({
     Key? key,

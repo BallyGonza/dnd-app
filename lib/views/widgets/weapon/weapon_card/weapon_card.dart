@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'widgets/widgets.dart';
 
 class WeaponCard extends StatelessWidget {
-  final Weapon weapon;
+  final WeaponModel weapon;
   const WeaponCard({Key? key, required this.weapon}) : super(key: key);
 
   @override

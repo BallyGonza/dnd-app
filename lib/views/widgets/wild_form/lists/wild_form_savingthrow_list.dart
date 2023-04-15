@@ -1,10 +1,9 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
-import 'package:dnd_app/views/widgets/title_and_child.dart';
 import 'package:flutter/material.dart';
 
 class WildFormSavingThrowList extends StatefulWidget {
-  final List<SavingThrow> savingThrows;
+  final List<SavingThrowModel> savingThrows;
 
   const WildFormSavingThrowList({Key? key, required this.savingThrows})
       : super(key: key);

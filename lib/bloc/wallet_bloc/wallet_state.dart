@@ -8,6 +8,6 @@ class WalletState with _$WalletState {
   const factory WalletState.initial() = WalletInitial;
   const factory WalletState.loading() = WalletLoading;
   const factory WalletState.updated(
-    Wallet wallet,
+    WalletModel wallet,
   ) = WalletUpdated;
 }

@@ -1,12 +1,11 @@
 import 'package:dnd_app/data/data.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:hive/hive.dart';
 
 part 'weapon_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 10)
-class Weapon {
+class WeaponModel {
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -18,19 +17,19 @@ class Weapon {
   @HiveField(4)
   final int quantityOfDamageDices;
   @HiveField(5)
-  final Dice damageDice;
+  final DiceModel damageDice;
   @HiveField(6)
-  final Dice? plusDamageDice;
+  final DiceModel? plusDamageDice;
   @HiveField(7)
   final int? quantityOfPlusDamageDices;
   @HiveField(8)
-  final Dice checkDice;
+  final DiceModel checkDice;
   @HiveField(9)
   final int range;
   @HiveField(10)
   final String img;
 
-  Weapon({
+  WeaponModel({
     required this.id,
     required this.name,
     required this.description,
@@ -43,8 +42,4 @@ class Weapon {
     required this.range,
     required this.img,
   });
-
-  factory Weapon.fromJson(Map<String, dynamic> json) => _$WeaponFromJson(json);
-
-  Map<String, dynamic> toJson() => _$WeaponToJson(this);
 }

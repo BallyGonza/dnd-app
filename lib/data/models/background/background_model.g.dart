@@ -6,24 +6,24 @@ part of 'background_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BackgroundAdapter extends TypeAdapter<Background> {
+class BackgroundModelAdapter extends TypeAdapter<BackgroundModel> {
   @override
   final int typeId = 4;
 
   @override
-  Background read(BinaryReader reader) {
+  BackgroundModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Background(
+    return BackgroundModel(
       name: fields[0] as String,
       description: fields[1] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, Background obj) {
+  void write(BinaryWriter writer, BackgroundModel obj) {
     writer
       ..writeByte(2)
       ..writeByte(0)
@@ -38,22 +38,7 @@ class BackgroundAdapter extends TypeAdapter<Background> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BackgroundAdapter &&
+      other is BackgroundModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
-      name: json['name'] as String,
-      description: json['description'] as String,
-    );
-
-Map<String, dynamic> _$BackgroundToJson(Background instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'description': instance.description,
-    };

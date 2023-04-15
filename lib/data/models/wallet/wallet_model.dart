@@ -1,11 +1,9 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 
 part 'wallet_model.g.dart';
 
-@JsonSerializable()
 @HiveType(typeId: 12)
-class Wallet {
+class WalletModel {
   @HiveField(0)
   int platinumPieces;
   @HiveField(1)
@@ -17,7 +15,7 @@ class Wallet {
   @HiveField(4)
   int copperPieces;
 
-  Wallet({
+  WalletModel({
     required this.platinumPieces,
     required this.goldPieces,
     required this.electrumPieces,
@@ -66,8 +64,4 @@ class Wallet {
       copperPieces -= 1;
     }
   }
-
-  factory Wallet.fromJson(Map<String, dynamic> json) => _$WalletFromJson(json);
-
-  Map<String, dynamic> toJson() => _$WalletToJson(this);
 }

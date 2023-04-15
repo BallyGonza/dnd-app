@@ -12,7 +12,7 @@ class SumDamageRollsRow extends StatelessWidget {
     required this.toHitRoll,
   });
 
-  final Weapon weapon;
+  final WeaponModel weapon;
   final int toHitRoll;
   final List<int> damageRolls;
   final List<int> plusDamageRolls;

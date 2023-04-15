@@ -20,21 +20,21 @@ mixin _$WalletState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Wallet wallet) updated,
+    required TResult Function(WalletModel wallet) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Wallet wallet)? updated,
+    TResult? Function(WalletModel wallet)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Wallet wallet)? updated,
+    TResult Function(WalletModel wallet)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +120,7 @@ class _$WalletInitial implements WalletInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Wallet wallet) updated,
+    required TResult Function(WalletModel wallet) updated,
   }) {
     return initial();
   }
@@ -130,7 +130,7 @@ class _$WalletInitial implements WalletInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Wallet wallet)? updated,
+    TResult? Function(WalletModel wallet)? updated,
   }) {
     return initial?.call();
   }
@@ -140,7 +140,7 @@ class _$WalletInitial implements WalletInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Wallet wallet)? updated,
+    TResult Function(WalletModel wallet)? updated,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -228,7 +228,7 @@ class _$WalletLoading implements WalletLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Wallet wallet) updated,
+    required TResult Function(WalletModel wallet) updated,
   }) {
     return loading();
   }
@@ -238,7 +238,7 @@ class _$WalletLoading implements WalletLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Wallet wallet)? updated,
+    TResult? Function(WalletModel wallet)? updated,
   }) {
     return loading?.call();
   }
@@ -248,7 +248,7 @@ class _$WalletLoading implements WalletLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Wallet wallet)? updated,
+    TResult Function(WalletModel wallet)? updated,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -302,7 +302,7 @@ abstract class _$$WalletUpdatedCopyWith<$Res> {
           _$WalletUpdated value, $Res Function(_$WalletUpdated) then) =
       __$$WalletUpdatedCopyWithImpl<$Res>;
   @useResult
-  $Res call({Wallet wallet});
+  $Res call({WalletModel wallet});
 }
 
 /// @nodoc
@@ -322,7 +322,7 @@ class __$$WalletUpdatedCopyWithImpl<$Res>
       null == wallet
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
-              as Wallet,
+              as WalletModel,
     ));
   }
 }
@@ -333,7 +333,7 @@ class _$WalletUpdated implements WalletUpdated {
   const _$WalletUpdated(this.wallet);
 
   @override
-  final Wallet wallet;
+  final WalletModel wallet;
 
   @override
   String toString() {
@@ -362,7 +362,7 @@ class _$WalletUpdated implements WalletUpdated {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Wallet wallet) updated,
+    required TResult Function(WalletModel wallet) updated,
   }) {
     return updated(wallet);
   }
@@ -372,7 +372,7 @@ class _$WalletUpdated implements WalletUpdated {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Wallet wallet)? updated,
+    TResult? Function(WalletModel wallet)? updated,
   }) {
     return updated?.call(wallet);
   }
@@ -382,7 +382,7 @@ class _$WalletUpdated implements WalletUpdated {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Wallet wallet)? updated,
+    TResult Function(WalletModel wallet)? updated,
     required TResult orElse(),
   }) {
     if (updated != null) {
@@ -427,9 +427,9 @@ class _$WalletUpdated implements WalletUpdated {
 }
 
 abstract class WalletUpdated implements WalletState {
-  const factory WalletUpdated(final Wallet wallet) = _$WalletUpdated;
+  const factory WalletUpdated(final WalletModel wallet) = _$WalletUpdated;
 
-  Wallet get wallet;
+  WalletModel get wallet;
   @JsonKey(ignore: true)
   _$$WalletUpdatedCopyWith<_$WalletUpdated> get copyWith =>
       throw _privateConstructorUsedError;

@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormSavingThrowCard extends StatefulWidget {
-  final SavingThrow savingThrow;
+  final SavingThrowModel savingThrow;
 
   const WildFormSavingThrowCard({
     Key? key,

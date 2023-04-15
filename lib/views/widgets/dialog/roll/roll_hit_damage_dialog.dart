@@ -3,8 +3,8 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class RollHitDamageDiceDialog extends StatefulWidget {
-  final Weapon weapon;
-  final Dice dice;
+  final WeaponModel weapon;
+  final DiceModel dice;
 
   const RollHitDamageDiceDialog(
       {Key? key, required this.weapon, required this.dice})
@@ -49,7 +49,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
 
   @override
   Widget build(BuildContext context) {
-    final Dice dice = widget.weapon.damageDice;
+    final DiceModel dice = widget.weapon.damageDice;
     final int modifier = widget.weapon.damage;
     return AlertDialog(
       actionsAlignment: MainAxisAlignment.spaceBetween,
@@ -349,7 +349,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
     );
   }
 
-  void _reRollDamageRoll(Dice dice, int roll) {
+  void _reRollDamageRoll(DiceModel dice, int roll) {
     dice == d20 || widget.weapon.quantityOfDamageDices == 1
         ? null
         : setState(() {
@@ -364,7 +364,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
           });
   }
 
-  void _reRollPlusDamageRoll(Dice dice, int roll) {
+  void _reRollPlusDamageRoll(DiceModel dice, int roll) {
     dice == d20 || widget.weapon.quantityOfDamageDices == 1
         ? null
         : setState(() {
@@ -379,7 +379,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
           });
   }
 
-  void _rollAndAddToRolls(Weapon weapon, int modifier) {
+  void _rollAndAddToRolls(WeaponModel weapon, int modifier) {
     setState(() {
       _damageRolls.clear();
       _plusDamageRolls.clear();

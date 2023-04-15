@@ -6,17 +6,17 @@ part of 'spell_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class SpellAdapter extends TypeAdapter<Spell> {
+class SpellModelAdapter extends TypeAdapter<SpellModel> {
   @override
   final int typeId = 8;
 
   @override
-  Spell read(BinaryReader reader) {
+  SpellModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Spell(
+    return SpellModel(
       name: fields[0] as String,
       level: fields[1] as String,
       range: fields[2] as String,
@@ -28,7 +28,7 @@ class SpellAdapter extends TypeAdapter<Spell> {
   }
 
   @override
-  void write(BinaryWriter writer, Spell obj) {
+  void write(BinaryWriter writer, SpellModel obj) {
     writer
       ..writeByte(7)
       ..writeByte(0)
@@ -53,31 +53,7 @@ class SpellAdapter extends TypeAdapter<Spell> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SpellAdapter &&
+      other is SpellModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
-
-// **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-Spell _$SpellFromJson(Map<String, dynamic> json) => Spell(
-      name: json['name'] as String,
-      level: json['level'] as String,
-      range: json['range'] as String,
-      castTime: json['castTime'] as String,
-      duration: json['duration'] as String,
-      comp: json['comp'] as String,
-      description: json['description'] as String,
-    );
-
-Map<String, dynamic> _$SpellToJson(Spell instance) => <String, dynamic>{
-      'name': instance.name,
-      'level': instance.level,
-      'range': instance.range,
-      'castTime': instance.castTime,
-      'duration': instance.duration,
-      'comp': instance.comp,
-      'description': instance.description,
-    };

@@ -9,7 +9,7 @@ class DiceButton extends StatefulWidget {
   }) : super(key: key);
 
   final Function onPressed;
-  final Dice dice;
+  final DiceModel dice;
 
   @override
   State<DiceButton> createState() => _DiceButtonState();

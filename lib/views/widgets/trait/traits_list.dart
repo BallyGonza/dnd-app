@@ -8,7 +8,7 @@ class TraitsList extends StatelessWidget {
     required this.traits,
   }) : super(key: key);
 
-  final List<Trait> traits;
+  final List<TraitModel> traits;
 
   @override
   Widget build(BuildContext context) {

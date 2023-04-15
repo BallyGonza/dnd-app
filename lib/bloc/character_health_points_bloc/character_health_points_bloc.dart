@@ -17,8 +17,8 @@ class CharacterHealthPointsBloc
   }
 
   final CharacterRepository characterRepository = CharacterRepository();
-  late Character character;
-  final Box<Character> box = Hive.box<Character>('characters_box');
+  late CharacterModel character;
+  final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
 
   Future<void> _onInit(
     CharacterHealthPointsInitialEvent event,
@@ -30,30 +30,30 @@ class CharacterHealthPointsBloc
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
-  void _onAdd(
+  Future<void> _onAdd(
     CharacterHealthPointsAddEvent event,
     Emitter<CharacterHealthPointsState> emit,
-  ) {
+  ) async {
     character.healthPoints.add();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
-  void _onSubtract(
+  Future<void> _onSubtract(
     CharacterHealthPointsSubtractEvent event,
     Emitter<CharacterHealthPointsState> emit,
-  ) {
+  ) async {
     character.healthPoints.subtract();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
-  void _onReset(
+  Future<void> _onReset(
     CharacterHealthPointsResetEvent event,
     Emitter<CharacterHealthPointsState> emit,
-  ) {
+  ) async {
     character.healthPoints.reset();
-    box.put(character.id, character);
+    await characterRepository.updateCharacter(character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 }

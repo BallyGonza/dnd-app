@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormAbilityCard extends StatefulWidget {
-  final Ability ability;
+  final AbilityModel ability;
 
   const WildFormAbilityCard({
     Key? key,
