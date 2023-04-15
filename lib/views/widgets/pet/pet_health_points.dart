@@ -15,6 +15,15 @@ class PetHealthPoints extends StatefulWidget {
 
 class _PetHealthPointsState extends State<PetHealthPoints> {
   @override
+  void initState() {
+    context
+        .read<PetHealthPointsBloc>()
+        .add(PetHealthPointsEvent.init(widget.max));
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -40,16 +49,20 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<PetHealthPointsBloc>(context)
+                    context
+                        .read<PetHealthPointsBloc>()
                         .add(const PetHealthPointsEvent.subtract());
                   },
                   child: BlocBuilder<PetHealthPointsBloc, PetHealthPointsState>(
                     builder: (context, state) {
-                      return Text(
-                        state.current.toString(),
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: widget.color,
+                      return state.maybeWhen(
+                        orElse: () => const CircularProgressIndicator(),
+                        updated: (healthPoints) => Text(
+                          '$healthPoints',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: widget.color,
+                          ),
                         ),
                       );
                     },
@@ -64,7 +77,8 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<PetHealthPointsBloc>(context)
+                    context
+                        .read<PetHealthPointsBloc>()
                         .add(const PetHealthPointsEvent.add());
                   },
                   child: Text(

@@ -86,6 +86,7 @@ class CharacterDetailsCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   CharacterHealthPoints(
+                    character: character,
                     max: character.healthPoints.max,
                     color: Colors.white,
                   ),

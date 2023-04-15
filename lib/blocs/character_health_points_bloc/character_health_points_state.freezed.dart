@@ -14,68 +14,52 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-CharacterHealthPointsState _$CharacterHealthPointsStateFromJson(
-    Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'init':
-      return CharacterHealthPointsInitial.fromJson(json);
-    case 'updated':
-      return CharacterHealthPointsUpdated.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(
-          json,
-          'runtimeType',
-          'CharacterHealthPointsState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$CharacterHealthPointsState {
-  int get current => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) init,
+    required TResult Function(CharacterHealthPointsInitial value) initial,
+    required TResult Function(CharacterHealthPointsLoading value) loading,
     required TResult Function(CharacterHealthPointsUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? init,
+    TResult? Function(CharacterHealthPointsInitial value)? initial,
+    TResult? Function(CharacterHealthPointsLoading value)? loading,
     TResult? Function(CharacterHealthPointsUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? init,
+    TResult Function(CharacterHealthPointsInitial value)? initial,
+    TResult Function(CharacterHealthPointsLoading value)? loading,
     TResult Function(CharacterHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $CharacterHealthPointsStateCopyWith<CharacterHealthPointsState>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -84,8 +68,6 @@ abstract class $CharacterHealthPointsStateCopyWith<$Res> {
           $Res Function(CharacterHealthPointsState) then) =
       _$CharacterHealthPointsStateCopyWithImpl<$Res,
           CharacterHealthPointsState>;
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -98,31 +80,14 @@ class _$CharacterHealthPointsStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_value.copyWith(
-      current: null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$CharacterHealthPointsInitialCopyWith<$Res>
-    implements $CharacterHealthPointsStateCopyWith<$Res> {
+abstract class _$$CharacterHealthPointsInitialCopyWith<$Res> {
   factory _$$CharacterHealthPointsInitialCopyWith(
           _$CharacterHealthPointsInitial value,
           $Res Function(_$CharacterHealthPointsInitial) then) =
       __$$CharacterHealthPointsInitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -134,87 +99,58 @@ class __$$CharacterHealthPointsInitialCopyWithImpl<$Res>
       _$CharacterHealthPointsInitial _value,
       $Res Function(_$CharacterHealthPointsInitial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_$CharacterHealthPointsInitial(
-      null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
-  const _$CharacterHealthPointsInitial(this.current, {final String? $type})
-      : $type = $type ?? 'init';
-
-  factory _$CharacterHealthPointsInitial.fromJson(Map<String, dynamic> json) =>
-      _$$CharacterHealthPointsInitialFromJson(json);
-
-  @override
-  final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$CharacterHealthPointsInitial();
 
   @override
   String toString() {
-    return 'CharacterHealthPointsState.init(current: $current)';
+    return 'CharacterHealthPointsState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterHealthPointsInitial &&
-            (identical(other.current, current) || other.current == current));
+            other is _$CharacterHealthPointsInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, current);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$CharacterHealthPointsInitialCopyWith<_$CharacterHealthPointsInitial>
-      get copyWith => __$$CharacterHealthPointsInitialCopyWithImpl<
-          _$CharacterHealthPointsInitial>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
-    return init(current);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
-    return init?.call(current);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(current);
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -222,66 +158,162 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) init,
+    required TResult Function(CharacterHealthPointsInitial value) initial,
+    required TResult Function(CharacterHealthPointsLoading value) loading,
     required TResult Function(CharacterHealthPointsUpdated value) updated,
   }) {
-    return init(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? init,
+    TResult? Function(CharacterHealthPointsInitial value)? initial,
+    TResult? Function(CharacterHealthPointsLoading value)? loading,
     TResult? Function(CharacterHealthPointsUpdated value)? updated,
   }) {
-    return init?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? init,
+    TResult Function(CharacterHealthPointsInitial value)? initial,
+    TResult Function(CharacterHealthPointsLoading value)? loading,
     TResult Function(CharacterHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharacterHealthPointsInitialToJson(
-      this,
-    );
   }
 }
 
 abstract class CharacterHealthPointsInitial
     implements CharacterHealthPointsState {
-  const factory CharacterHealthPointsInitial(final int current) =
-      _$CharacterHealthPointsInitial;
-
-  factory CharacterHealthPointsInitial.fromJson(Map<String, dynamic> json) =
-      _$CharacterHealthPointsInitial.fromJson;
-
-  @override
-  int get current;
-  @override
-  @JsonKey(ignore: true)
-  _$$CharacterHealthPointsInitialCopyWith<_$CharacterHealthPointsInitial>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory CharacterHealthPointsInitial() = _$CharacterHealthPointsInitial;
 }
 
 /// @nodoc
-abstract class _$$CharacterHealthPointsUpdatedCopyWith<$Res>
-    implements $CharacterHealthPointsStateCopyWith<$Res> {
+abstract class _$$CharacterHealthPointsLoadingCopyWith<$Res> {
+  factory _$$CharacterHealthPointsLoadingCopyWith(
+          _$CharacterHealthPointsLoading value,
+          $Res Function(_$CharacterHealthPointsLoading) then) =
+      __$$CharacterHealthPointsLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CharacterHealthPointsLoadingCopyWithImpl<$Res>
+    extends _$CharacterHealthPointsStateCopyWithImpl<$Res,
+        _$CharacterHealthPointsLoading>
+    implements _$$CharacterHealthPointsLoadingCopyWith<$Res> {
+  __$$CharacterHealthPointsLoadingCopyWithImpl(
+      _$CharacterHealthPointsLoading _value,
+      $Res Function(_$CharacterHealthPointsLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
+  const _$CharacterHealthPointsLoading();
+
+  @override
+  String toString() {
+    return 'CharacterHealthPointsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CharacterHealthPointsLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(int current) updated,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int current)? updated,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(int current)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CharacterHealthPointsInitial value) initial,
+    required TResult Function(CharacterHealthPointsLoading value) loading,
+    required TResult Function(CharacterHealthPointsUpdated value) updated,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CharacterHealthPointsInitial value)? initial,
+    TResult? Function(CharacterHealthPointsLoading value)? loading,
+    TResult? Function(CharacterHealthPointsUpdated value)? updated,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CharacterHealthPointsInitial value)? initial,
+    TResult Function(CharacterHealthPointsLoading value)? loading,
+    TResult Function(CharacterHealthPointsUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CharacterHealthPointsLoading
+    implements CharacterHealthPointsState {
+  const factory CharacterHealthPointsLoading() = _$CharacterHealthPointsLoading;
+}
+
+/// @nodoc
+abstract class _$$CharacterHealthPointsUpdatedCopyWith<$Res> {
   factory _$$CharacterHealthPointsUpdatedCopyWith(
           _$CharacterHealthPointsUpdated value,
           $Res Function(_$CharacterHealthPointsUpdated) then) =
       __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int current});
 }
@@ -311,19 +343,12 @@ class __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
-  const _$CharacterHealthPointsUpdated(this.current, {final String? $type})
-      : $type = $type ?? 'updated';
 
-  factory _$CharacterHealthPointsUpdated.fromJson(Map<String, dynamic> json) =>
-      _$$CharacterHealthPointsUpdatedFromJson(json);
+class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
+  const _$CharacterHealthPointsUpdated(this.current);
 
   @override
   final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -338,7 +363,6 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
             (identical(other.current, current) || other.current == current));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, current);
 
@@ -352,7 +376,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
     return updated(current);
@@ -361,7 +386,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
     return updated?.call(current);
@@ -370,7 +396,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
@@ -383,7 +410,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) init,
+    required TResult Function(CharacterHealthPointsInitial value) initial,
+    required TResult Function(CharacterHealthPointsLoading value) loading,
     required TResult Function(CharacterHealthPointsUpdated value) updated,
   }) {
     return updated(this);
@@ -392,7 +420,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? init,
+    TResult? Function(CharacterHealthPointsInitial value)? initial,
+    TResult? Function(CharacterHealthPointsLoading value)? loading,
     TResult? Function(CharacterHealthPointsUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -401,7 +430,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? init,
+    TResult Function(CharacterHealthPointsInitial value)? initial,
+    TResult Function(CharacterHealthPointsLoading value)? loading,
     TResult Function(CharacterHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -410,13 +440,6 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharacterHealthPointsUpdatedToJson(
-      this,
-    );
-  }
 }
 
 abstract class CharacterHealthPointsUpdated
@@ -424,12 +447,7 @@ abstract class CharacterHealthPointsUpdated
   const factory CharacterHealthPointsUpdated(final int current) =
       _$CharacterHealthPointsUpdated;
 
-  factory CharacterHealthPointsUpdated.fromJson(Map<String, dynamic> json) =
-      _$CharacterHealthPointsUpdated.fromJson;
-
-  @override
   int get current;
-  @override
   @JsonKey(ignore: true)
   _$$CharacterHealthPointsUpdatedCopyWith<_$CharacterHealthPointsUpdated>
       get copyWith => throw _privateConstructorUsedError;

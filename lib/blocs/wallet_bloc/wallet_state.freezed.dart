@@ -14,63 +14,51 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WalletState _$WalletStateFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'init':
-      return WalletInitial.fromJson(json);
-    case 'updated':
-      return WalletUpdated.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'WalletState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$WalletState {
-  Wallet get wallet => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wallet wallet) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(Wallet wallet) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Wallet wallet)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(Wallet wallet)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wallet wallet)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(Wallet wallet)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WalletInitial value) init,
+    required TResult Function(WalletInitial value) initial,
+    required TResult Function(WalletLoading value) loading,
     required TResult Function(WalletUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WalletInitial value)? init,
+    TResult? Function(WalletInitial value)? initial,
+    TResult? Function(WalletLoading value)? loading,
     TResult? Function(WalletUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WalletInitial value)? init,
+    TResult Function(WalletInitial value)? initial,
+    TResult Function(WalletLoading value)? loading,
     TResult Function(WalletUpdated value)? updated,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WalletStateCopyWith<WalletState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -79,8 +67,6 @@ abstract class $WalletStateCopyWith<$Res> {
   factory $WalletStateCopyWith(
           WalletState value, $Res Function(WalletState) then) =
       _$WalletStateCopyWithImpl<$Res, WalletState>;
-  @useResult
-  $Res call({Wallet wallet});
 }
 
 /// @nodoc
@@ -92,30 +78,13 @@ class _$WalletStateCopyWithImpl<$Res, $Val extends WalletState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? wallet = null,
-  }) {
-    return _then(_value.copyWith(
-      wallet: null == wallet
-          ? _value.wallet
-          : wallet // ignore: cast_nullable_to_non_nullable
-              as Wallet,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$WalletInitialCopyWith<$Res>
-    implements $WalletStateCopyWith<$Res> {
+abstract class _$$WalletInitialCopyWith<$Res> {
   factory _$$WalletInitialCopyWith(
           _$WalletInitial value, $Res Function(_$WalletInitial) then) =
       __$$WalletInitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Wallet wallet});
 }
 
 /// @nodoc
@@ -125,86 +94,57 @@ class __$$WalletInitialCopyWithImpl<$Res>
   __$$WalletInitialCopyWithImpl(
       _$WalletInitial _value, $Res Function(_$WalletInitial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? wallet = null,
-  }) {
-    return _then(_$WalletInitial(
-      null == wallet
-          ? _value.wallet
-          : wallet // ignore: cast_nullable_to_non_nullable
-              as Wallet,
-    ));
-  }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$WalletInitial implements WalletInitial {
-  const _$WalletInitial(this.wallet, {final String? $type})
-      : $type = $type ?? 'init';
-
-  factory _$WalletInitial.fromJson(Map<String, dynamic> json) =>
-      _$$WalletInitialFromJson(json);
-
-  @override
-  final Wallet wallet;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$WalletInitial();
 
   @override
   String toString() {
-    return 'WalletState.init(wallet: $wallet)';
+    return 'WalletState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$WalletInitial &&
-            (identical(other.wallet, wallet) || other.wallet == wallet));
+        (other.runtimeType == runtimeType && other is _$WalletInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, wallet);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WalletInitialCopyWith<_$WalletInitial> get copyWith =>
-      __$$WalletInitialCopyWithImpl<_$WalletInitial>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wallet wallet) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(Wallet wallet) updated,
   }) {
-    return init(wallet);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Wallet wallet)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(Wallet wallet)? updated,
   }) {
-    return init?.call(wallet);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wallet wallet)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(Wallet wallet)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(wallet);
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -212,63 +152,155 @@ class _$WalletInitial implements WalletInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WalletInitial value) init,
+    required TResult Function(WalletInitial value) initial,
+    required TResult Function(WalletLoading value) loading,
     required TResult Function(WalletUpdated value) updated,
   }) {
-    return init(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WalletInitial value)? init,
+    TResult? Function(WalletInitial value)? initial,
+    TResult? Function(WalletLoading value)? loading,
     TResult? Function(WalletUpdated value)? updated,
   }) {
-    return init?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WalletInitial value)? init,
+    TResult Function(WalletInitial value)? initial,
+    TResult Function(WalletLoading value)? loading,
     TResult Function(WalletUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WalletInitial implements WalletState {
+  const factory WalletInitial() = _$WalletInitial;
+}
+
+/// @nodoc
+abstract class _$$WalletLoadingCopyWith<$Res> {
+  factory _$$WalletLoadingCopyWith(
+          _$WalletLoading value, $Res Function(_$WalletLoading) then) =
+      __$$WalletLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WalletLoadingCopyWithImpl<$Res>
+    extends _$WalletStateCopyWithImpl<$Res, _$WalletLoading>
+    implements _$$WalletLoadingCopyWith<$Res> {
+  __$$WalletLoadingCopyWithImpl(
+      _$WalletLoading _value, $Res Function(_$WalletLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$WalletLoading implements WalletLoading {
+  const _$WalletLoading();
+
+  @override
+  String toString() {
+    return 'WalletState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$WalletLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(Wallet wallet) updated,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(Wallet wallet)? updated,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(Wallet wallet)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$WalletInitialToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WalletInitial value) initial,
+    required TResult Function(WalletLoading value) loading,
+    required TResult Function(WalletUpdated value) updated,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(WalletInitial value)? initial,
+    TResult? Function(WalletLoading value)? loading,
+    TResult? Function(WalletUpdated value)? updated,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WalletInitial value)? initial,
+    TResult Function(WalletLoading value)? loading,
+    TResult Function(WalletUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
   }
 }
 
-abstract class WalletInitial implements WalletState {
-  const factory WalletInitial(final Wallet wallet) = _$WalletInitial;
-
-  factory WalletInitial.fromJson(Map<String, dynamic> json) =
-      _$WalletInitial.fromJson;
-
-  @override
-  Wallet get wallet;
-  @override
-  @JsonKey(ignore: true)
-  _$$WalletInitialCopyWith<_$WalletInitial> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class WalletLoading implements WalletState {
+  const factory WalletLoading() = _$WalletLoading;
 }
 
 /// @nodoc
-abstract class _$$WalletUpdatedCopyWith<$Res>
-    implements $WalletStateCopyWith<$Res> {
+abstract class _$$WalletUpdatedCopyWith<$Res> {
   factory _$$WalletUpdatedCopyWith(
           _$WalletUpdated value, $Res Function(_$WalletUpdated) then) =
       __$$WalletUpdatedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({Wallet wallet});
 }
@@ -296,19 +328,12 @@ class __$$WalletUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$WalletUpdated implements WalletUpdated {
-  const _$WalletUpdated(this.wallet, {final String? $type})
-      : $type = $type ?? 'updated';
 
-  factory _$WalletUpdated.fromJson(Map<String, dynamic> json) =>
-      _$$WalletUpdatedFromJson(json);
+class _$WalletUpdated implements WalletUpdated {
+  const _$WalletUpdated(this.wallet);
 
   @override
   final Wallet wallet;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -323,7 +348,6 @@ class _$WalletUpdated implements WalletUpdated {
             (identical(other.wallet, wallet) || other.wallet == wallet));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, wallet);
 
@@ -336,7 +360,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Wallet wallet) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(Wallet wallet) updated,
   }) {
     return updated(wallet);
@@ -345,7 +370,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Wallet wallet)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(Wallet wallet)? updated,
   }) {
     return updated?.call(wallet);
@@ -354,7 +380,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Wallet wallet)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(Wallet wallet)? updated,
     required TResult orElse(),
   }) {
@@ -367,7 +394,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WalletInitial value) init,
+    required TResult Function(WalletInitial value) initial,
+    required TResult Function(WalletLoading value) loading,
     required TResult Function(WalletUpdated value) updated,
   }) {
     return updated(this);
@@ -376,7 +404,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WalletInitial value)? init,
+    TResult? Function(WalletInitial value)? initial,
+    TResult? Function(WalletLoading value)? loading,
     TResult? Function(WalletUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -385,7 +414,8 @@ class _$WalletUpdated implements WalletUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WalletInitial value)? init,
+    TResult Function(WalletInitial value)? initial,
+    TResult Function(WalletLoading value)? loading,
     TResult Function(WalletUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -394,24 +424,12 @@ class _$WalletUpdated implements WalletUpdated {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WalletUpdatedToJson(
-      this,
-    );
-  }
 }
 
 abstract class WalletUpdated implements WalletState {
   const factory WalletUpdated(final Wallet wallet) = _$WalletUpdated;
 
-  factory WalletUpdated.fromJson(Map<String, dynamic> json) =
-      _$WalletUpdated.fromJson;
-
-  @override
   Wallet get wallet;
-  @override
   @JsonKey(ignore: true)
   _$$WalletUpdatedCopyWith<_$WalletUpdated> get copyWith =>
       throw _privateConstructorUsedError;

@@ -1,14 +1,13 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class CharacterRepository {
   CharacterRepository();
 
-  Future<List<Character>> getCharacters() async {
-    return defaultCharacters;
-  }
+  final Box<Character> box = Hive.box<Character>('characters_box');
 
   Future<Character> getCharacter(int id) async {
-    return defaultCharacters.firstWhere((element) => element.id == id);
+    return box.get(id)!;
   }
 }
 

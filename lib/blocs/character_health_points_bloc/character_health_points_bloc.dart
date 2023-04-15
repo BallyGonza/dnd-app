@@ -8,23 +8,26 @@ import 'character_health_points_state.dart';
 class CharacterHealthPointsBloc
     extends Bloc<CharacterHealthPointsEvent, CharacterHealthPointsState> {
   CharacterHealthPointsBloc(
-    this.character,
-  ) : super(CharacterHealthPointsState.init(character.healthPoints.current)) {
+    CharacterRepository characterRepository,
+  ) : super(const CharacterHealthPointsState.initial()) {
     on<CharacterHealthPointsInitialEvent>(_onInit);
     on<CharacterHealthPointsAddEvent>(_onAdd);
     on<CharacterHealthPointsSubtractEvent>(_onSubtract);
     on<CharacterHealthPointsResetEvent>(_onReset);
   }
 
+  final CharacterRepository characterRepository = CharacterRepository();
   late Character character;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
-  void _onInit(
+  Future<void> _onInit(
     CharacterHealthPointsInitialEvent event,
     Emitter<CharacterHealthPointsState> emit,
-  ) {
-    character = box.get(character.id)!;
-    emit(CharacterHealthPointsState.init(character.healthPoints.current));
+  ) async {
+    character = await characterRepository.getCharacter(
+      event.characterId,
+    );
+    emit(CharacterHealthPointsState.updated(character.healthPoints.current));
   }
 
   void _onAdd(
@@ -52,13 +55,5 @@ class CharacterHealthPointsBloc
     character.healthPoints.reset();
     box.put(character.id, character);
     emit(CharacterHealthPointsState.updated(character.healthPoints.current));
-  }
-
-  CharacterHealthPointsState? fromJson(Map<String, dynamic> json) {
-    return CharacterHealthPointsState.fromJson(json);
-  }
-
-  Map<String, dynamic>? toJson(CharacterHealthPointsState state) {
-    return state.toJson();
   }
 }

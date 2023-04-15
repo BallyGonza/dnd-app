@@ -14,67 +14,51 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-WildFormHealthPointsState _$WildFormHealthPointsStateFromJson(
-    Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'init':
-      return WildFormHealthPointsInitial.fromJson(json);
-    case 'updated':
-      return WildFormHealthPointsUpdated.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(
-          json,
-          'runtimeType',
-          'WildFormHealthPointsState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$WildFormHealthPointsState {
-  int get current => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WildFormHealthPointsInitial value) init,
+    required TResult Function(WildFormHealthPointsInitial value) initial,
+    required TResult Function(WildFormHealthPointsLoading value) loading,
     required TResult Function(WildFormHealthPointsUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WildFormHealthPointsInitial value)? init,
+    TResult? Function(WildFormHealthPointsInitial value)? initial,
+    TResult? Function(WildFormHealthPointsLoading value)? loading,
     TResult? Function(WildFormHealthPointsUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WildFormHealthPointsInitial value)? init,
+    TResult Function(WildFormHealthPointsInitial value)? initial,
+    TResult Function(WildFormHealthPointsLoading value)? loading,
     TResult Function(WildFormHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WildFormHealthPointsStateCopyWith<WildFormHealthPointsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -83,8 +67,6 @@ abstract class $WildFormHealthPointsStateCopyWith<$Res> {
   factory $WildFormHealthPointsStateCopyWith(WildFormHealthPointsState value,
           $Res Function(WildFormHealthPointsState) then) =
       _$WildFormHealthPointsStateCopyWithImpl<$Res, WildFormHealthPointsState>;
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -97,31 +79,14 @@ class _$WildFormHealthPointsStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_value.copyWith(
-      current: null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$WildFormHealthPointsInitialCopyWith<$Res>
-    implements $WildFormHealthPointsStateCopyWith<$Res> {
+abstract class _$$WildFormHealthPointsInitialCopyWith<$Res> {
   factory _$$WildFormHealthPointsInitialCopyWith(
           _$WildFormHealthPointsInitial value,
           $Res Function(_$WildFormHealthPointsInitial) then) =
       __$$WildFormHealthPointsInitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -133,87 +98,58 @@ class __$$WildFormHealthPointsInitialCopyWithImpl<$Res>
       _$WildFormHealthPointsInitial _value,
       $Res Function(_$WildFormHealthPointsInitial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_$WildFormHealthPointsInitial(
-      null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
-  const _$WildFormHealthPointsInitial(this.current, {final String? $type})
-      : $type = $type ?? 'init';
-
-  factory _$WildFormHealthPointsInitial.fromJson(Map<String, dynamic> json) =>
-      _$$WildFormHealthPointsInitialFromJson(json);
-
-  @override
-  final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$WildFormHealthPointsInitial();
 
   @override
   String toString() {
-    return 'WildFormHealthPointsState.init(current: $current)';
+    return 'WildFormHealthPointsState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WildFormHealthPointsInitial &&
-            (identical(other.current, current) || other.current == current));
+            other is _$WildFormHealthPointsInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, current);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$WildFormHealthPointsInitialCopyWith<_$WildFormHealthPointsInitial>
-      get copyWith => __$$WildFormHealthPointsInitialCopyWithImpl<
-          _$WildFormHealthPointsInitial>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
-    return init(current);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
-    return init?.call(current);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(current);
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -221,66 +157,162 @@ class _$WildFormHealthPointsInitial implements WildFormHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WildFormHealthPointsInitial value) init,
+    required TResult Function(WildFormHealthPointsInitial value) initial,
+    required TResult Function(WildFormHealthPointsLoading value) loading,
     required TResult Function(WildFormHealthPointsUpdated value) updated,
   }) {
-    return init(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WildFormHealthPointsInitial value)? init,
+    TResult? Function(WildFormHealthPointsInitial value)? initial,
+    TResult? Function(WildFormHealthPointsLoading value)? loading,
     TResult? Function(WildFormHealthPointsUpdated value)? updated,
   }) {
-    return init?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WildFormHealthPointsInitial value)? init,
+    TResult Function(WildFormHealthPointsInitial value)? initial,
+    TResult Function(WildFormHealthPointsLoading value)? loading,
     TResult Function(WildFormHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WildFormHealthPointsInitialToJson(
-      this,
-    );
   }
 }
 
 abstract class WildFormHealthPointsInitial
     implements WildFormHealthPointsState {
-  const factory WildFormHealthPointsInitial(final int current) =
-      _$WildFormHealthPointsInitial;
-
-  factory WildFormHealthPointsInitial.fromJson(Map<String, dynamic> json) =
-      _$WildFormHealthPointsInitial.fromJson;
-
-  @override
-  int get current;
-  @override
-  @JsonKey(ignore: true)
-  _$$WildFormHealthPointsInitialCopyWith<_$WildFormHealthPointsInitial>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory WildFormHealthPointsInitial() = _$WildFormHealthPointsInitial;
 }
 
 /// @nodoc
-abstract class _$$WildFormHealthPointsUpdatedCopyWith<$Res>
-    implements $WildFormHealthPointsStateCopyWith<$Res> {
+abstract class _$$WildFormHealthPointsLoadingCopyWith<$Res> {
+  factory _$$WildFormHealthPointsLoadingCopyWith(
+          _$WildFormHealthPointsLoading value,
+          $Res Function(_$WildFormHealthPointsLoading) then) =
+      __$$WildFormHealthPointsLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$WildFormHealthPointsLoadingCopyWithImpl<$Res>
+    extends _$WildFormHealthPointsStateCopyWithImpl<$Res,
+        _$WildFormHealthPointsLoading>
+    implements _$$WildFormHealthPointsLoadingCopyWith<$Res> {
+  __$$WildFormHealthPointsLoadingCopyWithImpl(
+      _$WildFormHealthPointsLoading _value,
+      $Res Function(_$WildFormHealthPointsLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$WildFormHealthPointsLoading implements WildFormHealthPointsLoading {
+  const _$WildFormHealthPointsLoading();
+
+  @override
+  String toString() {
+    return 'WildFormHealthPointsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$WildFormHealthPointsLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(int current) updated,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int current)? updated,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(int current)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WildFormHealthPointsInitial value) initial,
+    required TResult Function(WildFormHealthPointsLoading value) loading,
+    required TResult Function(WildFormHealthPointsUpdated value) updated,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(WildFormHealthPointsInitial value)? initial,
+    TResult? Function(WildFormHealthPointsLoading value)? loading,
+    TResult? Function(WildFormHealthPointsUpdated value)? updated,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WildFormHealthPointsInitial value)? initial,
+    TResult Function(WildFormHealthPointsLoading value)? loading,
+    TResult Function(WildFormHealthPointsUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WildFormHealthPointsLoading
+    implements WildFormHealthPointsState {
+  const factory WildFormHealthPointsLoading() = _$WildFormHealthPointsLoading;
+}
+
+/// @nodoc
+abstract class _$$WildFormHealthPointsUpdatedCopyWith<$Res> {
   factory _$$WildFormHealthPointsUpdatedCopyWith(
           _$WildFormHealthPointsUpdated value,
           $Res Function(_$WildFormHealthPointsUpdated) then) =
       __$$WildFormHealthPointsUpdatedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int current});
 }
@@ -310,19 +342,12 @@ class __$$WildFormHealthPointsUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
-  const _$WildFormHealthPointsUpdated(this.current, {final String? $type})
-      : $type = $type ?? 'updated';
 
-  factory _$WildFormHealthPointsUpdated.fromJson(Map<String, dynamic> json) =>
-      _$$WildFormHealthPointsUpdatedFromJson(json);
+class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
+  const _$WildFormHealthPointsUpdated(this.current);
 
   @override
   final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -337,7 +362,6 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
             (identical(other.current, current) || other.current == current));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, current);
 
@@ -351,7 +375,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
     return updated(current);
@@ -360,7 +385,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
     return updated?.call(current);
@@ -369,7 +395,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
@@ -382,7 +409,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(WildFormHealthPointsInitial value) init,
+    required TResult Function(WildFormHealthPointsInitial value) initial,
+    required TResult Function(WildFormHealthPointsLoading value) loading,
     required TResult Function(WildFormHealthPointsUpdated value) updated,
   }) {
     return updated(this);
@@ -391,7 +419,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(WildFormHealthPointsInitial value)? init,
+    TResult? Function(WildFormHealthPointsInitial value)? initial,
+    TResult? Function(WildFormHealthPointsLoading value)? loading,
     TResult? Function(WildFormHealthPointsUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -400,7 +429,8 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(WildFormHealthPointsInitial value)? init,
+    TResult Function(WildFormHealthPointsInitial value)? initial,
+    TResult Function(WildFormHealthPointsLoading value)? loading,
     TResult Function(WildFormHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -409,13 +439,6 @@ class _$WildFormHealthPointsUpdated implements WildFormHealthPointsUpdated {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WildFormHealthPointsUpdatedToJson(
-      this,
-    );
-  }
 }
 
 abstract class WildFormHealthPointsUpdated
@@ -423,12 +446,7 @@ abstract class WildFormHealthPointsUpdated
   const factory WildFormHealthPointsUpdated(final int current) =
       _$WildFormHealthPointsUpdated;
 
-  factory WildFormHealthPointsUpdated.fromJson(Map<String, dynamic> json) =
-      _$WildFormHealthPointsUpdated.fromJson;
-
-  @override
   int get current;
-  @override
   @JsonKey(ignore: true)
   _$$WildFormHealthPointsUpdatedCopyWith<_$WildFormHealthPointsUpdated>
       get copyWith => throw _privateConstructorUsedError;

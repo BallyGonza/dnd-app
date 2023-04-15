@@ -3,7 +3,10 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class CharacterCard extends StatelessWidget {
-  CharacterCard({Key? key, required this.character}) : super(key: key);
+  CharacterCard({
+    Key? key,
+    required this.character,
+  }) : super(key: key);
 
   final Character character;
 
@@ -26,7 +29,7 @@ class CharacterCard extends StatelessWidget {
             ),
           ),
           child: ListTile(
-            leading: GestureDetector(
+            leading: InkWell(
               onTap: () {
                 showDialog(
                   context: context,

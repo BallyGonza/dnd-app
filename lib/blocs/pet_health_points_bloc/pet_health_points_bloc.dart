@@ -2,28 +2,29 @@ import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'export.dart';
+import 'pet_health_points_event.dart';
+import 'pet_health_points_state.dart';
 
 class PetHealthPointsBloc
     extends Bloc<PetHealthPointsEvent, PetHealthPointsState> {
   PetHealthPointsBloc(
-    this.character,
-  ) : super(PetHealthPointsState.init(character.pets[0].healthPoints.current)) {
+    CharacterRepository characterRepository,
+  ) : super(const PetHealthPointsState.initial()) {
     on<PetHealthPointsInitialEvent>(_onInit);
     on<PetHealthPointsAddEvent>(_onAdd);
     on<PetHealthPointsSubtractEvent>(_onSubtract);
     on<PetHealthPointsResetEvent>(_onReset);
   }
-
+  final CharacterRepository characterRepository = CharacterRepository();
   late Character character;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
-  void _onInit(
+  Future<void> _onInit(
     PetHealthPointsInitialEvent event,
     Emitter<PetHealthPointsState> emit,
-  ) {
-    character = box.get(character.id)!;
-    emit(PetHealthPointsState.init(character.pets[0].healthPoints.current));
+  ) async {
+    character = await characterRepository.getCharacter(event.characterId);
+    emit(PetHealthPointsState.updated(character.pets[0].healthPoints.current));
   }
 
   void _onAdd(
@@ -51,15 +52,5 @@ class PetHealthPointsBloc
     character.pets[0].healthPoints.reset();
     box.put(character.id, character);
     emit(PetHealthPointsState.updated(character.healthPoints.current));
-  }
-
-  @override
-  PetHealthPointsState? fromJson(Map<String, dynamic> json) {
-    return PetHealthPointsState.fromJson(json);
-  }
-
-  @override
-  Map<String, dynamic>? toJson(PetHealthPointsState state) {
-    return state.toJson();
   }
 }

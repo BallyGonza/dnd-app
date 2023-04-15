@@ -1,20 +1,33 @@
 import 'package:dnd_app/blocs/blocs.dart';
+import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharacterHealthPoints extends StatefulWidget {
   const CharacterHealthPoints(
-      {Key? key, required this.max, required this.color})
+      {Key? key,
+      required this.character,
+      required this.max,
+      required this.color})
       : super(key: key);
 
   final int max;
   final Color color;
+  final Character character;
 
   @override
   State<CharacterHealthPoints> createState() => _CharacterHealthPointsState();
 }
 
 class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
+  @override
+  void initState() {
+    context
+        .read<CharacterHealthPointsBloc>()
+        .add(CharacterHealthPointsEvent.init(widget.character.id));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,18 +54,32 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<CharacterHealthPointsBloc>(context)
+                    context
+                        .read<CharacterHealthPointsBloc>()
                         .add(const CharacterHealthPointsEvent.subtract());
                   },
                   child: BlocBuilder<CharacterHealthPointsBloc,
                       CharacterHealthPointsState>(
                     builder: (context, state) {
-                      return Text(
-                        '${state.current}',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
+                      return state.maybeWhen(
+                        updated: (current) {
+                          return Text(
+                            '$current',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          );
+                        },
+                        orElse: () {
+                          return const Text(
+                            '-',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                            ),
+                          );
+                        },
                       );
                     },
                   ),
@@ -66,7 +93,8 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<CharacterHealthPointsBloc>(context)
+                    context
+                        .read<CharacterHealthPointsBloc>()
                         .add(const CharacterHealthPointsEvent.add());
                   },
                   child: Text(

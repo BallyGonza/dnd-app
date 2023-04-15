@@ -7,23 +7,24 @@ import 'wallet_state.dart';
 
 class WalletBloc extends Bloc<WalletEvent, WalletState> {
   WalletBloc(
-    this.character,
-  ) : super(WalletState.init(character.wallet)) {
+    CharacterRepository characterRepository,
+  ) : super(const WalletState.initial()) {
     on<WalletInitialEvent>(_onInit);
     on<WalletAddEvent>(_onAdd);
     on<WalletSubtractEvent>(_onSubtract);
     on<WalletSetEvent>(_onSet);
   }
 
+  final CharacterRepository characterRepository = CharacterRepository();
   late Character character;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
-  void _onInit(
+  Future<void> _onInit(
     WalletInitialEvent event,
     Emitter<WalletState> emit,
-  ) {
-    character = box.get(character.id)!;
-    emit(WalletState.init(character.wallet));
+  ) async {
+    character = await characterRepository.getCharacter(event.characterId);
+    emit(WalletState.updated(character.wallet));
   }
 
   void _onAdd(
@@ -51,13 +52,5 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     character.wallet.setPieces(pieces: event.pieces, amount: event.amount);
     box.put(character.id, character);
     emit(WalletState.updated(character.wallet));
-  }
-
-  WalletState? fromJson(Map<String, dynamic> json) {
-    return WalletState.fromJson(json);
-  }
-
-  Map<String, dynamic>? toJson(WalletState state) {
-    return state.toJson();
   }
 }

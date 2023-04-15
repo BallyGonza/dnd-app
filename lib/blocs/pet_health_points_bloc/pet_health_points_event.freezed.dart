@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PetHealthPointsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -26,7 +26,7 @@ mixin _$PetHealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -34,7 +34,7 @@ mixin _$PetHealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -93,6 +93,8 @@ abstract class _$$PetHealthPointsInitialEventCopyWith<$Res> {
           _$PetHealthPointsInitialEvent value,
           $Res Function(_$PetHealthPointsInitialEvent) then) =
       __$$PetHealthPointsInitialEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int characterId});
 }
 
 /// @nodoc
@@ -104,61 +106,86 @@ class __$$PetHealthPointsInitialEventCopyWithImpl<$Res>
       _$PetHealthPointsInitialEvent _value,
       $Res Function(_$PetHealthPointsInitialEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characterId = null,
+  }) {
+    return _then(_$PetHealthPointsInitialEvent(
+      null == characterId
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
-  const _$PetHealthPointsInitialEvent();
+  const _$PetHealthPointsInitialEvent(this.characterId);
+
+  @override
+  final int characterId;
 
   @override
   String toString() {
-    return 'PetHealthPointsEvent.init()';
+    return 'PetHealthPointsEvent.init(characterId: $characterId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsInitialEvent);
+            other is _$PetHealthPointsInitialEvent &&
+            (identical(other.characterId, characterId) ||
+                other.characterId == characterId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, characterId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PetHealthPointsInitialEventCopyWith<_$PetHealthPointsInitialEvent>
+      get copyWith => __$$PetHealthPointsInitialEventCopyWithImpl<
+          _$PetHealthPointsInitialEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
   }) {
-    return init();
+    return init(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
   }) {
-    return init?.call();
+    return init?.call(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init();
+      return init(characterId);
     }
     return orElse();
   }
@@ -202,7 +229,13 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
 }
 
 abstract class PetHealthPointsInitialEvent implements PetHealthPointsEvent {
-  const factory PetHealthPointsInitialEvent() = _$PetHealthPointsInitialEvent;
+  const factory PetHealthPointsInitialEvent(final int characterId) =
+      _$PetHealthPointsInitialEvent;
+
+  int get characterId;
+  @JsonKey(ignore: true)
+  _$$PetHealthPointsInitialEventCopyWith<_$PetHealthPointsInitialEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -244,7 +277,7 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -255,7 +288,7 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -266,7 +299,7 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -362,7 +395,7 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -373,7 +406,7 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -384,7 +417,7 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -479,7 +512,7 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -490,7 +523,7 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -501,7 +534,7 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,

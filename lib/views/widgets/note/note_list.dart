@@ -10,8 +10,11 @@ import 'widgets/widgets.dart';
 
 class NoteList extends StatefulWidget {
   const NoteList({
+    required this.characterId,
     Key? key,
   }) : super(key: key);
+
+  final int characterId;
 
   @override
   State<NoteList> createState() => _NoteListState();
@@ -28,7 +31,9 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
   void initState() {
     _walletOpen = false;
     _selected = Colors.green[300]!;
-    context.read<LootBloc>().add(const LootEvent.init());
+    context.read<LootBloc>().add(LootEvent.init(
+          widget.characterId,
+        ));
     super.initState();
   }
 
@@ -37,7 +42,9 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
     return Stack(
       children: [
         _walletOpen
-            ? const WalletList()
+            ? WalletList(
+                characterId: widget.characterId,
+              )
             : SingleChildScrollView(
                 child: BlocBuilder<LootBloc, LootState>(
                   builder: (context, state) {
@@ -138,14 +145,13 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
     contentController.text = notes[index].content;
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
-          value: context.read<LootBloc>(),
-          child: NotePage(
-            isNewNote: false,
-            note: notes[index],
-            buttonText: 'Edit',
-            onSaved: (title, content, color) {
-              setState(() {
+        builder: (_) => NotePage(
+          isNewNote: false,
+          note: notes[index],
+          buttonText: 'Edit',
+          onSaved: (title, content, color) {
+            setState(
+              () {
                 context.read<LootBloc>().add(
                       LootEvent.edit(
                         index,
@@ -157,9 +163,9 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                         ),
                       ),
                     );
-              });
-            },
-          ),
+              },
+            );
+          },
         ),
       ),
     );
@@ -170,32 +176,29 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
     contentController.clear();
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (_) => BlocProvider.value(
-          value: context.read<LootBloc>(),
-          child: NotePage(
-            isNewNote: true,
-            note: Note(
-              date: format.format(DateTime.now()),
-              color: Colors.white.value,
-              title: '',
-              content: '',
-            ),
-            buttonText: 'Add',
-            onSaved: (title, content, color) {
-              setState(() {
-                context.read<LootBloc>().add(
-                      LootEvent.add(
-                        Note(
-                          title: title,
-                          content: content,
-                          date: format.format(DateTime.now()),
-                          color: color,
-                        ),
-                      ),
-                    );
-              });
-            },
+        builder: (_) => NotePage(
+          isNewNote: true,
+          note: Note(
+            date: format.format(DateTime.now()),
+            color: Colors.white.value,
+            title: '',
+            content: '',
           ),
+          buttonText: 'Add',
+          onSaved: (title, content, color) {
+            setState(() {
+              context.read<LootBloc>().add(
+                    LootEvent.add(
+                      Note(
+                        title: title,
+                        content: content,
+                        date: format.format(DateTime.now()),
+                        color: color,
+                      ),
+                    ),
+                  );
+            });
+          },
         ),
       ),
     );

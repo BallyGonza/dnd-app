@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WalletEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
     required TResult Function(String pieces, int amount) set,
@@ -26,7 +26,7 @@ mixin _$WalletEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
     TResult? Function(String pieces, int amount)? set,
@@ -34,7 +34,7 @@ mixin _$WalletEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
     TResult Function(String pieces, int amount)? set,
@@ -91,6 +91,8 @@ abstract class _$$WalletInitialEventCopyWith<$Res> {
   factory _$$WalletInitialEventCopyWith(_$WalletInitialEvent value,
           $Res Function(_$WalletInitialEvent) then) =
       __$$WalletInitialEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int characterId});
 }
 
 /// @nodoc
@@ -100,60 +102,86 @@ class __$$WalletInitialEventCopyWithImpl<$Res>
   __$$WalletInitialEventCopyWithImpl(
       _$WalletInitialEvent _value, $Res Function(_$WalletInitialEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characterId = null,
+  }) {
+    return _then(_$WalletInitialEvent(
+      null == characterId
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$WalletInitialEvent implements WalletInitialEvent {
-  const _$WalletInitialEvent();
+  const _$WalletInitialEvent(this.characterId);
+
+  @override
+  final int characterId;
 
   @override
   String toString() {
-    return 'WalletEvent.init()';
+    return 'WalletEvent.init(characterId: $characterId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WalletInitialEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$WalletInitialEvent &&
+            (identical(other.characterId, characterId) ||
+                other.characterId == characterId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, characterId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WalletInitialEventCopyWith<_$WalletInitialEvent> get copyWith =>
+      __$$WalletInitialEventCopyWithImpl<_$WalletInitialEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
     required TResult Function(String pieces, int amount) set,
   }) {
-    return init();
+    return init(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
     TResult? Function(String pieces, int amount)? set,
   }) {
-    return init?.call();
+    return init?.call(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
     TResult Function(String pieces, int amount)? set,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init();
+      return init(characterId);
     }
     return orElse();
   }
@@ -197,7 +225,13 @@ class _$WalletInitialEvent implements WalletInitialEvent {
 }
 
 abstract class WalletInitialEvent implements WalletEvent {
-  const factory WalletInitialEvent() = _$WalletInitialEvent;
+  const factory WalletInitialEvent(final int characterId) =
+      _$WalletInitialEvent;
+
+  int get characterId;
+  @JsonKey(ignore: true)
+  _$$WalletInitialEventCopyWith<_$WalletInitialEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -264,7 +298,7 @@ class _$WalletAddEvent implements WalletAddEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
     required TResult Function(String pieces, int amount) set,
@@ -275,7 +309,7 @@ class _$WalletAddEvent implements WalletAddEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
     TResult? Function(String pieces, int amount)? set,
@@ -286,7 +320,7 @@ class _$WalletAddEvent implements WalletAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
     TResult Function(String pieces, int amount)? set,
@@ -410,7 +444,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
     required TResult Function(String pieces, int amount) set,
@@ -421,7 +455,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
     TResult? Function(String pieces, int amount)? set,
@@ -432,7 +466,7 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
     TResult Function(String pieces, int amount)? set,
@@ -564,7 +598,7 @@ class _$WalletSetEvent implements WalletSetEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function(String pieces) add,
     required TResult Function(String pieces) subtract,
     required TResult Function(String pieces, int amount) set,
@@ -575,7 +609,7 @@ class _$WalletSetEvent implements WalletSetEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function(String pieces)? add,
     TResult? Function(String pieces)? subtract,
     TResult? Function(String pieces, int amount)? set,
@@ -586,7 +620,7 @@ class _$WalletSetEvent implements WalletSetEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function(String pieces)? add,
     TResult Function(String pieces)? subtract,
     TResult Function(String pieces, int amount)? set,

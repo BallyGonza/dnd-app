@@ -4,8 +4,9 @@ part 'wild_form_health_points_event.freezed.dart';
 
 @freezed
 class WildFormHealthPointsEvent with _$WildFormHealthPointsEvent {
-  const factory WildFormHealthPointsEvent.init() =
-      WildFormHealthPointsInitialEvent;
+  const factory WildFormHealthPointsEvent.init(
+    int characterId,
+  ) = WildFormHealthPointsInitialEvent;
   const factory WildFormHealthPointsEvent.add() = WildFormHealthPointsAddEvent;
   const factory WildFormHealthPointsEvent.subtract() =
       WildFormHealthPointsSubtractEvent;

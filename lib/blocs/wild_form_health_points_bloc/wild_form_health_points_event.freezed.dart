@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WildFormHealthPointsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -26,7 +26,7 @@ mixin _$WildFormHealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -34,7 +34,7 @@ mixin _$WildFormHealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -93,6 +93,8 @@ abstract class _$$WildFormHealthPointsInitialEventCopyWith<$Res> {
           _$WildFormHealthPointsInitialEvent value,
           $Res Function(_$WildFormHealthPointsInitialEvent) then) =
       __$$WildFormHealthPointsInitialEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int characterId});
 }
 
 /// @nodoc
@@ -104,62 +106,88 @@ class __$$WildFormHealthPointsInitialEventCopyWithImpl<$Res>
       _$WildFormHealthPointsInitialEvent _value,
       $Res Function(_$WildFormHealthPointsInitialEvent) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? characterId = null,
+  }) {
+    return _then(_$WildFormHealthPointsInitialEvent(
+      null == characterId
+          ? _value.characterId
+          : characterId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$WildFormHealthPointsInitialEvent
     implements WildFormHealthPointsInitialEvent {
-  const _$WildFormHealthPointsInitialEvent();
+  const _$WildFormHealthPointsInitialEvent(this.characterId);
+
+  @override
+  final int characterId;
 
   @override
   String toString() {
-    return 'WildFormHealthPointsEvent.init()';
+    return 'WildFormHealthPointsEvent.init(characterId: $characterId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WildFormHealthPointsInitialEvent);
+            other is _$WildFormHealthPointsInitialEvent &&
+            (identical(other.characterId, characterId) ||
+                other.characterId == characterId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, characterId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$WildFormHealthPointsInitialEventCopyWith<
+          _$WildFormHealthPointsInitialEvent>
+      get copyWith => __$$WildFormHealthPointsInitialEventCopyWithImpl<
+          _$WildFormHealthPointsInitialEvent>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
   }) {
-    return init();
+    return init(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
   }) {
-    return init?.call();
+    return init?.call(characterId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (init != null) {
-      return init();
+      return init(characterId);
     }
     return orElse();
   }
@@ -204,8 +232,14 @@ class _$WildFormHealthPointsInitialEvent
 
 abstract class WildFormHealthPointsInitialEvent
     implements WildFormHealthPointsEvent {
-  const factory WildFormHealthPointsInitialEvent() =
+  const factory WildFormHealthPointsInitialEvent(final int characterId) =
       _$WildFormHealthPointsInitialEvent;
+
+  int get characterId;
+  @JsonKey(ignore: true)
+  _$$WildFormHealthPointsInitialEventCopyWith<
+          _$WildFormHealthPointsInitialEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -250,7 +284,7 @@ class _$WildFormHealthPointsAddEvent implements WildFormHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -261,7 +295,7 @@ class _$WildFormHealthPointsAddEvent implements WildFormHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -272,7 +306,7 @@ class _$WildFormHealthPointsAddEvent implements WildFormHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -370,7 +404,7 @@ class _$WildFormHealthPointsSubtractEvent
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -381,7 +415,7 @@ class _$WildFormHealthPointsSubtractEvent
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -392,7 +426,7 @@ class _$WildFormHealthPointsSubtractEvent
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,
@@ -491,7 +525,7 @@ class _$WildFormHealthPointsResetEvent
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() init,
+    required TResult Function(int characterId) init,
     required TResult Function() add,
     required TResult Function() subtract,
     required TResult Function() reset,
@@ -502,7 +536,7 @@ class _$WildFormHealthPointsResetEvent
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? init,
+    TResult? Function(int characterId)? init,
     TResult? Function()? add,
     TResult? Function()? subtract,
     TResult? Function()? reset,
@@ -513,7 +547,7 @@ class _$WildFormHealthPointsResetEvent
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
+    TResult Function(int characterId)? init,
     TResult Function()? add,
     TResult Function()? subtract,
     TResult Function()? reset,

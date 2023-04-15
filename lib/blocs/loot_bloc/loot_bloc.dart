@@ -7,21 +7,18 @@ import 'loot_state.dart';
 
 class LootBloc extends Bloc<LootEvent, LootState> {
   LootBloc(
-    this.characterRepository,
-    this.characterIndex,
+    CharacterRepository characterRepository,
   ) : super(const LootState.initial()) {
     on<LootInitialEvent>(_onInit);
     on<LootAddEvent>(_onAdd);
     on<LootEditEvent>(_onEdit);
     on<LootDeleteEvent>(_onDelete);
     on<LootDeleteAllEvent>(_onDeleteAll);
-
-    add(const LootEvent.init());
   }
 
-  final CharacterRepository characterRepository;
+  final CharacterRepository characterRepository = CharacterRepository();
   late Character character;
-  final int characterIndex;
+
   late List<Note> notes;
   final Box<Character> box = Hive.box<Character>('characters_box');
 
@@ -29,7 +26,8 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     LootInitialEvent event,
     Emitter<LootState> emit,
   ) async {
-    character = box.get(characterIndex)!;
+    character = await characterRepository.getCharacter(event.characterId);
+    // character = box.get(characterIndex)!;
     notes = character.notes;
     emit(LootState.loaded(notes));
   }

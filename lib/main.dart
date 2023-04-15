@@ -1,6 +1,6 @@
+import 'package:dnd_app/blocs/blocs.dart';
 import 'package:dnd_app/theme.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
@@ -23,15 +23,39 @@ Future<void> main() async {
     ..registerAdapter(WalletAdapter());
 
   WidgetsFlutterBinding.ensureInitialized();
-  HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: await getApplicationDocumentsDirectory(),
-  );
 
   await Hive.initFlutter();
   await Hive.openBox<Character>('characters_box');
 
   runApp(
-    const MyApp(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CharacterBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CharacterHealthPointsBloc(
+            CharacterRepository(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => LootBloc(
+            CharacterRepository(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => PetHealthPointsBloc(
+            CharacterRepository(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => WalletBloc(
+            CharacterRepository(),
+          ),
+        )
+      ],
+      child: const MyApp(),
+    ),
   );
 }
 

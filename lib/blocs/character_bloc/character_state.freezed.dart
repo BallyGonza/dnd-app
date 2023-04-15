@@ -14,36 +14,26 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-CharacterState _$CharacterStateFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'initial':
-      return CharacterInitial.fromJson(json);
-    case 'updated':
-      return CharacterUpdated.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'CharacterState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$CharacterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<Character> characters) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<Character> characters)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<Character> characters)? updated,
     required TResult orElse(),
   }) =>
@@ -51,23 +41,25 @@ mixin _$CharacterState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
+    required TResult Function(CharacterLoading value) loading,
     required TResult Function(CharacterUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
+    TResult? Function(CharacterLoading value)? loading,
     TResult? Function(CharacterUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
+    TResult Function(CharacterLoading value)? loading,
     TResult Function(CharacterUpdated value)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -105,15 +97,9 @@ class __$$CharacterInitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$CharacterInitial implements CharacterInitial {
-  const _$CharacterInitial({final String? $type}) : $type = $type ?? 'initial';
-
-  factory _$CharacterInitial.fromJson(Map<String, dynamic> json) =>
-      _$$CharacterInitialFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$CharacterInitial();
 
   @override
   String toString() {
@@ -126,7 +112,6 @@ class _$CharacterInitial implements CharacterInitial {
         (other.runtimeType == runtimeType && other is _$CharacterInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -134,6 +119,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<Character> characters) updated,
   }) {
     return initial();
@@ -143,6 +129,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<Character> characters)? updated,
   }) {
     return initial?.call();
@@ -152,6 +139,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<Character> characters)? updated,
     required TResult orElse(),
   }) {
@@ -165,6 +153,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
+    required TResult Function(CharacterLoading value) loading,
     required TResult Function(CharacterUpdated value) updated,
   }) {
     return initial(this);
@@ -174,6 +163,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
+    TResult? Function(CharacterLoading value)? loading,
     TResult? Function(CharacterUpdated value)? updated,
   }) {
     return initial?.call(this);
@@ -183,6 +173,7 @@ class _$CharacterInitial implements CharacterInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
+    TResult Function(CharacterLoading value)? loading,
     TResult Function(CharacterUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -191,20 +182,118 @@ class _$CharacterInitial implements CharacterInitial {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharacterInitialToJson(
-      this,
-    );
-  }
 }
 
 abstract class CharacterInitial implements CharacterState {
   const factory CharacterInitial() = _$CharacterInitial;
+}
 
-  factory CharacterInitial.fromJson(Map<String, dynamic> json) =
-      _$CharacterInitial.fromJson;
+/// @nodoc
+abstract class _$$CharacterLoadingCopyWith<$Res> {
+  factory _$$CharacterLoadingCopyWith(
+          _$CharacterLoading value, $Res Function(_$CharacterLoading) then) =
+      __$$CharacterLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CharacterLoadingCopyWithImpl<$Res>
+    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterLoading>
+    implements _$$CharacterLoadingCopyWith<$Res> {
+  __$$CharacterLoadingCopyWithImpl(
+      _$CharacterLoading _value, $Res Function(_$CharacterLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$CharacterLoading implements CharacterLoading {
+  const _$CharacterLoading();
+
+  @override
+  String toString() {
+    return 'CharacterState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CharacterLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<Character> characters) updated,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<Character> characters)? updated,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<Character> characters)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CharacterInitial value) initial,
+    required TResult Function(CharacterLoading value) loading,
+    required TResult Function(CharacterUpdated value) updated,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CharacterInitial value)? initial,
+    TResult? Function(CharacterLoading value)? loading,
+    TResult? Function(CharacterUpdated value)? updated,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CharacterInitial value)? initial,
+    TResult Function(CharacterLoading value)? loading,
+    TResult Function(CharacterUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CharacterLoading implements CharacterState {
+  const factory CharacterLoading() = _$CharacterLoading;
 }
 
 /// @nodoc
@@ -239,15 +328,10 @@ class __$$CharacterUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$CharacterUpdated implements CharacterUpdated {
-  const _$CharacterUpdated(final List<Character> characters,
-      {final String? $type})
-      : _characters = characters,
-        $type = $type ?? 'updated';
 
-  factory _$CharacterUpdated.fromJson(Map<String, dynamic> json) =>
-      _$$CharacterUpdatedFromJson(json);
+class _$CharacterUpdated implements CharacterUpdated {
+  const _$CharacterUpdated(final List<Character> characters)
+      : _characters = characters;
 
   final List<Character> _characters;
   @override
@@ -256,9 +340,6 @@ class _$CharacterUpdated implements CharacterUpdated {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_characters);
   }
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -274,7 +355,6 @@ class _$CharacterUpdated implements CharacterUpdated {
                 .equals(other._characters, _characters));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_characters));
@@ -289,6 +369,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(List<Character> characters) updated,
   }) {
     return updated(characters);
@@ -298,6 +379,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(List<Character> characters)? updated,
   }) {
     return updated?.call(characters);
@@ -307,6 +389,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(List<Character> characters)? updated,
     required TResult orElse(),
   }) {
@@ -320,6 +403,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(CharacterInitial value) initial,
+    required TResult Function(CharacterLoading value) loading,
     required TResult Function(CharacterUpdated value) updated,
   }) {
     return updated(this);
@@ -329,6 +413,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CharacterInitial value)? initial,
+    TResult? Function(CharacterLoading value)? loading,
     TResult? Function(CharacterUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -338,6 +423,7 @@ class _$CharacterUpdated implements CharacterUpdated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CharacterInitial value)? initial,
+    TResult Function(CharacterLoading value)? loading,
     TResult Function(CharacterUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -346,21 +432,11 @@ class _$CharacterUpdated implements CharacterUpdated {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CharacterUpdatedToJson(
-      this,
-    );
-  }
 }
 
 abstract class CharacterUpdated implements CharacterState {
   const factory CharacterUpdated(final List<Character> characters) =
       _$CharacterUpdated;
-
-  factory CharacterUpdated.fromJson(Map<String, dynamic> json) =
-      _$CharacterUpdated.fromJson;
 
   List<Character> get characters;
   @JsonKey(ignore: true)

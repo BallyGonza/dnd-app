@@ -5,7 +5,9 @@ part 'loot_event.freezed.dart';
 
 @freezed
 class LootEvent with _$LootEvent {
-  const factory LootEvent.init() = LootInitialEvent;
+  const factory LootEvent.init(
+    int characterId,
+  ) = LootInitialEvent;
   const factory LootEvent.add(
     Note note,
   ) = LootAddEvent;

@@ -4,7 +4,9 @@ part 'wallet_event.freezed.dart';
 
 @freezed
 class WalletEvent with _$WalletEvent {
-  const factory WalletEvent.init() = WalletInitialEvent;
+  const factory WalletEvent.init(
+    int characterId,
+  ) = WalletInitialEvent;
   const factory WalletEvent.add(
     String pieces,
   ) = WalletAddEvent;

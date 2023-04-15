@@ -14,66 +14,51 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PetHealthPointsState _$PetHealthPointsStateFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'init':
-      return PetHealthPointsInitial.fromJson(json);
-    case 'updated':
-      return PetHealthPointsUpdated.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(
-          json,
-          'runtimeType',
-          'PetHealthPointsState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$PetHealthPointsState {
-  int get current => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) init,
+    required TResult Function(PetHealthPointsInitial value) initial,
+    required TResult Function(PetHealthPointsLoading value) loading,
     required TResult Function(PetHealthPointsUpdated value) updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? init,
+    TResult? Function(PetHealthPointsInitial value)? initial,
+    TResult? Function(PetHealthPointsLoading value)? loading,
     TResult? Function(PetHealthPointsUpdated value)? updated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? init,
+    TResult Function(PetHealthPointsInitial value)? initial,
+    TResult Function(PetHealthPointsLoading value)? loading,
     TResult Function(PetHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PetHealthPointsStateCopyWith<PetHealthPointsState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -82,8 +67,6 @@ abstract class $PetHealthPointsStateCopyWith<$Res> {
   factory $PetHealthPointsStateCopyWith(PetHealthPointsState value,
           $Res Function(PetHealthPointsState) then) =
       _$PetHealthPointsStateCopyWithImpl<$Res, PetHealthPointsState>;
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -96,30 +79,13 @@ class _$PetHealthPointsStateCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_value.copyWith(
-      current: null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsInitialCopyWith<$Res>
-    implements $PetHealthPointsStateCopyWith<$Res> {
+abstract class _$$PetHealthPointsInitialCopyWith<$Res> {
   factory _$$PetHealthPointsInitialCopyWith(_$PetHealthPointsInitial value,
           $Res Function(_$PetHealthPointsInitial) then) =
       __$$PetHealthPointsInitialCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int current});
 }
 
 /// @nodoc
@@ -129,87 +95,57 @@ class __$$PetHealthPointsInitialCopyWithImpl<$Res>
   __$$PetHealthPointsInitialCopyWithImpl(_$PetHealthPointsInitial _value,
       $Res Function(_$PetHealthPointsInitial) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? current = null,
-  }) {
-    return _then(_$PetHealthPointsInitial(
-      null == current
-          ? _value.current
-          : current // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$PetHealthPointsInitial implements PetHealthPointsInitial {
-  const _$PetHealthPointsInitial(this.current, {final String? $type})
-      : $type = $type ?? 'init';
-
-  factory _$PetHealthPointsInitial.fromJson(Map<String, dynamic> json) =>
-      _$$PetHealthPointsInitialFromJson(json);
-
-  @override
-  final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$PetHealthPointsInitial();
 
   @override
   String toString() {
-    return 'PetHealthPointsState.init(current: $current)';
+    return 'PetHealthPointsState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsInitial &&
-            (identical(other.current, current) || other.current == current));
+        (other.runtimeType == runtimeType && other is _$PetHealthPointsInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, current);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PetHealthPointsInitialCopyWith<_$PetHealthPointsInitial> get copyWith =>
-      __$$PetHealthPointsInitialCopyWithImpl<_$PetHealthPointsInitial>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
-    return init(current);
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
-    return init?.call(current);
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(current);
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -217,64 +153,155 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) init,
+    required TResult Function(PetHealthPointsInitial value) initial,
+    required TResult Function(PetHealthPointsLoading value) loading,
     required TResult Function(PetHealthPointsUpdated value) updated,
   }) {
-    return init(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? init,
+    TResult? Function(PetHealthPointsInitial value)? initial,
+    TResult? Function(PetHealthPointsLoading value)? loading,
     TResult? Function(PetHealthPointsUpdated value)? updated,
   }) {
-    return init?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? init,
+    TResult Function(PetHealthPointsInitial value)? initial,
+    TResult Function(PetHealthPointsLoading value)? loading,
     TResult Function(PetHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
-    if (init != null) {
-      return init(this);
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PetHealthPointsInitial implements PetHealthPointsState {
+  const factory PetHealthPointsInitial() = _$PetHealthPointsInitial;
+}
+
+/// @nodoc
+abstract class _$$PetHealthPointsLoadingCopyWith<$Res> {
+  factory _$$PetHealthPointsLoadingCopyWith(_$PetHealthPointsLoading value,
+          $Res Function(_$PetHealthPointsLoading) then) =
+      __$$PetHealthPointsLoadingCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PetHealthPointsLoadingCopyWithImpl<$Res>
+    extends _$PetHealthPointsStateCopyWithImpl<$Res, _$PetHealthPointsLoading>
+    implements _$$PetHealthPointsLoadingCopyWith<$Res> {
+  __$$PetHealthPointsLoadingCopyWithImpl(_$PetHealthPointsLoading _value,
+      $Res Function(_$PetHealthPointsLoading) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$PetHealthPointsLoading implements PetHealthPointsLoading {
+  const _$PetHealthPointsLoading();
+
+  @override
+  String toString() {
+    return 'PetHealthPointsState.loading()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PetHealthPointsLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(int current) updated,
+  }) {
+    return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int current)? updated,
+  }) {
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(int current)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$PetHealthPointsInitialToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(PetHealthPointsInitial value) initial,
+    required TResult Function(PetHealthPointsLoading value) loading,
+    required TResult Function(PetHealthPointsUpdated value) updated,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(PetHealthPointsInitial value)? initial,
+    TResult? Function(PetHealthPointsLoading value)? loading,
+    TResult? Function(PetHealthPointsUpdated value)? updated,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(PetHealthPointsInitial value)? initial,
+    TResult Function(PetHealthPointsLoading value)? loading,
+    TResult Function(PetHealthPointsUpdated value)? updated,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
   }
 }
 
-abstract class PetHealthPointsInitial implements PetHealthPointsState {
-  const factory PetHealthPointsInitial(final int current) =
-      _$PetHealthPointsInitial;
-
-  factory PetHealthPointsInitial.fromJson(Map<String, dynamic> json) =
-      _$PetHealthPointsInitial.fromJson;
-
-  @override
-  int get current;
-  @override
-  @JsonKey(ignore: true)
-  _$$PetHealthPointsInitialCopyWith<_$PetHealthPointsInitial> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class PetHealthPointsLoading implements PetHealthPointsState {
+  const factory PetHealthPointsLoading() = _$PetHealthPointsLoading;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsUpdatedCopyWith<$Res>
-    implements $PetHealthPointsStateCopyWith<$Res> {
+abstract class _$$PetHealthPointsUpdatedCopyWith<$Res> {
   factory _$$PetHealthPointsUpdatedCopyWith(_$PetHealthPointsUpdated value,
           $Res Function(_$PetHealthPointsUpdated) then) =
       __$$PetHealthPointsUpdatedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int current});
 }
@@ -302,19 +329,12 @@ class __$$PetHealthPointsUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
-  const _$PetHealthPointsUpdated(this.current, {final String? $type})
-      : $type = $type ?? 'updated';
 
-  factory _$PetHealthPointsUpdated.fromJson(Map<String, dynamic> json) =>
-      _$$PetHealthPointsUpdatedFromJson(json);
+class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
+  const _$PetHealthPointsUpdated(this.current);
 
   @override
   final int current;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -329,7 +349,6 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
             (identical(other.current, current) || other.current == current));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, current);
 
@@ -343,7 +362,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int current) init,
+    required TResult Function() initial,
+    required TResult Function() loading,
     required TResult Function(int current) updated,
   }) {
     return updated(current);
@@ -352,7 +372,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int current)? init,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
     TResult? Function(int current)? updated,
   }) {
     return updated?.call(current);
@@ -361,7 +382,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int current)? init,
+    TResult Function()? initial,
+    TResult Function()? loading,
     TResult Function(int current)? updated,
     required TResult orElse(),
   }) {
@@ -374,7 +396,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) init,
+    required TResult Function(PetHealthPointsInitial value) initial,
+    required TResult Function(PetHealthPointsLoading value) loading,
     required TResult Function(PetHealthPointsUpdated value) updated,
   }) {
     return updated(this);
@@ -383,7 +406,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? init,
+    TResult? Function(PetHealthPointsInitial value)? initial,
+    TResult? Function(PetHealthPointsLoading value)? loading,
     TResult? Function(PetHealthPointsUpdated value)? updated,
   }) {
     return updated?.call(this);
@@ -392,7 +416,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? init,
+    TResult Function(PetHealthPointsInitial value)? initial,
+    TResult Function(PetHealthPointsLoading value)? loading,
     TResult Function(PetHealthPointsUpdated value)? updated,
     required TResult orElse(),
   }) {
@@ -401,25 +426,13 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PetHealthPointsUpdatedToJson(
-      this,
-    );
-  }
 }
 
 abstract class PetHealthPointsUpdated implements PetHealthPointsState {
   const factory PetHealthPointsUpdated(final int current) =
       _$PetHealthPointsUpdated;
 
-  factory PetHealthPointsUpdated.fromJson(Map<String, dynamic> json) =
-      _$PetHealthPointsUpdated.fromJson;
-
-  @override
   int get current;
-  @override
   @JsonKey(ignore: true)
   _$$PetHealthPointsUpdatedCopyWith<_$PetHealthPointsUpdated> get copyWith =>
       throw _privateConstructorUsedError;

@@ -43,16 +43,17 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<WildFormHealthPointsBloc>(context)
+                    context
+                        .read<WildFormHealthPointsBloc>()
                         .add(const WildFormHealthPointsEvent.subtract());
                   },
                   child: BlocBuilder<WildFormHealthPointsBloc,
                       WildFormHealthPointsState>(
                     builder: (context, state) {
-                      return FittedBox(
-                        fit: BoxFit.contain,
-                        child: Text(
-                          state.current.toString(),
+                      return state.maybeWhen(
+                        orElse: () => const CircularProgressIndicator(),
+                        updated: (healthPoints) => Text(
+                          '$healthPoints',
                           style: TextStyle(
                             fontSize: 20,
                             color: widget.color,
@@ -71,7 +72,8 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    BlocProvider.of<WildFormHealthPointsBloc>(context)
+                    context
+                        .read<WildFormHealthPointsBloc>()
                         .add(const WildFormHealthPointsEvent.add());
                   },
                   child: FittedBox(

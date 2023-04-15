@@ -1,10 +1,6 @@
-import 'package:dnd_app/theme.dart';
-
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dnd_app/services/services.dart';
-import 'package:dnd_app/blocs/blocs.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +8,10 @@ import 'package:flutter/material.dart';
 class CharacterDetailScreen extends StatefulWidget {
   final Character character;
 
-  const CharacterDetailScreen({Key? key, required this.character})
-      : super(key: key);
+  const CharacterDetailScreen({
+    Key? key,
+    required this.character,
+  }) : super(key: key);
 
   @override
   State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
@@ -22,8 +20,6 @@ class CharacterDetailScreen extends StatefulWidget {
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   var isDialOpen = ValueNotifier<bool>(false);
   int selected = 0;
-  late Box<Character> box;
-  final CharacterRepository characterRepository = CharacterRepository();
   final PageController _pageController = PageController(
     initialPage: 0,
   );
@@ -32,84 +28,42 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   );
 
   @override
-  void initState() {
-    super.initState();
-    box = Hive.box<Character>('characters_box');
-    box.get(widget.character.id) ??
-        box.put(widget.character.id, widget.character);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: appTheme,
-      debugShowCheckedModeBanner: false,
-      home: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => CharacterHealthPointsBloc(
-              box.getAt(widget.character.id)!,
-            ),
+    return Scaffold(
+      body: Wrap(
+        children: [
+          CharacterDetailsCard(
+            character: widget.character,
           ),
-          BlocProvider(
-            create: (context) => LootBloc(
-              characterRepository,
-              widget.character.id,
-            ),
-          ),
-          BlocProvider(
-            create: (context) => WildFormHealthPointsBloc(
-              box.getAt(widget.character.id)!,
-            ),
-          ),
-          BlocProvider(
-            create: (context) => PetHealthPointsBloc(
-              box.getAt(widget.character.id)!,
-            ),
-          ),
-          BlocProvider(
-            create: (context) => WalletBloc(
-              box.getAt(widget.character.id)!,
-            ),
-          ),
+          NavBar(
+              navController: _navController,
+              character: widget.character,
+              selected: selected,
+              onPressed: (index) {
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 600),
+                  curve: Curves.ease,
+                );
+              }),
+          _stackedWidgets(),
         ],
-        child: Scaffold(
-          body: Wrap(
-            children: [
-              CharacterDetailsCard(
-                character: widget.character,
-              ),
-              NavBar(
-                  navController: _navController,
-                  character: widget.character,
-                  selected: selected,
-                  onPressed: (index) {
-                    _pageController.animateToPage(
-                      index,
-                      duration: const Duration(milliseconds: 600),
-                      curve: Curves.ease,
-                    );
-                  }),
-              _stackedWidgets(),
-            ],
-          ),
-          floatingActionButton: SpeedDial(
-            overlayOpacity: 0,
-            backgroundColor: Colors.black,
-            activeIcon: Icons.close,
-            spacing: 3,
-            openCloseDial: isDialOpen,
-            children: [
-              _diceFABItem(dice: d4),
-              _diceFABItem(dice: d6),
-              _diceFABItem(dice: d8),
-              _diceFABItem(dice: d10),
-              _diceFABItem(dice: d12),
-              _diceFABItem(dice: d20),
-            ],
-            child: const Icon(MyFlutterApp.d20),
-          ),
-        ),
+      ),
+      floatingActionButton: SpeedDial(
+        overlayOpacity: 0,
+        backgroundColor: Colors.black,
+        activeIcon: Icons.close,
+        spacing: 3,
+        openCloseDial: isDialOpen,
+        children: [
+          _diceFABItem(dice: d4),
+          _diceFABItem(dice: d6),
+          _diceFABItem(dice: d8),
+          _diceFABItem(dice: d10),
+          _diceFABItem(dice: d12),
+          _diceFABItem(dice: d20),
+        ],
+        child: const Icon(MyFlutterApp.d20),
       ),
     );
   }
@@ -163,7 +117,9 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
                   spells: widget.character.spells,
                 )
               : const SizedBox.shrink(),
-          const NoteList(),
+          NoteList(
+            characterId: widget.character.id,
+          ),
           BackgroundsList(
             backgrounds: widget.character.background,
             languages: widget.character.languages,
