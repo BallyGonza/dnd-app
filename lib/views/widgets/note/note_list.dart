@@ -74,6 +74,8 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                                       return Slidable(
                                         key: ValueKey(notes[index]),
                                         endActionPane: ActionPane(
+                                          extentRatio: 0.25,
+                                          dragDismissible: false,
                                           motion: const ScrollMotion(),
                                           children: [
                                             SlidableAction(
