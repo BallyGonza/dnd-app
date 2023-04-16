@@ -35,7 +35,7 @@ class CharacterHealthPointsBloc
     Emitter<CharacterHealthPointsState> emit,
   ) async {
     character.healthPoints.add();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 
@@ -44,7 +44,7 @@ class CharacterHealthPointsBloc
     Emitter<CharacterHealthPointsState> emit,
   ) async {
     character.healthPoints.subtract();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 
@@ -53,7 +53,7 @@ class CharacterHealthPointsBloc
     Emitter<CharacterHealthPointsState> emit,
   ) async {
     character.healthPoints.reset();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 }

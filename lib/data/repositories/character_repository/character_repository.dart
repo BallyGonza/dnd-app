@@ -6,26 +6,24 @@ class CharacterRepository {
 
   final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
 
-  //get default characters
-  Future<List<CharacterModel>> getDefaultCharacters() async {
-    return defaultCharacters;
+  //save character
+  Future<void> saveCharacter(CharacterModel character) async {
+    await box.put(character.id, character);
+  }
+
+  // get characters
+  Future<List<CharacterModel>> getCharacters() async {
+    for (final character in defaultCharacters) {
+      if (!box.containsKey(character.id)) {
+        await saveCharacter(character);
+      }
+    }
+    return box.values.toList();
   }
 
   //get character of the box
   Future<CharacterModel> getCharacter(int id) async {
     return box.get(id)!;
-  }
-
-  //add character to the box if not exists
-  Future<void> addCharacterIfNotExists(CharacterModel character) async {
-    if (!box.containsKey(character.id)) {
-      await box.put(character.id, character);
-    }
-  }
-
-  //update character
-  Future<void> updateCharacter(CharacterModel character) async {
-    await box.put(character.id, character);
   }
 }
 

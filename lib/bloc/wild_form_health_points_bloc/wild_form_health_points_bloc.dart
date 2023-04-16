@@ -32,7 +32,7 @@ class WildFormHealthPointsBloc
     Emitter<WildFormHealthPointsState> emit,
   ) async {
     character.wildForms[0].healthPoints.add();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WildFormHealthPointsState.loaded(
         character.wildForms[0].healthPoints.current));
   }
@@ -42,7 +42,7 @@ class WildFormHealthPointsBloc
     Emitter<WildFormHealthPointsState> emit,
   ) async {
     character.wildForms[0].healthPoints.subtract();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WildFormHealthPointsState.loaded(
         character.wildForms[0].healthPoints.current));
   }
@@ -52,7 +52,7 @@ class WildFormHealthPointsBloc
     Emitter<WildFormHealthPointsState> emit,
   ) async {
     character.wildForms[0].healthPoints.reset();
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WildFormHealthPointsState.loaded(character.healthPoints.current));
   }
 }

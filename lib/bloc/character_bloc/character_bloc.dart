@@ -19,10 +19,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     CharacterInitialEvent event,
     Emitter<CharacterState> emit,
   ) async {
-    final characters = await characterRepository.getDefaultCharacters();
-    for (final character in characters) {
-      await characterRepository.addCharacterIfNotExists(character);
-    }
+    final characters = await characterRepository.getCharacters();
     emit(CharacterState.loaded(characters));
   }
 }

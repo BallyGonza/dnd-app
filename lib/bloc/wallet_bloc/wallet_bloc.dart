@@ -31,7 +31,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     Emitter<WalletState> emit,
   ) async {
     character.wallet.addPieces(pieces: event.pieces);
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WalletState.loaded(character.wallet));
   }
 
@@ -40,7 +40,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     Emitter<WalletState> emit,
   ) async {
     character.wallet.removePieces(pieces: event.pieces);
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WalletState.loaded(character.wallet));
   }
 
@@ -49,7 +49,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     Emitter<WalletState> emit,
   ) async {
     character.wallet.setPieces(pieces: event.pieces, amount: event.amount);
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(WalletState.loaded(character.wallet));
   }
 }

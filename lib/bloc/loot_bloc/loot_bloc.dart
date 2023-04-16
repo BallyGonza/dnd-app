@@ -34,7 +34,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes.add(event.note);
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(LootState.loaded(notes));
   }
 
@@ -43,7 +43,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes[event.index] = event.note;
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(LootState.loaded(notes));
   }
 
@@ -52,7 +52,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     Emitter<LootState> emit,
   ) async {
     notes.removeAt(event.index);
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(LootState.loaded(notes));
   }
 
@@ -63,7 +63,7 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     for (var element in event.notes) {
       character.notes.remove(element);
     }
-    await characterRepository.updateCharacter(character);
+    await characterRepository.saveCharacter(character);
     emit(LootState.loaded(character.notes));
   }
 }
