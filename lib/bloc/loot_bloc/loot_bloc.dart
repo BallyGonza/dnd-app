@@ -12,7 +12,6 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     on<LootAddEvent>(_onAdd);
     on<LootEditEvent>(_onEdit);
     on<LootDeleteEvent>(_onDelete);
-    on<LootDeleteAllEvent>(_onDeleteAll);
   }
 
   final CharacterRepository characterRepository = CharacterRepository();
@@ -54,16 +53,5 @@ class LootBloc extends Bloc<LootEvent, LootState> {
     notes.removeAt(event.index);
     await characterRepository.saveCharacter(character);
     emit(LootState.loaded(notes));
-  }
-
-  Future<void> _onDeleteAll(
-    LootDeleteAllEvent event,
-    Emitter<LootState> emit,
-  ) async {
-    for (var element in event.notes) {
-      character.notes.remove(element);
-    }
-    await characterRepository.saveCharacter(character);
-    emit(LootState.loaded(character.notes));
   }
 }

@@ -24,9 +24,7 @@ class CharacterHealthPointsBloc
     CharacterHealthPointsInitialEvent event,
     Emitter<CharacterHealthPointsState> emit,
   ) async {
-    character = await characterRepository.getCharacter(
-      event.characterId,
-    );
+    character = await characterRepository.getCharacter(event.characterId);
     emit(CharacterHealthPointsState.loaded(character.healthPoints.current));
   }
 

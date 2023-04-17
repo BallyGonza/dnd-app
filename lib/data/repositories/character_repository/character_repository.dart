@@ -6,6 +6,11 @@ class CharacterRepository {
 
   final Box<CharacterModel> box = Hive.box<CharacterModel>('characters_box');
 
+  //get character of the box
+  Future<CharacterModel> getCharacter(int id) async {
+    return box.get(id)!;
+  }
+
   //save character
   Future<void> saveCharacter(CharacterModel character) async {
     await box.put(character.id, character);
@@ -19,11 +24,6 @@ class CharacterRepository {
       }
     }
     return box.values.toList();
-  }
-
-  //get character of the box
-  Future<CharacterModel> getCharacter(int id) async {
-    return box.get(id)!;
   }
 }
 

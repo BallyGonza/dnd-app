@@ -97,6 +97,11 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                         .read<CharacterHealthPointsBloc>()
                         .add(const CharacterHealthPointsEvent.add());
                   },
+                  onLongPress: () {
+                    context
+                        .read<CharacterHealthPointsBloc>()
+                        .add(const CharacterHealthPointsEvent.reset());
+                  },
                   child: Text(
                     '${widget.max}',
                     style: const TextStyle(
