@@ -1,5 +1,4 @@
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:dnd_app/services/services.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
@@ -23,9 +22,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   final PageController _pageController = PageController(
     initialPage: 0,
   );
-  final ScrollController _navController = ScrollController(
-    initialScrollOffset: 0,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             character: widget.character,
           ),
           NavBar(
-              navController: _navController,
               character: widget.character,
               selected: selected,
               onPressed: (index) {
@@ -91,12 +86,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         onPageChanged: (index) {
           setState(() {
             selected = index;
-
-            _navController.animateTo(
-              index * 25.0,
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.ease,
-            );
           });
         },
         children: <Widget>[
@@ -131,11 +120,13 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               : const SizedBox.shrink(),
           widget.character.wildForms.isNotEmpty
               ? WildFormCard(
+                  characterId: widget.character.id,
                   wildForms: widget.character.wildForms,
                 )
               : const SizedBox.shrink(),
           widget.character.pets.isNotEmpty
               ? PetCard(
+                  characterId: widget.character.id,
                   pets: widget.character.pets,
                 )
               : const SizedBox.shrink(),

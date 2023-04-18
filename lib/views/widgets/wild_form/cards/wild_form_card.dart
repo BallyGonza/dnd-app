@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class WildFormCard extends StatefulWidget {
   final List<AnimalModel> wildForms;
-  const WildFormCard({Key? key, required this.wildForms}) : super(key: key);
+  final int characterId;
+  const WildFormCard(
+      {Key? key, required this.wildForms, required this.characterId})
+      : super(key: key);
 
   @override
   State<WildFormCard> createState() => _WildFormCardState();
@@ -83,8 +86,8 @@ class _WildFormCardState extends State<WildFormCard> {
                               width: 50,
                             ),
                             WildFormHealthPoints(
+                              characterId: widget.characterId,
                               max: widget.wildForms[0].healthPoints.max,
-                              color: Colors.white,
                             ),
                           ],
                         ),

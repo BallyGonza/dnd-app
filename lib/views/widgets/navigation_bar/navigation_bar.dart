@@ -8,18 +8,15 @@ class NavBar extends StatelessWidget {
     required this.character,
     required this.selected,
     required this.onPressed,
-    required this.navController,
   }) : super(key: key);
 
   final CharacterModel character;
   final int selected;
   final Function(int) onPressed;
-  final ScrollController navController;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      controller: navController,
       scrollDirection: Axis.horizontal,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'pet_health_points_state.dart';
+part of 'pet_hp_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PetHealthPointsState {
+mixin _$PetHPState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -40,40 +40,39 @@ mixin _$PetHealthPointsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) initial,
-    required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) loaded,
+    required TResult Function(PetHPInitial value) initial,
+    required TResult Function(PetHPLoading value) loading,
+    required TResult Function(PetHPUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? initial,
-    TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? loaded,
+    TResult? Function(PetHPInitial value)? initial,
+    TResult? Function(PetHPLoading value)? loading,
+    TResult? Function(PetHPUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? initial,
-    TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? loaded,
+    TResult Function(PetHPInitial value)? initial,
+    TResult Function(PetHPLoading value)? loading,
+    TResult Function(PetHPUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PetHealthPointsStateCopyWith<$Res> {
-  factory $PetHealthPointsStateCopyWith(PetHealthPointsState value,
-          $Res Function(PetHealthPointsState) then) =
-      _$PetHealthPointsStateCopyWithImpl<$Res, PetHealthPointsState>;
+abstract class $PetHPStateCopyWith<$Res> {
+  factory $PetHPStateCopyWith(
+          PetHPState value, $Res Function(PetHPState) then) =
+      _$PetHPStateCopyWithImpl<$Res, PetHPState>;
 }
 
 /// @nodoc
-class _$PetHealthPointsStateCopyWithImpl<$Res,
-        $Val extends PetHealthPointsState>
-    implements $PetHealthPointsStateCopyWith<$Res> {
-  _$PetHealthPointsStateCopyWithImpl(this._value, this._then);
+class _$PetHPStateCopyWithImpl<$Res, $Val extends PetHPState>
+    implements $PetHPStateCopyWith<$Res> {
+  _$PetHPStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,35 +81,35 @@ class _$PetHealthPointsStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsInitialCopyWith<$Res> {
-  factory _$$PetHealthPointsInitialCopyWith(_$PetHealthPointsInitial value,
-          $Res Function(_$PetHealthPointsInitial) then) =
-      __$$PetHealthPointsInitialCopyWithImpl<$Res>;
+abstract class _$$PetHPInitialCopyWith<$Res> {
+  factory _$$PetHPInitialCopyWith(
+          _$PetHPInitial value, $Res Function(_$PetHPInitial) then) =
+      __$$PetHPInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHealthPointsInitialCopyWithImpl<$Res>
-    extends _$PetHealthPointsStateCopyWithImpl<$Res, _$PetHealthPointsInitial>
-    implements _$$PetHealthPointsInitialCopyWith<$Res> {
-  __$$PetHealthPointsInitialCopyWithImpl(_$PetHealthPointsInitial _value,
-      $Res Function(_$PetHealthPointsInitial) _then)
+class __$$PetHPInitialCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPInitial>
+    implements _$$PetHPInitialCopyWith<$Res> {
+  __$$PetHPInitialCopyWithImpl(
+      _$PetHPInitial _value, $Res Function(_$PetHPInitial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHealthPointsInitial implements PetHealthPointsInitial {
-  const _$PetHealthPointsInitial();
+class _$PetHPInitial implements PetHPInitial {
+  const _$PetHPInitial();
 
   @override
   String toString() {
-    return 'PetHealthPointsState.initial()';
+    return 'PetHPState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHealthPointsInitial);
+        (other.runtimeType == runtimeType && other is _$PetHPInitial);
   }
 
   @override
@@ -153,9 +152,9 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) initial,
-    required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) loaded,
+    required TResult Function(PetHPInitial value) initial,
+    required TResult Function(PetHPLoading value) loading,
+    required TResult Function(PetHPUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -163,9 +162,9 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? initial,
-    TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? loaded,
+    TResult? Function(PetHPInitial value)? initial,
+    TResult? Function(PetHPLoading value)? loading,
+    TResult? Function(PetHPUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -173,9 +172,9 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? initial,
-    TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? loaded,
+    TResult Function(PetHPInitial value)? initial,
+    TResult Function(PetHPLoading value)? loading,
+    TResult Function(PetHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -185,40 +184,40 @@ class _$PetHealthPointsInitial implements PetHealthPointsInitial {
   }
 }
 
-abstract class PetHealthPointsInitial implements PetHealthPointsState {
-  const factory PetHealthPointsInitial() = _$PetHealthPointsInitial;
+abstract class PetHPInitial implements PetHPState {
+  const factory PetHPInitial() = _$PetHPInitial;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsLoadingCopyWith<$Res> {
-  factory _$$PetHealthPointsLoadingCopyWith(_$PetHealthPointsLoading value,
-          $Res Function(_$PetHealthPointsLoading) then) =
-      __$$PetHealthPointsLoadingCopyWithImpl<$Res>;
+abstract class _$$PetHPLoadingCopyWith<$Res> {
+  factory _$$PetHPLoadingCopyWith(
+          _$PetHPLoading value, $Res Function(_$PetHPLoading) then) =
+      __$$PetHPLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHealthPointsLoadingCopyWithImpl<$Res>
-    extends _$PetHealthPointsStateCopyWithImpl<$Res, _$PetHealthPointsLoading>
-    implements _$$PetHealthPointsLoadingCopyWith<$Res> {
-  __$$PetHealthPointsLoadingCopyWithImpl(_$PetHealthPointsLoading _value,
-      $Res Function(_$PetHealthPointsLoading) _then)
+class __$$PetHPLoadingCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPLoading>
+    implements _$$PetHPLoadingCopyWith<$Res> {
+  __$$PetHPLoadingCopyWithImpl(
+      _$PetHPLoading _value, $Res Function(_$PetHPLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHealthPointsLoading implements PetHealthPointsLoading {
-  const _$PetHealthPointsLoading();
+class _$PetHPLoading implements PetHPLoading {
+  const _$PetHPLoading();
 
   @override
   String toString() {
-    return 'PetHealthPointsState.loading()';
+    return 'PetHPState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHealthPointsLoading);
+        (other.runtimeType == runtimeType && other is _$PetHPLoading);
   }
 
   @override
@@ -261,9 +260,9 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) initial,
-    required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) loaded,
+    required TResult Function(PetHPInitial value) initial,
+    required TResult Function(PetHPLoading value) loading,
+    required TResult Function(PetHPUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -271,9 +270,9 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? initial,
-    TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? loaded,
+    TResult? Function(PetHPInitial value)? initial,
+    TResult? Function(PetHPLoading value)? loading,
+    TResult? Function(PetHPUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -281,9 +280,9 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? initial,
-    TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? loaded,
+    TResult Function(PetHPInitial value)? initial,
+    TResult Function(PetHPLoading value)? loading,
+    TResult Function(PetHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -293,25 +292,25 @@ class _$PetHealthPointsLoading implements PetHealthPointsLoading {
   }
 }
 
-abstract class PetHealthPointsLoading implements PetHealthPointsState {
-  const factory PetHealthPointsLoading() = _$PetHealthPointsLoading;
+abstract class PetHPLoading implements PetHPState {
+  const factory PetHPLoading() = _$PetHPLoading;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsUpdatedCopyWith<$Res> {
-  factory _$$PetHealthPointsUpdatedCopyWith(_$PetHealthPointsUpdated value,
-          $Res Function(_$PetHealthPointsUpdated) then) =
-      __$$PetHealthPointsUpdatedCopyWithImpl<$Res>;
+abstract class _$$PetHPUpdatedCopyWith<$Res> {
+  factory _$$PetHPUpdatedCopyWith(
+          _$PetHPUpdated value, $Res Function(_$PetHPUpdated) then) =
+      __$$PetHPUpdatedCopyWithImpl<$Res>;
   @useResult
   $Res call({int current});
 }
 
 /// @nodoc
-class __$$PetHealthPointsUpdatedCopyWithImpl<$Res>
-    extends _$PetHealthPointsStateCopyWithImpl<$Res, _$PetHealthPointsUpdated>
-    implements _$$PetHealthPointsUpdatedCopyWith<$Res> {
-  __$$PetHealthPointsUpdatedCopyWithImpl(_$PetHealthPointsUpdated _value,
-      $Res Function(_$PetHealthPointsUpdated) _then)
+class __$$PetHPUpdatedCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPUpdated>
+    implements _$$PetHPUpdatedCopyWith<$Res> {
+  __$$PetHPUpdatedCopyWithImpl(
+      _$PetHPUpdated _value, $Res Function(_$PetHPUpdated) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -319,7 +318,7 @@ class __$$PetHealthPointsUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? current = null,
   }) {
-    return _then(_$PetHealthPointsUpdated(
+    return _then(_$PetHPUpdated(
       null == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
@@ -330,22 +329,22 @@ class __$$PetHealthPointsUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
-  const _$PetHealthPointsUpdated(this.current);
+class _$PetHPUpdated implements PetHPUpdated {
+  const _$PetHPUpdated(this.current);
 
   @override
   final int current;
 
   @override
   String toString() {
-    return 'PetHealthPointsState.loaded(current: $current)';
+    return 'PetHPState.loaded(current: $current)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsUpdated &&
+            other is _$PetHPUpdated &&
             (identical(other.current, current) || other.current == current));
   }
 
@@ -355,9 +354,8 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PetHealthPointsUpdatedCopyWith<_$PetHealthPointsUpdated> get copyWith =>
-      __$$PetHealthPointsUpdatedCopyWithImpl<_$PetHealthPointsUpdated>(
-          this, _$identity);
+  _$$PetHPUpdatedCopyWith<_$PetHPUpdated> get copyWith =>
+      __$$PetHPUpdatedCopyWithImpl<_$PetHPUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -396,9 +394,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitial value) initial,
-    required TResult Function(PetHealthPointsLoading value) loading,
-    required TResult Function(PetHealthPointsUpdated value) loaded,
+    required TResult Function(PetHPInitial value) initial,
+    required TResult Function(PetHPLoading value) loading,
+    required TResult Function(PetHPUpdated value) loaded,
   }) {
     return loaded(this);
   }
@@ -406,9 +404,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitial value)? initial,
-    TResult? Function(PetHealthPointsLoading value)? loading,
-    TResult? Function(PetHealthPointsUpdated value)? loaded,
+    TResult? Function(PetHPInitial value)? initial,
+    TResult? Function(PetHPLoading value)? loading,
+    TResult? Function(PetHPUpdated value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -416,9 +414,9 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitial value)? initial,
-    TResult Function(PetHealthPointsLoading value)? loading,
-    TResult Function(PetHealthPointsUpdated value)? loaded,
+    TResult Function(PetHPInitial value)? initial,
+    TResult Function(PetHPLoading value)? loading,
+    TResult Function(PetHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -428,12 +426,11 @@ class _$PetHealthPointsUpdated implements PetHealthPointsUpdated {
   }
 }
 
-abstract class PetHealthPointsUpdated implements PetHealthPointsState {
-  const factory PetHealthPointsUpdated(final int current) =
-      _$PetHealthPointsUpdated;
+abstract class PetHPUpdated implements PetHPState {
+  const factory PetHPUpdated(final int current) = _$PetHPUpdated;
 
   int get current;
   @JsonKey(ignore: true)
-  _$$PetHealthPointsUpdatedCopyWith<_$PetHealthPointsUpdated> get copyWith =>
+  _$$PetHPUpdatedCopyWith<_$PetHPUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }

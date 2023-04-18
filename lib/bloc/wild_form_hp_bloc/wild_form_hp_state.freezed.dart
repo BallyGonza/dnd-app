@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'character_health_points_state.dart';
+part of 'wild_form_hp_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CharacterHealthPointsState {
+mixin _$WildFormHPState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -40,41 +40,39 @@ mixin _$CharacterHealthPointsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) initial,
-    required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) loaded,
+    required TResult Function(WildFormHPInitial value) initial,
+    required TResult Function(WildFormHPLoading value) loading,
+    required TResult Function(WildFormHPUpdated value) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? initial,
-    TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult? Function(WildFormHPInitial value)? initial,
+    TResult? Function(WildFormHPLoading value)? loading,
+    TResult? Function(WildFormHPUpdated value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? initial,
-    TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult Function(WildFormHPInitial value)? initial,
+    TResult Function(WildFormHPLoading value)? loading,
+    TResult Function(WildFormHPUpdated value)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CharacterHealthPointsStateCopyWith<$Res> {
-  factory $CharacterHealthPointsStateCopyWith(CharacterHealthPointsState value,
-          $Res Function(CharacterHealthPointsState) then) =
-      _$CharacterHealthPointsStateCopyWithImpl<$Res,
-          CharacterHealthPointsState>;
+abstract class $WildFormHPStateCopyWith<$Res> {
+  factory $WildFormHPStateCopyWith(
+          WildFormHPState value, $Res Function(WildFormHPState) then) =
+      _$WildFormHPStateCopyWithImpl<$Res, WildFormHPState>;
 }
 
 /// @nodoc
-class _$CharacterHealthPointsStateCopyWithImpl<$Res,
-        $Val extends CharacterHealthPointsState>
-    implements $CharacterHealthPointsStateCopyWith<$Res> {
-  _$CharacterHealthPointsStateCopyWithImpl(this._value, this._then);
+class _$WildFormHPStateCopyWithImpl<$Res, $Val extends WildFormHPState>
+    implements $WildFormHPStateCopyWith<$Res> {
+  _$WildFormHPStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,39 +81,35 @@ class _$CharacterHealthPointsStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$CharacterHealthPointsInitialCopyWith<$Res> {
-  factory _$$CharacterHealthPointsInitialCopyWith(
-          _$CharacterHealthPointsInitial value,
-          $Res Function(_$CharacterHealthPointsInitial) then) =
-      __$$CharacterHealthPointsInitialCopyWithImpl<$Res>;
+abstract class _$$WildFormHPInitialCopyWith<$Res> {
+  factory _$$WildFormHPInitialCopyWith(
+          _$WildFormHPInitial value, $Res Function(_$WildFormHPInitial) then) =
+      __$$WildFormHPInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHealthPointsInitialCopyWithImpl<$Res>
-    extends _$CharacterHealthPointsStateCopyWithImpl<$Res,
-        _$CharacterHealthPointsInitial>
-    implements _$$CharacterHealthPointsInitialCopyWith<$Res> {
-  __$$CharacterHealthPointsInitialCopyWithImpl(
-      _$CharacterHealthPointsInitial _value,
-      $Res Function(_$CharacterHealthPointsInitial) _then)
+class __$$WildFormHPInitialCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPInitial>
+    implements _$$WildFormHPInitialCopyWith<$Res> {
+  __$$WildFormHPInitialCopyWithImpl(
+      _$WildFormHPInitial _value, $Res Function(_$WildFormHPInitial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
-  const _$CharacterHealthPointsInitial();
+class _$WildFormHPInitial implements WildFormHPInitial {
+  const _$WildFormHPInitial();
 
   @override
   String toString() {
-    return 'CharacterHealthPointsState.initial()';
+    return 'WildFormHPState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CharacterHealthPointsInitial);
+        (other.runtimeType == runtimeType && other is _$WildFormHPInitial);
   }
 
   @override
@@ -158,9 +152,9 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) initial,
-    required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) loaded,
+    required TResult Function(WildFormHPInitial value) initial,
+    required TResult Function(WildFormHPLoading value) loading,
+    required TResult Function(WildFormHPUpdated value) loaded,
   }) {
     return initial(this);
   }
@@ -168,9 +162,9 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? initial,
-    TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult? Function(WildFormHPInitial value)? initial,
+    TResult? Function(WildFormHPLoading value)? loading,
+    TResult? Function(WildFormHPUpdated value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -178,9 +172,9 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? initial,
-    TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult Function(WildFormHPInitial value)? initial,
+    TResult Function(WildFormHPLoading value)? loading,
+    TResult Function(WildFormHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -190,45 +184,40 @@ class _$CharacterHealthPointsInitial implements CharacterHealthPointsInitial {
   }
 }
 
-abstract class CharacterHealthPointsInitial
-    implements CharacterHealthPointsState {
-  const factory CharacterHealthPointsInitial() = _$CharacterHealthPointsInitial;
+abstract class WildFormHPInitial implements WildFormHPState {
+  const factory WildFormHPInitial() = _$WildFormHPInitial;
 }
 
 /// @nodoc
-abstract class _$$CharacterHealthPointsLoadingCopyWith<$Res> {
-  factory _$$CharacterHealthPointsLoadingCopyWith(
-          _$CharacterHealthPointsLoading value,
-          $Res Function(_$CharacterHealthPointsLoading) then) =
-      __$$CharacterHealthPointsLoadingCopyWithImpl<$Res>;
+abstract class _$$WildFormHPLoadingCopyWith<$Res> {
+  factory _$$WildFormHPLoadingCopyWith(
+          _$WildFormHPLoading value, $Res Function(_$WildFormHPLoading) then) =
+      __$$WildFormHPLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHealthPointsLoadingCopyWithImpl<$Res>
-    extends _$CharacterHealthPointsStateCopyWithImpl<$Res,
-        _$CharacterHealthPointsLoading>
-    implements _$$CharacterHealthPointsLoadingCopyWith<$Res> {
-  __$$CharacterHealthPointsLoadingCopyWithImpl(
-      _$CharacterHealthPointsLoading _value,
-      $Res Function(_$CharacterHealthPointsLoading) _then)
+class __$$WildFormHPLoadingCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPLoading>
+    implements _$$WildFormHPLoadingCopyWith<$Res> {
+  __$$WildFormHPLoadingCopyWithImpl(
+      _$WildFormHPLoading _value, $Res Function(_$WildFormHPLoading) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
-  const _$CharacterHealthPointsLoading();
+class _$WildFormHPLoading implements WildFormHPLoading {
+  const _$WildFormHPLoading();
 
   @override
   String toString() {
-    return 'CharacterHealthPointsState.loading()';
+    return 'WildFormHPState.loading()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$CharacterHealthPointsLoading);
+        (other.runtimeType == runtimeType && other is _$WildFormHPLoading);
   }
 
   @override
@@ -271,9 +260,9 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) initial,
-    required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) loaded,
+    required TResult Function(WildFormHPInitial value) initial,
+    required TResult Function(WildFormHPLoading value) loading,
+    required TResult Function(WildFormHPUpdated value) loaded,
   }) {
     return loading(this);
   }
@@ -281,9 +270,9 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? initial,
-    TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult? Function(WildFormHPInitial value)? initial,
+    TResult? Function(WildFormHPLoading value)? loading,
+    TResult? Function(WildFormHPUpdated value)? loaded,
   }) {
     return loading?.call(this);
   }
@@ -291,9 +280,9 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? initial,
-    TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult Function(WildFormHPInitial value)? initial,
+    TResult Function(WildFormHPLoading value)? loading,
+    TResult Function(WildFormHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -303,29 +292,25 @@ class _$CharacterHealthPointsLoading implements CharacterHealthPointsLoading {
   }
 }
 
-abstract class CharacterHealthPointsLoading
-    implements CharacterHealthPointsState {
-  const factory CharacterHealthPointsLoading() = _$CharacterHealthPointsLoading;
+abstract class WildFormHPLoading implements WildFormHPState {
+  const factory WildFormHPLoading() = _$WildFormHPLoading;
 }
 
 /// @nodoc
-abstract class _$$CharacterHealthPointsUpdatedCopyWith<$Res> {
-  factory _$$CharacterHealthPointsUpdatedCopyWith(
-          _$CharacterHealthPointsUpdated value,
-          $Res Function(_$CharacterHealthPointsUpdated) then) =
-      __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>;
+abstract class _$$WildFormHPUpdatedCopyWith<$Res> {
+  factory _$$WildFormHPUpdatedCopyWith(
+          _$WildFormHPUpdated value, $Res Function(_$WildFormHPUpdated) then) =
+      __$$WildFormHPUpdatedCopyWithImpl<$Res>;
   @useResult
   $Res call({int current});
 }
 
 /// @nodoc
-class __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>
-    extends _$CharacterHealthPointsStateCopyWithImpl<$Res,
-        _$CharacterHealthPointsUpdated>
-    implements _$$CharacterHealthPointsUpdatedCopyWith<$Res> {
-  __$$CharacterHealthPointsUpdatedCopyWithImpl(
-      _$CharacterHealthPointsUpdated _value,
-      $Res Function(_$CharacterHealthPointsUpdated) _then)
+class __$$WildFormHPUpdatedCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPUpdated>
+    implements _$$WildFormHPUpdatedCopyWith<$Res> {
+  __$$WildFormHPUpdatedCopyWithImpl(
+      _$WildFormHPUpdated _value, $Res Function(_$WildFormHPUpdated) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -333,7 +318,7 @@ class __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? current = null,
   }) {
-    return _then(_$CharacterHealthPointsUpdated(
+    return _then(_$WildFormHPUpdated(
       null == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
@@ -344,22 +329,22 @@ class __$$CharacterHealthPointsUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
-  const _$CharacterHealthPointsUpdated(this.current);
+class _$WildFormHPUpdated implements WildFormHPUpdated {
+  const _$WildFormHPUpdated(this.current);
 
   @override
   final int current;
 
   @override
   String toString() {
-    return 'CharacterHealthPointsState.loaded(current: $current)';
+    return 'WildFormHPState.loaded(current: $current)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterHealthPointsUpdated &&
+            other is _$WildFormHPUpdated &&
             (identical(other.current, current) || other.current == current));
   }
 
@@ -369,9 +354,8 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CharacterHealthPointsUpdatedCopyWith<_$CharacterHealthPointsUpdated>
-      get copyWith => __$$CharacterHealthPointsUpdatedCopyWithImpl<
-          _$CharacterHealthPointsUpdated>(this, _$identity);
+  _$$WildFormHPUpdatedCopyWith<_$WildFormHPUpdated> get copyWith =>
+      __$$WildFormHPUpdatedCopyWithImpl<_$WildFormHPUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -410,9 +394,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(CharacterHealthPointsInitial value) initial,
-    required TResult Function(CharacterHealthPointsLoading value) loading,
-    required TResult Function(CharacterHealthPointsUpdated value) loaded,
+    required TResult Function(WildFormHPInitial value) initial,
+    required TResult Function(WildFormHPLoading value) loading,
+    required TResult Function(WildFormHPUpdated value) loaded,
   }) {
     return loaded(this);
   }
@@ -420,9 +404,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(CharacterHealthPointsInitial value)? initial,
-    TResult? Function(CharacterHealthPointsLoading value)? loading,
-    TResult? Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult? Function(WildFormHPInitial value)? initial,
+    TResult? Function(WildFormHPLoading value)? loading,
+    TResult? Function(WildFormHPUpdated value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -430,9 +414,9 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(CharacterHealthPointsInitial value)? initial,
-    TResult Function(CharacterHealthPointsLoading value)? loading,
-    TResult Function(CharacterHealthPointsUpdated value)? loaded,
+    TResult Function(WildFormHPInitial value)? initial,
+    TResult Function(WildFormHPLoading value)? loading,
+    TResult Function(WildFormHPUpdated value)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -442,13 +426,11 @@ class _$CharacterHealthPointsUpdated implements CharacterHealthPointsUpdated {
   }
 }
 
-abstract class CharacterHealthPointsUpdated
-    implements CharacterHealthPointsState {
-  const factory CharacterHealthPointsUpdated(final int current) =
-      _$CharacterHealthPointsUpdated;
+abstract class WildFormHPUpdated implements WildFormHPState {
+  const factory WildFormHPUpdated(final int current) = _$WildFormHPUpdated;
 
   int get current;
   @JsonKey(ignore: true)
-  _$$CharacterHealthPointsUpdatedCopyWith<_$CharacterHealthPointsUpdated>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$WildFormHPUpdatedCopyWith<_$WildFormHPUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
 }

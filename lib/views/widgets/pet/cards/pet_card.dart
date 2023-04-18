@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 class PetCard extends StatefulWidget {
   final List<AnimalModel> pets;
-  const PetCard({Key? key, required this.pets}) : super(key: key);
+  final int characterId;
+  const PetCard({Key? key, required this.characterId, required this.pets})
+      : super(key: key);
 
   @override
   State<PetCard> createState() => _PetCardState();
@@ -58,8 +60,8 @@ class _PetCardState extends State<PetCard> {
                               color: Colors.black,
                             ),
                             PetHealthPoints(
+                              characterId: widget.characterId,
                               max: widget.pets[0].healthPoints.max,
-                              color: Colors.black,
                             ),
                             Speed(
                               speed: widget.pets[0].speed,

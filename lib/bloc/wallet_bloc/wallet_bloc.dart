@@ -5,9 +5,7 @@ import 'wallet_event.dart';
 import 'wallet_state.dart';
 
 class WalletBloc extends Bloc<WalletEvent, WalletState> {
-  WalletBloc(
-    CharacterRepository characterRepository,
-  ) : super(const WalletState.initial()) {
+  WalletBloc() : super(const WalletState.initial()) {
     on<WalletInitialEvent>(_onInit);
     on<WalletAddEvent>(_onAdd);
     on<WalletSubtractEvent>(_onSubtract);

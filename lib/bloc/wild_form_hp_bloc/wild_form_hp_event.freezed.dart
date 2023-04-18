@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'pet_health_points_event.dart';
+part of 'wild_form_hp_event.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PetHealthPointsEvent {
+mixin _$WildFormHPEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int characterId) init,
@@ -43,43 +43,42 @@ mixin _$PetHealthPointsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitialEvent value) init,
-    required TResult Function(PetHealthPointsAddEvent value) add,
-    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
-    required TResult Function(PetHealthPointsResetEvent value) reset,
+    required TResult Function(WildFormHPInitialEvent value) init,
+    required TResult Function(WildFormHPAddEvent value) add,
+    required TResult Function(WildFormHPSubtractEvent value) subtract,
+    required TResult Function(WildFormHPResetEvent value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitialEvent value)? init,
-    TResult? Function(PetHealthPointsAddEvent value)? add,
-    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult? Function(PetHealthPointsResetEvent value)? reset,
+    TResult? Function(WildFormHPInitialEvent value)? init,
+    TResult? Function(WildFormHPAddEvent value)? add,
+    TResult? Function(WildFormHPSubtractEvent value)? subtract,
+    TResult? Function(WildFormHPResetEvent value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitialEvent value)? init,
-    TResult Function(PetHealthPointsAddEvent value)? add,
-    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult Function(PetHealthPointsResetEvent value)? reset,
+    TResult Function(WildFormHPInitialEvent value)? init,
+    TResult Function(WildFormHPAddEvent value)? add,
+    TResult Function(WildFormHPSubtractEvent value)? subtract,
+    TResult Function(WildFormHPResetEvent value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PetHealthPointsEventCopyWith<$Res> {
-  factory $PetHealthPointsEventCopyWith(PetHealthPointsEvent value,
-          $Res Function(PetHealthPointsEvent) then) =
-      _$PetHealthPointsEventCopyWithImpl<$Res, PetHealthPointsEvent>;
+abstract class $WildFormHPEventCopyWith<$Res> {
+  factory $WildFormHPEventCopyWith(
+          WildFormHPEvent value, $Res Function(WildFormHPEvent) then) =
+      _$WildFormHPEventCopyWithImpl<$Res, WildFormHPEvent>;
 }
 
 /// @nodoc
-class _$PetHealthPointsEventCopyWithImpl<$Res,
-        $Val extends PetHealthPointsEvent>
-    implements $PetHealthPointsEventCopyWith<$Res> {
-  _$PetHealthPointsEventCopyWithImpl(this._value, this._then);
+class _$WildFormHPEventCopyWithImpl<$Res, $Val extends WildFormHPEvent>
+    implements $WildFormHPEventCopyWith<$Res> {
+  _$WildFormHPEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,23 +87,20 @@ class _$PetHealthPointsEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsInitialEventCopyWith<$Res> {
-  factory _$$PetHealthPointsInitialEventCopyWith(
-          _$PetHealthPointsInitialEvent value,
-          $Res Function(_$PetHealthPointsInitialEvent) then) =
-      __$$PetHealthPointsInitialEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPInitialEventCopyWith<$Res> {
+  factory _$$WildFormHPInitialEventCopyWith(_$WildFormHPInitialEvent value,
+          $Res Function(_$WildFormHPInitialEvent) then) =
+      __$$WildFormHPInitialEventCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$PetHealthPointsInitialEventCopyWithImpl<$Res>
-    extends _$PetHealthPointsEventCopyWithImpl<$Res,
-        _$PetHealthPointsInitialEvent>
-    implements _$$PetHealthPointsInitialEventCopyWith<$Res> {
-  __$$PetHealthPointsInitialEventCopyWithImpl(
-      _$PetHealthPointsInitialEvent _value,
-      $Res Function(_$PetHealthPointsInitialEvent) _then)
+class __$$WildFormHPInitialEventCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPInitialEvent>
+    implements _$$WildFormHPInitialEventCopyWith<$Res> {
+  __$$WildFormHPInitialEventCopyWithImpl(_$WildFormHPInitialEvent _value,
+      $Res Function(_$WildFormHPInitialEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +108,7 @@ class __$$PetHealthPointsInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$PetHealthPointsInitialEvent(
+    return _then(_$WildFormHPInitialEvent(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -123,22 +119,22 @@ class __$$PetHealthPointsInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
-  const _$PetHealthPointsInitialEvent(this.characterId);
+class _$WildFormHPInitialEvent implements WildFormHPInitialEvent {
+  const _$WildFormHPInitialEvent(this.characterId);
 
   @override
   final int characterId;
 
   @override
   String toString() {
-    return 'PetHealthPointsEvent.init(characterId: $characterId)';
+    return 'WildFormHPEvent.init(characterId: $characterId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsInitialEvent &&
+            other is _$WildFormHPInitialEvent &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -149,9 +145,9 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PetHealthPointsInitialEventCopyWith<_$PetHealthPointsInitialEvent>
-      get copyWith => __$$PetHealthPointsInitialEventCopyWithImpl<
-          _$PetHealthPointsInitialEvent>(this, _$identity);
+  _$$WildFormHPInitialEventCopyWith<_$WildFormHPInitialEvent> get copyWith =>
+      __$$WildFormHPInitialEventCopyWithImpl<_$WildFormHPInitialEvent>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -193,10 +189,10 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitialEvent value) init,
-    required TResult Function(PetHealthPointsAddEvent value) add,
-    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
-    required TResult Function(PetHealthPointsResetEvent value) reset,
+    required TResult Function(WildFormHPInitialEvent value) init,
+    required TResult Function(WildFormHPAddEvent value) add,
+    required TResult Function(WildFormHPSubtractEvent value) subtract,
+    required TResult Function(WildFormHPResetEvent value) reset,
   }) {
     return init(this);
   }
@@ -204,10 +200,10 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitialEvent value)? init,
-    TResult? Function(PetHealthPointsAddEvent value)? add,
-    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult? Function(PetHealthPointsResetEvent value)? reset,
+    TResult? Function(WildFormHPInitialEvent value)? init,
+    TResult? Function(WildFormHPAddEvent value)? add,
+    TResult? Function(WildFormHPSubtractEvent value)? subtract,
+    TResult? Function(WildFormHPResetEvent value)? reset,
   }) {
     return init?.call(this);
   }
@@ -215,10 +211,10 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitialEvent value)? init,
-    TResult Function(PetHealthPointsAddEvent value)? add,
-    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult Function(PetHealthPointsResetEvent value)? reset,
+    TResult Function(WildFormHPInitialEvent value)? init,
+    TResult Function(WildFormHPAddEvent value)? add,
+    TResult Function(WildFormHPSubtractEvent value)? subtract,
+    TResult Function(WildFormHPResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -228,47 +224,46 @@ class _$PetHealthPointsInitialEvent implements PetHealthPointsInitialEvent {
   }
 }
 
-abstract class PetHealthPointsInitialEvent implements PetHealthPointsEvent {
-  const factory PetHealthPointsInitialEvent(final int characterId) =
-      _$PetHealthPointsInitialEvent;
+abstract class WildFormHPInitialEvent implements WildFormHPEvent {
+  const factory WildFormHPInitialEvent(final int characterId) =
+      _$WildFormHPInitialEvent;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$PetHealthPointsInitialEventCopyWith<_$PetHealthPointsInitialEvent>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$WildFormHPInitialEventCopyWith<_$WildFormHPInitialEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsAddEventCopyWith<$Res> {
-  factory _$$PetHealthPointsAddEventCopyWith(_$PetHealthPointsAddEvent value,
-          $Res Function(_$PetHealthPointsAddEvent) then) =
-      __$$PetHealthPointsAddEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPAddEventCopyWith<$Res> {
+  factory _$$WildFormHPAddEventCopyWith(_$WildFormHPAddEvent value,
+          $Res Function(_$WildFormHPAddEvent) then) =
+      __$$WildFormHPAddEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHealthPointsAddEventCopyWithImpl<$Res>
-    extends _$PetHealthPointsEventCopyWithImpl<$Res, _$PetHealthPointsAddEvent>
-    implements _$$PetHealthPointsAddEventCopyWith<$Res> {
-  __$$PetHealthPointsAddEventCopyWithImpl(_$PetHealthPointsAddEvent _value,
-      $Res Function(_$PetHealthPointsAddEvent) _then)
+class __$$WildFormHPAddEventCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPAddEvent>
+    implements _$$WildFormHPAddEventCopyWith<$Res> {
+  __$$WildFormHPAddEventCopyWithImpl(
+      _$WildFormHPAddEvent _value, $Res Function(_$WildFormHPAddEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
-  const _$PetHealthPointsAddEvent();
+class _$WildFormHPAddEvent implements WildFormHPAddEvent {
+  const _$WildFormHPAddEvent();
 
   @override
   String toString() {
-    return 'PetHealthPointsEvent.add()';
+    return 'WildFormHPEvent.add()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsAddEvent);
+        (other.runtimeType == runtimeType && other is _$WildFormHPAddEvent);
   }
 
   @override
@@ -314,10 +309,10 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitialEvent value) init,
-    required TResult Function(PetHealthPointsAddEvent value) add,
-    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
-    required TResult Function(PetHealthPointsResetEvent value) reset,
+    required TResult Function(WildFormHPInitialEvent value) init,
+    required TResult Function(WildFormHPAddEvent value) add,
+    required TResult Function(WildFormHPSubtractEvent value) subtract,
+    required TResult Function(WildFormHPResetEvent value) reset,
   }) {
     return add(this);
   }
@@ -325,10 +320,10 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitialEvent value)? init,
-    TResult? Function(PetHealthPointsAddEvent value)? add,
-    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult? Function(PetHealthPointsResetEvent value)? reset,
+    TResult? Function(WildFormHPInitialEvent value)? init,
+    TResult? Function(WildFormHPAddEvent value)? add,
+    TResult? Function(WildFormHPSubtractEvent value)? subtract,
+    TResult? Function(WildFormHPResetEvent value)? reset,
   }) {
     return add?.call(this);
   }
@@ -336,10 +331,10 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitialEvent value)? init,
-    TResult Function(PetHealthPointsAddEvent value)? add,
-    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult Function(PetHealthPointsResetEvent value)? reset,
+    TResult Function(WildFormHPInitialEvent value)? init,
+    TResult Function(WildFormHPAddEvent value)? add,
+    TResult Function(WildFormHPSubtractEvent value)? subtract,
+    TResult Function(WildFormHPResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (add != null) {
@@ -349,44 +344,41 @@ class _$PetHealthPointsAddEvent implements PetHealthPointsAddEvent {
   }
 }
 
-abstract class PetHealthPointsAddEvent implements PetHealthPointsEvent {
-  const factory PetHealthPointsAddEvent() = _$PetHealthPointsAddEvent;
+abstract class WildFormHPAddEvent implements WildFormHPEvent {
+  const factory WildFormHPAddEvent() = _$WildFormHPAddEvent;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsSubtractEventCopyWith<$Res> {
-  factory _$$PetHealthPointsSubtractEventCopyWith(
-          _$PetHealthPointsSubtractEvent value,
-          $Res Function(_$PetHealthPointsSubtractEvent) then) =
-      __$$PetHealthPointsSubtractEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPSubtractEventCopyWith<$Res> {
+  factory _$$WildFormHPSubtractEventCopyWith(_$WildFormHPSubtractEvent value,
+          $Res Function(_$WildFormHPSubtractEvent) then) =
+      __$$WildFormHPSubtractEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHealthPointsSubtractEventCopyWithImpl<$Res>
-    extends _$PetHealthPointsEventCopyWithImpl<$Res,
-        _$PetHealthPointsSubtractEvent>
-    implements _$$PetHealthPointsSubtractEventCopyWith<$Res> {
-  __$$PetHealthPointsSubtractEventCopyWithImpl(
-      _$PetHealthPointsSubtractEvent _value,
-      $Res Function(_$PetHealthPointsSubtractEvent) _then)
+class __$$WildFormHPSubtractEventCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPSubtractEvent>
+    implements _$$WildFormHPSubtractEventCopyWith<$Res> {
+  __$$WildFormHPSubtractEventCopyWithImpl(_$WildFormHPSubtractEvent _value,
+      $Res Function(_$WildFormHPSubtractEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
-  const _$PetHealthPointsSubtractEvent();
+class _$WildFormHPSubtractEvent implements WildFormHPSubtractEvent {
+  const _$WildFormHPSubtractEvent();
 
   @override
   String toString() {
-    return 'PetHealthPointsEvent.subtract()';
+    return 'WildFormHPEvent.subtract()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsSubtractEvent);
+            other is _$WildFormHPSubtractEvent);
   }
 
   @override
@@ -432,10 +424,10 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitialEvent value) init,
-    required TResult Function(PetHealthPointsAddEvent value) add,
-    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
-    required TResult Function(PetHealthPointsResetEvent value) reset,
+    required TResult Function(WildFormHPInitialEvent value) init,
+    required TResult Function(WildFormHPAddEvent value) add,
+    required TResult Function(WildFormHPSubtractEvent value) subtract,
+    required TResult Function(WildFormHPResetEvent value) reset,
   }) {
     return subtract(this);
   }
@@ -443,10 +435,10 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitialEvent value)? init,
-    TResult? Function(PetHealthPointsAddEvent value)? add,
-    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult? Function(PetHealthPointsResetEvent value)? reset,
+    TResult? Function(WildFormHPInitialEvent value)? init,
+    TResult? Function(WildFormHPAddEvent value)? add,
+    TResult? Function(WildFormHPSubtractEvent value)? subtract,
+    TResult? Function(WildFormHPResetEvent value)? reset,
   }) {
     return subtract?.call(this);
   }
@@ -454,10 +446,10 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitialEvent value)? init,
-    TResult Function(PetHealthPointsAddEvent value)? add,
-    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult Function(PetHealthPointsResetEvent value)? reset,
+    TResult Function(WildFormHPInitialEvent value)? init,
+    TResult Function(WildFormHPAddEvent value)? add,
+    TResult Function(WildFormHPSubtractEvent value)? subtract,
+    TResult Function(WildFormHPResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (subtract != null) {
@@ -467,43 +459,40 @@ class _$PetHealthPointsSubtractEvent implements PetHealthPointsSubtractEvent {
   }
 }
 
-abstract class PetHealthPointsSubtractEvent implements PetHealthPointsEvent {
-  const factory PetHealthPointsSubtractEvent() = _$PetHealthPointsSubtractEvent;
+abstract class WildFormHPSubtractEvent implements WildFormHPEvent {
+  const factory WildFormHPSubtractEvent() = _$WildFormHPSubtractEvent;
 }
 
 /// @nodoc
-abstract class _$$PetHealthPointsResetEventCopyWith<$Res> {
-  factory _$$PetHealthPointsResetEventCopyWith(
-          _$PetHealthPointsResetEvent value,
-          $Res Function(_$PetHealthPointsResetEvent) then) =
-      __$$PetHealthPointsResetEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPResetEventCopyWith<$Res> {
+  factory _$$WildFormHPResetEventCopyWith(_$WildFormHPResetEvent value,
+          $Res Function(_$WildFormHPResetEvent) then) =
+      __$$WildFormHPResetEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHealthPointsResetEventCopyWithImpl<$Res>
-    extends _$PetHealthPointsEventCopyWithImpl<$Res,
-        _$PetHealthPointsResetEvent>
-    implements _$$PetHealthPointsResetEventCopyWith<$Res> {
-  __$$PetHealthPointsResetEventCopyWithImpl(_$PetHealthPointsResetEvent _value,
-      $Res Function(_$PetHealthPointsResetEvent) _then)
+class __$$WildFormHPResetEventCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPResetEvent>
+    implements _$$WildFormHPResetEventCopyWith<$Res> {
+  __$$WildFormHPResetEventCopyWithImpl(_$WildFormHPResetEvent _value,
+      $Res Function(_$WildFormHPResetEvent) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
-  const _$PetHealthPointsResetEvent();
+class _$WildFormHPResetEvent implements WildFormHPResetEvent {
+  const _$WildFormHPResetEvent();
 
   @override
   String toString() {
-    return 'PetHealthPointsEvent.reset()';
+    return 'WildFormHPEvent.reset()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PetHealthPointsResetEvent);
+        (other.runtimeType == runtimeType && other is _$WildFormHPResetEvent);
   }
 
   @override
@@ -549,10 +538,10 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(PetHealthPointsInitialEvent value) init,
-    required TResult Function(PetHealthPointsAddEvent value) add,
-    required TResult Function(PetHealthPointsSubtractEvent value) subtract,
-    required TResult Function(PetHealthPointsResetEvent value) reset,
+    required TResult Function(WildFormHPInitialEvent value) init,
+    required TResult Function(WildFormHPAddEvent value) add,
+    required TResult Function(WildFormHPSubtractEvent value) subtract,
+    required TResult Function(WildFormHPResetEvent value) reset,
   }) {
     return reset(this);
   }
@@ -560,10 +549,10 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PetHealthPointsInitialEvent value)? init,
-    TResult? Function(PetHealthPointsAddEvent value)? add,
-    TResult? Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult? Function(PetHealthPointsResetEvent value)? reset,
+    TResult? Function(WildFormHPInitialEvent value)? init,
+    TResult? Function(WildFormHPAddEvent value)? add,
+    TResult? Function(WildFormHPSubtractEvent value)? subtract,
+    TResult? Function(WildFormHPResetEvent value)? reset,
   }) {
     return reset?.call(this);
   }
@@ -571,10 +560,10 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(PetHealthPointsInitialEvent value)? init,
-    TResult Function(PetHealthPointsAddEvent value)? add,
-    TResult Function(PetHealthPointsSubtractEvent value)? subtract,
-    TResult Function(PetHealthPointsResetEvent value)? reset,
+    TResult Function(WildFormHPInitialEvent value)? init,
+    TResult Function(WildFormHPAddEvent value)? add,
+    TResult Function(WildFormHPSubtractEvent value)? subtract,
+    TResult Function(WildFormHPResetEvent value)? reset,
     required TResult orElse(),
   }) {
     if (reset != null) {
@@ -584,6 +573,6 @@ class _$PetHealthPointsResetEvent implements PetHealthPointsResetEvent {
   }
 }
 
-abstract class PetHealthPointsResetEvent implements PetHealthPointsEvent {
-  const factory PetHealthPointsResetEvent() = _$PetHealthPointsResetEvent;
+abstract class WildFormHPResetEvent implements WildFormHPEvent {
+  const factory WildFormHPResetEvent() = _$WildFormHPResetEvent;
 }

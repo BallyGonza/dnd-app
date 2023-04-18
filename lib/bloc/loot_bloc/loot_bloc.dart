@@ -5,9 +5,7 @@ import 'loot_event.dart';
 import 'loot_state.dart';
 
 class LootBloc extends Bloc<LootEvent, LootState> {
-  LootBloc(
-    CharacterRepository characterRepository,
-  ) : super(const LootState.initial()) {
+  LootBloc() : super(const LootState.initial()) {
     on<LootInitialEvent>(_onInit);
     on<LootAddEvent>(_onAdd);
     on<LootEditEvent>(_onEdit);

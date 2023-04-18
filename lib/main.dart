@@ -31,30 +31,23 @@ Future<void> main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => CharacterBloc(
-            CharacterRepository(),
-          ),
+          create: (context) => CharacterBloc(),
         ),
         BlocProvider(
-          create: (context) => CharacterHealthPointsBloc(
-            CharacterRepository(),
-          ),
+          create: (context) => CharacterHPBloc(),
         ),
         BlocProvider(
-          create: (context) => LootBloc(
-            CharacterRepository(),
-          ),
+          create: (context) => LootBloc(),
         ),
         BlocProvider(
-          create: (context) => PetHealthPointsBloc(
-            CharacterRepository(),
-          ),
+          create: (context) => PetHPBloc(),
         ),
         BlocProvider(
-          create: (context) => WalletBloc(
-            CharacterRepository(),
-          ),
-        )
+          create: (context) => WalletBloc(),
+        ),
+        BlocProvider(
+          create: (context) => WildFormHPBloc(),
+        ),
       ],
       child: const MyApp(),
     ),

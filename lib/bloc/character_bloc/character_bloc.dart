@@ -5,9 +5,7 @@ import 'character_event.dart';
 import 'character_state.dart';
 
 class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
-  CharacterBloc(
-    CharacterRepository characterRepository,
-  ) : super(const CharacterState.initial()) {
+  CharacterBloc() : super(const CharacterState.initial()) {
     on<CharacterInitialEvent>(_onInit);
 
     add(const CharacterEvent.init());

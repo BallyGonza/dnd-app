@@ -3,17 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WildFormHealthPoints extends StatefulWidget {
-  const WildFormHealthPoints({Key? key, required this.max, required this.color})
+  const WildFormHealthPoints(
+      {Key? key, required this.characterId, required this.max})
       : super(key: key);
 
   final int max;
-  final Color color;
+  final int characterId;
 
   @override
   State<WildFormHealthPoints> createState() => _WildFormHealthPointsState();
 }
 
 class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
+  @override
+  void initState() {
+    context
+        .read<WildFormHPBloc>()
+        .add(WildFormHPEvent.init(widget.characterId));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,13 +37,13 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
         padding: const EdgeInsets.all(5.0),
         child: Column(
           children: [
-            FittedBox(
+            const FittedBox(
               fit: BoxFit.contain,
               child: Text(
                 'HIT POINTS',
                 style: TextStyle(
                   fontSize: 8,
-                  color: widget.color,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -44,45 +53,44 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                 GestureDetector(
                   onTap: () {
                     context
-                        .read<WildFormHealthPointsBloc>()
-                        .add(const WildFormHealthPointsEvent.subtract());
+                        .read<WildFormHPBloc>()
+                        .add(const WildFormHPEvent.subtract());
                   },
-                  child: BlocBuilder<WildFormHealthPointsBloc,
-                      WildFormHealthPointsState>(
+                  child: BlocBuilder<WildFormHPBloc, WildFormHPState>(
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () => const CircularProgressIndicator(),
                         loaded: (healthPoints) => Text(
                           '$healthPoints',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
-                            color: widget.color,
+                            color: Colors.white,
                           ),
                         ),
                       );
                     },
                   ),
                 ),
-                Text(
+                const Text(
                   '/',
                   style: TextStyle(
                     fontSize: 20,
-                    color: widget.color,
+                    color: Colors.white,
                   ),
                 ),
                 GestureDetector(
                   onTap: () {
                     context
-                        .read<WildFormHealthPointsBloc>()
-                        .add(const WildFormHealthPointsEvent.add());
+                        .read<WildFormHPBloc>()
+                        .add(const WildFormHPEvent.add());
                   },
                   child: FittedBox(
                     fit: BoxFit.contain,
                     child: Text(
                       '${widget.max}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
-                        color: widget.color,
+                        color: Colors.white,
                       ),
                     ),
                   ),

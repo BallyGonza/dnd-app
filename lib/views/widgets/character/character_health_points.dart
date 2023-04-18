@@ -23,8 +23,8 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
   @override
   void initState() {
     context
-        .read<CharacterHealthPointsBloc>()
-        .add(CharacterHealthPointsEvent.init(widget.character.id));
+        .read<CharacterHPBloc>()
+        .add(CharacterHPEvent.init(widget.character.id));
     super.initState();
   }
 
@@ -55,11 +55,10 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                 GestureDetector(
                   onTap: () {
                     context
-                        .read<CharacterHealthPointsBloc>()
-                        .add(const CharacterHealthPointsEvent.subtract());
+                        .read<CharacterHPBloc>()
+                        .add(const CharacterHPEvent.subtract());
                   },
-                  child: BlocBuilder<CharacterHealthPointsBloc,
-                      CharacterHealthPointsState>(
+                  child: BlocBuilder<CharacterHPBloc, CharacterHPState>(
                     builder: (context, state) {
                       return state.maybeWhen(
                         loaded: (current) {
@@ -94,13 +93,13 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
                 GestureDetector(
                   onTap: () {
                     context
-                        .read<CharacterHealthPointsBloc>()
-                        .add(const CharacterHealthPointsEvent.add());
+                        .read<CharacterHPBloc>()
+                        .add(const CharacterHPEvent.add());
                   },
                   onLongPress: () {
                     context
-                        .read<CharacterHealthPointsBloc>()
-                        .add(const CharacterHealthPointsEvent.reset());
+                        .read<CharacterHPBloc>()
+                        .add(const CharacterHPEvent.reset());
                   },
                   child: Text(
                     '${widget.max}',

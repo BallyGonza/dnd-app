@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PetHealthPoints extends StatefulWidget {
-  const PetHealthPoints({Key? key, required this.max, required this.color})
+  const PetHealthPoints(
+      {Key? key, required this.max, required this.characterId})
       : super(key: key);
 
+  final int characterId;
   final int max;
-  final Color color;
 
   @override
   State<PetHealthPoints> createState() => _PetHealthPointsState();
@@ -16,9 +17,7 @@ class PetHealthPoints extends StatefulWidget {
 class _PetHealthPointsState extends State<PetHealthPoints> {
   @override
   void initState() {
-    context
-        .read<PetHealthPointsBloc>()
-        .add(PetHealthPointsEvent.init(widget.max));
+    context.read<PetHPBloc>().add(PetHPEvent.init(widget.characterId));
 
     super.initState();
   }
@@ -41,7 +40,6 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
               'HIT POINTS',
               style: TextStyle(
                 fontSize: 8,
-                color: widget.color,
               ),
             ),
             Row(
@@ -49,11 +47,9 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    context
-                        .read<PetHealthPointsBloc>()
-                        .add(const PetHealthPointsEvent.subtract());
+                    context.read<PetHPBloc>().add(const PetHPEvent.subtract());
                   },
-                  child: BlocBuilder<PetHealthPointsBloc, PetHealthPointsState>(
+                  child: BlocBuilder<PetHPBloc, PetHPState>(
                     builder: (context, state) {
                       return state.maybeWhen(
                         orElse: () => const CircularProgressIndicator(),
@@ -61,7 +57,6 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                           '$healthPoints',
                           style: TextStyle(
                             fontSize: 20,
-                            color: widget.color,
                           ),
                         ),
                       );
@@ -72,20 +67,16 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                   '/',
                   style: TextStyle(
                     fontSize: 20,
-                    color: widget.color,
                   ),
                 ),
                 GestureDetector(
                   onTap: () {
-                    context
-                        .read<PetHealthPointsBloc>()
-                        .add(const PetHealthPointsEvent.add());
+                    context.read<PetHPBloc>().add(const PetHPEvent.add());
                   },
                   child: Text(
                     '${widget.max}',
                     style: TextStyle(
                       fontSize: 20,
-                      color: widget.color,
                     ),
                   ),
                 ),
