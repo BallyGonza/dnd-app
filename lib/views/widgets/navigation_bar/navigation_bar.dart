@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({
-    Key? key,
     required this.character,
     required this.selected,
     required this.onPressed,
-  }) : super(key: key);
+    super.key,
+  });
 
   final CharacterModel character;
   final int selected;
@@ -22,86 +22,94 @@ class NavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const SizedBox(width: 10),
-          character.abilities.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'ABILITIES',
-                  indexButton: 0,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.skills.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'SKILLS',
-                  indexButton: 1,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.weapons.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'WEAPONS',
-                  indexButton: 2,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.spells.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'SPELLS',
-                  indexButton: 3,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
+          if (character.abilities.isNotEmpty)
+            NavigationBarButton(
+              name: 'ABILITIES',
+              indexButton: 0,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.skills.isNotEmpty)
+            NavigationBarButton(
+              name: 'SKILLS',
+              indexButton: 1,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.weapons.isNotEmpty)
+            NavigationBarButton(
+              name: 'WEAPONS',
+              indexButton: 2,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.spells.isNotEmpty)
+            NavigationBarButton(
+              name: 'SPELLS',
+              indexButton: 3,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
           NavigationBarButton(
             name: 'LOOT',
             indexButton: 4,
             selected: selected,
             onPressed: onPressed,
           ),
-          character.background.isNotEmpty || character.languages.isNotEmpty
-              ? NavigationBarButton(
-                  name: character.background.isNotEmpty
-                      ? 'BACKGROUND'
-                      : 'LANGUAGES',
-                  indexButton: 5,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.traits.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'TRAITS',
-                  indexButton: 6,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.wildForms.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'WILD FORM',
-                  indexButton: 7,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.pets.isNotEmpty
-              ? NavigationBarButton(
-                  name: 'PET',
-                  indexButton: 8,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
-          character.backstory != ''
-              ? NavigationBarButton(
-                  name: 'BACKSTORY',
-                  indexButton: 9,
-                  selected: selected,
-                  onPressed: onPressed,
-                )
-              : const SizedBox.shrink(),
+          if (character.background.isNotEmpty || character.languages.isNotEmpty)
+            NavigationBarButton(
+              name:
+                  character.background.isNotEmpty ? 'BACKGROUND' : 'LANGUAGES',
+              indexButton: 5,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.traits.isNotEmpty)
+            NavigationBarButton(
+              name: 'TRAITS',
+              indexButton: 6,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.wildForms.isNotEmpty)
+            NavigationBarButton(
+              name: 'WILD FORM',
+              indexButton: 7,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.pets.isNotEmpty)
+            NavigationBarButton(
+              name: 'PET',
+              indexButton: 8,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
+          if (character.backstory != '')
+            NavigationBarButton(
+              name: 'BACKSTORY',
+              indexButton: 9,
+              selected: selected,
+              onPressed: onPressed,
+            )
+          else
+            const SizedBox.shrink(),
           const SizedBox(width: 10),
         ],
       ),

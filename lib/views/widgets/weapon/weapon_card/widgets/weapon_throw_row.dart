@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class WeaponThrowRow extends StatelessWidget {
   const WeaponThrowRow({
-    Key? key,
     required this.weapon,
     required this.title,
-  }) : super(key: key);
+    super.key,
+  });
 
   final WeaponModel weapon;
   final String title;
@@ -15,12 +15,13 @@ class WeaponThrowRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        weapon.quantityOfDamageDices > 1 && title == 'DAMAGE'
-            ? Text(
-                '${weapon.quantityOfDamageDices}d',
-                style: const TextStyle(fontSize: 20),
-              )
-            : const SizedBox(width: 25),
+        if (weapon.quantityOfDamageDices > 1 && title == 'DAMAGE')
+          Text(
+            '${weapon.quantityOfDamageDices}d',
+            style: const TextStyle(fontSize: 20),
+          )
+        else
+          const SizedBox(width: 25),
         Image.asset(
           title == 'TO HIT' ? weapon.checkDice.img : weapon.damageDice.img,
           width: 20,

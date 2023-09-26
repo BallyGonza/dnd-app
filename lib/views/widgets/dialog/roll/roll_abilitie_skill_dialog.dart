@@ -3,9 +3,11 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class RollAbilitieSkillDialog extends StatefulWidget {
-  const RollAbilitieSkillDialog(
-      {Key? key, required this.name, required this.modifier})
-      : super(key: key);
+  const RollAbilitieSkillDialog({
+    required this.name,
+    required this.modifier,
+    super.key,
+  });
 
   final String name;
   final int modifier;
@@ -41,7 +43,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
           child: ListBody(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Row(
                   children: [
                     Text(
@@ -53,80 +55,83 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                       ),
                     ),
                     const Spacer(),
-                    rolls.isNotEmpty
-                        ? const SizedBox.shrink()
-                        : PlusMinusIcon(
-                            modifier: widget.modifier,
-                          ),
-                    rolls.isNotEmpty
-                        ? const SizedBox.shrink()
-                        : Text(
-                            widget.modifier.abs().toString(),
-                            style: TextStyle(
-                                fontSize: 22,
-                                color: widget.modifier > 0
-                                    ? highestDiceColor
-                                    : widget.modifier < 0
-                                        ? lowestDiceColor
-                                        : Colors.grey,
-                                fontWeight: FontWeight.w500,
-                                fontStyle: FontStyle.italic),
-                          ),
+                    if (rolls.isNotEmpty)
+                      const SizedBox.shrink()
+                    else
+                      PlusMinusIcon(
+                        modifier: widget.modifier,
+                      ),
+                    if (rolls.isNotEmpty)
+                      const SizedBox.shrink()
+                    else
+                      Text(
+                        widget.modifier.abs().toString(),
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: widget.modifier > 0
+                              ? highestDiceColor
+                              : widget.modifier < 0
+                                  ? lowestDiceColor
+                                  : Colors.grey,
+                          fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.italic,
+                        ),
+                      ),
                   ],
                 ),
               ),
-              roll == 0
-                  ? const SizedBox.shrink()
-                  : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SumRollRow(
-                        roll: roll,
-                        thrashRoll: _trashRoll,
-                        modifier: widget.modifier,
-                        dice: d20,
-                      ),
+              if (roll == 0)
+                const SizedBox.shrink()
+              else
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: SumRollRow(
+                    roll: roll,
+                    thrashRoll: _trashRoll,
+                    modifier: widget.modifier,
+                    dice: d20,
+                  ),
+                ),
+              if (rolls.isEmpty)
+                const SizedBox.shrink()
+              else
+                Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      borderRadius: BorderRadius.circular(10),
                     ),
-              rolls.isEmpty
-                  ? const SizedBox.shrink()
-                  : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.black,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Wrap(
-                          alignment: WrapAlignment.center,
-                          children: rolls
-                              .map(
-                                (roll) => Chip(
-                                  backgroundColor: (roll == 1)
-                                      ? lowestDiceColor
-                                      : (roll == d20.sides)
-                                          ? highestDiceColor
-                                          : Colors.black,
-                                  label: Text(
-                                    '$roll',
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                    ),
-                                  ),
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
+                      children: rolls
+                          .map(
+                            (roll) => Chip(
+                              backgroundColor: (roll == 1)
+                                  ? lowestDiceColor
+                                  : (roll == d20.sides)
+                                      ? highestDiceColor
+                                      : Colors.black,
+                              label: Text(
+                                '$roll',
+                                style: const TextStyle(
+                                  color: Colors.white,
                                 ),
-                              )
-                              .toList(),
-                        ),
-                      ),
+                              ),
+                            ),
+                          )
+                          .toList(),
                     ),
+                  ),
+                ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 2.0, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 2, vertical: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: const EdgeInsets.all(4),
                       child: Column(
                         children: [
                           SizedBox(
@@ -135,8 +140,10 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text("Ventaja",
-                                    style: TextStyle(color: Colors.green)),
+                                const Text(
+                                  'Ventaja',
+                                  style: TextStyle(color: Colors.green),
+                                ),
                                 Checkbox(
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(
@@ -162,7 +169,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Text(
-                                  "Desventaja",
+                                  'Desventaja',
                                   style: TextStyle(color: Colors.red),
                                 ),
                                 Checkbox(

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class DiceButton extends StatefulWidget {
   const DiceButton({
-    Key? key,
     required this.onPressed,
     required this.dice,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Function onPressed;
   final DiceModel dice;
@@ -42,11 +42,11 @@ class _DiceButtonState extends State<DiceButton>
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(50),
           ),
         ),
         onPressed: () async {
-          await _controller.forward(from: 0.0);
+          await _controller.forward(from: 0);
           widget.onPressed();
         },
         child: RotationTransition(

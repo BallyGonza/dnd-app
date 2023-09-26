@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class SpellSpecContainer extends StatelessWidget {
   const SpellSpecContainer({
-    Key? key,
     required this.spec,
     required this.specDetail,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String spec;
   final String specDetail;
@@ -15,11 +15,11 @@ class SpellSpecContainer extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(2),
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(
-              Radius.circular(5.0),
+              Radius.circular(5),
             ),
           ),
           width: MediaQuery.of(context).size.width * 0.438,
@@ -39,7 +39,9 @@ class SpellSpecContainer extends StatelessWidget {
                 fit: BoxFit.scaleDown,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 2.0),
+                    horizontal: 10,
+                    vertical: 2,
+                  ),
                   child: Text(
                     specDetail,
                     style: const TextStyle(

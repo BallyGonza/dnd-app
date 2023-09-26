@@ -1,18 +1,17 @@
 import 'package:dnd_app/bloc/bloc.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dnd_app/views/views.dart';
 import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/views/views.dart';
+import 'package:dnd_app/views/widgets/note/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-
-import 'widgets/widgets.dart';
 
 class NoteList extends StatefulWidget {
   const NoteList({
     required this.characterId,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int characterId;
 
@@ -31,9 +30,11 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
   void initState() {
     _walletOpen = false;
     _selected = Colors.green[300]!;
-    context.read<LootBloc>().add(LootEvent.init(
-          widget.characterId,
-        ));
+    context.read<LootBloc>().add(
+          LootEvent.init(
+            widget.characterId,
+          ),
+        );
     super.initState();
   }
 
@@ -41,84 +42,82 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        _walletOpen
-            ? WalletList(
-                characterId: widget.characterId,
-              )
-            : SingleChildScrollView(
-                child: BlocBuilder<LootBloc, LootState>(
-                  builder: (context, state) {
-                    return state.maybeWhen(
-                        orElse: () => const CircularProgressIndicator(),
-                        loaded: (notes) => notes.isEmpty
-                            ? const NoNotes()
-                            : SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.67,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    left: 20,
-                                    right: 20,
+        if (_walletOpen)
+          WalletList(
+            characterId: widget.characterId,
+          )
+        else
+          SingleChildScrollView(
+            child: BlocBuilder<LootBloc, LootState>(
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () => const CircularProgressIndicator(),
+                  loaded: (notes) => notes.isEmpty
+                      ? const NoNotes()
+                      : SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.67,
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 20,
+                              right: 20,
+                            ),
+                            child: ListView.separated(
+                              padding: EdgeInsets.zero,
+                              itemCount: notes.length,
+                              separatorBuilder: (context, index) =>
+                                  const SizedBox(
+                                height: 10,
+                              ),
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return Slidable(
+                                  key: ValueKey(notes[index]),
+                                  endActionPane: ActionPane(
+                                    extentRatio: 0.25,
+                                    dragDismissible: false,
+                                    motion: const ScrollMotion(),
+                                    children: [
+                                      SlidableAction(
+                                        padding: const EdgeInsets.all(10),
+                                        borderRadius: BorderRadius.circular(10),
+                                        onPressed: (context) {
+                                          setState(() {
+                                            context.read<LootBloc>().add(
+                                                  LootEvent.delete(index),
+                                                );
+                                          });
+                                        },
+                                        backgroundColor:
+                                            const Color(0xFFFE4A49),
+                                        foregroundColor: Colors.white,
+                                        icon: Icons.delete,
+                                        label: 'Delete',
+                                      ),
+                                    ],
                                   ),
-                                  child: ListView.separated(
-                                    padding: const EdgeInsets.only(
-                                      top: 0,
-                                    ),
-                                    itemCount: notes.length,
-                                    separatorBuilder: (context, index) =>
-                                        const SizedBox(
-                                      height: 10,
-                                    ),
-                                    shrinkWrap: true,
-                                    itemBuilder: (context, index) {
-                                      return Slidable(
-                                        key: ValueKey(notes[index]),
-                                        endActionPane: ActionPane(
-                                          extentRatio: 0.25,
-                                          dragDismissible: false,
-                                          motion: const ScrollMotion(),
-                                          children: [
-                                            SlidableAction(
-                                              padding: const EdgeInsets.all(10),
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              onPressed: (context) {
-                                                setState(() {
-                                                  context.read<LootBloc>().add(
-                                                        LootEvent.delete(index),
-                                                      );
-                                                });
-                                              },
-                                              backgroundColor:
-                                                  const Color(0xFFFE4A49),
-                                              foregroundColor: Colors.white,
-                                              icon: Icons.delete,
-                                              label: 'Delete',
-                                            ),
-                                          ],
-                                        ),
-                                        child: NoteListItem(
-                                          title: notes[index].title,
-                                          content: notes[index].content,
-                                          date: notes[index].date,
-                                          color: notes[index].color,
-                                          index: index,
-                                          onTap: () {
-                                            _editLoot(notes, index, context);
-                                          },
-                                        ),
-                                      );
+                                  child: NoteListItem(
+                                    title: notes[index].title,
+                                    content: notes[index].content,
+                                    date: notes[index].date,
+                                    color: notes[index].color,
+                                    index: index,
+                                    onTap: () {
+                                      _editLoot(notes, index, context);
                                     },
                                   ),
-                                ),
-                              ));
-                  },
-                ),
-              ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                );
+              },
+            ),
+          ),
         Align(
           alignment: Alignment.bottomLeft,
           child: Padding(
-            padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
+            padding: const EdgeInsets.only(left: 8, bottom: 8),
             child: Row(
               children: [
                 NewLootButton(
@@ -133,7 +132,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                     });
                   },
                   selected: _selected,
-                )
+                ),
               ],
             ),
           ),
@@ -146,7 +145,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
     titleController.text = notes[index].title;
     contentController.text = notes[index].content;
     Navigator.of(context).push(
-      MaterialPageRoute(
+      MaterialPageRoute<NotePage>(
         builder: (_) => NotePage(
           isNewNote: false,
           note: notes[index],
@@ -178,7 +177,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
     titleController.clear();
     contentController.clear();
     Navigator.of(context).push(
-      MaterialPageRoute(
+      MaterialPageRoute<NotePage>(
         builder: (_) => NotePage(
           isNewNote: true,
           note: Note(

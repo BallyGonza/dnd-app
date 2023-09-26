@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomShowDialog extends StatelessWidget {
-  const CustomShowDialog(
-      {required this.title,
-      required this.content,
-      required this.onPressed,
-      required this.rightActionName,
-      super.key});
+  const CustomShowDialog({
+    required this.title,
+    required this.content,
+    required this.onPressed,
+    required this.rightActionName,
+    super.key,
+  });
 
   final String title;
   final Widget content;
@@ -28,8 +29,10 @@ class CustomShowDialog extends StatelessWidget {
             Navigator.of(context).pop();
             onPressed();
           },
-          child: Text(rightActionName,
-              style: const TextStyle(color: Colors.green)),
+          child: Text(
+            rightActionName,
+            style: const TextStyle(color: Colors.green),
+          ),
         ),
         TextButton(
           onPressed: () {

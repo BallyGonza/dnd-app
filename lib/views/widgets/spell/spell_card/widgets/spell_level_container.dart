@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class SpellLevelContainer extends StatelessWidget {
   const SpellLevelContainer({
-    Key? key,
     required this.level,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String level;
 

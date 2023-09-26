@@ -4,18 +4,17 @@ import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotePage extends StatefulWidget {
-  final Note note;
-  final String buttonText;
-  final bool isNewNote;
-  final void Function(String title, String content, int currentColor) onSaved;
-
   const NotePage({
-    Key? key,
     required this.note,
     required this.buttonText,
     required this.onSaved,
     required this.isNewNote,
-  }) : super(key: key);
+    super.key,
+  });
+  final Note note;
+  final String buttonText;
+  final bool isNewNote;
+  final void Function(String title, String content, int currentColor) onSaved;
 
   @override
   NotePageState createState() => NotePageState();
@@ -32,7 +31,7 @@ class NotePageState extends State<NotePage> {
   @override
   void initState() {
     super.initState();
-    _isEditing = widget.isNewNote ? true : false;
+    _isEditing = widget.isNewNote;
     _titleController.text = widget.note.title;
     _contentController.text = widget.note.content;
     _currentColor = Color(widget.note.color);
@@ -60,7 +59,7 @@ class NotePageState extends State<NotePage> {
     return Scaffold(
       backgroundColor: _currentColor,
       appBar: AppBar(
-        elevation: 0.0,
+        elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
@@ -68,13 +67,14 @@ class NotePageState extends State<NotePage> {
         ),
         actions: [
           IconButton(
-              icon: FaIcon(FontAwesomeIcons.pencil, color: _iconColor),
-              onPressed: () {
-                // habilitar edicion
-                setState(() {
-                  _isEditing = !_isEditing;
-                });
-              }),
+            icon: FaIcon(FontAwesomeIcons.pencil, color: _iconColor),
+            onPressed: () {
+              // habilitar edicion
+              setState(() {
+                _isEditing = !_isEditing;
+              });
+            },
+          ),
           IconButton(
             onPressed: () {
               widget.onSaved(
@@ -90,7 +90,8 @@ class NotePageState extends State<NotePage> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width * (1 / 20)),
+          horizontal: MediaQuery.of(context).size.width * (1 / 20),
+        ),
         child: SingleChildScrollView(
           child: Wrap(
             children: [
@@ -103,17 +104,14 @@ class NotePageState extends State<NotePage> {
                   border: InputBorder.none,
                 ),
                 style: TextStyle(
-                  fontSize: 24.0,
+                  fontSize: 24,
                   fontWeight: FontWeight.w500,
                   color: _fontColor,
                 ),
                 keyboardType: TextInputType.multiline,
-                maxLines: 1,
-                cursorWidth: 2,
                 textAlign: TextAlign.left,
                 cursorColor: _fontColor,
                 textCapitalization: TextCapitalization.sentences,
-                autocorrect: true,
                 toolbarOptions: const ToolbarOptions(
                   copy: true,
                   paste: true,
@@ -121,7 +119,7 @@ class NotePageState extends State<NotePage> {
                   cut: true,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 8),
               SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: TextField(
@@ -133,17 +131,15 @@ class NotePageState extends State<NotePage> {
                     border: InputBorder.none,
                   ),
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 18,
                     color: _fontColor,
                     fontWeight: FontWeight.normal,
                   ),
                   keyboardType: TextInputType.multiline,
-                  cursorWidth: 2,
                   textAlign: TextAlign.left,
                   cursorColor: _fontColor,
                   cursorHeight: 20,
                   textCapitalization: TextCapitalization.sentences,
-                  autocorrect: true,
                   maxLines: null,
                   toolbarOptions: const ToolbarOptions(
                     copy: true,
@@ -161,8 +157,8 @@ class NotePageState extends State<NotePage> {
         color: _currentColor,
         child: Padding(
           padding: EdgeInsets.only(
-            left: 16.0,
-            right: 16.0,
+            left: 16,
+            right: 16,
             bottom: MediaQuery.of(context).viewInsets.bottom + 5.0,
           ),
           child: Row(
@@ -174,7 +170,7 @@ class NotePageState extends State<NotePage> {
               ),
               IconButton(
                 onPressed: () {
-                  showModalBottomSheet(
+                  showModalBottomSheet<SizedBox>(
                     context: context,
                     builder: (context) {
                       return SizedBox(
@@ -217,18 +213,16 @@ class NotePageState extends State<NotePage> {
                                   return GridView.count(
                                     crossAxisCount: 4,
                                     children: [
-                                      ...colors
-                                          .map(
-                                            (color) => GestureDetector(
-                                              onTap: () {
-                                                _onColorChanged(color);
-                                              },
-                                              child: Container(
-                                                color: color,
-                                              ),
-                                            ),
-                                          )
-                                          .toList(),
+                                      ...colors.map(
+                                        (color) => GestureDetector(
+                                          onTap: () {
+                                            _onColorChanged(color);
+                                          },
+                                          child: Container(
+                                            color: color,
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   );
                                 },

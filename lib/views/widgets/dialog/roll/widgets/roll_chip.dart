@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class RollChip extends StatelessWidget {
   const RollChip({
-    Key? key,
     required this.roll,
     required this.modifier,
     required this.dice,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int roll;
   final int modifier;

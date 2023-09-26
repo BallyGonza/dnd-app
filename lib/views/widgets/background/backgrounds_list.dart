@@ -3,9 +3,11 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class BackgroundsList extends StatelessWidget {
-  const BackgroundsList(
-      {Key? key, required this.backgrounds, required this.languages})
-      : super(key: key);
+  const BackgroundsList({
+    required this.backgrounds,
+    required this.languages,
+    super.key,
+  });
 
   final List<BackgroundModel> backgrounds;
   final String languages;
@@ -17,7 +19,9 @@ class BackgroundsList extends StatelessWidget {
         children: [
           for (final background in backgrounds)
             TitleAndTextCard(
-                title: background.name, text: background.description),
+              title: background.name,
+              text: background.description,
+            ),
           TitleAndTextCard(title: 'Languages', text: languages),
         ],
       ),

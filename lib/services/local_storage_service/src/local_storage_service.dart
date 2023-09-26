@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:dnd_app/services/local_storage_service/models/models.dart';
+import 'package:dnd_app/services/local_storage_service/src/i_local_storage_service.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import '../models/models.dart';
-import 'i_local_storage_service.dart';
 
 class LocalStorageService implements ILocalStorageService {
   LocalStorageService([HiveInterface? hiveInterface]) {
@@ -27,10 +26,10 @@ class LocalStorageService implements ILocalStorageService {
   }
 
   @override
-  get<T>({
+  Right<dynamic, T> get<T>({
     required String key,
-    Boxes? box,
     required T Function(Map<String, dynamic> json) fromJson,
+    Boxes? box,
   }) {
     String value;
     value = hive.box<String>(box?.name ?? BoxKeys.appBox).get(key)!;

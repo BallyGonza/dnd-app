@@ -1,12 +1,11 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
+import 'package:dnd_app/views/widgets/weapon/weapon_card/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/widgets.dart';
-
 class WeaponCard extends StatelessWidget {
+  const WeaponCard({required this.weapon, super.key});
   final WeaponModel weapon;
-  const WeaponCard({Key? key, required this.weapon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class WeaponCard extends StatelessWidget {
         horizontal: 16,
       ),
       child: InkWell(
-        onTap: () => showDialog(
+        onTap: () => showDialog<RollHitDamageDiceDialog>(
           context: context,
           builder: (context) => RollHitDamageDiceDialog(
             weapon: weapon,
@@ -36,13 +35,15 @@ class WeaponCard extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 8),
+                        horizontal: 16,
+                        vertical: 8,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             weapon.name,
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           Text(
                             weapon.description,
@@ -56,7 +57,7 @@ class WeaponCard extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 16.0),
+                      padding: const EdgeInsets.only(right: 16),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [

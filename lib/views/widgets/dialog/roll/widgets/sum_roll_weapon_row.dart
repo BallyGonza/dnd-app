@@ -5,10 +5,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SumRollWeaponRow extends StatelessWidget {
   const SumRollWeaponRow({
-    super.key,
     required this.weapon,
     required this.roll,
     required this.thrashRoll,
+    super.key,
   });
 
   final WeaponModel weapon;
@@ -18,7 +18,7 @@ class SumRollWeaponRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,18 +39,19 @@ class SumRollWeaponRow extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: [
-                  thrashRoll != 0
-                      ? Opacity(
-                          opacity: 0.3,
-                          child: Text(
-                            ' ($thrashRoll)',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        )
-                      : const SizedBox.shrink(),
+                  if (thrashRoll != 0)
+                    Opacity(
+                      opacity: 0.3,
+                      child: Text(
+                        ' ($thrashRoll)',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    )
+                  else
+                    const SizedBox.shrink(),
                 ],
               ),
               const SizedBox(width: 10),
@@ -76,7 +77,7 @@ class SumRollWeaponRow extends StatelessWidget {
                   fontSize: 20,
                   color: Colors.black,
                 ),
-              )
+              ),
             ],
           ),
         ],

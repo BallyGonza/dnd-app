@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WalletListItem extends StatefulWidget {
-  final String coinType;
-  int coinAmount;
-  final VoidCallback onAdd;
-  final VoidCallback onSubtract;
-  final Color color;
-
-  WalletListItem({
-    Key? key,
+  const WalletListItem({
     required this.coinType,
     required this.coinAmount,
     required this.onAdd,
     required this.onSubtract,
     required this.color,
-  }) : super(key: key);
+    super.key,
+  });
+  final String coinType;
+  final int coinAmount;
+  final VoidCallback onAdd;
+  final VoidCallback onSubtract;
+  final Color color;
 
   @override
   State<WalletListItem> createState() => _WalletListItemState();
@@ -27,18 +26,18 @@ class _WalletListItemState extends State<WalletListItem> {
     final mediaQuery = MediaQuery.of(context);
 
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(4),
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
+          borderRadius: BorderRadius.circular(5),
         ),
         child: Container(
           width: mediaQuery.size.width * .9,
           height: mediaQuery.size.width * .2,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5.0),
+            borderRadius: BorderRadius.circular(5),
             color: widget.color,
-            border: Border.all(color: Colors.white, width: 1),
+            border: Border.all(color: Colors.white),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,9 +68,9 @@ class _WalletListItemState extends State<WalletListItem> {
                       color: Colors.white,
                       shadows: [
                         Shadow(
-                          blurRadius: 1.0,
+                          blurRadius: 1,
                           color: Colors.black.withOpacity(.5),
-                          offset: const Offset(1.0, 1.0),
+                          offset: const Offset(1, 1),
                         ),
                       ],
                     ),
@@ -83,9 +82,9 @@ class _WalletListItemState extends State<WalletListItem> {
                       color: Colors.white,
                       shadows: [
                         Shadow(
-                          blurRadius: 1.0,
+                          blurRadius: 1,
                           color: Colors.black.withOpacity(.5),
-                          offset: const Offset(1.0, 1.0),
+                          offset: const Offset(1, 1),
                         ),
                       ],
                     ),

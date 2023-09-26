@@ -3,10 +3,8 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormSavingThrowList extends StatefulWidget {
+  const WildFormSavingThrowList({required this.savingThrows, super.key});
   final List<SavingThrowModel> savingThrows;
-
-  const WildFormSavingThrowList({Key? key, required this.savingThrows})
-      : super(key: key);
 
   @override
   State<WildFormSavingThrowList> createState() =>
@@ -23,7 +21,7 @@ class _WildFormSavingThrowListState extends State<WildFormSavingThrowList> {
       child: ListView.builder(
         shrinkWrap: true,
         controller: ScrollController(),
-        padding: const EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         itemCount: widget.savingThrows.length,
         itemBuilder: (context, index) {
           return PetSavingThrowCard(

@@ -2,7 +2,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class SumRollsRow extends StatelessWidget {
-  const SumRollsRow({super.key, required this.modifier, required this.rolls});
+  const SumRollsRow({required this.modifier, required this.rolls, super.key});
 
   final int modifier;
   final List<int> rolls;

@@ -1,10 +1,9 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/views/widgets/spell/spell_card/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets.dart';
-
 class SpellSpecs extends StatelessWidget {
-  const SpellSpecs({super.key, required this.spell});
+  const SpellSpecs({required this.spell, super.key});
 
   final SpellModel spell;
 

@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PetHealthPoints extends StatefulWidget {
-  const PetHealthPoints(
-      {Key? key, required this.max, required this.characterId})
-      : super(key: key);
+  const PetHealthPoints({
+    required this.max,
+    required this.characterId,
+    super.key,
+  });
 
   final int characterId;
   final int max;
@@ -28,15 +30,14 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         border: Border.all(
-          color: Colors.black,
           width: 0.5,
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
-            Text(
+            const Text(
               'HIT POINTS',
               style: TextStyle(
                 fontSize: 8,
@@ -55,7 +56,7 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                         orElse: () => const CircularProgressIndicator(),
                         loaded: (healthPoints) => Text(
                           '$healthPoints',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                           ),
                         ),
@@ -63,7 +64,7 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                     },
                   ),
                 ),
-                Text(
+                const Text(
                   '/',
                   style: TextStyle(
                     fontSize: 20,
@@ -75,7 +76,7 @@ class _PetHealthPointsState extends State<PetHealthPoints> {
                   },
                   child: Text(
                     '${widget.max}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
                     ),
                   ),

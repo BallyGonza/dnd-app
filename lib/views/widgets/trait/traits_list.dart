@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class TraitsList extends StatelessWidget {
   const TraitsList({
-    Key? key,
     required this.traits,
-  }) : super(key: key);
+    super.key,
+  });
 
   final List<TraitModel> traits;
 
@@ -18,11 +18,13 @@ class TraitsList extends StatelessWidget {
         child: ListView.builder(
           shrinkWrap: true,
           controller: ScrollController(),
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
           itemCount: traits.length,
           itemBuilder: (context, index) {
             return TitleAndTextCard(
-                title: traits[index].name, text: traits[index].description);
+              title: traits[index].name,
+              text: traits[index].description,
+            );
           },
         ),
       ),

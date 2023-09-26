@@ -3,9 +3,12 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class SkillsList extends StatelessWidget {
-  final List<SkillModel> skills;
+  const SkillsList({
+    required this.skills,
+    super.key,
+  });
 
-  const SkillsList({Key? key, required this.skills}) : super(key: key);
+  final List<SkillModel> skills;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +32,13 @@ class SkillsList extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Skills',
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                 ),
                 GridView.builder(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.all(0),
+                  padding: EdgeInsets.zero,
                   itemCount: skills.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,

@@ -1,27 +1,24 @@
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/services/services.dart';
 import 'package:dnd_app/views/views.dart';
-import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
-  final CharacterModel character;
-
   const CharacterDetailScreen({
-    Key? key,
     required this.character,
-  }) : super(key: key);
+    super.key,
+  });
+  final CharacterModel character;
 
   @override
   State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
 }
 
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
-  var isDialOpen = ValueNotifier<bool>(false);
+  ValueNotifier<bool> isDialOpen = ValueNotifier<bool>(false);
   int selected = 0;
-  final PageController _pageController = PageController(
-    initialPage: 0,
-  );
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +29,16 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             character: widget.character,
           ),
           NavBar(
-              character: widget.character,
-              selected: selected,
-              onPressed: (index) {
-                _pageController.animateToPage(
-                  index,
-                  duration: const Duration(milliseconds: 600),
-                  curve: Curves.ease,
-                );
-              }),
+            character: widget.character,
+            selected: selected,
+            onPressed: (index) {
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.ease,
+              );
+            },
+          ),
           _stackedWidgets(),
         ],
       ),
@@ -69,11 +67,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       backgroundColor: Colors.white,
       onTap: () {
         isDialOpen.value = !isDialOpen.value;
-        showDialog(
-            context: context,
-            builder: (context) {
-              return RollDiceDialog(dice: dice);
-            });
+        showDialog<RollDiceDialog>(
+          context: context,
+          builder: (context) {
+            return RollDiceDialog(dice: dice);
+          },
+        );
       },
     );
   }
@@ -96,16 +95,18 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           SkillsList(
             skills: widget.character.skills,
           ),
-          widget.character.weapons.isNotEmpty
-              ? WeaponsList(
-                  weapons: widget.character.weapons,
-                )
-              : const SizedBox.shrink(),
-          widget.character.spells.isNotEmpty
-              ? SpellsList(
-                  spells: widget.character.spells,
-                )
-              : const SizedBox.shrink(),
+          if (widget.character.weapons.isNotEmpty)
+            WeaponsList(
+              weapons: widget.character.weapons,
+            )
+          else
+            const SizedBox.shrink(),
+          if (widget.character.spells.isNotEmpty)
+            SpellsList(
+              spells: widget.character.spells,
+            )
+          else
+            const SizedBox.shrink(),
           NoteList(
             characterId: widget.character.id,
           ),
@@ -113,28 +114,32 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             backgrounds: widget.character.background,
             languages: widget.character.languages,
           ),
-          widget.character.traits.isNotEmpty
-              ? TraitsList(
-                  traits: widget.character.traits,
-                )
-              : const SizedBox.shrink(),
-          widget.character.wildForms.isNotEmpty
-              ? WildFormCard(
-                  characterId: widget.character.id,
-                  wildForms: widget.character.wildForms,
-                )
-              : const SizedBox.shrink(),
-          widget.character.pets.isNotEmpty
-              ? PetCard(
-                  characterId: widget.character.id,
-                  pets: widget.character.pets,
-                )
-              : const SizedBox.shrink(),
-          widget.character.backstory != ''
-              ? BackstoryCard(
-                  backstory: widget.character.backstory,
-                )
-              : const SizedBox.shrink(),
+          if (widget.character.traits.isNotEmpty)
+            TraitsList(
+              traits: widget.character.traits,
+            )
+          else
+            const SizedBox.shrink(),
+          if (widget.character.wildForms.isNotEmpty)
+            WildFormCard(
+              characterId: widget.character.id,
+              wildForms: widget.character.wildForms,
+            )
+          else
+            const SizedBox.shrink(),
+          if (widget.character.pets.isNotEmpty)
+            PetCard(
+              characterId: widget.character.id,
+              pets: widget.character.pets,
+            )
+          else
+            const SizedBox.shrink(),
+          if (widget.character.backstory != '')
+            BackstoryCard(
+              backstory: widget.character.backstory,
+            )
+          else
+            const SizedBox.shrink(),
         ],
       ),
     );

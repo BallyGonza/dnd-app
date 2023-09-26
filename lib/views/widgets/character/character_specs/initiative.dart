@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Initiative extends StatelessWidget {
+  const Initiative({
+    required this.initiative,
+    required this.color,
+    super.key,
+  });
   final int initiative;
   final Color color;
-
-  const Initiative({Key? key, required this.initiative, required this.color})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +16,13 @@ class Initiative extends StatelessWidget {
       children: [
         Row(
           children: [
-            initiative > 0
-                ? Text(
-                    '+',
-                    style: TextStyle(fontSize: 15, color: color),
-                  )
-                : const SizedBox.shrink(),
+            if (initiative > 0)
+              Text(
+                '+',
+                style: TextStyle(fontSize: 15, color: color),
+              )
+            else
+              const SizedBox.shrink(),
             Text(
               '$initiative',
               style: TextStyle(fontSize: 20, color: color),

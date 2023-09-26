@@ -3,12 +3,11 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormSavingThrowCard extends StatefulWidget {
-  final SavingThrowModel savingThrow;
-
   const WildFormSavingThrowCard({
-    Key? key,
     required this.savingThrow,
-  }) : super(key: key);
+    super.key,
+  });
+  final SavingThrowModel savingThrow;
 
   @override
   State<WildFormSavingThrowCard> createState() =>
@@ -20,12 +19,13 @@ class _WildFormSavingThrowCardState extends State<WildFormSavingThrowCard> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        showDialog(
+        showDialog<RollAbilitieSkillDialog>(
           context: context,
           builder: (context) {
             return RollAbilitieSkillDialog(
-                name: widget.savingThrow.name,
-                modifier: widget.savingThrow.modifier);
+              name: widget.savingThrow.name,
+              modifier: widget.savingThrow.modifier,
+            );
           },
         );
       },
@@ -38,8 +38,10 @@ class _WildFormSavingThrowCardState extends State<WildFormSavingThrowCard> {
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 10,
               children: [
-                Text(widget.savingThrow.name,
-                    style: const TextStyle(fontSize: 20)),
+                Text(
+                  widget.savingThrow.name,
+                  style: const TextStyle(fontSize: 20),
+                ),
               ],
             ),
             Wrap(
@@ -50,28 +52,30 @@ class _WildFormSavingThrowCardState extends State<WildFormSavingThrowCard> {
                   child: Text('MOD', style: TextStyle(fontSize: 10)),
                 ),
                 const SizedBox(width: 5),
-                widget.savingThrow.modifier < 0
-                    ? const SizedBox(
-                        width: 1.2,
-                      )
-                    : const Text(''),
-                widget.savingThrow.modifier > 0
-                    ? const Icon(
-                        Icons.add,
-                        color: Colors.green,
-                        size: 10,
-                      )
-                    : widget.savingThrow.modifier == 0
-                        ? const Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 10,
-                          )
-                        : const Icon(
-                            Icons.remove,
-                            color: Colors.red,
-                            size: 10,
-                          ),
+                if (widget.savingThrow.modifier < 0)
+                  const SizedBox(
+                    width: 1.2,
+                  )
+                else
+                  const Text(''),
+                if (widget.savingThrow.modifier > 0)
+                  const Icon(
+                    Icons.add,
+                    color: Colors.green,
+                    size: 10,
+                  )
+                else
+                  widget.savingThrow.modifier == 0
+                      ? const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 10,
+                        )
+                      : const Icon(
+                          Icons.remove,
+                          color: Colors.red,
+                          size: 10,
+                        ),
                 Text(
                   widget.savingThrow.modifier.abs().toString(),
                   style: widget.savingThrow.modifier >= 0
@@ -79,15 +83,16 @@ class _WildFormSavingThrowCardState extends State<WildFormSavingThrowCard> {
                       : const TextStyle(color: Colors.red, fontSize: 20),
                 ),
                 const SizedBox(width: 5),
-                widget.savingThrow.proficiency
-                    ? CircleAvatar(
-                        backgroundColor: Colors.green[200],
-                        radius: 2,
-                      )
-                    : const CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 2,
-                      )
+                if (widget.savingThrow.proficiency)
+                  CircleAvatar(
+                    backgroundColor: Colors.green[200],
+                    radius: 2,
+                  )
+                else
+                  const CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 2,
+                  ),
               ],
             ),
           ],

@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 
 class NoNotes extends StatelessWidget {
   const NoNotes({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.47,
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Image(
             image: AssetImage(
-                'assets/images/wallpapers/treasure_no_background.png'),
+              'assets/images/wallpapers/treasure_no_background.png',
+            ),
             height: 300,
           ),
           Text(

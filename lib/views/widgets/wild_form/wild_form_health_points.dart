@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WildFormHealthPoints extends StatefulWidget {
-  const WildFormHealthPoints(
-      {Key? key, required this.characterId, required this.max})
-      : super(key: key);
+  const WildFormHealthPoints({
+    required this.characterId,
+    required this.max,
+    super.key,
+  });
 
   final int max;
   final int characterId;
@@ -34,11 +36,10 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             const FittedBox(
-              fit: BoxFit.contain,
               child: Text(
                 'HIT POINTS',
                 style: TextStyle(
@@ -85,7 +86,6 @@ class _WildFormHealthPointsState extends State<WildFormHealthPoints> {
                         .add(const WildFormHPEvent.add());
                   },
                   child: FittedBox(
-                    fit: BoxFit.contain,
                     child: Text(
                       '${widget.max}',
                       style: const TextStyle(

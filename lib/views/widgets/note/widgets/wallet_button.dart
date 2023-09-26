@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class WalletButton extends StatelessWidget {
-  const WalletButton(
-      {super.key, required this.onPressed, required this.selected});
+  const WalletButton({
+    required this.onPressed,
+    required this.selected,
+    super.key,
+  });
 
   final VoidCallback onPressed;
   final Color selected;

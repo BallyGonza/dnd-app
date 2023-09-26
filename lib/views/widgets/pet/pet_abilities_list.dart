@@ -4,9 +4,12 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetAbilitiesList extends StatefulWidget {
-  final List<AbilityModel> abilities;
+  const PetAbilitiesList({
+    required this.abilities,
+    super.key,
+  });
 
-  const PetAbilitiesList({Key? key, required this.abilities}) : super(key: key);
+  final List<AbilityModel> abilities;
 
   @override
   State<PetAbilitiesList> createState() => _PetAbilitiesListsState();
@@ -20,7 +23,7 @@ class _PetAbilitiesListsState extends State<PetAbilitiesList> {
       child: ListView.builder(
         shrinkWrap: true,
         controller: ScrollController(),
-        padding: const EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         itemCount: widget.abilities.length,
         itemBuilder: (context, index) {
           return PetAbilityCard(

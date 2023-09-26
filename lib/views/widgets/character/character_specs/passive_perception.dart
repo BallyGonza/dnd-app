@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class PassivePerception extends StatelessWidget {
+  const PassivePerception({
+    required this.passivePerception,
+    required this.color,
+    super.key,
+  });
   final int passivePerception;
   final Color color;
-
-  const PassivePerception(
-      {Key? key, required this.passivePerception, required this.color})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

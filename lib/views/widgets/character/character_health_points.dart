@@ -5,11 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CharacterHealthPoints extends StatefulWidget {
   const CharacterHealthPoints({
-    Key? key,
     required this.character,
     required this.max,
     required this.color,
-  }) : super(key: key);
+    super.key,
+  });
 
   final int max;
   final Color color;
@@ -39,7 +39,7 @@ class _CharacterHealthPointsState extends State<CharacterHealthPoints> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: const EdgeInsets.all(5),
         child: Column(
           children: [
             const Text(

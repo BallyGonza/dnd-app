@@ -2,7 +2,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
-  const LandingScreen({Key? key}) : super(key: key);
+  const LandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class LandingScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
@@ -33,7 +33,7 @@ class LandingScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
+                        MaterialPageRoute<CharacterSelectScreen>(
                           builder: (context) => const CharacterSelectScreen(),
                         ),
                       );

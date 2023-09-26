@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Speed extends StatelessWidget {
+  const Speed({required this.speed, required this.color, super.key});
   final int speed;
   final Color color;
-
-  const Speed({Key? key, required this.speed, required this.color})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

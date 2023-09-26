@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class SumRollText extends StatelessWidget {
-  const SumRollText(
-      {super.key, required this.rolls, this.fontSize, this.fontWeight});
+  const SumRollText({
+    required this.rolls,
+    super.key,
+    this.fontSize,
+    this.fontWeight,
+  });
 
   final List<int> rolls;
   final double? fontSize;

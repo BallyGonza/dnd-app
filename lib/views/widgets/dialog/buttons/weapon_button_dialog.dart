@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class WeaponButton extends StatefulWidget {
   const WeaponButton({
-    Key? key,
     required this.onPressed,
     required this.weapon,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Function onPressed;
   final WeaponModel weapon;
@@ -42,11 +42,11 @@ class _WeaponButtonState extends State<WeaponButton>
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.black,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(50),
           ),
         ),
         onPressed: () async {
-          await _controller.forward(from: 0.0);
+          await _controller.forward(from: 0);
           widget.onPressed();
         },
         child: RotationTransition(

@@ -2,27 +2,26 @@ import 'package:flutter/material.dart';
 
 class SpellNameContainer extends StatelessWidget {
   const SpellNameContainer({
-    Key? key,
     required this.spellName,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String spellName;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 14.0, bottom: 14.0),
+      padding: const EdgeInsets.only(top: 14, bottom: 14),
       child: Container(
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(
-            Radius.circular(5.0),
+            Radius.circular(5),
           ),
         ),
         width: MediaQuery.of(context).size.width * 0.88,
-        height: 30.0,
+        height: 30,
         child: Align(
-          alignment: Alignment.center,
           child: Text(
             spellName,
             textAlign: TextAlign.center,

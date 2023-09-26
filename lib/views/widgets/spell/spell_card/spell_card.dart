@@ -1,12 +1,10 @@
 import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/views/widgets/spell/spell_card/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/widgets.dart';
-
 class SpellCard extends StatefulWidget {
+  const SpellCard({required this.spell, super.key});
   final SpellModel spell;
-
-  const SpellCard({super.key, required this.spell});
 
   @override
   SpellCardState createState() => SpellCardState();
@@ -20,13 +18,15 @@ class SpellCardState extends State<SpellCard> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      padding: const EdgeInsets.only(left: 8, right: 8),
       child: Card(
         color: Colors.purple[100],
         child: Column(
@@ -45,7 +45,6 @@ class SpellCardState extends State<SpellCard> with TickerProviderStateMixin {
               curve: Curves.fastOutSlowIn,
               child: SizeTransition(
                 sizeFactor: _controller,
-                axisAlignment: 0.0,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
                   child: Column(

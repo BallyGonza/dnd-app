@@ -3,12 +3,13 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class AbilitiesList extends StatelessWidget {
+  const AbilitiesList({
+    required this.abilities,
+    required this.savingThrows,
+    super.key,
+  });
   final List<AbilityModel> abilities;
   final List<SavingThrowModel> savingThrows;
-
-  const AbilitiesList(
-      {Key? key, required this.abilities, required this.savingThrows})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +33,13 @@ class AbilitiesList extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Abilities',
-                      style: Theme.of(context).textTheme.headline3,
+                      style: Theme.of(context).textTheme.displaySmall,
                     ),
                   ),
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.all(0),
+                  padding: EdgeInsets.zero,
                   itemCount: abilities.length,
                   itemBuilder: (context, index) {
                     return AbilityCard(

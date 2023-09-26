@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class ClearButton extends StatelessWidget {
   const ClearButton({
-    Key? key,
     required this.onPressed,
     required this.color,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Function onPressed;
   final Color color;
@@ -14,7 +14,7 @@ class ClearButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
+        padding: const EdgeInsets.only(bottom: 8),
         child: SizedBox(
           width: 60,
           height: 60,
@@ -22,12 +22,10 @@ class ClearButton extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: color,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.0),
+                borderRadius: BorderRadius.circular(50),
               ),
             ),
-            onPressed: () {
-              onPressed();
-            },
+            onPressed: () => onPressed(),
             child: const Icon(
               Icons.clear,
               color: Colors.white,

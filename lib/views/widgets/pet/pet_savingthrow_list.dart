@@ -4,10 +4,12 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class PetSavingThrowList extends StatefulWidget {
-  final List<SavingThrowModel> savingThrows;
+  const PetSavingThrowList({
+    required this.savingThrows,
+    super.key,
+  });
 
-  const PetSavingThrowList({Key? key, required this.savingThrows})
-      : super(key: key);
+  final List<SavingThrowModel> savingThrows;
 
   @override
   State<PetSavingThrowList> createState() => _PetSavingThrowListState();
@@ -23,7 +25,7 @@ class _PetSavingThrowListState extends State<PetSavingThrowList> {
       child: ListView.builder(
         shrinkWrap: true,
         controller: ScrollController(),
-        padding: const EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         itemCount: widget.savingThrows.length,
         itemBuilder: (context, index) {
           return PetSavingThrowCard(

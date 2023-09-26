@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 class TitleAndTextCard extends StatelessWidget {
-  final String title;
-  final String text;
-
   const TitleAndTextCard({
-    Key? key,
     required this.title,
     required this.text,
-  }) : super(key: key);
+    super.key,
+  });
+  final String title;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Stack(
         children: [
           Center(
@@ -30,14 +29,14 @@ class TitleAndTextCard extends StatelessWidget {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    left: 16.0,
-                    top: 10.0,
-                    right: 16.0,
-                    bottom: 10.0,
+                    left: 16,
+                    top: 10,
+                    right: 16,
+                    bottom: 10,
                   ),
                   child: Text(
                     text,
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
               ),
@@ -46,16 +45,18 @@ class TitleAndTextCard extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 55,
-            padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+            padding: const EdgeInsets.only(left: 16, top: 16),
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(
-                      'assets/images/wallpapers/title_background.png'),
-                  fit: BoxFit.fill),
+                image: AssetImage(
+                  'assets/images/wallpapers/title_background.png',
+                ),
+                fit: BoxFit.fill,
+              ),
             ),
             child: Text(
               title,
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
           ),
         ],

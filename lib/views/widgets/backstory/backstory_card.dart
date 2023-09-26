@@ -2,7 +2,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class BackstoryCard extends StatelessWidget {
-  const BackstoryCard({Key? key, required this.backstory}) : super(key: key);
+  const BackstoryCard({required this.backstory, super.key});
 
   final String backstory;
 

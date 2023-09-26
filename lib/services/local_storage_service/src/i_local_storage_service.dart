@@ -8,8 +8,8 @@ abstract class ILocalStorageService {
 
   get<T>({
     required String key,
-    Boxes? box,
     required T Function(Map<String, dynamic> json) fromJson,
+    Boxes? box,
   });
 
   Future<void> save({

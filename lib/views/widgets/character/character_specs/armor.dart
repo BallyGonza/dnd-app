@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ArmorClass extends StatelessWidget {
+  const ArmorClass({
+    required this.armor,
+    required this.color,
+    super.key,
+  });
+
   final int armor;
   final Color color;
-
-  const ArmorClass({Key? key, required this.armor, required this.color})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

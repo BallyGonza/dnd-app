@@ -1,11 +1,10 @@
 import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/views/views.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:flutter/material.dart';
-
 class WalletList extends StatefulWidget {
-  const WalletList({required this.characterId, Key? key}) : super(key: key);
+  const WalletList({required this.characterId, super.key});
 
   final int characterId;
 
@@ -35,7 +34,7 @@ class _WalletListState extends State<WalletList> {
               children: [
                 InkWell(
                   onTap: () => setState(() {
-                    showDialog(
+                    showDialog<AlertDialog>(
                       context: context,
                       builder: (_) {
                         return AlertDialog(
@@ -97,7 +96,7 @@ class _WalletListState extends State<WalletList> {
                 ),
                 InkWell(
                   onTap: () => setState(() {
-                    showDialog(
+                    showDialog<AlertDialog>(
                       context: context,
                       builder: (_) {
                         return AlertDialog(
@@ -158,7 +157,7 @@ class _WalletListState extends State<WalletList> {
                 ),
                 InkWell(
                   onTap: () => setState(() {
-                    showDialog(
+                    showDialog<AlertDialog>(
                       context: context,
                       builder: (_) {
                         return AlertDialog(
@@ -219,7 +218,7 @@ class _WalletListState extends State<WalletList> {
                 ),
                 InkWell(
                   onTap: () => setState(() {
-                    showDialog(
+                    showDialog<AlertDialog>(
                       context: context,
                       builder: (_) {
                         return AlertDialog(
@@ -280,7 +279,7 @@ class _WalletListState extends State<WalletList> {
                 ),
                 InkWell(
                   onTap: () => setState(() {
-                    showDialog(
+                    showDialog<AlertDialog>(
                       context: context,
                       builder: (_) {
                         return AlertDialog(

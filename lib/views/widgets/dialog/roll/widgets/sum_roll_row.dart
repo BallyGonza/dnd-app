@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 
 class SumRollRow extends StatelessWidget {
   const SumRollRow({
-    super.key,
     required this.modifier,
     required this.roll,
     required this.dice,
     required this.thrashRoll,
+    super.key,
   });
 
   final int modifier;
@@ -19,7 +19,7 @@ class SumRollRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -40,18 +40,19 @@ class SumRollRow extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: [
-                  thrashRoll != 0
-                      ? Opacity(
-                          opacity: 0.3,
-                          child: Text(
-                            ' ($thrashRoll)',
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        )
-                      : const SizedBox.shrink(),
+                  if (thrashRoll != 0)
+                    Opacity(
+                      opacity: 0.3,
+                      child: Text(
+                        ' ($thrashRoll)',
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    )
+                  else
+                    const SizedBox.shrink(),
                 ],
               ),
               const SizedBox(width: 10),
@@ -80,7 +81,7 @@ class SumRollRow extends StatelessWidget {
                   fontSize: 20,
                   color: Colors.black,
                 ),
-              )
+              ),
             ],
           ),
         ],

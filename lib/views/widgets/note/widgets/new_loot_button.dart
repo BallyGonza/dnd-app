@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NewLootButton extends StatelessWidget {
-  const NewLootButton({super.key, required this.onPressed});
+  const NewLootButton({
+    required this.onPressed,
+    super.key,
+  });
 
   final VoidCallback onPressed;
 
@@ -14,7 +17,7 @@ class NewLootButton extends StatelessWidget {
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(10),
       ),
-      onPressed: () => onPressed(),
+      onPressed: onPressed,
       child: const FaIcon(
         FontAwesomeIcons.plus,
         color: Colors.white,

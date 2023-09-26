@@ -3,10 +3,8 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class WildFormAbilitiesList extends StatefulWidget {
+  const WildFormAbilitiesList({required this.abilities, super.key});
   final List<AbilityModel> abilities;
-
-  const WildFormAbilitiesList({Key? key, required this.abilities})
-      : super(key: key);
 
   @override
   State<WildFormAbilitiesList> createState() => _WildFormAbilitiesListsState();
@@ -20,7 +18,7 @@ class _WildFormAbilitiesListsState extends State<WildFormAbilitiesList> {
       child: ListView.builder(
         shrinkWrap: true,
         controller: ScrollController(),
-        padding: const EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         itemCount: widget.abilities.length,
         itemBuilder: (context, index) {
           return WildFormAbilityCard(

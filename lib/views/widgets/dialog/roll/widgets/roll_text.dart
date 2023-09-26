@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class RollText extends StatelessWidget {
-  const RollText({super.key, required this.roll});
+  const RollText({
+    required this.roll,
+    super.key,
+  });
 
   final int roll;
 

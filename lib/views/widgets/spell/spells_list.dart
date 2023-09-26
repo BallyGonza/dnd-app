@@ -3,7 +3,7 @@ import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
 
 class SpellsList extends StatelessWidget {
-  const SpellsList({Key? key, required this.spells}) : super(key: key);
+  const SpellsList({required this.spells, super.key});
 
   final List<SpellModel> spells;
 
@@ -15,7 +15,7 @@ class SpellsList extends StatelessWidget {
         child: ListView.builder(
           shrinkWrap: true,
           controller: ScrollController(),
-          padding: const EdgeInsets.all(0),
+          padding: EdgeInsets.zero,
           itemCount: spells.length,
           itemBuilder: (context, index) {
             return SpellCard(

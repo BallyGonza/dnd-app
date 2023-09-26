@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 class CharacterCard extends StatelessWidget {
   CharacterCard({
-    Key? key,
     required this.character,
-  }) : super(key: key);
+    super.key,
+  });
 
   final CharacterModel character;
 
@@ -14,11 +14,11 @@ class CharacterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String name = character.name.toString();
-    final String lastName = character.lastName.toString();
+    final name = character.name;
+    final lastName = character.lastName;
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -31,7 +31,7 @@ class CharacterCard extends StatelessWidget {
         child: ListTile(
           leading: InkWell(
             onTap: () {
-              showDialog(
+              showDialog<Dialog>(
                 context: context,
                 builder: (_) => _buildDialog(context),
               );
@@ -40,11 +40,13 @@ class CharacterCard extends StatelessWidget {
               backgroundImage: AssetImage(character.profileImg),
             ),
           ),
-          title: Text('$name $lastName',
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              )),
+          title: Text(
+            '$name $lastName',
+            style: const TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           subtitle: Text(
             '${character.classes[0]} ${character.classes[1]}',
             style: const TextStyle(
@@ -54,7 +56,7 @@ class CharacterCard extends StatelessWidget {
             ),
           ),
           onTap: () {
-            showDialog(
+            showDialog<CustomShowDialog>(
               context: context,
               builder: (_) => CustomShowDialog(
                 title: 'Welcome ${character.name}!',
@@ -69,7 +71,7 @@ class CharacterCard extends StatelessWidget {
                     Navigator.pop(context);
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
+                      MaterialPageRoute<CharacterDetailScreen>(
                         builder: (context) => CharacterDetailScreen(
                           character: character,
                         ),

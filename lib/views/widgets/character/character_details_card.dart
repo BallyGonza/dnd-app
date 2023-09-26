@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 
 class CharacterDetailsCard extends StatelessWidget {
   const CharacterDetailsCard({
-    Key? key,
     required this.character,
-  }) : super(key: key);
+    super.key,
+  });
 
   final CharacterModel character;
 
   @override
   Widget build(BuildContext context) {
-    final name = character.name,
-        lastName = character.lastName,
-        level = character.level;
+    final name = character.name;
+    final lastName = character.lastName;
+    final level = character.level;
     return Container(
       width: double.infinity,
       height: 200,
@@ -38,12 +38,12 @@ class CharacterDetailsCard extends StatelessWidget {
               color: Colors.black.withOpacity(0.6),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Row(
                 children: <Widget>[
                   GestureDetector(
                     onTap: () {
-                      showDialog(
+                      showDialog<Dialog>(
                         context: context,
                         builder: (_) => _buildDialog(context),
                       );

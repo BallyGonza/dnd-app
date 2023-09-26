@@ -6,6 +6,19 @@ part 'weapon_model.g.dart';
 
 @HiveType(typeId: 10)
 class WeaponModel {
+  WeaponModel({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.damage,
+    required this.quantityOfDamageDices,
+    required this.damageDice,
+    required this.checkDice,
+    required this.range,
+    required this.img,
+    this.plusDamageDice,
+    this.quantityOfPlusDamageDices,
+  });
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -28,18 +41,4 @@ class WeaponModel {
   final int range;
   @HiveField(10)
   final String img;
-
-  WeaponModel({
-    required this.id,
-    required this.name,
-    required this.description,
-    required this.damage,
-    required this.quantityOfDamageDices,
-    required this.damageDice,
-    this.plusDamageDice,
-    this.quantityOfPlusDamageDices,
-    required this.checkDice,
-    required this.range,
-    required this.img,
-  });
 }

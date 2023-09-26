@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 class TitleAndChildCard extends StatelessWidget {
-  final String title;
-  final Widget child;
-
   const TitleAndChildCard({
-    Key? key,
     required this.title,
     required this.child,
-  }) : super(key: key);
+    super.key,
+  });
+  final String title;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, bottom: 8.0, right: 16.0),
+      padding: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(
@@ -23,18 +22,19 @@ class TitleAndChildCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16.0, top: 16.0),
+              padding: const EdgeInsets.only(left: 16, top: 16),
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             Divider(
               color: Theme.of(context).dividerColor,
             ),
             Padding(
-                padding: const EdgeInsets.fromLTRB(16.0, 2.0, 16.0, 16.0),
-                child: child),
+              padding: const EdgeInsets.fromLTRB(16, 2, 16, 16),
+              child: child,
+            ),
           ],
         ),
       ),
