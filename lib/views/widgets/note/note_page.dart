@@ -112,6 +112,7 @@ class NotePageState extends State<NotePage> {
                 textAlign: TextAlign.left,
                 cursorColor: _fontColor,
                 textCapitalization: TextCapitalization.sentences,
+                // ignore: deprecated_member_use
                 toolbarOptions: const ToolbarOptions(
                   copy: true,
                   paste: true,
@@ -141,6 +142,7 @@ class NotePageState extends State<NotePage> {
                   cursorHeight: 20,
                   textCapitalization: TextCapitalization.sentences,
                   maxLines: null,
+                  // ignore: deprecated_member_use
                   toolbarOptions: const ToolbarOptions(
                     copy: true,
                     paste: true,
