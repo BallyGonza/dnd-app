@@ -26,6 +26,7 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
   Widget build(BuildContext context) {
     final dice = widget.dice;
     return AlertDialog(
+      backgroundColor: Colors.white,
       actionsAlignment: MainAxisAlignment.spaceBetween,
       content: SingleChildScrollView(
         child: ListBody(

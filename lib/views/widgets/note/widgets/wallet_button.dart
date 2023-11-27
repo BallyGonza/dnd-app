@@ -20,7 +20,7 @@ class WalletButton extends StatelessWidget {
         padding: const EdgeInsets.all(10),
       ),
       onPressed: onPressed,
-      child: const Icon(FontAwesomeIcons.wallet),
+      child: const Icon(FontAwesomeIcons.wallet, color: Colors.white),
     );
   }
 }

@@ -38,6 +38,7 @@ class _WalletListState extends State<WalletList> {
                       context: context,
                       builder: (_) {
                         return AlertDialog(
+                          backgroundColor: Colors.white,
                           title: const Text(
                             'Enter Amount',
                           ),
@@ -100,6 +101,7 @@ class _WalletListState extends State<WalletList> {
                       context: context,
                       builder: (_) {
                         return AlertDialog(
+                          backgroundColor: Colors.white,
                           title: const Text(
                             'Enter Amount',
                           ),
@@ -161,6 +163,7 @@ class _WalletListState extends State<WalletList> {
                       context: context,
                       builder: (_) {
                         return AlertDialog(
+                          backgroundColor: Colors.white,
                           title: const Text(
                             'Enter Amount',
                           ),
@@ -222,6 +225,7 @@ class _WalletListState extends State<WalletList> {
                       context: context,
                       builder: (_) {
                         return AlertDialog(
+                          backgroundColor: Colors.white,
                           title: const Text(
                             'Enter Amount',
                           ),
@@ -283,6 +287,7 @@ class _WalletListState extends State<WalletList> {
                       context: context,
                       builder: (_) {
                         return AlertDialog(
+                          backgroundColor: Colors.white,
                           title: const Text(
                             'Enter Amount',
                           ),

@@ -19,6 +19,8 @@ class TitleAndTextCard extends StatelessWidget {
             child: SizedBox(
               width: MediaQuery.of(context).size.width * 0.9,
               child: Card(
+                surfaceTintColor: Colors.white,
+                color: Colors.white,
                 margin: const EdgeInsets.only(top: 50),
                 elevation: 5,
                 shape: const RoundedRectangleBorder(
@@ -47,6 +49,7 @@ class TitleAndTextCard extends StatelessWidget {
             height: 55,
             padding: const EdgeInsets.only(left: 16, top: 16),
             decoration: const BoxDecoration(
+              color: Colors.white,
               image: DecorationImage(
                 image: AssetImage(
                   'assets/images/wallpapers/title_background.png',

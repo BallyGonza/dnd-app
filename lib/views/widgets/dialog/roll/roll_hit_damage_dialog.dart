@@ -55,6 +55,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
     final dice = widget.weapon.damageDice;
     final modifier = widget.weapon.damage;
     return AlertDialog(
+      backgroundColor: Colors.white,
       actionsAlignment: MainAxisAlignment.spaceBetween,
       content: SingleChildScrollView(
         child: SizedBox(

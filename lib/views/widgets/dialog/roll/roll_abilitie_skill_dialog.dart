@@ -37,6 +37,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       content: SingleChildScrollView(
         child: SizedBox(
           width: 500,

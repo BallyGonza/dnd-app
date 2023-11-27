@@ -57,7 +57,6 @@ class _DiceButtonState extends State<DiceButton>
             image: AssetImage(widget.dice.img),
             color: Colors.white,
             height: 30,
-            width: 30,
           ),
         ),
       ),

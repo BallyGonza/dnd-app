@@ -14,6 +14,7 @@ class TitleAndChildCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
       child: Card(
+        color: Colors.white,
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),

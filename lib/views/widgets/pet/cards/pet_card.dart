@@ -24,6 +24,7 @@ class _PetCardState extends State<PetCard> {
       child: Padding(
         padding: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
         child: Card(
+          color: Colors.white,
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

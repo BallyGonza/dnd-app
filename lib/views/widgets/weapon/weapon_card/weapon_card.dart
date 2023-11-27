@@ -26,6 +26,7 @@ class WeaponCard extends StatelessWidget {
             SizedBox(
               height: 100,
               child: Card(
+                color: Colors.white,
                 elevation: 5,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),

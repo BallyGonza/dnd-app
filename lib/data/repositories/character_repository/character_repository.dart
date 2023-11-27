@@ -30,7 +30,7 @@ class CharacterRepository {
 final List<CharacterModel> defaultCharacters = [
   theekVarus,
   vaunea,
-  evendurGreycastle
+  evendurGreycastle,
 ];
 
 CharacterModel theekVarus = CharacterModel(
@@ -93,7 +93,7 @@ CharacterModel theekVarus = CharacterModel(
     naturalHealing,
     favoredTerrain,
     primalInstinct,
-    stealthyHunter
+    stealthyHunter,
   ],
   spells: [
     speakWithAnimals,
@@ -102,7 +102,7 @@ CharacterModel theekVarus = CharacterModel(
     spiritOfHealing,
     animalSense,
     revive,
-    elementalWeapon
+    elementalWeapon,
   ],
   wallet: WalletModel(
     copper: 0,
@@ -311,7 +311,7 @@ CharacterModel evendurGreycastle = CharacterModel(
     icyRebuke,
     armorOfAgathys,
     invokeMount,
-    mistyStep
+    mistyStep,
   ],
   pets: [],
   wildForms: [],

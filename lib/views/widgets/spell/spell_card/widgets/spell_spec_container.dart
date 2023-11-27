@@ -23,7 +23,7 @@ class SpellSpecContainer extends StatelessWidget {
             ),
           ),
           width: MediaQuery.of(context).size.width * 0.438,
-          height: 42,
+          height: 48,
           child: Column(
             children: [
               Text(

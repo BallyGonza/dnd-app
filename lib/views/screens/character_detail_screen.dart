@@ -56,7 +56,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           _diceFABItem(dice: d12),
           _diceFABItem(dice: d20),
         ],
-        child: const Icon(MyFlutterApp.d20),
+        child: const Icon(MyFlutterApp.d20, color: Colors.white),
       ),
     );
   }

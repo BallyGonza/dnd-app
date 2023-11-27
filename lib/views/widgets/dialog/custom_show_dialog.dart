@@ -17,6 +17,7 @@ class CustomShowDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       contentPadding: const EdgeInsets.only(top: 20, left: 20, right: 20),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),

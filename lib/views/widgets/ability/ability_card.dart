@@ -115,7 +115,7 @@ class AbilityCard extends StatelessWidget {
                   )
                 else
                   const CircleAvatar(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.transparent,
                     radius: 2,
                   ),
               ],

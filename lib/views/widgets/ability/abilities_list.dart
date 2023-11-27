@@ -16,11 +16,13 @@ class AbilitiesList extends StatelessWidget {
     return Column(
       children: [
         Container(
+          color: Colors.white,
           height: abilities.length > 4
-              ? MediaQuery.of(context).size.height * 0.40
+              ? MediaQuery.of(context).size.height * 0.48
               : MediaQuery.of(context).size.height * 0.15,
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Card(
+            color: Colors.white,
             elevation: 5,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),

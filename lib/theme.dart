@@ -5,6 +5,13 @@ ThemeData appTheme = ThemeData(
   scaffoldBackgroundColor: Colors.white,
   primaryColor: Colors.black,
   primaryTextTheme: GoogleFonts.robotoCondensedTextTheme(),
+  dialogTheme: const DialogTheme(
+    surfaceTintColor: Colors.white,
+  ),
+  cardTheme: const CardTheme(
+    surfaceTintColor: Colors.white,
+    color: Colors.white,
+  ),
   textTheme: TextTheme(
     displayLarge: const TextStyle(
       fontSize: 28,
