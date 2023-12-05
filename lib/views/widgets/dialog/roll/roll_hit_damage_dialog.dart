@@ -258,7 +258,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 2, vertical: 16),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(4),

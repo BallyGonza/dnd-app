@@ -3,6 +3,7 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/theme.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -62,7 +63,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: const LandingScreen(),
+      home: const AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle(
+          systemNavigationBarColor: Colors.transparent,
+        ),
+        child: LandingScreen(),
+      ),
     );
   }
 }

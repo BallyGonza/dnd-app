@@ -35,28 +35,25 @@ class _DiceButtonState extends State<DiceButton>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      width: 60,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        shape: const CircleBorder(),
+        backgroundColor: Colors.black,
+      ),
+      onPressed: () async {
+        await _controller.forward(from: 0);
+        widget.onPressed();
+      },
+      child: RotationTransition(
+        turns: Tween(begin: 0.0, end: 1.0).animate(
+          _controller,
         ),
-        onPressed: () async {
-          await _controller.forward(from: 0);
-          widget.onPressed();
-        },
-        child: RotationTransition(
-          turns: Tween(begin: 0.0, end: 1.0).animate(
-            _controller,
-          ),
-          child: Image(
-            image: AssetImage(widget.dice.img),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Image.asset(
+            widget.dice.img,
             color: Colors.white,
-            height: 30,
+            height: 35,
           ),
         ),
       ),

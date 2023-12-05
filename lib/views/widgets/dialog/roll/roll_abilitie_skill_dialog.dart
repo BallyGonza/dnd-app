@@ -96,29 +96,21 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
               if (rolls.isEmpty)
                 const SizedBox.shrink()
               else
-                Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
                     child: Wrap(
                       alignment: WrapAlignment.center,
                       children: rolls
                           .map(
-                            (roll) => Chip(
-                              backgroundColor: (roll == 1)
-                                  ? lowestDiceColor
-                                  : (roll == d20.sides)
-                                      ? highestDiceColor
-                                      : Colors.black,
-                              label: Text(
-                                '$roll',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
+                            (roll) => RollChip(
+                              roll: roll,
+                              modifier: widget.modifier,
+                              dice: d20,
                             ),
                           )
                           .toList(),
@@ -129,7 +121,7 @@ class _RollAbilitieSkillDialogState extends State<RollAbilitieSkillDialog> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 2, vertical: 16),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(4),

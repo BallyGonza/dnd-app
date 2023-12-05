@@ -35,24 +35,21 @@ class _WeaponButtonState extends State<WeaponButton>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 60,
-      height: 60,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
-          ),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.black,
+        shape: const CircleBorder(),
+      ),
+      onPressed: () async {
+        await _controller.forward(from: 0);
+        widget.onPressed();
+      },
+      child: RotationTransition(
+        turns: Tween(begin: 0.0, end: 1.0).animate(
+          _controller,
         ),
-        onPressed: () async {
-          await _controller.forward(from: 0);
-          widget.onPressed();
-        },
-        child: RotationTransition(
-          turns: Tween(begin: 0.0, end: 1.0).animate(
-            _controller,
-          ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Image(
             image: AssetImage(widget.weapon.img),
             color: Colors.white,

@@ -4,15 +4,19 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     required this.hint,
     required this.controller,
+    this.focusNode,
     super.key,
   });
 
   final String hint;
+  final FocusNode? focusNode;
   final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: focusNode ?? FocusNode()
+        ..requestFocus(),
       controller: controller,
       cursorColor: Colors.grey,
       decoration: InputDecoration(

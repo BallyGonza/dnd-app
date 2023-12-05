@@ -22,94 +22,66 @@ class NavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const SizedBox(width: 10),
-          if (character.abilities.isNotEmpty)
-            NavigationBarButton(
-              name: 'ABILITIES',
-              indexButton: 0,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.skills.isNotEmpty)
-            NavigationBarButton(
-              name: 'SKILLS',
-              indexButton: 1,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.weapons.isNotEmpty)
-            NavigationBarButton(
-              name: 'WEAPONS',
-              indexButton: 2,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.spells.isNotEmpty)
-            NavigationBarButton(
-              name: 'SPELLS',
-              indexButton: 3,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
+          NavigationBarButton(
+            name: 'ABILITIES',
+            indexButton: 0,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'SKILLS',
+            indexButton: 1,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'WEAPONS',
+            indexButton: 2,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'SPELLS',
+            indexButton: 3,
+            selected: selected,
+            onPressed: onPressed,
+          ),
           NavigationBarButton(
             name: 'LOOT',
             indexButton: 4,
             selected: selected,
             onPressed: onPressed,
           ),
-          if (character.background.isNotEmpty || character.languages.isNotEmpty)
-            NavigationBarButton(
-              name:
-                  character.background.isNotEmpty ? 'BACKGROUND' : 'LANGUAGES',
-              indexButton: 5,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.traits.isNotEmpty)
-            NavigationBarButton(
-              name: 'TRAITS',
-              indexButton: 6,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.wildForms.isNotEmpty)
-            NavigationBarButton(
-              name: 'WILD FORM',
-              indexButton: 7,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.pets.isNotEmpty)
-            NavigationBarButton(
-              name: 'PET',
-              indexButton: 8,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
-          if (character.backstory != '')
-            NavigationBarButton(
-              name: 'BACKSTORY',
-              indexButton: 9,
-              selected: selected,
-              onPressed: onPressed,
-            )
-          else
-            const SizedBox.shrink(),
+          NavigationBarButton(
+            name: 'BACKGROUND',
+            indexButton: 5,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'TRAITS',
+            indexButton: 6,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'WILD FORM',
+            indexButton: 7,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'PET',
+            indexButton: 8,
+            selected: selected,
+            onPressed: onPressed,
+          ),
+          NavigationBarButton(
+            name: 'BACKSTORY',
+            indexButton: 9,
+            selected: selected,
+            onPressed: onPressed,
+          ),
           const SizedBox(width: 10),
         ],
       ),

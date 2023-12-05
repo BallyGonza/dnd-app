@@ -16,6 +16,10 @@ class RollChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Chip(
+      shape: const CircleBorder(),
+      side: const BorderSide(
+        color: Colors.transparent,
+      ),
       backgroundColor: (roll == 1)
           ? lowestDiceColor
           : (roll == dice.sides)

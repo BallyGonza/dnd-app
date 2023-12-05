@@ -2,6 +2,7 @@ import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/services/services.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class CharacterDetailScreen extends StatefulWidget {
@@ -23,24 +24,27 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Wrap(
-        children: [
-          CharacterDetailsCard(
-            character: widget.character,
-          ),
-          NavBar(
-            character: widget.character,
-            selected: selected,
-            onPressed: (index) {
-              _pageController.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 600),
-                curve: Curves.ease,
-              );
-            },
-          ),
-          _stackedWidgets(),
-        ],
+      body: AnnotatedRegion(
+        value: SystemUiOverlayStyle.light,
+        child: Wrap(
+          children: [
+            CharacterDetailsCard(
+              character: widget.character,
+            ),
+            NavBar(
+              character: widget.character,
+              selected: selected,
+              onPressed: (index) {
+                _pageController.animateToPage(
+                  index,
+                  duration: const Duration(milliseconds: 600),
+                  curve: Curves.ease,
+                );
+              },
+            ),
+            _stackedWidgets(),
+          ],
+        ),
       ),
       floatingActionButton: SpeedDial(
         overlayOpacity: 0,
@@ -79,7 +83,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
 
   Widget _stackedWidgets() {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.67,
+      height: MediaQuery.of(context).size.height * 0.7,
       child: PageView(
         controller: _pageController,
         onPageChanged: (index) {
@@ -95,18 +99,12 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
           SkillsList(
             skills: widget.character.skills,
           ),
-          if (widget.character.weapons.isNotEmpty)
-            WeaponsList(
-              weapons: widget.character.weapons,
-            )
-          else
-            const SizedBox.shrink(),
-          if (widget.character.spells.isNotEmpty)
-            SpellsList(
-              spells: widget.character.spells,
-            )
-          else
-            const SizedBox.shrink(),
+          WeaponsList(
+            weapons: widget.character.weapons,
+          ),
+          SpellsList(
+            spells: widget.character.spells,
+          ),
           NoteList(
             characterId: widget.character.id,
           ),
@@ -114,32 +112,29 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             backgrounds: widget.character.background,
             languages: widget.character.languages,
           ),
-          if (widget.character.traits.isNotEmpty)
-            TraitsList(
-              traits: widget.character.traits,
-            )
+          TraitsList(
+            traits: widget.character.traits,
+          ),
+          if (widget.character.wildForms.isEmpty)
+            const NoWildForm()
           else
-            const SizedBox.shrink(),
-          if (widget.character.wildForms.isNotEmpty)
             WildFormCard(
               characterId: widget.character.id,
               wildForms: widget.character.wildForms,
-            )
+            ),
+          if (widget.character.pets.isEmpty)
+            const NoPet()
           else
-            const SizedBox.shrink(),
-          if (widget.character.pets.isNotEmpty)
             PetCard(
               characterId: widget.character.id,
               pets: widget.character.pets,
-            )
+            ),
+          if (widget.character.backstory.isEmpty)
+            const NoBackstory()
           else
-            const SizedBox.shrink(),
-          if (widget.character.backstory != '')
             BackstoryCard(
               backstory: widget.character.backstory,
-            )
-          else
-            const SizedBox.shrink(),
+            ),
         ],
       ),
     );

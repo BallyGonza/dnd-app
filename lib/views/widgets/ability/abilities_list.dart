@@ -18,7 +18,7 @@ class AbilitiesList extends StatelessWidget {
         Container(
           color: Colors.white,
           height: abilities.length > 4
-              ? MediaQuery.of(context).size.height * 0.48
+              ? MediaQuery.of(context).size.height * 0.38
               : MediaQuery.of(context).size.height * 0.15,
           padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Card(

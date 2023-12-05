@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
@@ -55,7 +57,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                   loaded: (notes) => notes.isEmpty
                       ? const NoNotes()
                       : SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.67,
+                          height: MediaQuery.of(context).size.height * 0.75,
                           child: Padding(
                             padding: const EdgeInsets.only(
                               left: 20,
@@ -77,22 +79,7 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
                                     dragDismissible: false,
                                     motion: const ScrollMotion(),
                                     children: [
-                                      SlidableAction(
-                                        padding: const EdgeInsets.all(10),
-                                        borderRadius: BorderRadius.circular(10),
-                                        onPressed: (context) {
-                                          setState(() {
-                                            context.read<LootBloc>().add(
-                                                  LootEvent.delete(index),
-                                                );
-                                          });
-                                        },
-                                        backgroundColor:
-                                            const Color(0xFFFE4A49),
-                                        foregroundColor: Colors.white,
-                                        icon: Icons.delete,
-                                        label: 'Delete',
-                                      ),
+                                      _deleteAction(index),
                                     ],
                                   ),
                                   child: NoteListItem(
@@ -138,6 +125,37 @@ class _NoteListState extends State<NoteList> with TickerProviderStateMixin {
           ),
         ),
       ],
+    );
+  }
+
+  SlidableAction _deleteAction(int index) {
+    return SlidableAction(
+      padding: const EdgeInsets.all(10),
+      borderRadius: BorderRadius.circular(10),
+      onPressed: (context) {
+        // dialog for delete
+        showDialog<CustomShowDialog>(
+          context: context,
+          builder: (context) => CustomShowDialog(
+            title: 'Delete Note',
+            content: const Text(
+              'Are you sure you want to delete this note?',
+            ),
+            rightActionName: 'Delete',
+            onPressed: () {
+              setState(() {
+                context.read<LootBloc>().add(
+                      LootEvent.delete(index),
+                    );
+              });
+            },
+          ),
+        );
+      },
+      backgroundColor: const Color(0xFFFE4A49),
+      foregroundColor: Colors.white,
+      icon: Icons.delete,
+      label: 'Delete',
     );
   }
 

@@ -81,7 +81,7 @@ class _PetCardState extends State<PetCard> {
               ),
               PetAbilitiesList(abilities: widget.pets[0].abilities),
               PetSavingThrowList(savingThrows: widget.pets[0].savingThrows),
-              SkillsList(skills: widget.pets[0].skills),
+              PetSkillsList(skills: widget.pets[0].skills),
               WeaponsList(weapons: widget.pets[0].weapons),
               TraitsList(traits: widget.pets[0].traits),
             ],
