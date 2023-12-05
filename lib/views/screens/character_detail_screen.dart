@@ -25,7 +25,10 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnnotatedRegion(
-        value: SystemUiOverlayStyle.light,
+        value: const SystemUiOverlayStyle(
+          statusBarIconBrightness: Brightness.light,
+          systemNavigationBarColor: Colors.transparent,
+        ),
         child: Wrap(
           children: [
             CharacterDetailsCard(
