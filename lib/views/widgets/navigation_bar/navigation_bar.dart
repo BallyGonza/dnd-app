@@ -9,10 +9,12 @@ class NavBar extends StatelessWidget {
     required this.character,
     required this.selected,
     required this.onPressed,
+    required this.navController,
     super.key,
   });
 
   final CharacterModel character;
+  final ScrollController navController;
   final int selected;
   final Function(int) onPressed;
 
@@ -20,6 +22,7 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
+      controller: navController,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[

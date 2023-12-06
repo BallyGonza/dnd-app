@@ -19,6 +19,7 @@ class CharacterDetailScreen extends StatefulWidget {
 class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   ValueNotifier<bool> isDialOpen = ValueNotifier<bool>(false);
   int selected = 0;
+  final ScrollController _scrollController = ScrollController();
   final PageController _pageController = PageController();
 
   @override
@@ -36,6 +37,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
             ),
             NavBar(
               character: widget.character,
+              navController: _scrollController,
               selected: selected,
               onPressed: (index) {
                 _pageController.animateToPage(
@@ -94,6 +96,13 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         onPageChanged: (index) {
           setState(() {
             selected = index;
+            if (index <= 6) {
+              _scrollController.animateTo(
+                _scrollController.position.minScrollExtent + (index * 80),
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.ease,
+              );
+            }
           });
         },
         children: <Widget>[

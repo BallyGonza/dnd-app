@@ -10,7 +10,7 @@ class WeaponsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return weapons.isEmpty
-        ? const NoWeapons()
+        ? const SizedBox.shrink()
         : ListView.builder(
             shrinkWrap: true,
             controller: ScrollController(),

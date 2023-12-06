@@ -128,7 +128,10 @@ class NotePageState extends State<NotePage> {
                   controller: _contentController,
                   decoration: InputDecoration(
                     hintText: 'Descripción...',
-                    hintStyle: TextStyle(color: _fontColor.withOpacity(0.6)),
+                    hintStyle: TextStyle(
+                      color: _fontColor.withOpacity(0.6),
+                      fontStyle: FontStyle.italic,
+                    ),
                     border: InputBorder.none,
                   ),
                   style: TextStyle(
@@ -139,16 +142,8 @@ class NotePageState extends State<NotePage> {
                   keyboardType: TextInputType.multiline,
                   textAlign: TextAlign.left,
                   cursorColor: _fontColor,
-                  cursorHeight: 20,
                   textCapitalization: TextCapitalization.sentences,
                   maxLines: null,
-                  // ignore: deprecated_member_use
-                  toolbarOptions: const ToolbarOptions(
-                    copy: true,
-                    paste: true,
-                    selectAll: true,
-                    cut: true,
-                  ),
                 ),
               ),
             ],
@@ -176,7 +171,7 @@ class NotePageState extends State<NotePage> {
                     context: context,
                     builder: (context) {
                       return SizedBox(
-                        height: 196,
+                        height: MediaQuery.of(context).size.height * 0.55,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
