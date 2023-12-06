@@ -56,7 +56,6 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
     final modifier = widget.weapon.damage;
     return AlertDialog(
       backgroundColor: Colors.white,
-      actionsAlignment: MainAxisAlignment.spaceBetween,
       content: SingleChildScrollView(
         child: SizedBox(
           width: 500,
@@ -161,6 +160,9 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                                             horizontal: 5,
                                           ),
                                           child: Chip(
+                                            side: const BorderSide(
+                                              color: Colors.transparent,
+                                            ),
                                             backgroundColor: (roll == 1)
                                                 ? lowestDiceColor
                                                 : (roll == widget.dice.sides)
@@ -213,6 +215,9 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                                               horizontal: 5,
                                             ),
                                             child: Chip(
+                                              side: const BorderSide(
+                                                color: Colors.transparent,
+                                              ),
                                               backgroundColor: (roll == 1)
                                                   ? lowestDiceColor
                                                   : (roll == widget.dice.sides)
@@ -255,8 +260,7 @@ class _RollDamageDiceDialogState extends State<RollHitDamageDiceDialog> {
                         ),
                 ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 2, vertical: 16),
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

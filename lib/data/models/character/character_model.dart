@@ -5,6 +5,37 @@ part 'character_model.g.dart';
 
 @HiveType(typeId: 0)
 class CharacterModel {
+  CharacterModel({
+    required this.id,
+    required this.name,
+    required this.lastName,
+    required this.img,
+    required this.profileImg,
+    required this.banner,
+    required this.race,
+    required this.classes,
+    required this.level,
+    required this.armor,
+    required this.initiative,
+    required this.speed,
+    required this.passivePerception,
+    required this.hitDice,
+    required this.healthPoints,
+    required this.abilities,
+    required this.skills,
+    required this.savingThrows,
+    required this.weapons,
+    required this.languages,
+    required this.traits,
+    required this.spells,
+    required this.background,
+    required this.backstory,
+    required this.pets,
+    required this.wildForms,
+    required this.notes,
+    required this.wallet,
+    required this.password,
+  });
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -63,38 +94,6 @@ class CharacterModel {
   WalletModel wallet;
   @HiveField(28)
   final String password;
-
-  CharacterModel({
-    required this.id,
-    required this.name,
-    required this.lastName,
-    required this.img,
-    required this.profileImg,
-    required this.banner,
-    required this.race,
-    required this.classes,
-    required this.level,
-    required this.armor,
-    required this.initiative,
-    required this.speed,
-    required this.passivePerception,
-    required this.hitDice,
-    required this.healthPoints,
-    required this.abilities,
-    required this.skills,
-    required this.savingThrows,
-    required this.weapons,
-    required this.languages,
-    required this.traits,
-    required this.spells,
-    required this.background,
-    required this.backstory,
-    required this.pets,
-    required this.wildForms,
-    required this.notes,
-    required this.wallet,
-    required this.password,
-  });
 
   CharacterModel copyWith({required List<Note> notes}) {
     return CharacterModel(

@@ -1,8 +1,6 @@
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'wild_form_hp_event.dart';
-import 'wild_form_hp_state.dart';
 
 class WildFormHPBloc extends Bloc<WildFormHPEvent, WildFormHPState> {
   WildFormHPBloc() : super(const WildFormHPState.initial()) {

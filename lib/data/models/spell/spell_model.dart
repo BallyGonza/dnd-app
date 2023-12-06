@@ -4,6 +4,15 @@ part 'spell_model.g.dart';
 
 @HiveType(typeId: 8)
 class SpellModel {
+  SpellModel({
+    required this.name,
+    required this.level,
+    required this.range,
+    required this.castTime,
+    required this.duration,
+    required this.comp,
+    required this.description,
+  });
   @HiveField(0)
   final String name;
   @HiveField(1)
@@ -18,14 +27,4 @@ class SpellModel {
   final String comp;
   @HiveField(6)
   final String description;
-
-  SpellModel({
-    required this.name,
-    required this.level,
-    required this.range,
-    required this.castTime,
-    required this.duration,
-    required this.comp,
-    required this.description,
-  });
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls, unnecessary_lambdas
+
 import 'package:flutter/material.dart';
 
 class ClearButton extends StatelessWidget {

@@ -1,8 +1,6 @@
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'wallet_event.dart';
-import 'wallet_state.dart';
 
 class WalletBloc extends Bloc<WalletEvent, WalletState> {
   WalletBloc() : super(const WalletState.initial()) {

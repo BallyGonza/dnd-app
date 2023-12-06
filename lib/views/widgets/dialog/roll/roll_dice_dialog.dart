@@ -69,18 +69,10 @@ class _RollDiceDialogState extends State<RollDiceDialog> {
                 alignment: WrapAlignment.center,
                 children: rolls
                     .map(
-                      (roll) => Chip(
-                        label: Text(
-                          '$roll',
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        backgroundColor: roll == dice.sides
-                            ? highestDiceColor
-                            : roll == 1
-                                ? lowestDiceColor
-                                : Colors.black,
+                      (roll) => RollChip(
+                        roll: roll,
+                        modifier: 0,
+                        dice: dice,
                       ),
                     )
                     .toList(),

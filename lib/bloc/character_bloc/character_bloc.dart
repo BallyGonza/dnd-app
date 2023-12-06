@@ -1,8 +1,6 @@
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'character_event.dart';
-import 'character_state.dart';
 
 class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
   CharacterBloc() : super(const CharacterState.initial()) {

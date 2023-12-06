@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:dnd_app/data/data.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

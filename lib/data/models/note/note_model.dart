@@ -4,6 +4,13 @@ part 'note_model.g.dart';
 
 @HiveType(typeId: 11)
 class Note extends HiveObject {
+  Note({
+    required this.id,
+    required this.title,
+    required this.content,
+    required this.date,
+    required this.color,
+  });
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -14,12 +21,4 @@ class Note extends HiveObject {
   String date;
   @HiveField(4)
   int color;
-
-  Note({
-    required this.id,
-    required this.title,
-    required this.content,
-    required this.date,
-    required this.color,
-  });
 }

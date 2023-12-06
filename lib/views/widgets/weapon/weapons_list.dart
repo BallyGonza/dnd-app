@@ -1,6 +1,5 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';
-import 'package:dnd_app/views/widgets/note/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class WeaponsList extends StatelessWidget {
@@ -11,7 +10,7 @@ class WeaponsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return weapons.isEmpty
-        ? const NoNotes()
+        ? const NoWeapons()
         : ListView.builder(
             shrinkWrap: true,
             controller: ScrollController(),

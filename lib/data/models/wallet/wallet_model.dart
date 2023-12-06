@@ -4,6 +4,13 @@ part 'wallet_model.g.dart';
 
 @HiveType(typeId: 12)
 class WalletModel {
+  WalletModel({
+    required this.platinum,
+    required this.gold,
+    required this.electrum,
+    required this.silver,
+    required this.copper,
+  });
   @HiveField(0)
   int platinum;
   @HiveField(1)
@@ -14,14 +21,6 @@ class WalletModel {
   int silver;
   @HiveField(4)
   int copper;
-
-  WalletModel({
-    required this.platinum,
-    required this.gold,
-    required this.electrum,
-    required this.silver,
-    required this.copper,
-  });
 
   void addPieces({required String pieces}) {
     if (pieces == 'platinum') {

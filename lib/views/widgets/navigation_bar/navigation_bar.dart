@@ -1,3 +1,5 @@
+// ignore_for_file: inference_failure_on_function_return_type
+
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/widgets/navigation_bar/widgets/navigation_bar_button.dart';
 import 'package:flutter/material.dart';

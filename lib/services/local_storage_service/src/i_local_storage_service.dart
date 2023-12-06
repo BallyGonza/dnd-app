@@ -6,6 +6,7 @@ abstract class ILocalStorageService {
     Boxes? box,
   });
 
+  // ignore: inference_failure_on_function_return_type, always_declare_return_types, type_annotate_public_apis
   get<T>({
     required String key,
     required T Function(Map<String, dynamic> json) fromJson,

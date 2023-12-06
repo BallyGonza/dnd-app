@@ -1,8 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:dnd_app/data/data.dart';
 
-import 'loot_event.dart';
-import 'loot_state.dart';
+import 'package:dnd_app/bloc/bloc.dart';
+import 'package:dnd_app/data/data.dart';
 
 class LootBloc extends Bloc<LootEvent, LootState> {
   LootBloc() : super(const LootState.initial()) {

@@ -53,7 +53,8 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         overlayOpacity: 0,
         backgroundColor: Colors.black,
         activeIcon: Icons.close,
-        spacing: 3,
+        activeBackgroundColor: Colors.white,
+        spacing: 4,
         openCloseDial: isDialOpen,
         children: [
           _diceFABItem(dice: d4),
@@ -71,6 +72,7 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   SpeedDialChild _diceFABItem({required DiceModel dice}) {
     return SpeedDialChild(
       child: Image.asset(dice.img, width: 30, height: 30),
+      shape: const CircleBorder(),
       backgroundColor: Colors.white,
       onTap: () {
         isDialOpen.value = !isDialOpen.value;

@@ -1,8 +1,6 @@
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'pet_hp_event.dart';
-import 'pet_hp_state.dart';
 
 class PetHPBloc extends Bloc<PetHPEvent, PetHPState> {
   PetHPBloc() : super(const PetHPState.initial()) {

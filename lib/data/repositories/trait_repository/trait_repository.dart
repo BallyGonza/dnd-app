@@ -29,8 +29,8 @@ TraitModel wildMask = TraitModel(
 
 TraitModel favoredEnemy = TraitModel(
   name: 'Enemigo Favorecido',
-  description:
-      '''Tienes ventaja en chequeos de Supervivencia para intentar buscar rastros de estas criaturas, y ventaja en chequeos de Inteligencia relacionados con información sobre estas criaturas.
+  description: '''
+Tienes ventaja en chequeos de Supervivencia para intentar buscar rastros de estas criaturas, y ventaja en chequeos de Inteligencia relacionados con información sobre estas criaturas.
       
       [Bestias y Dragones]''',
 );

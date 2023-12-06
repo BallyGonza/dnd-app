@@ -4,15 +4,14 @@ part 'health_points_model.g.dart';
 
 @HiveType(typeId: 1)
 class HealthPointsModel {
-  @HiveField(0)
-  int current;
-  @HiveField(1)
-  int max;
-
   HealthPointsModel({
     required this.current,
     required this.max,
   });
+  @HiveField(0)
+  int current;
+  @HiveField(1)
+  int max;
 
   void add() {
     current += 1;

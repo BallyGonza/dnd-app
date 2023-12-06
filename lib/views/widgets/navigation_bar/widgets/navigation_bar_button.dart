@@ -1,3 +1,5 @@
+// ignore_for_file: inference_failure_on_function_return_type
+
 import 'package:flutter/material.dart';
 
 class NavigationBarButton extends StatelessWidget {

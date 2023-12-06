@@ -1,9 +1,7 @@
+import 'package:dnd_app/bloc/bloc.dart';
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
-import 'character_hp_event.dart';
-import 'character_hp_state.dart';
 
 class CharacterHPBloc extends Bloc<CharacterHPEvent, CharacterHPState> {
   CharacterHPBloc() : super(const CharacterHPState.initial()) {

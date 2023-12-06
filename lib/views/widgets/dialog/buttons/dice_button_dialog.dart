@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls, prefer_int_literals
+
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +51,7 @@ class _DiceButtonState extends State<DiceButton>
           _controller,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(10),
           child: Image.asset(
             widget.dice.img,
             color: Colors.white,

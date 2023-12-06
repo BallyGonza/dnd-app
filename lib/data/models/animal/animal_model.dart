@@ -1,10 +1,27 @@
-import 'package:hive/hive.dart';
 import 'package:dnd_app/data/data.dart';
+import 'package:hive/hive.dart';
 
 part 'animal_model.g.dart';
 
 @HiveType(typeId: 5)
 class AnimalModel {
+  AnimalModel({
+    required this.id,
+    required this.name,
+    required this.race,
+    required this.img,
+    required this.profileImg,
+    required this.armor,
+    required this.speed,
+    required this.healthPoints,
+    required this.abilities,
+    required this.savingThrows,
+    required this.weapons,
+    required this.traits,
+    required this.skills,
+    this.climb,
+    this.fly,
+  });
   @HiveField(0)
   final int id;
   @HiveField(1)
@@ -35,22 +52,4 @@ class AnimalModel {
   final List<TraitModel> traits;
   @HiveField(14)
   final List<SkillModel> skills;
-
-  AnimalModel({
-    required this.id,
-    required this.name,
-    required this.race,
-    required this.img,
-    required this.profileImg,
-    required this.armor,
-    required this.speed,
-    this.climb,
-    this.fly,
-    required this.healthPoints,
-    required this.abilities,
-    required this.savingThrows,
-    required this.weapons,
-    required this.traits,
-    required this.skills,
-  });
 }
