@@ -12,7 +12,7 @@ part of 'character_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CharacterEvent {
@@ -69,25 +69,26 @@ class _$CharacterEventCopyWithImpl<$Res, $Val extends CharacterEvent>
 }
 
 /// @nodoc
-abstract class _$$CharacterInitialEventCopyWith<$Res> {
-  factory _$$CharacterInitialEventCopyWith(_$CharacterInitialEvent value,
-          $Res Function(_$CharacterInitialEvent) then) =
-      __$$CharacterInitialEventCopyWithImpl<$Res>;
+abstract class _$$CharacterInitialEventImplCopyWith<$Res> {
+  factory _$$CharacterInitialEventImplCopyWith(
+          _$CharacterInitialEventImpl value,
+          $Res Function(_$CharacterInitialEventImpl) then) =
+      __$$CharacterInitialEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterInitialEventCopyWithImpl<$Res>
-    extends _$CharacterEventCopyWithImpl<$Res, _$CharacterInitialEvent>
-    implements _$$CharacterInitialEventCopyWith<$Res> {
-  __$$CharacterInitialEventCopyWithImpl(_$CharacterInitialEvent _value,
-      $Res Function(_$CharacterInitialEvent) _then)
+class __$$CharacterInitialEventImplCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$CharacterInitialEventImpl>
+    implements _$$CharacterInitialEventImplCopyWith<$Res> {
+  __$$CharacterInitialEventImplCopyWithImpl(_$CharacterInitialEventImpl _value,
+      $Res Function(_$CharacterInitialEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterInitialEvent implements CharacterInitialEvent {
-  const _$CharacterInitialEvent();
+class _$CharacterInitialEventImpl implements CharacterInitialEvent {
+  const _$CharacterInitialEventImpl();
 
   @override
   String toString() {
@@ -95,9 +96,10 @@ class _$CharacterInitialEvent implements CharacterInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterInitialEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$CharacterInitialEventImpl);
   }
 
   @override
@@ -161,5 +163,5 @@ class _$CharacterInitialEvent implements CharacterInitialEvent {
 }
 
 abstract class CharacterInitialEvent implements CharacterEvent {
-  const factory CharacterInitialEvent() = _$CharacterInitialEvent;
+  const factory CharacterInitialEvent() = _$CharacterInitialEventImpl;
 }

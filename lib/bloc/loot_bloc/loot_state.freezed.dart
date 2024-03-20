@@ -12,7 +12,7 @@ part of 'loot_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LootState {
@@ -80,25 +80,25 @@ class _$LootStateCopyWithImpl<$Res, $Val extends LootState>
 }
 
 /// @nodoc
-abstract class _$$LootInitialCopyWith<$Res> {
-  factory _$$LootInitialCopyWith(
-          _$LootInitial value, $Res Function(_$LootInitial) then) =
-      __$$LootInitialCopyWithImpl<$Res>;
+abstract class _$$LootInitialImplCopyWith<$Res> {
+  factory _$$LootInitialImplCopyWith(
+          _$LootInitialImpl value, $Res Function(_$LootInitialImpl) then) =
+      __$$LootInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LootInitialCopyWithImpl<$Res>
-    extends _$LootStateCopyWithImpl<$Res, _$LootInitial>
-    implements _$$LootInitialCopyWith<$Res> {
-  __$$LootInitialCopyWithImpl(
-      _$LootInitial _value, $Res Function(_$LootInitial) _then)
+class __$$LootInitialImplCopyWithImpl<$Res>
+    extends _$LootStateCopyWithImpl<$Res, _$LootInitialImpl>
+    implements _$$LootInitialImplCopyWith<$Res> {
+  __$$LootInitialImplCopyWithImpl(
+      _$LootInitialImpl _value, $Res Function(_$LootInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LootInitial implements LootInitial {
-  const _$LootInitial();
+class _$LootInitialImpl implements LootInitial {
+  const _$LootInitialImpl();
 
   @override
   String toString() {
@@ -106,9 +106,9 @@ class _$LootInitial implements LootInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LootInitial);
+        (other.runtimeType == runtimeType && other is _$LootInitialImpl);
   }
 
   @override
@@ -184,24 +184,24 @@ class _$LootInitial implements LootInitial {
 }
 
 abstract class LootInitial implements LootState {
-  const factory LootInitial() = _$LootInitial;
+  const factory LootInitial() = _$LootInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LootLoadedCopyWith<$Res> {
-  factory _$$LootLoadedCopyWith(
-          _$LootLoaded value, $Res Function(_$LootLoaded) then) =
-      __$$LootLoadedCopyWithImpl<$Res>;
+abstract class _$$LootLoadedImplCopyWith<$Res> {
+  factory _$$LootLoadedImplCopyWith(
+          _$LootLoadedImpl value, $Res Function(_$LootLoadedImpl) then) =
+      __$$LootLoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Note> notes});
 }
 
 /// @nodoc
-class __$$LootLoadedCopyWithImpl<$Res>
-    extends _$LootStateCopyWithImpl<$Res, _$LootLoaded>
-    implements _$$LootLoadedCopyWith<$Res> {
-  __$$LootLoadedCopyWithImpl(
-      _$LootLoaded _value, $Res Function(_$LootLoaded) _then)
+class __$$LootLoadedImplCopyWithImpl<$Res>
+    extends _$LootStateCopyWithImpl<$Res, _$LootLoadedImpl>
+    implements _$$LootLoadedImplCopyWith<$Res> {
+  __$$LootLoadedImplCopyWithImpl(
+      _$LootLoadedImpl _value, $Res Function(_$LootLoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -209,7 +209,7 @@ class __$$LootLoadedCopyWithImpl<$Res>
   $Res call({
     Object? notes = null,
   }) {
-    return _then(_$LootLoaded(
+    return _then(_$LootLoadedImpl(
       null == notes
           ? _value._notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -220,8 +220,8 @@ class __$$LootLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootLoaded implements LootLoaded {
-  const _$LootLoaded(final List<Note> notes) : _notes = notes;
+class _$LootLoadedImpl implements LootLoaded {
+  const _$LootLoadedImpl(final List<Note> notes) : _notes = notes;
 
   final List<Note> _notes;
   @override
@@ -237,10 +237,10 @@ class _$LootLoaded implements LootLoaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootLoaded &&
+            other is _$LootLoadedImpl &&
             const DeepCollectionEquality().equals(other._notes, _notes));
   }
 
@@ -251,8 +251,8 @@ class _$LootLoaded implements LootLoaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
-      __$$LootLoadedCopyWithImpl<_$LootLoaded>(this, _$identity);
+  _$$LootLoadedImplCopyWith<_$LootLoadedImpl> get copyWith =>
+      __$$LootLoadedImplCopyWithImpl<_$LootLoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -324,34 +324,34 @@ class _$LootLoaded implements LootLoaded {
 }
 
 abstract class LootLoaded implements LootState {
-  const factory LootLoaded(final List<Note> notes) = _$LootLoaded;
+  const factory LootLoaded(final List<Note> notes) = _$LootLoadedImpl;
 
   List<Note> get notes;
   @JsonKey(ignore: true)
-  _$$LootLoadedCopyWith<_$LootLoaded> get copyWith =>
+  _$$LootLoadedImplCopyWith<_$LootLoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootFailureCopyWith<$Res> {
-  factory _$$LootFailureCopyWith(
-          _$LootFailure value, $Res Function(_$LootFailure) then) =
-      __$$LootFailureCopyWithImpl<$Res>;
+abstract class _$$LootFailureImplCopyWith<$Res> {
+  factory _$$LootFailureImplCopyWith(
+          _$LootFailureImpl value, $Res Function(_$LootFailureImpl) then) =
+      __$$LootFailureImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LootFailureCopyWithImpl<$Res>
-    extends _$LootStateCopyWithImpl<$Res, _$LootFailure>
-    implements _$$LootFailureCopyWith<$Res> {
-  __$$LootFailureCopyWithImpl(
-      _$LootFailure _value, $Res Function(_$LootFailure) _then)
+class __$$LootFailureImplCopyWithImpl<$Res>
+    extends _$LootStateCopyWithImpl<$Res, _$LootFailureImpl>
+    implements _$$LootFailureImplCopyWith<$Res> {
+  __$$LootFailureImplCopyWithImpl(
+      _$LootFailureImpl _value, $Res Function(_$LootFailureImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LootFailure implements LootFailure {
-  const _$LootFailure();
+class _$LootFailureImpl implements LootFailure {
+  const _$LootFailureImpl();
 
   @override
   String toString() {
@@ -359,9 +359,9 @@ class _$LootFailure implements LootFailure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LootFailure);
+        (other.runtimeType == runtimeType && other is _$LootFailureImpl);
   }
 
   @override
@@ -437,5 +437,5 @@ class _$LootFailure implements LootFailure {
 }
 
 abstract class LootFailure implements LootState {
-  const factory LootFailure() = _$LootFailure;
+  const factory LootFailure() = _$LootFailureImpl;
 }

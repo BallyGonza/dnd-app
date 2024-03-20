@@ -24,14 +24,14 @@ class AnimalModelAdapter extends TypeAdapter<AnimalModel> {
       profileImg: fields[4] as String,
       armor: fields[5] as int,
       speed: fields[6] as int,
-      climb: fields[7] as int?,
-      fly: fields[8] as int?,
       healthPoints: fields[9] as HealthPointsModel,
       abilities: (fields[10] as List).cast<AbilityModel>(),
       savingThrows: (fields[11] as List).cast<SavingThrowModel>(),
       weapons: (fields[12] as List).cast<WeaponModel>(),
       traits: (fields[13] as List).cast<TraitModel>(),
       skills: (fields[14] as List).cast<SkillModel>(),
+      climb: fields[7] as int?,
+      fly: fields[8] as int?,
     );
   }
 

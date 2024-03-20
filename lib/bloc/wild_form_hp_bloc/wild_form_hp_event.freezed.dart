@@ -12,7 +12,7 @@ part of 'wild_form_hp_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WildFormHPEvent {
@@ -87,20 +87,22 @@ class _$WildFormHPEventCopyWithImpl<$Res, $Val extends WildFormHPEvent>
 }
 
 /// @nodoc
-abstract class _$$WildFormHPInitialEventCopyWith<$Res> {
-  factory _$$WildFormHPInitialEventCopyWith(_$WildFormHPInitialEvent value,
-          $Res Function(_$WildFormHPInitialEvent) then) =
-      __$$WildFormHPInitialEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPInitialEventImplCopyWith<$Res> {
+  factory _$$WildFormHPInitialEventImplCopyWith(
+          _$WildFormHPInitialEventImpl value,
+          $Res Function(_$WildFormHPInitialEventImpl) then) =
+      __$$WildFormHPInitialEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$WildFormHPInitialEventCopyWithImpl<$Res>
-    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPInitialEvent>
-    implements _$$WildFormHPInitialEventCopyWith<$Res> {
-  __$$WildFormHPInitialEventCopyWithImpl(_$WildFormHPInitialEvent _value,
-      $Res Function(_$WildFormHPInitialEvent) _then)
+class __$$WildFormHPInitialEventImplCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPInitialEventImpl>
+    implements _$$WildFormHPInitialEventImplCopyWith<$Res> {
+  __$$WildFormHPInitialEventImplCopyWithImpl(
+      _$WildFormHPInitialEventImpl _value,
+      $Res Function(_$WildFormHPInitialEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +110,7 @@ class __$$WildFormHPInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$WildFormHPInitialEvent(
+    return _then(_$WildFormHPInitialEventImpl(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -119,8 +121,8 @@ class __$$WildFormHPInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WildFormHPInitialEvent implements WildFormHPInitialEvent {
-  const _$WildFormHPInitialEvent(this.characterId);
+class _$WildFormHPInitialEventImpl implements WildFormHPInitialEvent {
+  const _$WildFormHPInitialEventImpl(this.characterId);
 
   @override
   final int characterId;
@@ -131,10 +133,10 @@ class _$WildFormHPInitialEvent implements WildFormHPInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WildFormHPInitialEvent &&
+            other is _$WildFormHPInitialEventImpl &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -145,9 +147,9 @@ class _$WildFormHPInitialEvent implements WildFormHPInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WildFormHPInitialEventCopyWith<_$WildFormHPInitialEvent> get copyWith =>
-      __$$WildFormHPInitialEventCopyWithImpl<_$WildFormHPInitialEvent>(
-          this, _$identity);
+  _$$WildFormHPInitialEventImplCopyWith<_$WildFormHPInitialEventImpl>
+      get copyWith => __$$WildFormHPInitialEventImplCopyWithImpl<
+          _$WildFormHPInitialEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,34 +228,34 @@ class _$WildFormHPInitialEvent implements WildFormHPInitialEvent {
 
 abstract class WildFormHPInitialEvent implements WildFormHPEvent {
   const factory WildFormHPInitialEvent(final int characterId) =
-      _$WildFormHPInitialEvent;
+      _$WildFormHPInitialEventImpl;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$WildFormHPInitialEventCopyWith<_$WildFormHPInitialEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$WildFormHPInitialEventImplCopyWith<_$WildFormHPInitialEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WildFormHPAddEventCopyWith<$Res> {
-  factory _$$WildFormHPAddEventCopyWith(_$WildFormHPAddEvent value,
-          $Res Function(_$WildFormHPAddEvent) then) =
-      __$$WildFormHPAddEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPAddEventImplCopyWith<$Res> {
+  factory _$$WildFormHPAddEventImplCopyWith(_$WildFormHPAddEventImpl value,
+          $Res Function(_$WildFormHPAddEventImpl) then) =
+      __$$WildFormHPAddEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WildFormHPAddEventCopyWithImpl<$Res>
-    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPAddEvent>
-    implements _$$WildFormHPAddEventCopyWith<$Res> {
-  __$$WildFormHPAddEventCopyWithImpl(
-      _$WildFormHPAddEvent _value, $Res Function(_$WildFormHPAddEvent) _then)
+class __$$WildFormHPAddEventImplCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPAddEventImpl>
+    implements _$$WildFormHPAddEventImplCopyWith<$Res> {
+  __$$WildFormHPAddEventImplCopyWithImpl(_$WildFormHPAddEventImpl _value,
+      $Res Function(_$WildFormHPAddEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WildFormHPAddEvent implements WildFormHPAddEvent {
-  const _$WildFormHPAddEvent();
+class _$WildFormHPAddEventImpl implements WildFormHPAddEvent {
+  const _$WildFormHPAddEventImpl();
 
   @override
   String toString() {
@@ -261,9 +263,9 @@ class _$WildFormHPAddEvent implements WildFormHPAddEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WildFormHPAddEvent);
+        (other.runtimeType == runtimeType && other is _$WildFormHPAddEventImpl);
   }
 
   @override
@@ -345,29 +347,31 @@ class _$WildFormHPAddEvent implements WildFormHPAddEvent {
 }
 
 abstract class WildFormHPAddEvent implements WildFormHPEvent {
-  const factory WildFormHPAddEvent() = _$WildFormHPAddEvent;
+  const factory WildFormHPAddEvent() = _$WildFormHPAddEventImpl;
 }
 
 /// @nodoc
-abstract class _$$WildFormHPSubtractEventCopyWith<$Res> {
-  factory _$$WildFormHPSubtractEventCopyWith(_$WildFormHPSubtractEvent value,
-          $Res Function(_$WildFormHPSubtractEvent) then) =
-      __$$WildFormHPSubtractEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPSubtractEventImplCopyWith<$Res> {
+  factory _$$WildFormHPSubtractEventImplCopyWith(
+          _$WildFormHPSubtractEventImpl value,
+          $Res Function(_$WildFormHPSubtractEventImpl) then) =
+      __$$WildFormHPSubtractEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WildFormHPSubtractEventCopyWithImpl<$Res>
-    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPSubtractEvent>
-    implements _$$WildFormHPSubtractEventCopyWith<$Res> {
-  __$$WildFormHPSubtractEventCopyWithImpl(_$WildFormHPSubtractEvent _value,
-      $Res Function(_$WildFormHPSubtractEvent) _then)
+class __$$WildFormHPSubtractEventImplCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPSubtractEventImpl>
+    implements _$$WildFormHPSubtractEventImplCopyWith<$Res> {
+  __$$WildFormHPSubtractEventImplCopyWithImpl(
+      _$WildFormHPSubtractEventImpl _value,
+      $Res Function(_$WildFormHPSubtractEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WildFormHPSubtractEvent implements WildFormHPSubtractEvent {
-  const _$WildFormHPSubtractEvent();
+class _$WildFormHPSubtractEventImpl implements WildFormHPSubtractEvent {
+  const _$WildFormHPSubtractEventImpl();
 
   @override
   String toString() {
@@ -375,10 +379,10 @@ class _$WildFormHPSubtractEvent implements WildFormHPSubtractEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WildFormHPSubtractEvent);
+            other is _$WildFormHPSubtractEventImpl);
   }
 
   @override
@@ -460,29 +464,29 @@ class _$WildFormHPSubtractEvent implements WildFormHPSubtractEvent {
 }
 
 abstract class WildFormHPSubtractEvent implements WildFormHPEvent {
-  const factory WildFormHPSubtractEvent() = _$WildFormHPSubtractEvent;
+  const factory WildFormHPSubtractEvent() = _$WildFormHPSubtractEventImpl;
 }
 
 /// @nodoc
-abstract class _$$WildFormHPResetEventCopyWith<$Res> {
-  factory _$$WildFormHPResetEventCopyWith(_$WildFormHPResetEvent value,
-          $Res Function(_$WildFormHPResetEvent) then) =
-      __$$WildFormHPResetEventCopyWithImpl<$Res>;
+abstract class _$$WildFormHPResetEventImplCopyWith<$Res> {
+  factory _$$WildFormHPResetEventImplCopyWith(_$WildFormHPResetEventImpl value,
+          $Res Function(_$WildFormHPResetEventImpl) then) =
+      __$$WildFormHPResetEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WildFormHPResetEventCopyWithImpl<$Res>
-    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPResetEvent>
-    implements _$$WildFormHPResetEventCopyWith<$Res> {
-  __$$WildFormHPResetEventCopyWithImpl(_$WildFormHPResetEvent _value,
-      $Res Function(_$WildFormHPResetEvent) _then)
+class __$$WildFormHPResetEventImplCopyWithImpl<$Res>
+    extends _$WildFormHPEventCopyWithImpl<$Res, _$WildFormHPResetEventImpl>
+    implements _$$WildFormHPResetEventImplCopyWith<$Res> {
+  __$$WildFormHPResetEventImplCopyWithImpl(_$WildFormHPResetEventImpl _value,
+      $Res Function(_$WildFormHPResetEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WildFormHPResetEvent implements WildFormHPResetEvent {
-  const _$WildFormHPResetEvent();
+class _$WildFormHPResetEventImpl implements WildFormHPResetEvent {
+  const _$WildFormHPResetEventImpl();
 
   @override
   String toString() {
@@ -490,9 +494,10 @@ class _$WildFormHPResetEvent implements WildFormHPResetEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WildFormHPResetEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$WildFormHPResetEventImpl);
   }
 
   @override
@@ -574,5 +579,5 @@ class _$WildFormHPResetEvent implements WildFormHPResetEvent {
 }
 
 abstract class WildFormHPResetEvent implements WildFormHPEvent {
-  const factory WildFormHPResetEvent() = _$WildFormHPResetEvent;
+  const factory WildFormHPResetEvent() = _$WildFormHPResetEventImpl;
 }

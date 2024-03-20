@@ -12,7 +12,7 @@ part of 'character_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CharacterState {
@@ -81,25 +81,25 @@ class _$CharacterStateCopyWithImpl<$Res, $Val extends CharacterState>
 }
 
 /// @nodoc
-abstract class _$$CharacterInitialCopyWith<$Res> {
-  factory _$$CharacterInitialCopyWith(
-          _$CharacterInitial value, $Res Function(_$CharacterInitial) then) =
-      __$$CharacterInitialCopyWithImpl<$Res>;
+abstract class _$$CharacterInitialImplCopyWith<$Res> {
+  factory _$$CharacterInitialImplCopyWith(_$CharacterInitialImpl value,
+          $Res Function(_$CharacterInitialImpl) then) =
+      __$$CharacterInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterInitialCopyWithImpl<$Res>
-    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterInitial>
-    implements _$$CharacterInitialCopyWith<$Res> {
-  __$$CharacterInitialCopyWithImpl(
-      _$CharacterInitial _value, $Res Function(_$CharacterInitial) _then)
+class __$$CharacterInitialImplCopyWithImpl<$Res>
+    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterInitialImpl>
+    implements _$$CharacterInitialImplCopyWith<$Res> {
+  __$$CharacterInitialImplCopyWithImpl(_$CharacterInitialImpl _value,
+      $Res Function(_$CharacterInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterInitial implements CharacterInitial {
-  const _$CharacterInitial();
+class _$CharacterInitialImpl implements CharacterInitial {
+  const _$CharacterInitialImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$CharacterInitial implements CharacterInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterInitial);
+        (other.runtimeType == runtimeType && other is _$CharacterInitialImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$CharacterInitial implements CharacterInitial {
 }
 
 abstract class CharacterInitial implements CharacterState {
-  const factory CharacterInitial() = _$CharacterInitial;
+  const factory CharacterInitial() = _$CharacterInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterLoadingCopyWith<$Res> {
-  factory _$$CharacterLoadingCopyWith(
-          _$CharacterLoading value, $Res Function(_$CharacterLoading) then) =
-      __$$CharacterLoadingCopyWithImpl<$Res>;
+abstract class _$$CharacterLoadingImplCopyWith<$Res> {
+  factory _$$CharacterLoadingImplCopyWith(_$CharacterLoadingImpl value,
+          $Res Function(_$CharacterLoadingImpl) then) =
+      __$$CharacterLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterLoadingCopyWithImpl<$Res>
-    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterLoading>
-    implements _$$CharacterLoadingCopyWith<$Res> {
-  __$$CharacterLoadingCopyWithImpl(
-      _$CharacterLoading _value, $Res Function(_$CharacterLoading) _then)
+class __$$CharacterLoadingImplCopyWithImpl<$Res>
+    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterLoadingImpl>
+    implements _$$CharacterLoadingImplCopyWith<$Res> {
+  __$$CharacterLoadingImplCopyWithImpl(_$CharacterLoadingImpl _value,
+      $Res Function(_$CharacterLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterLoading implements CharacterLoading {
-  const _$CharacterLoading();
+class _$CharacterLoadingImpl implements CharacterLoading {
+  const _$CharacterLoadingImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$CharacterLoading implements CharacterLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterLoading);
+        (other.runtimeType == runtimeType && other is _$CharacterLoadingImpl);
   }
 
   @override
@@ -293,24 +293,24 @@ class _$CharacterLoading implements CharacterLoading {
 }
 
 abstract class CharacterLoading implements CharacterState {
-  const factory CharacterLoading() = _$CharacterLoading;
+  const factory CharacterLoading() = _$CharacterLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterUpdatedCopyWith<$Res> {
-  factory _$$CharacterUpdatedCopyWith(
-          _$CharacterUpdated value, $Res Function(_$CharacterUpdated) then) =
-      __$$CharacterUpdatedCopyWithImpl<$Res>;
+abstract class _$$CharacterUpdatedImplCopyWith<$Res> {
+  factory _$$CharacterUpdatedImplCopyWith(_$CharacterUpdatedImpl value,
+          $Res Function(_$CharacterUpdatedImpl) then) =
+      __$$CharacterUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<CharacterModel> characters});
 }
 
 /// @nodoc
-class __$$CharacterUpdatedCopyWithImpl<$Res>
-    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterUpdated>
-    implements _$$CharacterUpdatedCopyWith<$Res> {
-  __$$CharacterUpdatedCopyWithImpl(
-      _$CharacterUpdated _value, $Res Function(_$CharacterUpdated) _then)
+class __$$CharacterUpdatedImplCopyWithImpl<$Res>
+    extends _$CharacterStateCopyWithImpl<$Res, _$CharacterUpdatedImpl>
+    implements _$$CharacterUpdatedImplCopyWith<$Res> {
+  __$$CharacterUpdatedImplCopyWithImpl(_$CharacterUpdatedImpl _value,
+      $Res Function(_$CharacterUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$CharacterUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? characters = null,
   }) {
-    return _then(_$CharacterUpdated(
+    return _then(_$CharacterUpdatedImpl(
       null == characters
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
@@ -329,8 +329,8 @@ class __$$CharacterUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CharacterUpdated implements CharacterUpdated {
-  const _$CharacterUpdated(final List<CharacterModel> characters)
+class _$CharacterUpdatedImpl implements CharacterUpdated {
+  const _$CharacterUpdatedImpl(final List<CharacterModel> characters)
       : _characters = characters;
 
   final List<CharacterModel> _characters;
@@ -347,10 +347,10 @@ class _$CharacterUpdated implements CharacterUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterUpdated &&
+            other is _$CharacterUpdatedImpl &&
             const DeepCollectionEquality()
                 .equals(other._characters, _characters));
   }
@@ -362,8 +362,9 @@ class _$CharacterUpdated implements CharacterUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CharacterUpdatedCopyWith<_$CharacterUpdated> get copyWith =>
-      __$$CharacterUpdatedCopyWithImpl<_$CharacterUpdated>(this, _$identity);
+  _$$CharacterUpdatedImplCopyWith<_$CharacterUpdatedImpl> get copyWith =>
+      __$$CharacterUpdatedImplCopyWithImpl<_$CharacterUpdatedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -436,10 +437,10 @@ class _$CharacterUpdated implements CharacterUpdated {
 
 abstract class CharacterUpdated implements CharacterState {
   const factory CharacterUpdated(final List<CharacterModel> characters) =
-      _$CharacterUpdated;
+      _$CharacterUpdatedImpl;
 
   List<CharacterModel> get characters;
   @JsonKey(ignore: true)
-  _$$CharacterUpdatedCopyWith<_$CharacterUpdated> get copyWith =>
+  _$$CharacterUpdatedImplCopyWith<_$CharacterUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

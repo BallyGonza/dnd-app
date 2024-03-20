@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData appTheme = ThemeData(
+  useMaterial3: false,
   scaffoldBackgroundColor: Colors.white,
   primaryColor: Colors.black,
   primaryTextTheme: GoogleFonts.robotoCondensedTextTheme(),

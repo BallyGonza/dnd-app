@@ -12,7 +12,7 @@ part of 'character_hp_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CharacterHPEvent {
@@ -87,20 +87,22 @@ class _$CharacterHPEventCopyWithImpl<$Res, $Val extends CharacterHPEvent>
 }
 
 /// @nodoc
-abstract class _$$CharacterHPInitialEventCopyWith<$Res> {
-  factory _$$CharacterHPInitialEventCopyWith(_$CharacterHPInitialEvent value,
-          $Res Function(_$CharacterHPInitialEvent) then) =
-      __$$CharacterHPInitialEventCopyWithImpl<$Res>;
+abstract class _$$CharacterHPInitialEventImplCopyWith<$Res> {
+  factory _$$CharacterHPInitialEventImplCopyWith(
+          _$CharacterHPInitialEventImpl value,
+          $Res Function(_$CharacterHPInitialEventImpl) then) =
+      __$$CharacterHPInitialEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$CharacterHPInitialEventCopyWithImpl<$Res>
-    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPInitialEvent>
-    implements _$$CharacterHPInitialEventCopyWith<$Res> {
-  __$$CharacterHPInitialEventCopyWithImpl(_$CharacterHPInitialEvent _value,
-      $Res Function(_$CharacterHPInitialEvent) _then)
+class __$$CharacterHPInitialEventImplCopyWithImpl<$Res>
+    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPInitialEventImpl>
+    implements _$$CharacterHPInitialEventImplCopyWith<$Res> {
+  __$$CharacterHPInitialEventImplCopyWithImpl(
+      _$CharacterHPInitialEventImpl _value,
+      $Res Function(_$CharacterHPInitialEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +110,7 @@ class __$$CharacterHPInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$CharacterHPInitialEvent(
+    return _then(_$CharacterHPInitialEventImpl(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -119,8 +121,8 @@ class __$$CharacterHPInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CharacterHPInitialEvent implements CharacterHPInitialEvent {
-  const _$CharacterHPInitialEvent(this.characterId);
+class _$CharacterHPInitialEventImpl implements CharacterHPInitialEvent {
+  const _$CharacterHPInitialEventImpl(this.characterId);
 
   @override
   final int characterId;
@@ -131,10 +133,10 @@ class _$CharacterHPInitialEvent implements CharacterHPInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterHPInitialEvent &&
+            other is _$CharacterHPInitialEventImpl &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -145,9 +147,9 @@ class _$CharacterHPInitialEvent implements CharacterHPInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CharacterHPInitialEventCopyWith<_$CharacterHPInitialEvent> get copyWith =>
-      __$$CharacterHPInitialEventCopyWithImpl<_$CharacterHPInitialEvent>(
-          this, _$identity);
+  _$$CharacterHPInitialEventImplCopyWith<_$CharacterHPInitialEventImpl>
+      get copyWith => __$$CharacterHPInitialEventImplCopyWithImpl<
+          _$CharacterHPInitialEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,34 +228,34 @@ class _$CharacterHPInitialEvent implements CharacterHPInitialEvent {
 
 abstract class CharacterHPInitialEvent implements CharacterHPEvent {
   const factory CharacterHPInitialEvent(final int characterId) =
-      _$CharacterHPInitialEvent;
+      _$CharacterHPInitialEventImpl;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$CharacterHPInitialEventCopyWith<_$CharacterHPInitialEvent> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CharacterHPInitialEventImplCopyWith<_$CharacterHPInitialEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CharacterHPAddEventCopyWith<$Res> {
-  factory _$$CharacterHPAddEventCopyWith(_$CharacterHPAddEvent value,
-          $Res Function(_$CharacterHPAddEvent) then) =
-      __$$CharacterHPAddEventCopyWithImpl<$Res>;
+abstract class _$$CharacterHPAddEventImplCopyWith<$Res> {
+  factory _$$CharacterHPAddEventImplCopyWith(_$CharacterHPAddEventImpl value,
+          $Res Function(_$CharacterHPAddEventImpl) then) =
+      __$$CharacterHPAddEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHPAddEventCopyWithImpl<$Res>
-    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPAddEvent>
-    implements _$$CharacterHPAddEventCopyWith<$Res> {
-  __$$CharacterHPAddEventCopyWithImpl(
-      _$CharacterHPAddEvent _value, $Res Function(_$CharacterHPAddEvent) _then)
+class __$$CharacterHPAddEventImplCopyWithImpl<$Res>
+    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPAddEventImpl>
+    implements _$$CharacterHPAddEventImplCopyWith<$Res> {
+  __$$CharacterHPAddEventImplCopyWithImpl(_$CharacterHPAddEventImpl _value,
+      $Res Function(_$CharacterHPAddEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHPAddEvent implements CharacterHPAddEvent {
-  const _$CharacterHPAddEvent();
+class _$CharacterHPAddEventImpl implements CharacterHPAddEvent {
+  const _$CharacterHPAddEventImpl();
 
   @override
   String toString() {
@@ -261,9 +263,10 @@ class _$CharacterHPAddEvent implements CharacterHPAddEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterHPAddEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$CharacterHPAddEventImpl);
   }
 
   @override
@@ -345,29 +348,31 @@ class _$CharacterHPAddEvent implements CharacterHPAddEvent {
 }
 
 abstract class CharacterHPAddEvent implements CharacterHPEvent {
-  const factory CharacterHPAddEvent() = _$CharacterHPAddEvent;
+  const factory CharacterHPAddEvent() = _$CharacterHPAddEventImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterHPSubtractEventCopyWith<$Res> {
-  factory _$$CharacterHPSubtractEventCopyWith(_$CharacterHPSubtractEvent value,
-          $Res Function(_$CharacterHPSubtractEvent) then) =
-      __$$CharacterHPSubtractEventCopyWithImpl<$Res>;
+abstract class _$$CharacterHPSubtractEventImplCopyWith<$Res> {
+  factory _$$CharacterHPSubtractEventImplCopyWith(
+          _$CharacterHPSubtractEventImpl value,
+          $Res Function(_$CharacterHPSubtractEventImpl) then) =
+      __$$CharacterHPSubtractEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHPSubtractEventCopyWithImpl<$Res>
-    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPSubtractEvent>
-    implements _$$CharacterHPSubtractEventCopyWith<$Res> {
-  __$$CharacterHPSubtractEventCopyWithImpl(_$CharacterHPSubtractEvent _value,
-      $Res Function(_$CharacterHPSubtractEvent) _then)
+class __$$CharacterHPSubtractEventImplCopyWithImpl<$Res>
+    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPSubtractEventImpl>
+    implements _$$CharacterHPSubtractEventImplCopyWith<$Res> {
+  __$$CharacterHPSubtractEventImplCopyWithImpl(
+      _$CharacterHPSubtractEventImpl _value,
+      $Res Function(_$CharacterHPSubtractEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHPSubtractEvent implements CharacterHPSubtractEvent {
-  const _$CharacterHPSubtractEvent();
+class _$CharacterHPSubtractEventImpl implements CharacterHPSubtractEvent {
+  const _$CharacterHPSubtractEventImpl();
 
   @override
   String toString() {
@@ -375,10 +380,10 @@ class _$CharacterHPSubtractEvent implements CharacterHPSubtractEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterHPSubtractEvent);
+            other is _$CharacterHPSubtractEventImpl);
   }
 
   @override
@@ -460,29 +465,30 @@ class _$CharacterHPSubtractEvent implements CharacterHPSubtractEvent {
 }
 
 abstract class CharacterHPSubtractEvent implements CharacterHPEvent {
-  const factory CharacterHPSubtractEvent() = _$CharacterHPSubtractEvent;
+  const factory CharacterHPSubtractEvent() = _$CharacterHPSubtractEventImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterHPResetEventCopyWith<$Res> {
-  factory _$$CharacterHPResetEventCopyWith(_$CharacterHPResetEvent value,
-          $Res Function(_$CharacterHPResetEvent) then) =
-      __$$CharacterHPResetEventCopyWithImpl<$Res>;
+abstract class _$$CharacterHPResetEventImplCopyWith<$Res> {
+  factory _$$CharacterHPResetEventImplCopyWith(
+          _$CharacterHPResetEventImpl value,
+          $Res Function(_$CharacterHPResetEventImpl) then) =
+      __$$CharacterHPResetEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHPResetEventCopyWithImpl<$Res>
-    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPResetEvent>
-    implements _$$CharacterHPResetEventCopyWith<$Res> {
-  __$$CharacterHPResetEventCopyWithImpl(_$CharacterHPResetEvent _value,
-      $Res Function(_$CharacterHPResetEvent) _then)
+class __$$CharacterHPResetEventImplCopyWithImpl<$Res>
+    extends _$CharacterHPEventCopyWithImpl<$Res, _$CharacterHPResetEventImpl>
+    implements _$$CharacterHPResetEventImplCopyWith<$Res> {
+  __$$CharacterHPResetEventImplCopyWithImpl(_$CharacterHPResetEventImpl _value,
+      $Res Function(_$CharacterHPResetEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHPResetEvent implements CharacterHPResetEvent {
-  const _$CharacterHPResetEvent();
+class _$CharacterHPResetEventImpl implements CharacterHPResetEvent {
+  const _$CharacterHPResetEventImpl();
 
   @override
   String toString() {
@@ -490,9 +496,10 @@ class _$CharacterHPResetEvent implements CharacterHPResetEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterHPResetEvent);
+        (other.runtimeType == runtimeType &&
+            other is _$CharacterHPResetEventImpl);
   }
 
   @override
@@ -574,5 +581,5 @@ class _$CharacterHPResetEvent implements CharacterHPResetEvent {
 }
 
 abstract class CharacterHPResetEvent implements CharacterHPEvent {
-  const factory CharacterHPResetEvent() = _$CharacterHPResetEvent;
+  const factory CharacterHPResetEvent() = _$CharacterHPResetEventImpl;
 }

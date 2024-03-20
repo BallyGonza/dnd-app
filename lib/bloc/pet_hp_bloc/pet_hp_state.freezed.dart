@@ -12,7 +12,7 @@ part of 'pet_hp_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PetHPState {
@@ -81,25 +81,25 @@ class _$PetHPStateCopyWithImpl<$Res, $Val extends PetHPState>
 }
 
 /// @nodoc
-abstract class _$$PetHPInitialCopyWith<$Res> {
-  factory _$$PetHPInitialCopyWith(
-          _$PetHPInitial value, $Res Function(_$PetHPInitial) then) =
-      __$$PetHPInitialCopyWithImpl<$Res>;
+abstract class _$$PetHPInitialImplCopyWith<$Res> {
+  factory _$$PetHPInitialImplCopyWith(
+          _$PetHPInitialImpl value, $Res Function(_$PetHPInitialImpl) then) =
+      __$$PetHPInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHPInitialCopyWithImpl<$Res>
-    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPInitial>
-    implements _$$PetHPInitialCopyWith<$Res> {
-  __$$PetHPInitialCopyWithImpl(
-      _$PetHPInitial _value, $Res Function(_$PetHPInitial) _then)
+class __$$PetHPInitialImplCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPInitialImpl>
+    implements _$$PetHPInitialImplCopyWith<$Res> {
+  __$$PetHPInitialImplCopyWithImpl(
+      _$PetHPInitialImpl _value, $Res Function(_$PetHPInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHPInitial implements PetHPInitial {
-  const _$PetHPInitial();
+class _$PetHPInitialImpl implements PetHPInitial {
+  const _$PetHPInitialImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$PetHPInitial implements PetHPInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHPInitial);
+        (other.runtimeType == runtimeType && other is _$PetHPInitialImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$PetHPInitial implements PetHPInitial {
 }
 
 abstract class PetHPInitial implements PetHPState {
-  const factory PetHPInitial() = _$PetHPInitial;
+  const factory PetHPInitial() = _$PetHPInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$PetHPLoadingCopyWith<$Res> {
-  factory _$$PetHPLoadingCopyWith(
-          _$PetHPLoading value, $Res Function(_$PetHPLoading) then) =
-      __$$PetHPLoadingCopyWithImpl<$Res>;
+abstract class _$$PetHPLoadingImplCopyWith<$Res> {
+  factory _$$PetHPLoadingImplCopyWith(
+          _$PetHPLoadingImpl value, $Res Function(_$PetHPLoadingImpl) then) =
+      __$$PetHPLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHPLoadingCopyWithImpl<$Res>
-    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPLoading>
-    implements _$$PetHPLoadingCopyWith<$Res> {
-  __$$PetHPLoadingCopyWithImpl(
-      _$PetHPLoading _value, $Res Function(_$PetHPLoading) _then)
+class __$$PetHPLoadingImplCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPLoadingImpl>
+    implements _$$PetHPLoadingImplCopyWith<$Res> {
+  __$$PetHPLoadingImplCopyWithImpl(
+      _$PetHPLoadingImpl _value, $Res Function(_$PetHPLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHPLoading implements PetHPLoading {
-  const _$PetHPLoading();
+class _$PetHPLoadingImpl implements PetHPLoading {
+  const _$PetHPLoadingImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$PetHPLoading implements PetHPLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHPLoading);
+        (other.runtimeType == runtimeType && other is _$PetHPLoadingImpl);
   }
 
   @override
@@ -293,24 +293,24 @@ class _$PetHPLoading implements PetHPLoading {
 }
 
 abstract class PetHPLoading implements PetHPState {
-  const factory PetHPLoading() = _$PetHPLoading;
+  const factory PetHPLoading() = _$PetHPLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$PetHPUpdatedCopyWith<$Res> {
-  factory _$$PetHPUpdatedCopyWith(
-          _$PetHPUpdated value, $Res Function(_$PetHPUpdated) then) =
-      __$$PetHPUpdatedCopyWithImpl<$Res>;
+abstract class _$$PetHPUpdatedImplCopyWith<$Res> {
+  factory _$$PetHPUpdatedImplCopyWith(
+          _$PetHPUpdatedImpl value, $Res Function(_$PetHPUpdatedImpl) then) =
+      __$$PetHPUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int current});
 }
 
 /// @nodoc
-class __$$PetHPUpdatedCopyWithImpl<$Res>
-    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPUpdated>
-    implements _$$PetHPUpdatedCopyWith<$Res> {
-  __$$PetHPUpdatedCopyWithImpl(
-      _$PetHPUpdated _value, $Res Function(_$PetHPUpdated) _then)
+class __$$PetHPUpdatedImplCopyWithImpl<$Res>
+    extends _$PetHPStateCopyWithImpl<$Res, _$PetHPUpdatedImpl>
+    implements _$$PetHPUpdatedImplCopyWith<$Res> {
+  __$$PetHPUpdatedImplCopyWithImpl(
+      _$PetHPUpdatedImpl _value, $Res Function(_$PetHPUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$PetHPUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? current = null,
   }) {
-    return _then(_$PetHPUpdated(
+    return _then(_$PetHPUpdatedImpl(
       null == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
@@ -329,8 +329,8 @@ class __$$PetHPUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PetHPUpdated implements PetHPUpdated {
-  const _$PetHPUpdated(this.current);
+class _$PetHPUpdatedImpl implements PetHPUpdated {
+  const _$PetHPUpdatedImpl(this.current);
 
   @override
   final int current;
@@ -341,10 +341,10 @@ class _$PetHPUpdated implements PetHPUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHPUpdated &&
+            other is _$PetHPUpdatedImpl &&
             (identical(other.current, current) || other.current == current));
   }
 
@@ -354,8 +354,8 @@ class _$PetHPUpdated implements PetHPUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PetHPUpdatedCopyWith<_$PetHPUpdated> get copyWith =>
-      __$$PetHPUpdatedCopyWithImpl<_$PetHPUpdated>(this, _$identity);
+  _$$PetHPUpdatedImplCopyWith<_$PetHPUpdatedImpl> get copyWith =>
+      __$$PetHPUpdatedImplCopyWithImpl<_$PetHPUpdatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -427,10 +427,10 @@ class _$PetHPUpdated implements PetHPUpdated {
 }
 
 abstract class PetHPUpdated implements PetHPState {
-  const factory PetHPUpdated(final int current) = _$PetHPUpdated;
+  const factory PetHPUpdated(final int current) = _$PetHPUpdatedImpl;
 
   int get current;
   @JsonKey(ignore: true)
-  _$$PetHPUpdatedCopyWith<_$PetHPUpdated> get copyWith =>
+  _$$PetHPUpdatedImplCopyWith<_$PetHPUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

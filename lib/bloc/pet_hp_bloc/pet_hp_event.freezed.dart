@@ -12,7 +12,7 @@ part of 'pet_hp_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PetHPEvent {
@@ -87,20 +87,20 @@ class _$PetHPEventCopyWithImpl<$Res, $Val extends PetHPEvent>
 }
 
 /// @nodoc
-abstract class _$$PetHPInitialEventCopyWith<$Res> {
-  factory _$$PetHPInitialEventCopyWith(
-          _$PetHPInitialEvent value, $Res Function(_$PetHPInitialEvent) then) =
-      __$$PetHPInitialEventCopyWithImpl<$Res>;
+abstract class _$$PetHPInitialEventImplCopyWith<$Res> {
+  factory _$$PetHPInitialEventImplCopyWith(_$PetHPInitialEventImpl value,
+          $Res Function(_$PetHPInitialEventImpl) then) =
+      __$$PetHPInitialEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$PetHPInitialEventCopyWithImpl<$Res>
-    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPInitialEvent>
-    implements _$$PetHPInitialEventCopyWith<$Res> {
-  __$$PetHPInitialEventCopyWithImpl(
-      _$PetHPInitialEvent _value, $Res Function(_$PetHPInitialEvent) _then)
+class __$$PetHPInitialEventImplCopyWithImpl<$Res>
+    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPInitialEventImpl>
+    implements _$$PetHPInitialEventImplCopyWith<$Res> {
+  __$$PetHPInitialEventImplCopyWithImpl(_$PetHPInitialEventImpl _value,
+      $Res Function(_$PetHPInitialEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$PetHPInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$PetHPInitialEvent(
+    return _then(_$PetHPInitialEventImpl(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -119,8 +119,8 @@ class __$$PetHPInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PetHPInitialEvent implements PetHPInitialEvent {
-  const _$PetHPInitialEvent(this.characterId);
+class _$PetHPInitialEventImpl implements PetHPInitialEvent {
+  const _$PetHPInitialEventImpl(this.characterId);
 
   @override
   final int characterId;
@@ -131,10 +131,10 @@ class _$PetHPInitialEvent implements PetHPInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PetHPInitialEvent &&
+            other is _$PetHPInitialEventImpl &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -145,8 +145,9 @@ class _$PetHPInitialEvent implements PetHPInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PetHPInitialEventCopyWith<_$PetHPInitialEvent> get copyWith =>
-      __$$PetHPInitialEventCopyWithImpl<_$PetHPInitialEvent>(this, _$identity);
+  _$$PetHPInitialEventImplCopyWith<_$PetHPInitialEventImpl> get copyWith =>
+      __$$PetHPInitialEventImplCopyWithImpl<_$PetHPInitialEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -224,34 +225,35 @@ class _$PetHPInitialEvent implements PetHPInitialEvent {
 }
 
 abstract class PetHPInitialEvent implements PetHPEvent {
-  const factory PetHPInitialEvent(final int characterId) = _$PetHPInitialEvent;
+  const factory PetHPInitialEvent(final int characterId) =
+      _$PetHPInitialEventImpl;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$PetHPInitialEventCopyWith<_$PetHPInitialEvent> get copyWith =>
+  _$$PetHPInitialEventImplCopyWith<_$PetHPInitialEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PetHPAddEventCopyWith<$Res> {
-  factory _$$PetHPAddEventCopyWith(
-          _$PetHPAddEvent value, $Res Function(_$PetHPAddEvent) then) =
-      __$$PetHPAddEventCopyWithImpl<$Res>;
+abstract class _$$PetHPAddEventImplCopyWith<$Res> {
+  factory _$$PetHPAddEventImplCopyWith(
+          _$PetHPAddEventImpl value, $Res Function(_$PetHPAddEventImpl) then) =
+      __$$PetHPAddEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHPAddEventCopyWithImpl<$Res>
-    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPAddEvent>
-    implements _$$PetHPAddEventCopyWith<$Res> {
-  __$$PetHPAddEventCopyWithImpl(
-      _$PetHPAddEvent _value, $Res Function(_$PetHPAddEvent) _then)
+class __$$PetHPAddEventImplCopyWithImpl<$Res>
+    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPAddEventImpl>
+    implements _$$PetHPAddEventImplCopyWith<$Res> {
+  __$$PetHPAddEventImplCopyWithImpl(
+      _$PetHPAddEventImpl _value, $Res Function(_$PetHPAddEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHPAddEvent implements PetHPAddEvent {
-  const _$PetHPAddEvent();
+class _$PetHPAddEventImpl implements PetHPAddEvent {
+  const _$PetHPAddEventImpl();
 
   @override
   String toString() {
@@ -259,9 +261,9 @@ class _$PetHPAddEvent implements PetHPAddEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHPAddEvent);
+        (other.runtimeType == runtimeType && other is _$PetHPAddEventImpl);
   }
 
   @override
@@ -343,29 +345,29 @@ class _$PetHPAddEvent implements PetHPAddEvent {
 }
 
 abstract class PetHPAddEvent implements PetHPEvent {
-  const factory PetHPAddEvent() = _$PetHPAddEvent;
+  const factory PetHPAddEvent() = _$PetHPAddEventImpl;
 }
 
 /// @nodoc
-abstract class _$$PetHPSubtractEventCopyWith<$Res> {
-  factory _$$PetHPSubtractEventCopyWith(_$PetHPSubtractEvent value,
-          $Res Function(_$PetHPSubtractEvent) then) =
-      __$$PetHPSubtractEventCopyWithImpl<$Res>;
+abstract class _$$PetHPSubtractEventImplCopyWith<$Res> {
+  factory _$$PetHPSubtractEventImplCopyWith(_$PetHPSubtractEventImpl value,
+          $Res Function(_$PetHPSubtractEventImpl) then) =
+      __$$PetHPSubtractEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHPSubtractEventCopyWithImpl<$Res>
-    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPSubtractEvent>
-    implements _$$PetHPSubtractEventCopyWith<$Res> {
-  __$$PetHPSubtractEventCopyWithImpl(
-      _$PetHPSubtractEvent _value, $Res Function(_$PetHPSubtractEvent) _then)
+class __$$PetHPSubtractEventImplCopyWithImpl<$Res>
+    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPSubtractEventImpl>
+    implements _$$PetHPSubtractEventImplCopyWith<$Res> {
+  __$$PetHPSubtractEventImplCopyWithImpl(_$PetHPSubtractEventImpl _value,
+      $Res Function(_$PetHPSubtractEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHPSubtractEvent implements PetHPSubtractEvent {
-  const _$PetHPSubtractEvent();
+class _$PetHPSubtractEventImpl implements PetHPSubtractEvent {
+  const _$PetHPSubtractEventImpl();
 
   @override
   String toString() {
@@ -373,9 +375,9 @@ class _$PetHPSubtractEvent implements PetHPSubtractEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHPSubtractEvent);
+        (other.runtimeType == runtimeType && other is _$PetHPSubtractEventImpl);
   }
 
   @override
@@ -457,29 +459,29 @@ class _$PetHPSubtractEvent implements PetHPSubtractEvent {
 }
 
 abstract class PetHPSubtractEvent implements PetHPEvent {
-  const factory PetHPSubtractEvent() = _$PetHPSubtractEvent;
+  const factory PetHPSubtractEvent() = _$PetHPSubtractEventImpl;
 }
 
 /// @nodoc
-abstract class _$$PetHPResetEventCopyWith<$Res> {
-  factory _$$PetHPResetEventCopyWith(
-          _$PetHPResetEvent value, $Res Function(_$PetHPResetEvent) then) =
-      __$$PetHPResetEventCopyWithImpl<$Res>;
+abstract class _$$PetHPResetEventImplCopyWith<$Res> {
+  factory _$$PetHPResetEventImplCopyWith(_$PetHPResetEventImpl value,
+          $Res Function(_$PetHPResetEventImpl) then) =
+      __$$PetHPResetEventImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PetHPResetEventCopyWithImpl<$Res>
-    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPResetEvent>
-    implements _$$PetHPResetEventCopyWith<$Res> {
-  __$$PetHPResetEventCopyWithImpl(
-      _$PetHPResetEvent _value, $Res Function(_$PetHPResetEvent) _then)
+class __$$PetHPResetEventImplCopyWithImpl<$Res>
+    extends _$PetHPEventCopyWithImpl<$Res, _$PetHPResetEventImpl>
+    implements _$$PetHPResetEventImplCopyWith<$Res> {
+  __$$PetHPResetEventImplCopyWithImpl(
+      _$PetHPResetEventImpl _value, $Res Function(_$PetHPResetEventImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PetHPResetEvent implements PetHPResetEvent {
-  const _$PetHPResetEvent();
+class _$PetHPResetEventImpl implements PetHPResetEvent {
+  const _$PetHPResetEventImpl();
 
   @override
   String toString() {
@@ -487,9 +489,9 @@ class _$PetHPResetEvent implements PetHPResetEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PetHPResetEvent);
+        (other.runtimeType == runtimeType && other is _$PetHPResetEventImpl);
   }
 
   @override
@@ -571,5 +573,5 @@ class _$PetHPResetEvent implements PetHPResetEvent {
 }
 
 abstract class PetHPResetEvent implements PetHPEvent {
-  const factory PetHPResetEvent() = _$PetHPResetEvent;
+  const factory PetHPResetEvent() = _$PetHPResetEventImpl;
 }

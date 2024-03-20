@@ -12,7 +12,7 @@ part of 'wallet_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WalletState {
@@ -81,25 +81,25 @@ class _$WalletStateCopyWithImpl<$Res, $Val extends WalletState>
 }
 
 /// @nodoc
-abstract class _$$WalletInitialCopyWith<$Res> {
-  factory _$$WalletInitialCopyWith(
-          _$WalletInitial value, $Res Function(_$WalletInitial) then) =
-      __$$WalletInitialCopyWithImpl<$Res>;
+abstract class _$$WalletInitialImplCopyWith<$Res> {
+  factory _$$WalletInitialImplCopyWith(
+          _$WalletInitialImpl value, $Res Function(_$WalletInitialImpl) then) =
+      __$$WalletInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WalletInitialCopyWithImpl<$Res>
-    extends _$WalletStateCopyWithImpl<$Res, _$WalletInitial>
-    implements _$$WalletInitialCopyWith<$Res> {
-  __$$WalletInitialCopyWithImpl(
-      _$WalletInitial _value, $Res Function(_$WalletInitial) _then)
+class __$$WalletInitialImplCopyWithImpl<$Res>
+    extends _$WalletStateCopyWithImpl<$Res, _$WalletInitialImpl>
+    implements _$$WalletInitialImplCopyWith<$Res> {
+  __$$WalletInitialImplCopyWithImpl(
+      _$WalletInitialImpl _value, $Res Function(_$WalletInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WalletInitial implements WalletInitial {
-  const _$WalletInitial();
+class _$WalletInitialImpl implements WalletInitial {
+  const _$WalletInitialImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$WalletInitial implements WalletInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WalletInitial);
+        (other.runtimeType == runtimeType && other is _$WalletInitialImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$WalletInitial implements WalletInitial {
 }
 
 abstract class WalletInitial implements WalletState {
-  const factory WalletInitial() = _$WalletInitial;
+  const factory WalletInitial() = _$WalletInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$WalletLoadingCopyWith<$Res> {
-  factory _$$WalletLoadingCopyWith(
-          _$WalletLoading value, $Res Function(_$WalletLoading) then) =
-      __$$WalletLoadingCopyWithImpl<$Res>;
+abstract class _$$WalletLoadingImplCopyWith<$Res> {
+  factory _$$WalletLoadingImplCopyWith(
+          _$WalletLoadingImpl value, $Res Function(_$WalletLoadingImpl) then) =
+      __$$WalletLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WalletLoadingCopyWithImpl<$Res>
-    extends _$WalletStateCopyWithImpl<$Res, _$WalletLoading>
-    implements _$$WalletLoadingCopyWith<$Res> {
-  __$$WalletLoadingCopyWithImpl(
-      _$WalletLoading _value, $Res Function(_$WalletLoading) _then)
+class __$$WalletLoadingImplCopyWithImpl<$Res>
+    extends _$WalletStateCopyWithImpl<$Res, _$WalletLoadingImpl>
+    implements _$$WalletLoadingImplCopyWith<$Res> {
+  __$$WalletLoadingImplCopyWithImpl(
+      _$WalletLoadingImpl _value, $Res Function(_$WalletLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WalletLoading implements WalletLoading {
-  const _$WalletLoading();
+class _$WalletLoadingImpl implements WalletLoading {
+  const _$WalletLoadingImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$WalletLoading implements WalletLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WalletLoading);
+        (other.runtimeType == runtimeType && other is _$WalletLoadingImpl);
   }
 
   @override
@@ -293,24 +293,24 @@ class _$WalletLoading implements WalletLoading {
 }
 
 abstract class WalletLoading implements WalletState {
-  const factory WalletLoading() = _$WalletLoading;
+  const factory WalletLoading() = _$WalletLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$WalletUpdatedCopyWith<$Res> {
-  factory _$$WalletUpdatedCopyWith(
-          _$WalletUpdated value, $Res Function(_$WalletUpdated) then) =
-      __$$WalletUpdatedCopyWithImpl<$Res>;
+abstract class _$$WalletUpdatedImplCopyWith<$Res> {
+  factory _$$WalletUpdatedImplCopyWith(
+          _$WalletUpdatedImpl value, $Res Function(_$WalletUpdatedImpl) then) =
+      __$$WalletUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({WalletModel wallet});
 }
 
 /// @nodoc
-class __$$WalletUpdatedCopyWithImpl<$Res>
-    extends _$WalletStateCopyWithImpl<$Res, _$WalletUpdated>
-    implements _$$WalletUpdatedCopyWith<$Res> {
-  __$$WalletUpdatedCopyWithImpl(
-      _$WalletUpdated _value, $Res Function(_$WalletUpdated) _then)
+class __$$WalletUpdatedImplCopyWithImpl<$Res>
+    extends _$WalletStateCopyWithImpl<$Res, _$WalletUpdatedImpl>
+    implements _$$WalletUpdatedImplCopyWith<$Res> {
+  __$$WalletUpdatedImplCopyWithImpl(
+      _$WalletUpdatedImpl _value, $Res Function(_$WalletUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$WalletUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? wallet = null,
   }) {
-    return _then(_$WalletUpdated(
+    return _then(_$WalletUpdatedImpl(
       null == wallet
           ? _value.wallet
           : wallet // ignore: cast_nullable_to_non_nullable
@@ -329,8 +329,8 @@ class __$$WalletUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WalletUpdated implements WalletUpdated {
-  const _$WalletUpdated(this.wallet);
+class _$WalletUpdatedImpl implements WalletUpdated {
+  const _$WalletUpdatedImpl(this.wallet);
 
   @override
   final WalletModel wallet;
@@ -341,10 +341,10 @@ class _$WalletUpdated implements WalletUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletUpdated &&
+            other is _$WalletUpdatedImpl &&
             (identical(other.wallet, wallet) || other.wallet == wallet));
   }
 
@@ -354,8 +354,8 @@ class _$WalletUpdated implements WalletUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WalletUpdatedCopyWith<_$WalletUpdated> get copyWith =>
-      __$$WalletUpdatedCopyWithImpl<_$WalletUpdated>(this, _$identity);
+  _$$WalletUpdatedImplCopyWith<_$WalletUpdatedImpl> get copyWith =>
+      __$$WalletUpdatedImplCopyWithImpl<_$WalletUpdatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -427,10 +427,10 @@ class _$WalletUpdated implements WalletUpdated {
 }
 
 abstract class WalletUpdated implements WalletState {
-  const factory WalletUpdated(final WalletModel wallet) = _$WalletUpdated;
+  const factory WalletUpdated(final WalletModel wallet) = _$WalletUpdatedImpl;
 
   WalletModel get wallet;
   @JsonKey(ignore: true)
-  _$$WalletUpdatedCopyWith<_$WalletUpdated> get copyWith =>
+  _$$WalletUpdatedImplCopyWith<_$WalletUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

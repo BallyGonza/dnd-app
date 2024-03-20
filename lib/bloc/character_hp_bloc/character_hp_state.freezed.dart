@@ -12,7 +12,7 @@ part of 'character_hp_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CharacterHPState {
@@ -81,25 +81,25 @@ class _$CharacterHPStateCopyWithImpl<$Res, $Val extends CharacterHPState>
 }
 
 /// @nodoc
-abstract class _$$CharacterHPInitialCopyWith<$Res> {
-  factory _$$CharacterHPInitialCopyWith(_$CharacterHPInitial value,
-          $Res Function(_$CharacterHPInitial) then) =
-      __$$CharacterHPInitialCopyWithImpl<$Res>;
+abstract class _$$CharacterHPInitialImplCopyWith<$Res> {
+  factory _$$CharacterHPInitialImplCopyWith(_$CharacterHPInitialImpl value,
+          $Res Function(_$CharacterHPInitialImpl) then) =
+      __$$CharacterHPInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHPInitialCopyWithImpl<$Res>
-    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPInitial>
-    implements _$$CharacterHPInitialCopyWith<$Res> {
-  __$$CharacterHPInitialCopyWithImpl(
-      _$CharacterHPInitial _value, $Res Function(_$CharacterHPInitial) _then)
+class __$$CharacterHPInitialImplCopyWithImpl<$Res>
+    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPInitialImpl>
+    implements _$$CharacterHPInitialImplCopyWith<$Res> {
+  __$$CharacterHPInitialImplCopyWithImpl(_$CharacterHPInitialImpl _value,
+      $Res Function(_$CharacterHPInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHPInitial implements CharacterHPInitial {
-  const _$CharacterHPInitial();
+class _$CharacterHPInitialImpl implements CharacterHPInitial {
+  const _$CharacterHPInitialImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$CharacterHPInitial implements CharacterHPInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterHPInitial);
+        (other.runtimeType == runtimeType && other is _$CharacterHPInitialImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$CharacterHPInitial implements CharacterHPInitial {
 }
 
 abstract class CharacterHPInitial implements CharacterHPState {
-  const factory CharacterHPInitial() = _$CharacterHPInitial;
+  const factory CharacterHPInitial() = _$CharacterHPInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterHPLoadingCopyWith<$Res> {
-  factory _$$CharacterHPLoadingCopyWith(_$CharacterHPLoading value,
-          $Res Function(_$CharacterHPLoading) then) =
-      __$$CharacterHPLoadingCopyWithImpl<$Res>;
+abstract class _$$CharacterHPLoadingImplCopyWith<$Res> {
+  factory _$$CharacterHPLoadingImplCopyWith(_$CharacterHPLoadingImpl value,
+          $Res Function(_$CharacterHPLoadingImpl) then) =
+      __$$CharacterHPLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CharacterHPLoadingCopyWithImpl<$Res>
-    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPLoading>
-    implements _$$CharacterHPLoadingCopyWith<$Res> {
-  __$$CharacterHPLoadingCopyWithImpl(
-      _$CharacterHPLoading _value, $Res Function(_$CharacterHPLoading) _then)
+class __$$CharacterHPLoadingImplCopyWithImpl<$Res>
+    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPLoadingImpl>
+    implements _$$CharacterHPLoadingImplCopyWith<$Res> {
+  __$$CharacterHPLoadingImplCopyWithImpl(_$CharacterHPLoadingImpl _value,
+      $Res Function(_$CharacterHPLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CharacterHPLoading implements CharacterHPLoading {
-  const _$CharacterHPLoading();
+class _$CharacterHPLoadingImpl implements CharacterHPLoading {
+  const _$CharacterHPLoadingImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$CharacterHPLoading implements CharacterHPLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CharacterHPLoading);
+        (other.runtimeType == runtimeType && other is _$CharacterHPLoadingImpl);
   }
 
   @override
@@ -293,24 +293,24 @@ class _$CharacterHPLoading implements CharacterHPLoading {
 }
 
 abstract class CharacterHPLoading implements CharacterHPState {
-  const factory CharacterHPLoading() = _$CharacterHPLoading;
+  const factory CharacterHPLoading() = _$CharacterHPLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$CharacterHPUpdatedCopyWith<$Res> {
-  factory _$$CharacterHPUpdatedCopyWith(_$CharacterHPUpdated value,
-          $Res Function(_$CharacterHPUpdated) then) =
-      __$$CharacterHPUpdatedCopyWithImpl<$Res>;
+abstract class _$$CharacterHPUpdatedImplCopyWith<$Res> {
+  factory _$$CharacterHPUpdatedImplCopyWith(_$CharacterHPUpdatedImpl value,
+          $Res Function(_$CharacterHPUpdatedImpl) then) =
+      __$$CharacterHPUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int current});
 }
 
 /// @nodoc
-class __$$CharacterHPUpdatedCopyWithImpl<$Res>
-    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPUpdated>
-    implements _$$CharacterHPUpdatedCopyWith<$Res> {
-  __$$CharacterHPUpdatedCopyWithImpl(
-      _$CharacterHPUpdated _value, $Res Function(_$CharacterHPUpdated) _then)
+class __$$CharacterHPUpdatedImplCopyWithImpl<$Res>
+    extends _$CharacterHPStateCopyWithImpl<$Res, _$CharacterHPUpdatedImpl>
+    implements _$$CharacterHPUpdatedImplCopyWith<$Res> {
+  __$$CharacterHPUpdatedImplCopyWithImpl(_$CharacterHPUpdatedImpl _value,
+      $Res Function(_$CharacterHPUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$CharacterHPUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? current = null,
   }) {
-    return _then(_$CharacterHPUpdated(
+    return _then(_$CharacterHPUpdatedImpl(
       null == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
@@ -329,8 +329,8 @@ class __$$CharacterHPUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CharacterHPUpdated implements CharacterHPUpdated {
-  const _$CharacterHPUpdated(this.current);
+class _$CharacterHPUpdatedImpl implements CharacterHPUpdated {
+  const _$CharacterHPUpdatedImpl(this.current);
 
   @override
   final int current;
@@ -341,10 +341,10 @@ class _$CharacterHPUpdated implements CharacterHPUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CharacterHPUpdated &&
+            other is _$CharacterHPUpdatedImpl &&
             (identical(other.current, current) || other.current == current));
   }
 
@@ -354,8 +354,8 @@ class _$CharacterHPUpdated implements CharacterHPUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CharacterHPUpdatedCopyWith<_$CharacterHPUpdated> get copyWith =>
-      __$$CharacterHPUpdatedCopyWithImpl<_$CharacterHPUpdated>(
+  _$$CharacterHPUpdatedImplCopyWith<_$CharacterHPUpdatedImpl> get copyWith =>
+      __$$CharacterHPUpdatedImplCopyWithImpl<_$CharacterHPUpdatedImpl>(
           this, _$identity);
 
   @override
@@ -428,10 +428,11 @@ class _$CharacterHPUpdated implements CharacterHPUpdated {
 }
 
 abstract class CharacterHPUpdated implements CharacterHPState {
-  const factory CharacterHPUpdated(final int current) = _$CharacterHPUpdated;
+  const factory CharacterHPUpdated(final int current) =
+      _$CharacterHPUpdatedImpl;
 
   int get current;
   @JsonKey(ignore: true)
-  _$$CharacterHPUpdatedCopyWith<_$CharacterHPUpdated> get copyWith =>
+  _$$CharacterHPUpdatedImplCopyWith<_$CharacterHPUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

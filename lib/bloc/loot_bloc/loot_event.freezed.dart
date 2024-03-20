@@ -12,7 +12,7 @@ part of 'loot_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LootEvent {
@@ -92,20 +92,20 @@ class _$LootEventCopyWithImpl<$Res, $Val extends LootEvent>
 }
 
 /// @nodoc
-abstract class _$$LootInitialEventCopyWith<$Res> {
-  factory _$$LootInitialEventCopyWith(
-          _$LootInitialEvent value, $Res Function(_$LootInitialEvent) then) =
-      __$$LootInitialEventCopyWithImpl<$Res>;
+abstract class _$$LootInitialEventImplCopyWith<$Res> {
+  factory _$$LootInitialEventImplCopyWith(_$LootInitialEventImpl value,
+          $Res Function(_$LootInitialEventImpl) then) =
+      __$$LootInitialEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$LootInitialEventCopyWithImpl<$Res>
-    extends _$LootEventCopyWithImpl<$Res, _$LootInitialEvent>
-    implements _$$LootInitialEventCopyWith<$Res> {
-  __$$LootInitialEventCopyWithImpl(
-      _$LootInitialEvent _value, $Res Function(_$LootInitialEvent) _then)
+class __$$LootInitialEventImplCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootInitialEventImpl>
+    implements _$$LootInitialEventImplCopyWith<$Res> {
+  __$$LootInitialEventImplCopyWithImpl(_$LootInitialEventImpl _value,
+      $Res Function(_$LootInitialEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$LootInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$LootInitialEvent(
+    return _then(_$LootInitialEventImpl(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$LootInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootInitialEvent implements LootInitialEvent {
-  const _$LootInitialEvent(this.characterId);
+class _$LootInitialEventImpl implements LootInitialEvent {
+  const _$LootInitialEventImpl(this.characterId);
 
   @override
   final int characterId;
@@ -136,10 +136,10 @@ class _$LootInitialEvent implements LootInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootInitialEvent &&
+            other is _$LootInitialEventImpl &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -150,8 +150,9 @@ class _$LootInitialEvent implements LootInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootInitialEventCopyWith<_$LootInitialEvent> get copyWith =>
-      __$$LootInitialEventCopyWithImpl<_$LootInitialEvent>(this, _$identity);
+  _$$LootInitialEventImplCopyWith<_$LootInitialEventImpl> get copyWith =>
+      __$$LootInitialEventImplCopyWithImpl<_$LootInitialEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,29 +236,30 @@ class _$LootInitialEvent implements LootInitialEvent {
 }
 
 abstract class LootInitialEvent implements LootEvent {
-  const factory LootInitialEvent(final int characterId) = _$LootInitialEvent;
+  const factory LootInitialEvent(final int characterId) =
+      _$LootInitialEventImpl;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$LootInitialEventCopyWith<_$LootInitialEvent> get copyWith =>
+  _$$LootInitialEventImplCopyWith<_$LootInitialEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootAddEventCopyWith<$Res> {
-  factory _$$LootAddEventCopyWith(
-          _$LootAddEvent value, $Res Function(_$LootAddEvent) then) =
-      __$$LootAddEventCopyWithImpl<$Res>;
+abstract class _$$LootAddEventImplCopyWith<$Res> {
+  factory _$$LootAddEventImplCopyWith(
+          _$LootAddEventImpl value, $Res Function(_$LootAddEventImpl) then) =
+      __$$LootAddEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Note note});
 }
 
 /// @nodoc
-class __$$LootAddEventCopyWithImpl<$Res>
-    extends _$LootEventCopyWithImpl<$Res, _$LootAddEvent>
-    implements _$$LootAddEventCopyWith<$Res> {
-  __$$LootAddEventCopyWithImpl(
-      _$LootAddEvent _value, $Res Function(_$LootAddEvent) _then)
+class __$$LootAddEventImplCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootAddEventImpl>
+    implements _$$LootAddEventImplCopyWith<$Res> {
+  __$$LootAddEventImplCopyWithImpl(
+      _$LootAddEventImpl _value, $Res Function(_$LootAddEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -265,7 +267,7 @@ class __$$LootAddEventCopyWithImpl<$Res>
   $Res call({
     Object? note = null,
   }) {
-    return _then(_$LootAddEvent(
+    return _then(_$LootAddEventImpl(
       null == note
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -276,8 +278,8 @@ class __$$LootAddEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootAddEvent implements LootAddEvent {
-  const _$LootAddEvent(this.note);
+class _$LootAddEventImpl implements LootAddEvent {
+  const _$LootAddEventImpl(this.note);
 
   @override
   final Note note;
@@ -288,10 +290,10 @@ class _$LootAddEvent implements LootAddEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootAddEvent &&
+            other is _$LootAddEventImpl &&
             (identical(other.note, note) || other.note == note));
   }
 
@@ -301,8 +303,8 @@ class _$LootAddEvent implements LootAddEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootAddEventCopyWith<_$LootAddEvent> get copyWith =>
-      __$$LootAddEventCopyWithImpl<_$LootAddEvent>(this, _$identity);
+  _$$LootAddEventImplCopyWith<_$LootAddEventImpl> get copyWith =>
+      __$$LootAddEventImplCopyWithImpl<_$LootAddEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -386,29 +388,29 @@ class _$LootAddEvent implements LootAddEvent {
 }
 
 abstract class LootAddEvent implements LootEvent {
-  const factory LootAddEvent(final Note note) = _$LootAddEvent;
+  const factory LootAddEvent(final Note note) = _$LootAddEventImpl;
 
   Note get note;
   @JsonKey(ignore: true)
-  _$$LootAddEventCopyWith<_$LootAddEvent> get copyWith =>
+  _$$LootAddEventImplCopyWith<_$LootAddEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootEditEventCopyWith<$Res> {
-  factory _$$LootEditEventCopyWith(
-          _$LootEditEvent value, $Res Function(_$LootEditEvent) then) =
-      __$$LootEditEventCopyWithImpl<$Res>;
+abstract class _$$LootEditEventImplCopyWith<$Res> {
+  factory _$$LootEditEventImplCopyWith(
+          _$LootEditEventImpl value, $Res Function(_$LootEditEventImpl) then) =
+      __$$LootEditEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index, Note note});
 }
 
 /// @nodoc
-class __$$LootEditEventCopyWithImpl<$Res>
-    extends _$LootEventCopyWithImpl<$Res, _$LootEditEvent>
-    implements _$$LootEditEventCopyWith<$Res> {
-  __$$LootEditEventCopyWithImpl(
-      _$LootEditEvent _value, $Res Function(_$LootEditEvent) _then)
+class __$$LootEditEventImplCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootEditEventImpl>
+    implements _$$LootEditEventImplCopyWith<$Res> {
+  __$$LootEditEventImplCopyWithImpl(
+      _$LootEditEventImpl _value, $Res Function(_$LootEditEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -417,7 +419,7 @@ class __$$LootEditEventCopyWithImpl<$Res>
     Object? index = null,
     Object? note = null,
   }) {
-    return _then(_$LootEditEvent(
+    return _then(_$LootEditEventImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -432,8 +434,8 @@ class __$$LootEditEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootEditEvent implements LootEditEvent {
-  const _$LootEditEvent(this.index, this.note);
+class _$LootEditEventImpl implements LootEditEvent {
+  const _$LootEditEventImpl(this.index, this.note);
 
   @override
   final int index;
@@ -446,10 +448,10 @@ class _$LootEditEvent implements LootEditEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootEditEvent &&
+            other is _$LootEditEventImpl &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.note, note) || other.note == note));
   }
@@ -460,8 +462,8 @@ class _$LootEditEvent implements LootEditEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootEditEventCopyWith<_$LootEditEvent> get copyWith =>
-      __$$LootEditEventCopyWithImpl<_$LootEditEvent>(this, _$identity);
+  _$$LootEditEventImplCopyWith<_$LootEditEventImpl> get copyWith =>
+      __$$LootEditEventImplCopyWithImpl<_$LootEditEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -546,30 +548,30 @@ class _$LootEditEvent implements LootEditEvent {
 
 abstract class LootEditEvent implements LootEvent {
   const factory LootEditEvent(final int index, final Note note) =
-      _$LootEditEvent;
+      _$LootEditEventImpl;
 
   int get index;
   Note get note;
   @JsonKey(ignore: true)
-  _$$LootEditEventCopyWith<_$LootEditEvent> get copyWith =>
+  _$$LootEditEventImplCopyWith<_$LootEditEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootDeleteEventCopyWith<$Res> {
-  factory _$$LootDeleteEventCopyWith(
-          _$LootDeleteEvent value, $Res Function(_$LootDeleteEvent) then) =
-      __$$LootDeleteEventCopyWithImpl<$Res>;
+abstract class _$$LootDeleteEventImplCopyWith<$Res> {
+  factory _$$LootDeleteEventImplCopyWith(_$LootDeleteEventImpl value,
+          $Res Function(_$LootDeleteEventImpl) then) =
+      __$$LootDeleteEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int index});
 }
 
 /// @nodoc
-class __$$LootDeleteEventCopyWithImpl<$Res>
-    extends _$LootEventCopyWithImpl<$Res, _$LootDeleteEvent>
-    implements _$$LootDeleteEventCopyWith<$Res> {
-  __$$LootDeleteEventCopyWithImpl(
-      _$LootDeleteEvent _value, $Res Function(_$LootDeleteEvent) _then)
+class __$$LootDeleteEventImplCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootDeleteEventImpl>
+    implements _$$LootDeleteEventImplCopyWith<$Res> {
+  __$$LootDeleteEventImplCopyWithImpl(
+      _$LootDeleteEventImpl _value, $Res Function(_$LootDeleteEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -577,7 +579,7 @@ class __$$LootDeleteEventCopyWithImpl<$Res>
   $Res call({
     Object? index = null,
   }) {
-    return _then(_$LootDeleteEvent(
+    return _then(_$LootDeleteEventImpl(
       null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -588,8 +590,8 @@ class __$$LootDeleteEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootDeleteEvent implements LootDeleteEvent {
-  const _$LootDeleteEvent(this.index);
+class _$LootDeleteEventImpl implements LootDeleteEvent {
+  const _$LootDeleteEventImpl(this.index);
 
   @override
   final int index;
@@ -600,10 +602,10 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootDeleteEvent &&
+            other is _$LootDeleteEventImpl &&
             (identical(other.index, index) || other.index == index));
   }
 
@@ -613,8 +615,9 @@ class _$LootDeleteEvent implements LootDeleteEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootDeleteEventCopyWith<_$LootDeleteEvent> get copyWith =>
-      __$$LootDeleteEventCopyWithImpl<_$LootDeleteEvent>(this, _$identity);
+  _$$LootDeleteEventImplCopyWith<_$LootDeleteEventImpl> get copyWith =>
+      __$$LootDeleteEventImplCopyWithImpl<_$LootDeleteEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -698,29 +701,29 @@ class _$LootDeleteEvent implements LootDeleteEvent {
 }
 
 abstract class LootDeleteEvent implements LootEvent {
-  const factory LootDeleteEvent(final int index) = _$LootDeleteEvent;
+  const factory LootDeleteEvent(final int index) = _$LootDeleteEventImpl;
 
   int get index;
   @JsonKey(ignore: true)
-  _$$LootDeleteEventCopyWith<_$LootDeleteEvent> get copyWith =>
+  _$$LootDeleteEventImplCopyWith<_$LootDeleteEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$LootDeleteAllEventCopyWith<$Res> {
-  factory _$$LootDeleteAllEventCopyWith(_$LootDeleteAllEvent value,
-          $Res Function(_$LootDeleteAllEvent) then) =
-      __$$LootDeleteAllEventCopyWithImpl<$Res>;
+abstract class _$$LootDeleteAllEventImplCopyWith<$Res> {
+  factory _$$LootDeleteAllEventImplCopyWith(_$LootDeleteAllEventImpl value,
+          $Res Function(_$LootDeleteAllEventImpl) then) =
+      __$$LootDeleteAllEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Note> notes});
 }
 
 /// @nodoc
-class __$$LootDeleteAllEventCopyWithImpl<$Res>
-    extends _$LootEventCopyWithImpl<$Res, _$LootDeleteAllEvent>
-    implements _$$LootDeleteAllEventCopyWith<$Res> {
-  __$$LootDeleteAllEventCopyWithImpl(
-      _$LootDeleteAllEvent _value, $Res Function(_$LootDeleteAllEvent) _then)
+class __$$LootDeleteAllEventImplCopyWithImpl<$Res>
+    extends _$LootEventCopyWithImpl<$Res, _$LootDeleteAllEventImpl>
+    implements _$$LootDeleteAllEventImplCopyWith<$Res> {
+  __$$LootDeleteAllEventImplCopyWithImpl(_$LootDeleteAllEventImpl _value,
+      $Res Function(_$LootDeleteAllEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -728,7 +731,7 @@ class __$$LootDeleteAllEventCopyWithImpl<$Res>
   $Res call({
     Object? notes = null,
   }) {
-    return _then(_$LootDeleteAllEvent(
+    return _then(_$LootDeleteAllEventImpl(
       null == notes
           ? _value._notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -739,8 +742,8 @@ class __$$LootDeleteAllEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LootDeleteAllEvent implements LootDeleteAllEvent {
-  const _$LootDeleteAllEvent(final List<Note> notes) : _notes = notes;
+class _$LootDeleteAllEventImpl implements LootDeleteAllEvent {
+  const _$LootDeleteAllEventImpl(final List<Note> notes) : _notes = notes;
 
   final List<Note> _notes;
   @override
@@ -756,10 +759,10 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LootDeleteAllEvent &&
+            other is _$LootDeleteAllEventImpl &&
             const DeepCollectionEquality().equals(other._notes, _notes));
   }
 
@@ -770,8 +773,8 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LootDeleteAllEventCopyWith<_$LootDeleteAllEvent> get copyWith =>
-      __$$LootDeleteAllEventCopyWithImpl<_$LootDeleteAllEvent>(
+  _$$LootDeleteAllEventImplCopyWith<_$LootDeleteAllEventImpl> get copyWith =>
+      __$$LootDeleteAllEventImplCopyWithImpl<_$LootDeleteAllEventImpl>(
           this, _$identity);
 
   @override
@@ -857,10 +860,10 @@ class _$LootDeleteAllEvent implements LootDeleteAllEvent {
 
 abstract class LootDeleteAllEvent implements LootEvent {
   const factory LootDeleteAllEvent(final List<Note> notes) =
-      _$LootDeleteAllEvent;
+      _$LootDeleteAllEventImpl;
 
   List<Note> get notes;
   @JsonKey(ignore: true)
-  _$$LootDeleteAllEventCopyWith<_$LootDeleteAllEvent> get copyWith =>
+  _$$LootDeleteAllEventImplCopyWith<_$LootDeleteAllEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: lines_longer_than_80_chars, unnecessary_statements
 
 import 'package:dnd_app/data/data.dart';
 import 'package:dnd_app/views/views.dart';

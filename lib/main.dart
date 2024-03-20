@@ -1,32 +1,13 @@
 import 'package:dnd_app/bloc/bloc.dart';
-import 'package:dnd_app/data/data.dart';
+import 'package:dnd_app/services/services.dart';
 import 'package:dnd_app/theme.dart';
 import 'package:dnd_app/views/views.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 Future<void> main() async {
-  Hive
-    ..registerAdapter(NoteAdapter())
-    ..registerAdapter(HealthPointsModelAdapter())
-    ..registerAdapter(DiceModelAdapter())
-    ..registerAdapter(AnimalModelAdapter())
-    ..registerAdapter(AbilityModelAdapter())
-    ..registerAdapter(SavingThrowModelAdapter())
-    ..registerAdapter(WeaponModelAdapter())
-    ..registerAdapter(TraitModelAdapter())
-    ..registerAdapter(SkillModelAdapter())
-    ..registerAdapter(CharacterModelAdapter())
-    ..registerAdapter(BackgroundModelAdapter())
-    ..registerAdapter(SpellModelAdapter())
-    ..registerAdapter(WalletModelAdapter());
-
-  WidgetsFlutterBinding.ensureInitialized();
-
-  await Hive.initFlutter();
-  await Hive.openBox<CharacterModel>('characters_box');
+  await HiveService.initializeHive();
+  await SystemChromeService.setSystemChrome();
 
   runApp(
     MultiBlocProvider(
@@ -63,12 +44,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme,
       debugShowCheckedModeBanner: false,
-      home: const AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.transparent,
-        ),
-        child: LandingScreen(),
-      ),
+      home: const LandingScreen(),
     );
   }
 }

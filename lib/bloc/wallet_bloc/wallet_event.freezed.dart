@@ -12,7 +12,7 @@ part of 'wallet_event.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WalletEvent {
@@ -87,20 +87,20 @@ class _$WalletEventCopyWithImpl<$Res, $Val extends WalletEvent>
 }
 
 /// @nodoc
-abstract class _$$WalletInitialEventCopyWith<$Res> {
-  factory _$$WalletInitialEventCopyWith(_$WalletInitialEvent value,
-          $Res Function(_$WalletInitialEvent) then) =
-      __$$WalletInitialEventCopyWithImpl<$Res>;
+abstract class _$$WalletInitialEventImplCopyWith<$Res> {
+  factory _$$WalletInitialEventImplCopyWith(_$WalletInitialEventImpl value,
+          $Res Function(_$WalletInitialEventImpl) then) =
+      __$$WalletInitialEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int characterId});
 }
 
 /// @nodoc
-class __$$WalletInitialEventCopyWithImpl<$Res>
-    extends _$WalletEventCopyWithImpl<$Res, _$WalletInitialEvent>
-    implements _$$WalletInitialEventCopyWith<$Res> {
-  __$$WalletInitialEventCopyWithImpl(
-      _$WalletInitialEvent _value, $Res Function(_$WalletInitialEvent) _then)
+class __$$WalletInitialEventImplCopyWithImpl<$Res>
+    extends _$WalletEventCopyWithImpl<$Res, _$WalletInitialEventImpl>
+    implements _$$WalletInitialEventImplCopyWith<$Res> {
+  __$$WalletInitialEventImplCopyWithImpl(_$WalletInitialEventImpl _value,
+      $Res Function(_$WalletInitialEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$WalletInitialEventCopyWithImpl<$Res>
   $Res call({
     Object? characterId = null,
   }) {
-    return _then(_$WalletInitialEvent(
+    return _then(_$WalletInitialEventImpl(
       null == characterId
           ? _value.characterId
           : characterId // ignore: cast_nullable_to_non_nullable
@@ -119,8 +119,8 @@ class __$$WalletInitialEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WalletInitialEvent implements WalletInitialEvent {
-  const _$WalletInitialEvent(this.characterId);
+class _$WalletInitialEventImpl implements WalletInitialEvent {
+  const _$WalletInitialEventImpl(this.characterId);
 
   @override
   final int characterId;
@@ -131,10 +131,10 @@ class _$WalletInitialEvent implements WalletInitialEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletInitialEvent &&
+            other is _$WalletInitialEventImpl &&
             (identical(other.characterId, characterId) ||
                 other.characterId == characterId));
   }
@@ -145,8 +145,8 @@ class _$WalletInitialEvent implements WalletInitialEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WalletInitialEventCopyWith<_$WalletInitialEvent> get copyWith =>
-      __$$WalletInitialEventCopyWithImpl<_$WalletInitialEvent>(
+  _$$WalletInitialEventImplCopyWith<_$WalletInitialEventImpl> get copyWith =>
+      __$$WalletInitialEventImplCopyWithImpl<_$WalletInitialEventImpl>(
           this, _$identity);
 
   @override
@@ -226,29 +226,29 @@ class _$WalletInitialEvent implements WalletInitialEvent {
 
 abstract class WalletInitialEvent implements WalletEvent {
   const factory WalletInitialEvent(final int characterId) =
-      _$WalletInitialEvent;
+      _$WalletInitialEventImpl;
 
   int get characterId;
   @JsonKey(ignore: true)
-  _$$WalletInitialEventCopyWith<_$WalletInitialEvent> get copyWith =>
+  _$$WalletInitialEventImplCopyWith<_$WalletInitialEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WalletAddEventCopyWith<$Res> {
-  factory _$$WalletAddEventCopyWith(
-          _$WalletAddEvent value, $Res Function(_$WalletAddEvent) then) =
-      __$$WalletAddEventCopyWithImpl<$Res>;
+abstract class _$$WalletAddEventImplCopyWith<$Res> {
+  factory _$$WalletAddEventImplCopyWith(_$WalletAddEventImpl value,
+          $Res Function(_$WalletAddEventImpl) then) =
+      __$$WalletAddEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String pieces});
 }
 
 /// @nodoc
-class __$$WalletAddEventCopyWithImpl<$Res>
-    extends _$WalletEventCopyWithImpl<$Res, _$WalletAddEvent>
-    implements _$$WalletAddEventCopyWith<$Res> {
-  __$$WalletAddEventCopyWithImpl(
-      _$WalletAddEvent _value, $Res Function(_$WalletAddEvent) _then)
+class __$$WalletAddEventImplCopyWithImpl<$Res>
+    extends _$WalletEventCopyWithImpl<$Res, _$WalletAddEventImpl>
+    implements _$$WalletAddEventImplCopyWith<$Res> {
+  __$$WalletAddEventImplCopyWithImpl(
+      _$WalletAddEventImpl _value, $Res Function(_$WalletAddEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -256,7 +256,7 @@ class __$$WalletAddEventCopyWithImpl<$Res>
   $Res call({
     Object? pieces = null,
   }) {
-    return _then(_$WalletAddEvent(
+    return _then(_$WalletAddEventImpl(
       null == pieces
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -267,8 +267,8 @@ class __$$WalletAddEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WalletAddEvent implements WalletAddEvent {
-  const _$WalletAddEvent(this.pieces);
+class _$WalletAddEventImpl implements WalletAddEvent {
+  const _$WalletAddEventImpl(this.pieces);
 
   @override
   final String pieces;
@@ -279,10 +279,10 @@ class _$WalletAddEvent implements WalletAddEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletAddEvent &&
+            other is _$WalletAddEventImpl &&
             (identical(other.pieces, pieces) || other.pieces == pieces));
   }
 
@@ -292,8 +292,9 @@ class _$WalletAddEvent implements WalletAddEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WalletAddEventCopyWith<_$WalletAddEvent> get copyWith =>
-      __$$WalletAddEventCopyWithImpl<_$WalletAddEvent>(this, _$identity);
+  _$$WalletAddEventImplCopyWith<_$WalletAddEventImpl> get copyWith =>
+      __$$WalletAddEventImplCopyWithImpl<_$WalletAddEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -371,29 +372,29 @@ class _$WalletAddEvent implements WalletAddEvent {
 }
 
 abstract class WalletAddEvent implements WalletEvent {
-  const factory WalletAddEvent(final String pieces) = _$WalletAddEvent;
+  const factory WalletAddEvent(final String pieces) = _$WalletAddEventImpl;
 
   String get pieces;
   @JsonKey(ignore: true)
-  _$$WalletAddEventCopyWith<_$WalletAddEvent> get copyWith =>
+  _$$WalletAddEventImplCopyWith<_$WalletAddEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WalletSubtractEventCopyWith<$Res> {
-  factory _$$WalletSubtractEventCopyWith(_$WalletSubtractEvent value,
-          $Res Function(_$WalletSubtractEvent) then) =
-      __$$WalletSubtractEventCopyWithImpl<$Res>;
+abstract class _$$WalletSubtractEventImplCopyWith<$Res> {
+  factory _$$WalletSubtractEventImplCopyWith(_$WalletSubtractEventImpl value,
+          $Res Function(_$WalletSubtractEventImpl) then) =
+      __$$WalletSubtractEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String pieces});
 }
 
 /// @nodoc
-class __$$WalletSubtractEventCopyWithImpl<$Res>
-    extends _$WalletEventCopyWithImpl<$Res, _$WalletSubtractEvent>
-    implements _$$WalletSubtractEventCopyWith<$Res> {
-  __$$WalletSubtractEventCopyWithImpl(
-      _$WalletSubtractEvent _value, $Res Function(_$WalletSubtractEvent) _then)
+class __$$WalletSubtractEventImplCopyWithImpl<$Res>
+    extends _$WalletEventCopyWithImpl<$Res, _$WalletSubtractEventImpl>
+    implements _$$WalletSubtractEventImplCopyWith<$Res> {
+  __$$WalletSubtractEventImplCopyWithImpl(_$WalletSubtractEventImpl _value,
+      $Res Function(_$WalletSubtractEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -401,7 +402,7 @@ class __$$WalletSubtractEventCopyWithImpl<$Res>
   $Res call({
     Object? pieces = null,
   }) {
-    return _then(_$WalletSubtractEvent(
+    return _then(_$WalletSubtractEventImpl(
       null == pieces
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -412,8 +413,8 @@ class __$$WalletSubtractEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WalletSubtractEvent implements WalletSubtractEvent {
-  const _$WalletSubtractEvent(this.pieces);
+class _$WalletSubtractEventImpl implements WalletSubtractEvent {
+  const _$WalletSubtractEventImpl(this.pieces);
 
   @override
   final String pieces;
@@ -424,10 +425,10 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletSubtractEvent &&
+            other is _$WalletSubtractEventImpl &&
             (identical(other.pieces, pieces) || other.pieces == pieces));
   }
 
@@ -437,8 +438,8 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WalletSubtractEventCopyWith<_$WalletSubtractEvent> get copyWith =>
-      __$$WalletSubtractEventCopyWithImpl<_$WalletSubtractEvent>(
+  _$$WalletSubtractEventImplCopyWith<_$WalletSubtractEventImpl> get copyWith =>
+      __$$WalletSubtractEventImplCopyWithImpl<_$WalletSubtractEventImpl>(
           this, _$identity);
 
   @override
@@ -518,29 +519,29 @@ class _$WalletSubtractEvent implements WalletSubtractEvent {
 
 abstract class WalletSubtractEvent implements WalletEvent {
   const factory WalletSubtractEvent(final String pieces) =
-      _$WalletSubtractEvent;
+      _$WalletSubtractEventImpl;
 
   String get pieces;
   @JsonKey(ignore: true)
-  _$$WalletSubtractEventCopyWith<_$WalletSubtractEvent> get copyWith =>
+  _$$WalletSubtractEventImplCopyWith<_$WalletSubtractEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$WalletSetEventCopyWith<$Res> {
-  factory _$$WalletSetEventCopyWith(
-          _$WalletSetEvent value, $Res Function(_$WalletSetEvent) then) =
-      __$$WalletSetEventCopyWithImpl<$Res>;
+abstract class _$$WalletSetEventImplCopyWith<$Res> {
+  factory _$$WalletSetEventImplCopyWith(_$WalletSetEventImpl value,
+          $Res Function(_$WalletSetEventImpl) then) =
+      __$$WalletSetEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String pieces, int amount});
 }
 
 /// @nodoc
-class __$$WalletSetEventCopyWithImpl<$Res>
-    extends _$WalletEventCopyWithImpl<$Res, _$WalletSetEvent>
-    implements _$$WalletSetEventCopyWith<$Res> {
-  __$$WalletSetEventCopyWithImpl(
-      _$WalletSetEvent _value, $Res Function(_$WalletSetEvent) _then)
+class __$$WalletSetEventImplCopyWithImpl<$Res>
+    extends _$WalletEventCopyWithImpl<$Res, _$WalletSetEventImpl>
+    implements _$$WalletSetEventImplCopyWith<$Res> {
+  __$$WalletSetEventImplCopyWithImpl(
+      _$WalletSetEventImpl _value, $Res Function(_$WalletSetEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -549,7 +550,7 @@ class __$$WalletSetEventCopyWithImpl<$Res>
     Object? pieces = null,
     Object? amount = null,
   }) {
-    return _then(_$WalletSetEvent(
+    return _then(_$WalletSetEventImpl(
       null == pieces
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -564,8 +565,8 @@ class __$$WalletSetEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WalletSetEvent implements WalletSetEvent {
-  const _$WalletSetEvent(this.pieces, this.amount);
+class _$WalletSetEventImpl implements WalletSetEvent {
+  const _$WalletSetEventImpl(this.pieces, this.amount);
 
   @override
   final String pieces;
@@ -578,10 +579,10 @@ class _$WalletSetEvent implements WalletSetEvent {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WalletSetEvent &&
+            other is _$WalletSetEventImpl &&
             (identical(other.pieces, pieces) || other.pieces == pieces) &&
             (identical(other.amount, amount) || other.amount == amount));
   }
@@ -592,8 +593,9 @@ class _$WalletSetEvent implements WalletSetEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WalletSetEventCopyWith<_$WalletSetEvent> get copyWith =>
-      __$$WalletSetEventCopyWithImpl<_$WalletSetEvent>(this, _$identity);
+  _$$WalletSetEventImplCopyWith<_$WalletSetEventImpl> get copyWith =>
+      __$$WalletSetEventImplCopyWithImpl<_$WalletSetEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -672,11 +674,11 @@ class _$WalletSetEvent implements WalletSetEvent {
 
 abstract class WalletSetEvent implements WalletEvent {
   const factory WalletSetEvent(final String pieces, final int amount) =
-      _$WalletSetEvent;
+      _$WalletSetEventImpl;
 
   String get pieces;
   int get amount;
   @JsonKey(ignore: true)
-  _$$WalletSetEventCopyWith<_$WalletSetEvent> get copyWith =>
+  _$$WalletSetEventImplCopyWith<_$WalletSetEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

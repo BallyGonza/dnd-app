@@ -12,7 +12,7 @@ part of 'wild_form_hp_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WildFormHPState {
@@ -81,25 +81,25 @@ class _$WildFormHPStateCopyWithImpl<$Res, $Val extends WildFormHPState>
 }
 
 /// @nodoc
-abstract class _$$WildFormHPInitialCopyWith<$Res> {
-  factory _$$WildFormHPInitialCopyWith(
-          _$WildFormHPInitial value, $Res Function(_$WildFormHPInitial) then) =
-      __$$WildFormHPInitialCopyWithImpl<$Res>;
+abstract class _$$WildFormHPInitialImplCopyWith<$Res> {
+  factory _$$WildFormHPInitialImplCopyWith(_$WildFormHPInitialImpl value,
+          $Res Function(_$WildFormHPInitialImpl) then) =
+      __$$WildFormHPInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WildFormHPInitialCopyWithImpl<$Res>
-    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPInitial>
-    implements _$$WildFormHPInitialCopyWith<$Res> {
-  __$$WildFormHPInitialCopyWithImpl(
-      _$WildFormHPInitial _value, $Res Function(_$WildFormHPInitial) _then)
+class __$$WildFormHPInitialImplCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPInitialImpl>
+    implements _$$WildFormHPInitialImplCopyWith<$Res> {
+  __$$WildFormHPInitialImplCopyWithImpl(_$WildFormHPInitialImpl _value,
+      $Res Function(_$WildFormHPInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WildFormHPInitial implements WildFormHPInitial {
-  const _$WildFormHPInitial();
+class _$WildFormHPInitialImpl implements WildFormHPInitial {
+  const _$WildFormHPInitialImpl();
 
   @override
   String toString() {
@@ -107,9 +107,9 @@ class _$WildFormHPInitial implements WildFormHPInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WildFormHPInitial);
+        (other.runtimeType == runtimeType && other is _$WildFormHPInitialImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$WildFormHPInitial implements WildFormHPInitial {
 }
 
 abstract class WildFormHPInitial implements WildFormHPState {
-  const factory WildFormHPInitial() = _$WildFormHPInitial;
+  const factory WildFormHPInitial() = _$WildFormHPInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$WildFormHPLoadingCopyWith<$Res> {
-  factory _$$WildFormHPLoadingCopyWith(
-          _$WildFormHPLoading value, $Res Function(_$WildFormHPLoading) then) =
-      __$$WildFormHPLoadingCopyWithImpl<$Res>;
+abstract class _$$WildFormHPLoadingImplCopyWith<$Res> {
+  factory _$$WildFormHPLoadingImplCopyWith(_$WildFormHPLoadingImpl value,
+          $Res Function(_$WildFormHPLoadingImpl) then) =
+      __$$WildFormHPLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WildFormHPLoadingCopyWithImpl<$Res>
-    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPLoading>
-    implements _$$WildFormHPLoadingCopyWith<$Res> {
-  __$$WildFormHPLoadingCopyWithImpl(
-      _$WildFormHPLoading _value, $Res Function(_$WildFormHPLoading) _then)
+class __$$WildFormHPLoadingImplCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPLoadingImpl>
+    implements _$$WildFormHPLoadingImplCopyWith<$Res> {
+  __$$WildFormHPLoadingImplCopyWithImpl(_$WildFormHPLoadingImpl _value,
+      $Res Function(_$WildFormHPLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$WildFormHPLoading implements WildFormHPLoading {
-  const _$WildFormHPLoading();
+class _$WildFormHPLoadingImpl implements WildFormHPLoading {
+  const _$WildFormHPLoadingImpl();
 
   @override
   String toString() {
@@ -215,9 +215,9 @@ class _$WildFormHPLoading implements WildFormHPLoading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WildFormHPLoading);
+        (other.runtimeType == runtimeType && other is _$WildFormHPLoadingImpl);
   }
 
   @override
@@ -293,24 +293,24 @@ class _$WildFormHPLoading implements WildFormHPLoading {
 }
 
 abstract class WildFormHPLoading implements WildFormHPState {
-  const factory WildFormHPLoading() = _$WildFormHPLoading;
+  const factory WildFormHPLoading() = _$WildFormHPLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$WildFormHPUpdatedCopyWith<$Res> {
-  factory _$$WildFormHPUpdatedCopyWith(
-          _$WildFormHPUpdated value, $Res Function(_$WildFormHPUpdated) then) =
-      __$$WildFormHPUpdatedCopyWithImpl<$Res>;
+abstract class _$$WildFormHPUpdatedImplCopyWith<$Res> {
+  factory _$$WildFormHPUpdatedImplCopyWith(_$WildFormHPUpdatedImpl value,
+          $Res Function(_$WildFormHPUpdatedImpl) then) =
+      __$$WildFormHPUpdatedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int current});
 }
 
 /// @nodoc
-class __$$WildFormHPUpdatedCopyWithImpl<$Res>
-    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPUpdated>
-    implements _$$WildFormHPUpdatedCopyWith<$Res> {
-  __$$WildFormHPUpdatedCopyWithImpl(
-      _$WildFormHPUpdated _value, $Res Function(_$WildFormHPUpdated) _then)
+class __$$WildFormHPUpdatedImplCopyWithImpl<$Res>
+    extends _$WildFormHPStateCopyWithImpl<$Res, _$WildFormHPUpdatedImpl>
+    implements _$$WildFormHPUpdatedImplCopyWith<$Res> {
+  __$$WildFormHPUpdatedImplCopyWithImpl(_$WildFormHPUpdatedImpl _value,
+      $Res Function(_$WildFormHPUpdatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +318,7 @@ class __$$WildFormHPUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? current = null,
   }) {
-    return _then(_$WildFormHPUpdated(
+    return _then(_$WildFormHPUpdatedImpl(
       null == current
           ? _value.current
           : current // ignore: cast_nullable_to_non_nullable
@@ -329,8 +329,8 @@ class __$$WildFormHPUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WildFormHPUpdated implements WildFormHPUpdated {
-  const _$WildFormHPUpdated(this.current);
+class _$WildFormHPUpdatedImpl implements WildFormHPUpdated {
+  const _$WildFormHPUpdatedImpl(this.current);
 
   @override
   final int current;
@@ -341,10 +341,10 @@ class _$WildFormHPUpdated implements WildFormHPUpdated {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WildFormHPUpdated &&
+            other is _$WildFormHPUpdatedImpl &&
             (identical(other.current, current) || other.current == current));
   }
 
@@ -354,8 +354,9 @@ class _$WildFormHPUpdated implements WildFormHPUpdated {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WildFormHPUpdatedCopyWith<_$WildFormHPUpdated> get copyWith =>
-      __$$WildFormHPUpdatedCopyWithImpl<_$WildFormHPUpdated>(this, _$identity);
+  _$$WildFormHPUpdatedImplCopyWith<_$WildFormHPUpdatedImpl> get copyWith =>
+      __$$WildFormHPUpdatedImplCopyWithImpl<_$WildFormHPUpdatedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -427,10 +428,10 @@ class _$WildFormHPUpdated implements WildFormHPUpdated {
 }
 
 abstract class WildFormHPUpdated implements WildFormHPState {
-  const factory WildFormHPUpdated(final int current) = _$WildFormHPUpdated;
+  const factory WildFormHPUpdated(final int current) = _$WildFormHPUpdatedImpl;
 
   int get current;
   @JsonKey(ignore: true)
-  _$$WildFormHPUpdatedCopyWith<_$WildFormHPUpdated> get copyWith =>
+  _$$WildFormHPUpdatedImplCopyWith<_$WildFormHPUpdatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

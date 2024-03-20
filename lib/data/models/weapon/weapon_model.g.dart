@@ -23,11 +23,11 @@ class WeaponModelAdapter extends TypeAdapter<WeaponModel> {
       damage: fields[3] as int,
       quantityOfDamageDices: fields[4] as int,
       damageDice: fields[5] as DiceModel,
-      plusDamageDice: fields[6] as DiceModel?,
-      quantityOfPlusDamageDices: fields[7] as int?,
       checkDice: fields[8] as DiceModel,
       range: fields[9] as int,
       img: fields[10] as String,
+      plusDamageDice: fields[6] as DiceModel?,
+      quantityOfPlusDamageDices: fields[7] as int?,
     );
   }
 

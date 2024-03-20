@@ -28,7 +28,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
       body: AnnotatedRegion(
         value: const SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
-          systemNavigationBarColor: Colors.transparent,
         ),
         child: Wrap(
           children: [
@@ -55,7 +54,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
         overlayOpacity: 0,
         backgroundColor: Colors.black,
         activeIcon: Icons.close,
-        activeBackgroundColor: Colors.white,
         spacing: 4,
         openCloseDial: isDialOpen,
         children: [
@@ -74,7 +72,6 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
   SpeedDialChild _diceFABItem({required DiceModel dice}) {
     return SpeedDialChild(
       child: Image.asset(dice.img, width: 30, height: 30),
-      shape: const CircleBorder(),
       backgroundColor: Colors.white,
       onTap: () {
         isDialOpen.value = !isDialOpen.value;
