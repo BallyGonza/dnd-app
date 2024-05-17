@@ -1,6 +1,5 @@
 import 'package:dnd_app/data/data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class NotePage extends StatefulWidget {
@@ -23,6 +22,19 @@ class NotePage extends StatefulWidget {
 class NotePageState extends State<NotePage> {
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
+  static const List<Color> colors = [
+    Colors.white,
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.purple,
+    Colors.orange,
+    Colors.pink,
+    Colors.teal,
+    Colors.brown,
+    Colors.grey,
+  ];
   late Color _currentColor;
   late Color _iconColor;
   late Color _fontColor;
@@ -176,55 +188,27 @@ class NotePageState extends State<NotePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Expanded(
-                              child: BlockPicker(
-                                availableColors: [
-                                  Colors.white,
-                                  Colors.red,
-                                  Colors.red[300]!,
-                                  Colors.purple,
-                                  Colors.purple[200]!,
-                                  Colors.purple[100]!,
-                                  Colors.deepPurple,
-                                  Colors.deepPurple[300]!,
-                                  Colors.deepPurple[200]!,
-                                  Colors.indigo,
-                                  Colors.indigo[200]!,
-                                  Colors.blue,
-                                  Colors.blue[200]!,
-                                  Colors.cyan,
-                                  Colors.cyan[200]!,
-                                  Colors.teal,
-                                  Colors.teal[200]!,
-                                  Colors.green,
-                                  Colors.green[200]!,
-                                  Colors.green[300]!,
-                                  Colors.orange[300]!,
-                                  Colors.deepOrange,
-                                  Colors.brown,
-                                  Colors.brown[200]!,
-                                  Colors.grey,
-                                  Colors.blueGrey,
-                                  Colors.black,
-                                ],
-                                layoutBuilder: (context, colors, child) {
-                                  return GridView.count(
-                                    crossAxisCount: 4,
-                                    children: [
-                                      ...colors.map(
-                                        (color) => GestureDetector(
-                                          onTap: () {
-                                            _onColorChanged(color);
-                                          },
-                                          child: Container(
-                                            color: color,
-                                          ),
-                                        ),
+                              child: GridView.builder(
+                                gridDelegate:
+                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 4,
+                                ),
+                                itemCount: colors.length,
+                                itemBuilder: (context, index) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      _onColorChanged(colors[index]);
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                        color: colors[index],
+                                        shape: BoxShape.circle,
                                       ),
-                                    ],
+                                    ),
                                   );
                                 },
-                                pickerColor: _currentColor,
-                                onColorChanged: _onColorChanged,
                               ),
                             ),
                           ],
